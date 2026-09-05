@@ -23,7 +23,7 @@ MK0 responde:
 
 - external-standard equivalence;
 - automated enforcement;
-- formal certification;
+- formal third-party certification;
 - complete benchmark against SDLC/SRE/security standards;
 - exhaustive project case library.
 
@@ -37,10 +37,20 @@ MK0 responde:
 - [x] claim discipline defined;
 - [x] MK semantics defined;
 - [x] stage folders bootstrapped;
-- [ ] root monorepo documentation updated;
-- [ ] full branch diff reviewed;
-- [ ] `STATUS.md` promoted from `IN REVIEW` to `CLOSED` only after review.
+- [x] root monorepo documentation updated;
+- [x] full branch diff reviewed;
+- [x] `STATUS.md` promoted from `IN REVIEW` to `CLOSED — INTERNAL CANON FOUNDATION` after review.
+
+## Review evidence
+
+- Base reviewed: `main@2bd630048050de3cfd150f886a8d1b7b3381a279`.
+- Branch: `knowledge/jett-method-mk0-foundation`.
+- Diff scope: root `README.md` plus `jett-engineering-method/` only.
+- No edits to sibling domains were introduced.
+- Internal provenance and non-certification boundary are explicit.
 
 ## Promotion rule
 
-MK0 may merge to `main` only after the unchecked criteria are satisfied. Closing MK0 means the foundation is coherent enough to serve as internal canon; it does **not** mean JEM is externally certified or complete.
+MK0 is eligible to merge to `main` because all acceptance criteria are satisfied.
+
+Closing MK0 means the foundation is coherent enough to serve as internal canon; it does **not** mean JEM is externally certified, complete or equivalent to an external industry standard.
