@@ -40,3 +40,4 @@ next MK / certification
 ## Dominios
 
 - [`ux-laws/`](./ux-laws/) — Psicología aplicada a UX convertida en reglas operables para diseño de producto.
+- [`openship/`](./openship/) — Arquitectura de control plane, deployment, runtimes, edge, SSH, seguridad, CI/CD y MCP extraída del proyecto OpenShip para estudiar patrones reutilizables de plataformas de infraestructura.
