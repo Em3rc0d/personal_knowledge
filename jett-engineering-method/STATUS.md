@@ -6,7 +6,7 @@
 
 ## State
 
-`IN REVIEW`
+`CLOSED — INTERNAL CANON FOUNDATION`
 
 ## Completed
 
@@ -18,12 +18,14 @@
 - Constitutional rules consolidated.
 - Relationship with HESTIA, Knowledge Environment and product/domain knowledge separated.
 - Monorepo branch/promotion rule integrated.
+- Root README updated.
+- Full branch diff reviewed against `main@2bd630048050de3cfd150f886a8d1b7b3381a279`.
+- Scope verified: only root README plus `jett-engineering-method/` changed.
+- No structural contradictions found in MK0 review.
 
 ## In progress
 
-- MK0 repository review.
-- Cross-check against root monorepo conventions.
-- Verify stage-folder structure and links.
+None for MK0.
 
 ## Blocked
 
@@ -33,10 +35,20 @@ None.
 
 - Whether HESTIA should become a future sibling domain or remain embedded in commercial/product knowledge until separately mined and framed.
 - Which real project cases should become the first formal `Record a Case` fixtures in MK1+.
+- Which external authoritative SDLC/SRE/security sources should be mined first for comparative MK1 work.
 
 ## Next gate
 
-### MK0 Gate
+`MK1 — Normalize & Classify`
+
+Candidate work:
+
+- normalize terminology and gate schemas;
+- formalize ADR / Issue Contract / Handoff templates;
+- create initial project case fixtures;
+- compare selected JEM practices against authoritative external sources without assuming equivalence.
+
+## MK0 Gate
 
 - [x] Problem and purpose framed.
 - [x] Internal provenance explicitly stated.
@@ -45,12 +57,21 @@ None.
 - [x] Gates documented.
 - [x] Claim discipline documented.
 - [x] MK semantics documented.
-- [ ] Full diff reviewed against `main`.
-- [ ] Root README updated.
-- [ ] No structural contradictions found.
+- [x] Full diff reviewed against `main`.
+- [x] Root README updated.
+- [x] No structural contradictions found.
 
-MK0 must remain `IN REVIEW` until every gate above is satisfied.
+## Certification boundary
+
+`CLOSED — INTERNAL CANON FOUNDATION` means MK0 is coherent enough to be the repository's internal methodological baseline.
+
+It does **not** mean:
+
+- external certification;
+- equivalence to an industry standard;
+- automated enforcement;
+- complete validation across every project type.
 
 ## Last verified
 
-2026-09-05 — branch `knowledge/jett-method-mk0-foundation`.
+2026-09-05 — branch `knowledge/jett-method-mk0-foundation`, based on `main@2bd630048050de3cfd150f886a8d1b7b3381a279`.
