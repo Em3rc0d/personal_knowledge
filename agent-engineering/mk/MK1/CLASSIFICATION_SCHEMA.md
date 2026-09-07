@@ -13,39 +13,42 @@ identity:
 
 control:
   primary_authority: deterministic | model_routed | model_directed | mixed
+  control_class: C0 | C1 | C2 | C3 | C4 | unknown
   horizon: single_step | bounded_multistep | open_ended
-  topology: single_model | router_workers | manager_workers | peers | mixed
+  topology: single_model | router_workers | manager_workers | peers | deterministic_multi_role | mixed
   model_count:
 
 capabilities:
   reads: []
   writes: []
-  generated_code_execution: false
-  shell: false
-  browser: none | read_only | transactional | general
-  database: none | read_only | write_capable
-  communication: none | draft | external_send
-  publication: none | draft | live
-  file_egress: false
+  generated_code_execution: true | false | unknown
+  shell: true | false | unknown
+  browser: none | read_only | transactional | general | unknown
+  database: none | read_only | write_capable | unknown
+  communication: none | draft | external_send | unknown
+  publication: none | draft | live | unknown
+  file_egress: true | false | unknown
+  delegation: true | false | unknown
   capability_compositions: []
 
 side_effects:
-  class: S0 | S1 | S2 | S3 | S4 | unknown
+  observed_class: S0 | S1 | S2 | S3 | S4 | unknown
+  reachable_class: S0 | S1 | S2 | S3 | S4 | unknown
   reversible: yes | no | partial | unknown
-  external_mutation: false
+  external_mutation: true | false | unknown
   data_egress: none | metadata | content | file_bytes | mixed | unknown
   verification:
 
 state:
-  runtime_state: none | transient | structured
-  checkpointing: none | memory | durable
+  runtime_state: none | transient | structured | unknown
+  checkpointing: none | memory | durable | unknown
   persistence_backend:
   replay_semantics: known | partial | unknown
 
 memory:
   semantic_role: []
-  scope: none | session | cross_session | user | project | shared
-  persistence: none | process | local_durable | remote_durable
+  scope: none | turn | session | cross_session | user | project | shared | unknown
+  persistence: none | process | local_durable | remote_durable | unknown
   retrieval_policy:
   write_policy:
   isolation_key:
@@ -54,13 +57,13 @@ memory:
 
 human_control:
   level: H0 | H1 | H2 | H3 | H4 | mixed | unknown
-  mode: none | review_after | approval_before | approval_edit_before | mixed
+  mode: none | review_after | approval_before | approval_edit_before | mixed | unknown
   dispatcher_enforcement: yes | no | unknown
   approval_binding:
 
 errors_and_retries:
   error_model: prose | structured | mixed | unknown
-  retry_owner: model | tool | runtime | provider_sdk | mixed | none
+  retry_owner: model | tool | runtime | provider_sdk | mixed | none | unknown
   retry_budget:
   idempotency:
   unknown_outcome_handling:
@@ -80,9 +83,9 @@ evaluation:
   unit_integration: []
   trajectory: []
   outcome: []
-  repeated_trials: false
-  regression_gate: false
-  production_observability: false
+  repeated_trials: true | false | unknown
+  regression_gate: true | false | unknown
+  production_observability: true | false | unknown
 
 protocols:
   - name:
@@ -98,6 +101,7 @@ security:
   least_privilege: yes | no | partial | unknown
   sandbox: none | process | container | vm | managed | unknown
   data_classification:
+  authorization_boundary:
   receipts:
 
 reproducibility:
@@ -116,12 +120,14 @@ unknowns: []
 3. Framework/provider names belong in identity/reproducibility metadata, not in top-level architecture classes.
 4. A system may have mixed control authority across stages; record this rather than forcing one misleading label.
 5. Capability composition matters: multiple individually moderate permissions may combine into a high-blast-radius path.
-6. Side-effect class is explicit and independent of control authority.
-7. Data egress is represented even when the logical business operation sounds read-only or transformational.
-8. Protocol records are revision-aware. `MCP=true` without revision/role/capability set is incomplete.
-9. Human review in one node does not prove dispatcher enforcement for every consequential tool.
-10. Evidence-state vocabulary matches the domain reasoning-state labels and must remain explicit.
-11. A classification record describes the system supported by evidence; it is not a production-readiness certificate.
+6. **Observed side effect and reachable side effect are separate.** A benign demo run does not reduce the authority granted by shell, generated-code or authenticated-browser capability.
+7. Side-effect class is independent of control authority.
+8. Data egress is represented even when the logical business operation sounds read-only or transformational.
+9. Protocol records are revision-aware. `MCP=true` without revision/role/capability set is incomplete.
+10. Human review in one node does not prove dispatcher enforcement for every consequential tool.
+11. Evidence-state vocabulary matches the domain reasoning-state labels and must remain explicit.
+12. Boolean-looking facts permit `unknown` when inspection did not establish them.
+13. A classification record describes the system supported by evidence; it is not a production-readiness certificate.
 
 ## Minimal record
 
