@@ -88,6 +88,18 @@ evaluation:
   regression_gate: false
   production_observability: false
 
+multi_agent:
+  applicable: true
+  admission_hypothesis: role specialization between historical context and data-analysis reasoning
+  parallelism: false
+  context_partition: false
+  permission_isolation: false
+  independent_verifier: false
+  specialization: true
+  baseline: UNKNOWN — no single-role/single-prompt baseline established
+  measured_benefit: UNKNOWN
+  coordination_cost: additional sequential model calls and accumulated generated context
+
 security:
   trust_boundaries: [generated_role_output_to_next_role_context]
   least_privilege: yes
@@ -125,7 +137,7 @@ multiple named agents ⇒ model-directed multi-agent system
 
 It is **multi-role/multi-agent by presentation**, but **deterministically orchestrated C0** by control authority.
 
-Topology and control therefore must remain orthogonal.
+Topology and control therefore must remain orthogonal. The record also demonstrates why a multi-agent classification needs an admission hypothesis and baseline fields even when no measured benefit exists yet.
 
 ## MK2 handoff seed
 
