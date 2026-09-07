@@ -51,7 +51,21 @@ Generated code, SQL, shell commands, emails or social posts must not be treated 
 
 Do not equate `more agentic` with `more dangerous`, or deterministic with safe. Side-effect class is its own axis.
 
-## NR-06 — Preserve lifecycle semantics
+## NR-06 — Distinguish observed effect from reachable authority
+
+Record both when necessary:
+
+```text
+OBSERVED EFFECT
+what the inspected path/run actually changed
+
+REACHABLE EFFECT
+what the granted capability could change without acquiring new authority
+```
+
+General shell, generated-code execution and broad browser/database privileges make this distinction mandatory. A harmless observed trajectory must not down-classify a system whose execution boundary can reach S3/S4 effects.
+
+## NR-07 — Preserve lifecycle semantics
 
 Do not collapse state, checkpointing, persistence, context, memory and knowledge/RAG into one `memory` field.
 
@@ -65,13 +79,13 @@ Memory classification must expose:
 - retention;
 - provenance.
 
-## NR-07 — Human control is only as strong as enforcement
+## NR-08 — Human control is only as strong as enforcement
 
 A UI approval, reviewer node or interrupt does not prove a consequential action is gated.
 
 Classify whether the actual dispatcher independently enforces authorization and whether edited arguments invalidate prior approval/validation.
 
-## NR-08 — Retry semantics belong to the system
+## NR-09 — Retry semantics belong to the system
 
 A model should not infer retry policy solely from prose errors.
 
@@ -83,21 +97,21 @@ Classify:
 - idempotency/verification;
 - unknown-outcome behavior.
 
-## NR-09 — Termination has multiple budgets
+## NR-10 — Termination has multiple budgets
 
 Do not reduce termination to one recursion/turn limit. Separate semantic success from kill switches and resource budgets.
 
-## NR-10 — Evaluation must distinguish trajectory and outcome
+## NR-11 — Evaluation must distinguish trajectory and outcome
 
 A trace can be policy-correct while the real outcome is wrong; an outcome can be correct through an unexpected but valid trajectory.
 
 Record both when material.
 
-## NR-11 — Stochastic evidence requires repeated trials
+## NR-12 — Stochastic evidence requires repeated trials
 
 A single successful run demonstrates possibility, not stable behavior.
 
-## NR-12 — Reflection is not automatically learning
+## NR-13 — Reflection is not automatically learning
 
 Use:
 
@@ -112,25 +126,27 @@ as distinct concepts.
 
 Claims of `self-improvement` require measured improvement across an evaluation distribution and a defined persistence mechanism.
 
-## NR-13 — Multi-agent must carry an admission hypothesis
+## NR-14 — Multi-agent must carry an admission hypothesis
 
 Record why multiple agents exist and what baseline they outperform.
 
+Several role prompts or model instances do not imply model-directed orchestration. Model count/topology and control authority are separate dimensions.
+
 Without measured benefit, classify topology but do not promote it as a best practice.
 
-## NR-14 — Protocols are revisioned contracts
+## NR-15 — Protocols are revisioned contracts
 
 `MCP` or another protocol flag must include revision/role/capabilities/transport/auth assumptions when those details affect behavior.
 
 Protocol discovery does not imply authorization.
 
-## NR-15 — UNKNOWN is first-class
+## NR-16 — UNKNOWN is first-class
 
 If a material fact is not supported, record `UNKNOWN`.
 
 Do not infer approval coverage, sandboxing, idempotency, persistence or production readiness from adjacent features.
 
-## NR-16 — Classification is not certification
+## NR-17 — Classification is not certification
 
 A complete record describes architecture and evidence state. It does not prove the system is secure, reliable or production-ready.
 
