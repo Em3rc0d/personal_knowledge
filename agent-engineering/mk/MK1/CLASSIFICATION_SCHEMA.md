@@ -9,7 +9,7 @@ identity:
   name:
   source:
   snapshot:
-  evidence_state: observed | source_claim | inferred | unknown
+  evidence_state: OBSERVED | SOURCE_CLAIM | INFERRED | SUPPORTED | QUALIFIED | CONTRADICTED | UNKNOWN
 
 control:
   primary_authority: deterministic | model_routed | model_directed | mixed
@@ -29,6 +29,13 @@ capabilities:
   file_egress: false
   capability_compositions: []
 
+side_effects:
+  class: S0 | S1 | S2 | S3 | S4 | unknown
+  reversible: yes | no | partial | unknown
+  external_mutation: false
+  data_egress: none | metadata | content | file_bytes | mixed | unknown
+  verification:
+
 state:
   runtime_state: none | transient | structured
   checkpointing: none | memory | durable
@@ -46,7 +53,8 @@ memory:
   provenance:
 
 human_control:
-  mode: none | review_after | approval_before | edit_before | mixed
+  level: H0 | H1 | H2 | H3 | H4 | mixed | unknown
+  mode: none | review_after | approval_before | approval_edit_before | mixed
   dispatcher_enforcement: yes | no | unknown
   approval_binding:
 
@@ -108,9 +116,12 @@ unknowns: []
 3. Framework/provider names belong in identity/reproducibility metadata, not in top-level architecture classes.
 4. A system may have mixed control authority across stages; record this rather than forcing one misleading label.
 5. Capability composition matters: multiple individually moderate permissions may combine into a high-blast-radius path.
-6. Protocol records are revision-aware. `MCP=true` without a revision/role/capability set is incomplete.
-7. Human review in one node does not prove dispatcher enforcement for every consequential tool.
-8. A classification record describes the system supported by evidence; it is not a production-readiness certificate.
+6. Side-effect class is explicit and independent of control authority.
+7. Data egress is represented even when the logical business operation sounds read-only or transformational.
+8. Protocol records are revision-aware. `MCP=true` without revision/role/capability set is incomplete.
+9. Human review in one node does not prove dispatcher enforcement for every consequential tool.
+10. Evidence-state vocabulary matches the domain reasoning-state labels and must remain explicit.
+11. A classification record describes the system supported by evidence; it is not a production-readiness certificate.
 
 ## Minimal record
 
@@ -120,7 +131,7 @@ When evidence is sparse, the minimum useful record is:
 identity:
 control:
 capabilities:
-side_effect_class:
+side_effects:
 human_control:
 termination:
 evaluation:
