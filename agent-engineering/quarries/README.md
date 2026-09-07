@@ -16,6 +16,7 @@ Promotion requires normalization in MK1 and operationalization/testing in later 
 ## Current quarries
 
 - [`genai-agents.md`](./genai-agents.md) — detailed mining pass over `NirDiamant/GenAI_Agents@4c95ae14...`, contrasted with current official documentation and scientific literature.
+- [`genai-agents-risk-scan.md`](./genai-agents-risk-scan.md) — capability/blast-radius scan covering generated code, shell, browser automation, external communications/publication, file upload, idempotency, recursion limits and safety switches.
 
 ## Required discipline
 
