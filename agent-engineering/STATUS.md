@@ -12,6 +12,7 @@ PRIMARY MINING SITE       NirDiamant/GenAI_Agents
 UPSTREAM SNAPSHOT         4c95ae14cc2462c442b5c064cccd74430d02bc46
 LICENSE BOUNDARY          RECORDED / NON-COMMERCIAL CUSTOM LICENSE
 REPOSITORY INVENTORY      INITIAL PASS COMPLETE
+NORMALIZED INVENTORY      SEED COMPLETE / IMPLEMENTATION VALIDATION OPEN
 AGENT TAXONOMY            INITIAL PASS COMPLETE
 LOOP/HARNESS MODEL        INITIAL PASS COMPLETE
 TOOLS / ACI               INITIAL PASS COMPLETE
@@ -19,7 +20,8 @@ HITL / SIDE EFFECTS       INITIAL PASS COMPLETE
 TRACE EVALUATION          INITIAL PASS COMPLETE
 MEMORY / PERSISTENCE      INITIAL PASS COMPLETE
 MULTI-AGENT               INITIAL PASS COMPLETE
-SECURITY                   INITIAL PASS COMPLETE
+CAPABILITY / RISK SCAN    REPRESENTATIVE PASS COMPLETE
+SECURITY                  INITIAL PASS COMPLETE
 SCIENTIFIC CONTRAST       INITIAL PASS COMPLETE
 REUSABLE RULES            CANDIDATE ONLY
 CANON PROMOTION           BLOCKED
@@ -40,8 +42,12 @@ CANON PROMOTION           BLOCKED
 
 - upstream repository and exact snapshot pinned;
 - root structure, tutorial inventory, dependency baseline, contribution validator and tests inspected;
+- all 55 catalog entries normalized into engineering families as an inventory seed;
+- framework concentration quantified from upstream metadata: 40/54 numbered entries include LangGraph;
 - recent HITL and trace-evaluation slices inspected at implementation/test level;
 - minimal while-loop agent inspected as a runtime/harness case study;
+- representative high-blast-radius capabilities sampled: shell, generated code, browser automation, external messaging/email/publication, file upload and local DB;
+- positive operational controls sampled: hard turn/recursion limits, dry-run mode, idempotency keys, approval gates and argument revalidation;
 - repository claims separated from source-level observations;
 - open issues sampled for reproducibility, taxonomy and error-model failure signals;
 - license restriction captured before knowledge extraction;
@@ -56,6 +62,9 @@ CANON PROMOTION           BLOCKED
 - workflow and agent are different control structures; model-directed control should be explicit;
 - critical invariants must be enforced by code/policy/tool boundaries rather than prompt-only instructions;
 - agent loops need hard budgets and explicit termination behavior;
+- generated code, general shell and broad browser control are high-blast-radius capabilities requiring containment;
+- externally visible mutations should support deterministic safe modes, idempotency and receipts where feasible;
+- data egress (for example external document conversion) is a consequential boundary even when the logical operation is “read/transform”;
 - HITL must pause before consequential side effects and resume from persisted state;
 - changed action arguments must be validated again;
 - agent state, context, memory and persistence are distinct concepts;
@@ -75,7 +84,8 @@ CANON PROMOTION           BLOCKED
 - arbitrary thresholds such as a fixed understanding percentage;
 - claims like `self-improving` based only on reflection loops;
 - broad claims that every agent is literally the same loop implementation;
-- claims that a notebook is `ready-to-use` without execution evidence under a pinned environment.
+- claims that a notebook is `ready-to-use` without execution evidence under a pinned environment;
+- README-derived risk cues that have not yet been confirmed from implementation paths.
 
 ## Material concerns found
 
@@ -85,8 +95,9 @@ CANON PROMOTION           BLOCKED
 4. **Notebook validator != runtime validation.** It checks structure/documentation/output hygiene/local image references; it does not prove notebooks execute or integrations still work.
 5. **Taxonomy ambiguity.** Community issues correctly motivate distinguishing scripted LLM workflows from model-directed agents; nomenclature alone is not evidence of autonomy.
 6. **Reproducibility signals.** Open issues report dependency/runtime breakage and at least one data-retrieval behavior mismatch. These are signals to investigate, not universal claims about the repo.
-7. **Safety boundary.** A pedagogical minimal agent includes model-accessible shell execution; this is useful for explaining the loop but must not be generalized into a safe production default.
-8. **License.** Upstream custom license is materially more restrictive than common permissive OSS licenses; extraction must remain independently synthesized.
+7. **Broad execution capabilities.** Source-level sampling found model-adjacent shell, generated-code execution and browser automation; these are valid tutorial techniques but cannot be generalized into safe defaults.
+8. **External mutation/data movement.** Messaging, SMTP, social publishing and file upload examples require explicit policy/permission treatment when reused.
+9. **License.** Upstream custom license is materially more restrictive than common permissive OSS licenses; extraction must remain independently synthesized.
 
 ## MK0 closure gate
 
@@ -105,7 +116,9 @@ CANON PROMOTION           BLOCKED
 - [x] initial official-source contradiction pass completed;
 - [x] initial scientific contradiction pass completed;
 - [x] candidate portable rules identified;
-- [ ] build a normalized inventory of all tutorials by `control model / state / tools / side effects / persistence / eval / risk` rather than README category;
+- [x] build a normalized inventory seed of all tutorials by engineering concern/risk cue rather than README category;
+- [x] perform a representative capability/blast-radius scan of high-risk execution families;
+- [ ] validate inventory classifications against implementation paths for every P0/P1 tutorial family;
 - [ ] inspect every high-risk tutorial that can mutate external state or execute generated code;
 - [ ] map termination and retry semantics across representative architecture families;
 - [ ] map tool schema/error contracts across representative architecture families;
