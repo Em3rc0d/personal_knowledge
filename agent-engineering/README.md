@@ -2,6 +2,19 @@
 
 Dominio de conocimiento para diseñar, construir y validar sistemas agentic/LLM con criterios de ingeniería, no por afinidad con un framework.
 
+## Estado actual
+
+```text
+MK0  Mine & Frame          ✅ CLOSED
+MK1  Normalize & Classify  🟡 IN PROGRESS
+MK2  Operationalize        🔒 BLOCKED BY MK1
+```
+
+- cierre MK0: [`mk/MK0/CLOSURE.md`](./mk/MK0/CLOSURE.md)
+- clasificación MK1: [`mk/MK1/README.md`](./mk/MK1/README.md)
+- threat model: [`architecture/THREAT_MODEL.md`](./architecture/THREAT_MODEL.md)
+- tablero canónico: [`STATUS.md`](./STATUS.md)
+
 ## Propósito
 
 Este dominio estudia cómo convertir un modelo probabilístico en un sistema capaz de ejecutar trabajo de manera controlada mediante **runtime, estado, contexto, herramientas, políticas, persistencia, observabilidad y evaluación**.
@@ -12,12 +25,12 @@ La unidad de análisis no es `LangGraph`, `LangChain`, `CrewAI`, `AutoGen`, MCP 
 
 Incluye:
 
-- taxonomía `LLM call → workflow → agent → multi-agent`;
+- control authority y diferencias workflow/agent;
 - agent loop / harness / runtime;
 - planificación, routing y orchestration;
 - herramientas y Agent-Computer Interface (ACI);
-- MCP como contrato de interoperabilidad, no como arquitectura completa;
-- state, context, memory y persistence;
+- MCP como contrato de interoperabilidad versionado, no como arquitectura completa;
+- state, checkpoint, context, memory y persistence;
 - retries, termination y budgets;
 - Human-in-the-Loop (HITL) y approval boundaries;
 - side effects, idempotencia y auditabilidad;
@@ -33,7 +46,7 @@ Fuera de alcance por defecto:
 - asumir que `multi-agent`, `reflection`, `memory` o `self-improving` implican mejora demostrada;
 - promover código de terceros como plantilla canónica sin validar licencia, reproducibilidad y evidencia.
 
-## Modelo conceptual inicial
+## Modelo conceptual
 
 ```text
                     ┌───────────────┐
@@ -70,9 +83,9 @@ request / objective │   POLICY      │
 
 El modelo puede proponer; el runtime decide qué está permitido ejecutar.
 
-## Reglas candidatas MK0
+## Reglas candidatas heredadas de MK0
 
-Estas reglas son **candidatas**, todavía no canon certificado. Su evidencia y contradicciones viven en `quarries/` y `mk/MK0/`.
+Estas reglas siguen siendo **candidatas**, no canon certificado. MK1 las normaliza; MK2 deberá convertirlas en contratos/tests.
 
 1. **Use the simplest sufficient architecture.** Un workflow determinista es preferible si el problema no necesita control dinámico del modelo.
 2. **Policy belongs in enforceable code.** Una regla crítica no puede depender exclusivamente del prompt.
@@ -93,7 +106,7 @@ Estas reglas son **candidatas**, todavía no canon certificado. Su evidencia y c
 
 ## Fuente inicial: GenAI_Agents
 
-El primer mining site del dominio es `NirDiamant/GenAI_Agents`, fijado para esta investigación en:
+El primer mining site del dominio es `NirDiamant/GenAI_Agents`, fijado en:
 
 ```text
 repository: NirDiamant/GenAI_Agents
@@ -102,32 +115,60 @@ snapshot:   4c95ae14cc2462c442b5c064cccd74430d02bc46
 observed:   2026-09-07
 ```
 
-Se utiliza como **catálogo pedagógico y cantera de patrones**, no como especificación normativa. El repositorio mezcla generaciones, frameworks y niveles de madurez; sus implementaciones recientes de HITL, trace evaluation y un agent loop mínimo son especialmente útiles para contraste.
+Se utiliza como **catálogo pedagógico y cantera de patrones**, no como especificación normativa.
+
+MK0 añadió además fuentes especializadas:
+
+- `NirDiamant/Agent_Memory_Techniques@b7f7240e...` para presión taxonómica de memory;
+- `NirDiamant/agents-towards-production@141b0679...` para patrones/claims de production;
+- MCP `2026-07-28` como contrato protocolar vigente para esta iteración.
 
 ### Boundary legal
 
-El upstream usa una licencia custom de uso no comercial con atribución y reserva de derechos comerciales. Por ello este dominio:
+`GenAI_Agents` usa una licencia custom de uso no comercial con atribución y reserva de derechos comerciales. Por ello este dominio:
 
 - no copia notebooks ni implementaciones;
 - no incorpora código upstream como plantilla;
 - registra factual metadata, observaciones y principios independientemente redactados;
-- mantiene provenance y enlace al upstream;
+- mantiene provenance y snapshot;
 - contrasta los patrones con documentación oficial y literatura científica independiente.
+
+## Regla de clasificación MK1
+
+No usamos un único `agent_type`. Clasificamos dimensiones ortogonales:
+
+```text
+control authority
+capabilities
+side effects
+state / checkpoints / persistence
+memory lifecycle
+human control
+errors / retries
+termination
+outcome / trajectory evaluation
+protocol revision
+security boundary
+reproducibility evidence
+UNKNOWNs
+```
+
+La especificación completa vive en [`mk/MK1/README.md`](./mk/MK1/README.md).
 
 ## Flujo de madurez
 
 ```text
-MK0  Mine & Frame
+MK0  Mine & Frame                    ✅
  ↓
-MK1  Normalize & Classify
+MK1  Normalize & Classify            ← current
  ↓
-MK2  Operationalize contracts / rules / tests
+MK2  Operationalize contracts/tests
  ↓
-MK3  Integrate with Jett Engineering Method + other domains
+MK3  Integrate with Jett Engineering Method + domains
  ↓
 MK4  Automate validators / eval harnesses
  ↓
-MK5+ Certify against real agent systems and counterexamples
+MK5+ Certify against independent systems/counterexamples
 ```
 
-`STATUS.md` es el tablero canónico. Ninguna regla de esta branch debe considerarse promovida mientras MK0 continúe abierto.
+`STATUS.md` es el tablero canónico. **Cerrar MK0 no certificó las reglas candidatas**; solo cerró el framing y abrió la normalización.
