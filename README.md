@@ -110,6 +110,7 @@ La especificación completa vive en [`jett-engineering-method/README.md`](./jett
 ## Dominios
 
 - [`jett-engineering-method/`](./jett-engineering-method/) — Operating model interno para llevar problemas desde incertidumbre hasta conocimiento/software demostrado, con gates, claim discipline, evidence y promotion rules.
+- [`agent-engineering/`](./agent-engineering/) — Ingeniería de sistemas agentic/LLM: workflows vs agents, harness/runtime, tools/ACI, state-context-memory, persistence, HITL, side effects, evaluación, seguridad y multi-agent. Actualmente en MK0; `GenAI_Agents` es una cantera inicial, no el canon.
 - [`ux-laws/`](./ux-laws/) — Psicología aplicada a UX convertida en reglas operables para diseño de producto.
 - [`web-design/`](./web-design/) — Design intelligence para websites: evidencia visual, gramática visual, `DESIGN.md`, tokens, contratos de componentes, responsive, accesibilidad, motion y verificación visual. RICOUI es una fuente relevante dentro de este dominio, no el dominio mismo.
 - [`openship/`](./openship/) — Arquitectura de control plane, deployment, runtimes, edge, SSH, seguridad, CI/CD y MCP extraída del proyecto OpenShip para estudiar patrones reutilizables de plataformas de infraestructura.
