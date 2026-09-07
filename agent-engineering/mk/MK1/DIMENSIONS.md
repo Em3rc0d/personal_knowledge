@@ -69,14 +69,23 @@ A workflow described as `conversion` is therefore also a data-egress path.
 ## 3. Side-effect class
 
 ```text
-S0  no external mutation
-S1  local/reversible artifact
-S2  external but reversible/draft
+S0  no mutation / externally consequential effect
+S1  local or readily reversible artifact
+S2  external but reversible/draft effect
 S3  external consequential mutation
-S4  irreversible/high-impact mutation
+S4  irreversible/high-impact mutation or authority capable of producing it
 ```
 
-Side-effect class is independent of autonomy. A deterministic workflow may be S4; an autonomous research agent may remain S0/S1.
+Record **two values** when they differ:
+
+```yaml
+observed_class:   what the inspected execution path actually did
+reachable_class:  the strongest side effect reachable under granted authority
+```
+
+This distinction is required for general shell, generated-code and browser systems. A demo may only list files while the same granted shell can mutate files, launch processes or access the network. Classifying only the observed run would systematically understate authority.
+
+Side-effect class remains independent of autonomy. A deterministic workflow may be S4; an autonomous research agent may remain S0/S1.
 
 ## 4. State / checkpoint / persistence / memory
 
@@ -218,6 +227,8 @@ baseline:
 measured_benefit:
 coordination_cost:
 ```
+
+A system with several role prompts can still be **deterministically orchestrated**. Model count/topology and control authority are different dimensions.
 
 Without measured benefit, multi-agent remains an experimental topology rather than a promoted architecture rule.
 
