@@ -87,6 +87,18 @@ evaluation:
   regression_gate: true | false | unknown
   production_observability: true | false | unknown
 
+multi_agent:
+  applicable: true | false | unknown
+  admission_hypothesis:
+  parallelism: true | false | unknown
+  context_partition: true | false | unknown
+  permission_isolation: true | false | unknown
+  independent_verifier: true | false | unknown
+  specialization: true | false | unknown
+  baseline:
+  measured_benefit:
+  coordination_cost:
+
 protocols:
   - name:
     revision:
@@ -123,11 +135,12 @@ unknowns: []
 6. **Observed side effect and reachable side effect are separate.** A benign demo run does not reduce the authority granted by shell, generated-code or authenticated-browser capability.
 7. Side-effect class is independent of control authority.
 8. Data egress is represented even when the logical business operation sounds read-only or transformational.
-9. Protocol records are revision-aware. `MCP=true` without revision/role/capability set is incomplete.
-10. Human review in one node does not prove dispatcher enforcement for every consequential tool.
-11. Evidence-state vocabulary matches the domain reasoning-state labels and must remain explicit.
-12. Boolean-looking facts permit `unknown` when inspection did not establish them.
-13. A classification record describes the system supported by evidence; it is not a production-readiness certificate.
+9. Multi-agent topology is independent of control authority and must include its admission hypothesis/baseline when applicable.
+10. Protocol records are revision-aware. `MCP=true` without revision/role/capability set is incomplete.
+11. Human review in one node does not prove dispatcher enforcement for every consequential tool.
+12. Evidence-state vocabulary matches the domain reasoning-state labels and must remain explicit.
+13. Boolean-looking facts permit `unknown` when inspection did not establish them.
+14. A classification record describes the system supported by evidence; it is not a production-readiness certificate.
 
 ## Minimal record
 
