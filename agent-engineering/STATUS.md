@@ -6,98 +6,99 @@ Updated: 2026-09-07
 
 ```text
 DOMAIN                    agent-engineering
-CURRENT MK                MK0
+CURRENT MK                MK1
 STATE                     IN PROGRESS
+MK0                       CLOSED / EVIDENCE RECEIPT EXISTS
 PRIMARY MINING SITE       NirDiamant/GenAI_Agents
 UPSTREAM SNAPSHOT         4c95ae14cc2462c442b5c064cccd74430d02bc46
-LICENSE BOUNDARY          RECORDED / NON-COMMERCIAL CUSTOM LICENSE
-REPOSITORY INVENTORY      INITIAL PASS COMPLETE
-NORMALIZED INVENTORY      SEED COMPLETE / IMPLEMENTATION VALIDATION OPEN
-AGENT TAXONOMY            INITIAL PASS COMPLETE
-LOOP/HARNESS MODEL        INITIAL PASS COMPLETE
-TOOLS / ACI               INITIAL PASS COMPLETE
-HITL / SIDE EFFECTS       INITIAL PASS COMPLETE
-TRACE EVALUATION          INITIAL PASS COMPLETE
-MEMORY / PERSISTENCE      INITIAL PASS COMPLETE
-MULTI-AGENT               INITIAL PASS COMPLETE
-CAPABILITY / RISK SCAN    REPRESENTATIVE PASS COMPLETE
-SECURITY                  INITIAL PASS COMPLETE
-SCIENTIFIC CONTRAST       INITIAL PASS COMPLETE
+MEMORY CROSS-SOURCE       Agent_Memory_Techniques@b7f7240e...
+PRODUCTION CROSS-SOURCE   agents-towards-production@141b0679...
+MCP CONTRACT              2026-07-28
+LICENSE BOUNDARY          RECORDED / S-001 NON-COMMERCIAL CUSTOM LICENSE
+REPOSITORY INVENTORY      COMPLETE FOR MK0
+NORMALIZED INVENTORY      SEED COMPLETE
+P0/P1 CALL PATHS          CLOSED FOR CLASSIFICATION
+AGENT TAXONOMY            MOVED TO MK1 NORMALIZATION
+LOOP/HARNESS MODEL        MK0 FRAME COMPLETE
+TOOLS / ACI               MK0 FRAME COMPLETE
+HITL / SIDE EFFECTS       MK0 FRAME COMPLETE
+TRACE EVALUATION          MK0 FRAME COMPLETE
+MEMORY / PERSISTENCE      CROSS-SOURCE FRAME COMPLETE
+MULTI-AGENT               QUALIFIED / MK1 NORMALIZATION OPEN
+CAPABILITY / RISK SCAN    COMPLETE FOR MK0
+THREAT MODEL              MK0 SEED COMPLETE
+SCIENTIFIC CONTRAST       COMPLETE FOR MK0
 REUSABLE RULES            CANDIDATE ONLY
-CANON PROMOTION           BLOCKED
+CANON RULE CERTIFICATION  BLOCKED BY MK1/MK2+
 ```
 
 ## MK progression
 
 | MK | Objective | State |
 |---|---|---|
-| MK0 | Mine source, establish vocabulary, provenance, claims, evidence, contradictions and candidate rules | IN PROGRESS |
-| MK1 | Normalize taxonomy and classify architectures, state, tools, control and failure modes | BLOCKED BY MK0 |
-| MK2 | Convert findings into operational contracts, checklists, schemas and tests | BLOCKED |
+| MK0 | Mine source, establish vocabulary, provenance, claims, evidence, contradictions and candidate rules | **CLOSED** |
+| MK1 | Normalize taxonomy and classify architectures, state, tools, control and failure modes | **IN PROGRESS** |
+| MK2 | Convert findings into operational contracts, checklists, schemas and tests | BLOCKED BY MK1 |
 | MK3 | Integrate agent engineering with Jett Engineering Method, security and project workflows | BLOCKED |
 | MK4 | Automate static checks, eval harness templates and evidence gates | BLOCKED |
 | MK5+ | Certify rules against multiple independent agent systems and production-like fixtures | BLOCKED |
 
-## What was established in this pass
+## MK0 closure evidence
 
-- upstream repository and exact snapshot pinned;
-- root structure, tutorial inventory, dependency baseline, contribution validator and tests inspected;
-- all 55 catalog entries normalized into engineering families as an inventory seed;
-- framework concentration quantified from upstream metadata: 40/54 numbered entries include LangGraph;
-- recent HITL and trace-evaluation slices inspected at implementation/test level;
-- minimal while-loop agent inspected as a runtime/harness case study;
-- representative high-blast-radius capabilities sampled: shell, generated code, browser automation, external messaging/email/publication, file upload and local DB;
-- positive operational controls sampled: hard turn/recursion limits, dry-run mode, idempotency keys, approval gates and argument revalidation;
-- repository claims separated from source-level observations;
-- open issues sampled for reproducibility, taxonomy and error-model failure signals;
-- license restriction captured before knowledge extraction;
-- official Anthropic, LangGraph and MCP material used as independent technical contrast;
-- scientific literature used to qualify ReAct, reflection/self-correction, agent benchmarking and multi-agent claims;
-- initial portable rules written without copying upstream implementation code.
+Closure receipt: [`mk/MK0/CLOSURE.md`](./mk/MK0/CLOSURE.md)
 
-## Current high-confidence findings
+MK0 closed after establishing:
 
-### Promote toward MK1
+- exact primary upstream snapshot and legal boundary;
+- normalized inventory covering all 55 GenAI_Agents tutorial entries;
+- P0/P1 priority model and call-path verification at classification depth;
+- direct evidence for generated code, shell, browser, external messaging/publication, file egress and database-risk families;
+- explicit UNKNOWNs where implementation detail could not be proven;
+- specialized memory comparison against `Agent_Memory_Techniques`;
+- production-claim comparison against `agents-towards-production`;
+- MCP tutorial contradiction against current `2026-07-28` protocol lifecycle;
+- current official and scientific contradiction pass;
+- capability-centered threat model and adversarial fixtures;
+- framework-independent MK1 schema.
 
-- workflow and agent are different control structures; model-directed control should be explicit;
-- critical invariants must be enforced by code/policy/tool boundaries rather than prompt-only instructions;
-- agent loops need hard budgets and explicit termination behavior;
-- generated code, general shell and broad browser control are high-blast-radius capabilities requiring containment;
+## Current high-confidence findings carried into MK1
+
+- workflow and agent are different control structures; model-directed control must be explicit;
+- framework identity is not taxonomy;
+- critical invariants belong in code/policy/tool boundaries rather than prompt-only instructions;
+- generated code, general shell and broad browser authority are high-blast-radius capabilities requiring containment;
 - externally visible mutations should support deterministic safe modes, idempotency and receipts where feasible;
-- data egress (for example external document conversion) is a consequential boundary even when the logical operation is “read/transform”;
-- HITL must pause before consequential side effects and resume from persisted state;
-- changed action arguments must be validated again;
-- agent state, context, memory and persistence are distinct concepts;
-- tool design is a first-class interface/contract problem;
+- data egress is consequential even when the logical operation is “read/transform”;
+- HITL must gate the actual consequential dispatcher when policy requires approval;
+- edited actions are new actions and must be revalidated/re-authorized;
+- state, context, checkpointing, persistence, memory and knowledge are distinct contracts;
+- tool design is a first-class interface/authorization/error problem;
 - outcome verification is stronger evidence than agent narration;
-- trace/trajectory evaluation is useful but cannot replace outcome evaluation or repeated trials;
-- intrinsic reflection is not evidence of improvement without external feedback/verifiers;
-- multi-agent introduces additional coordination, alignment, verification and termination failure modes;
-- production security requires least privilege and containment around tool/environment access;
-- framework-specific examples must be normalized into framework-independent patterns.
+- trace evaluation is useful but does not replace outcome evaluation or repeated trials;
+- intrinsic reflection is not evidence of persistent improvement without external verification;
+- multi-agent topology must prove benefit against a simpler baseline;
+- production security requires least privilege and containment around reachable capabilities;
+- protocol interoperability does not imply execution authorization;
+- protocol revision belongs in integration evidence;
+- production readiness is a vector of evidence, not a label.
 
-### Keep as quarry evidence, not canon
+## Known UNKNOWNs intentionally transferred beyond MK0
 
-- exact SDK APIs and version-specific LangGraph syntax;
-- vendor/model names used by notebooks;
-- tutorial-specific scoring weights;
-- arbitrary thresholds such as a fixed understanding percentage;
-- claims like `self-improving` based only on reflection loops;
-- broad claims that every agent is literally the same loop implementation;
-- claims that a notebook is `ready-to-use` without execution evidence under a pinned environment;
-- README-derived risk cues that have not yet been confirmed from implementation paths.
+These do not invalidate MK0 closure because they require normalization, operationalization or execution evidence rather than mining/frame evidence:
 
-## Material concerns found
+1. exact current executability of every upstream notebook;
+2. per-notebook dependency/provider compatibility under today's runtimes;
+3. sandbox effectiveness for generated-code examples;
+4. universal sender approval coverage in the HR examples;
+5. exact DataScribe lower-level mutation dispatcher/filter semantics;
+6. authenticated mutating-browser reachability in browser examples;
+7. complete idempotency/retry contracts for every external write;
+8. project-specific memory quality/isolation/retention behavior;
+9. benchmarked multi-agent benefit for individual topologies;
+10. project-specific deployment/rollback/SLO/incident evidence;
+11. per-language MCP SDK migration details beyond the protocol-level contradiction.
 
-1. **Dependency drift.** Root `requirements.txt` still pins LangGraph/LangChain-era versions from 2024 while newer tutorials target later APIs and at least one test explicitly requires a notebook-pinned LangGraph version.
-2. **Partial test coverage.** Only a small subset of recent tutorial slices has dedicated automated tests.
-3. **No visible repository-wide GitHub Actions workflow.** Tests exist, but the inspected `.github/` contains funding and Dependabot configuration, not a CI workflow proving the catalog continuously.
-4. **Notebook validator != runtime validation.** It checks structure/documentation/output hygiene/local image references; it does not prove notebooks execute or integrations still work.
-5. **Taxonomy ambiguity.** Community issues correctly motivate distinguishing scripted LLM workflows from model-directed agents; nomenclature alone is not evidence of autonomy.
-6. **Reproducibility signals.** Open issues report dependency/runtime breakage and at least one data-retrieval behavior mismatch. These are signals to investigate, not universal claims about the repo.
-7. **Broad execution capabilities.** Source-level sampling found model-adjacent shell, generated-code execution and browser automation; these are valid tutorial techniques but cannot be generalized into safe defaults.
-8. **External mutation/data movement.** Messaging, SMTP, social publishing and file upload examples require explicit policy/permission treatment when reused.
-9. **License.** Upstream custom license is materially more restrictive than common permissive OSS licenses; extraction must remain independently synthesized.
+They must remain explicit until later MK evidence resolves them.
 
 ## MK0 closure gate
 
@@ -113,20 +114,50 @@ CANON PROMOTION           BLOCKED
 - [x] trace evaluation pattern inspected;
 - [x] memory/persistence usage sampled;
 - [x] open issue failure signals sampled;
-- [x] initial official-source contradiction pass completed;
-- [x] initial scientific contradiction pass completed;
+- [x] official-source contradiction pass completed;
+- [x] scientific contradiction pass completed;
 - [x] candidate portable rules identified;
-- [x] build a normalized inventory seed of all tutorials by engineering concern/risk cue rather than README category;
-- [x] perform a representative capability/blast-radius scan of high-risk execution families;
-- [ ] validate inventory classifications against implementation paths for every P0/P1 tutorial family;
-- [ ] inspect every high-risk tutorial that can mutate external state or execute generated code;
-- [ ] map termination and retry semantics across representative architecture families;
-- [ ] map tool schema/error contracts across representative architecture families;
-- [ ] verify MCP tutorial against the current protocol revision at message/capability level;
-- [ ] compare memory examples against the dedicated upstream Agent_Memory_Techniques source and current persistence guidance;
-- [ ] compare production claims with the separate `agents-towards-production` upstream rather than inferring production maturity from this catalog;
-- [ ] derive an explicit threat model for agent tools, prompt injection, untrusted data and side effects;
-- [ ] construct MK1 taxonomy with mutually exclusive/orthogonal dimensions;
-- [ ] final MK0 review finds no unlabelled source-claim vs observation vs inference mixing.
+- [x] normalized inventory seed covers all tutorials by engineering concern/risk cue;
+- [x] representative capability/blast-radius scan completed;
+- [x] P0/P1 families validated at implementation/classification depth;
+- [x] high-risk mutation/generated-code families inspected sufficiently for MK0 classification;
+- [x] retry/termination semantics framed across representative loop families;
+- [x] tool/error contract requirements extracted;
+- [x] MCP tutorial checked against current protocol revision;
+- [x] memory examples compared against specialized memory source;
+- [x] production claims compared against production-oriented sister source;
+- [x] explicit threat model created;
+- [x] framework-independent MK1 schema created;
+- [x] final MK0 review preserves source-claim vs observation vs inference boundaries.
 
-Until those items close, **MK0 stays IN PROGRESS and no rule is certified into `main`.**
+## MK1 current work
+
+Canonical MK1 plan: [`mk/MK1/README.md`](./mk/MK1/README.md)
+
+Immediate normalization queue:
+
+1. minimal while-loop agent;
+2. HITL approval agent;
+3. trace-evaluation harness;
+4. E2E testing agent;
+5. self-healing code agent;
+6. HR messaging agent;
+7. social publishing agent;
+8. document-intake agent;
+9. DataScribe;
+10. self-improving/reflection example;
+11. representative memory agent;
+12. representative multi-agent system;
+13. MCP tutorial as a legacy/versioned integration example.
+
+## Promotion state
+
+```text
+MK0 FRAME / EVIDENCE BASE   ✅ CLOSED
+MK1 NORMALIZATION           🟡 IN PROGRESS
+MK2 OPERATIONALIZATION      🔒 BLOCKED
+CANON RULE CERTIFICATION    🔒 BLOCKED
+MAIN MERGE                  🔒 PENDING BRANCH REVIEW
+```
+
+Closing MK0 does not certify every candidate rule. It only proves the domain is mature enough to normalize and classify without relying on source marketing labels.

@@ -54,6 +54,7 @@ License: https://github.com/NirDiamant/GenAI_Agents/blob/main/LICENSE
 - `tests/test_hitl_approval_agent.py`;
 - `all_agents_tutorials/trace_based_agent_evaluation.ipynb`;
 - `tests/test_trace_based_agent_evaluation.py`;
+- P0/P1 families covering generated code, shell, browser, database, external communication/publication, file egress, reflection, memory, research, multi-agent and MCP;
 - representative memory/checkpoint patterns through repository code search;
 - selected repository issues for failure/reproducibility signals.
 
@@ -67,6 +68,52 @@ Issues are `OBSERVED` reports from community participants, not independently ver
 - #129 — request for structured error taxonomy and retry semantics;
 - #81 — compatibility/runtime failure report around a LangGraph tutorial;
 - #92 — setup/build failure report.
+
+## S-002 — Agent_Memory_Techniques
+
+| Field | Value |
+|---|---|
+| ID | `S-002` |
+| Type | public GitHub repository / specialized memory corpus |
+| Repository | https://github.com/NirDiamant/Agent_Memory_Techniques |
+| Snapshot | `b7f7240eb4d4510f3b45300a89126858a474b31d` |
+| Snapshot date observed | 2026-09-07 |
+| Use here | memory taxonomy pressure test and lifecycle vocabulary |
+| Authority | specialized tutorial source; source code is primary for source-specific behavior, taxonomy remains a source model to normalize |
+| License signal | README declares Apache-2.0 |
+
+High-value evidence inspected:
+
+- root README taxonomy;
+- `docs/comparison.md` covering 30 techniques;
+- explicit dimensions for family, persistence, retrieval and token-cost behavior.
+
+Key use in `agent-engineering`:
+
+- supports distinguishing short-term context from long-term semantic/episodic/procedural stores;
+- shows persistence and retrieval strategy are independent dimensions;
+- reinforces that `MemorySaver`, chat history, vector stores, cross-session memory and semantic knowledge must not collapse into one `memory=true` flag.
+
+## S-003 — agents-towards-production
+
+| Field | Value |
+|---|---|
+| ID | `S-003` |
+| Type | public GitHub repository / production-oriented tutorial corpus |
+| Repository | https://github.com/NirDiamant/agents-towards-production |
+| Snapshot | `141b0679f11b48209f2b872419f78a3a13850e0d` |
+| Snapshot date observed | 2026-09-07 |
+| Use here | production-pattern comparison, not repository-wide certification |
+| Authority | mixed tutorial source |
+
+The source advertises production-oriented topics including stateful workflows, memory, web search, Docker/FastAPI deployment, guardrails, scaling, browser automation, multi-agent coordination, observability and evaluation.
+
+Important qualification:
+
+- its pinned `.github/` directory contains funding, issue-template and Dependabot configuration but no visible GitHub Actions workflow;
+- therefore `production-grade` / `production-ready` labels are treated as source claims and tutorial scope descriptions, not evidence that the whole repository is continuously integration-tested or certified.
+
+This source is useful for MK1/MK2 architecture and operational pattern mining, but it cannot retroactively make `S-001` examples production-ready.
 
 ## Official technical contrast
 
@@ -145,10 +192,19 @@ Issues are `OBSERVED` reports from community participants, not independently ver
 
 - provenance: `OFFICIAL`
 - root: https://modelcontextprotocol.io/
-- relevant specification revision for this pass: `2025-06-18`
+- current specification revision for this pass: `2026-07-28`
+- release source: https://blog.modelcontextprotocol.io/posts/2026-07-28/
 - relevance:
-  - MCP is a protocol boundary for exposing tools/resources/prompts/capabilities;
-  - it does not by itself define the complete agent runtime, policy, persistence or evaluation architecture.
+  - introduces a stateless protocol core;
+  - removes the core `initialize` / `initialized` handshake and `Mcp-Session-Id` lifecycle used by older MCP examples;
+  - requests carry protocol version, client identity/capabilities metadata and routing information;
+  - `server/discover` is optional for upfront capability discovery;
+  - list results become cacheable/deterministic;
+  - authorization is hardened;
+  - extensions become a formal mechanism, including long-running/task-style capabilities;
+  - MCP remains an interoperability/capability protocol, not a substitute for runtime policy, authorization, persistence or evaluation.
+
+The `S-001` MCP tutorial is therefore retained as a useful legacy learning artifact for tool discovery/execution concepts but is **not** a current lifecycle reference for MCP `2026-07-28`.
 
 ## Scientific literature
 
@@ -209,5 +265,7 @@ community issue / anecdote
         >
 marketing label
 ```
+
+Specialization and scope also matter. A dedicated memory corpus may be a better taxonomy quarry for memory than a general agents corpus, while the current MCP specification outranks an older tutorial's protocol lifecycle.
 
 No single source automatically wins every dispute. The hierarchy indicates default evidentiary weight; applicability, recency, methodology and reproducibility must still be examined.
