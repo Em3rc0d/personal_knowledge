@@ -8,7 +8,9 @@ Updated: 2026-09-07
 DOMAIN                    agent-engineering
 CURRENT MK                MK1
 STATE                     IN PROGRESS
-MK0                       CLOSED / EVIDENCE RECEIPT EXISTS
+MK0                       CLOSED / STRUCTURED EVIDENCE PACKAGE
+MK1                       ACTIVE / STRUCTURED NORMALIZATION PACKAGE
+MK2                       BLOCKED / DESIGN PACKAGE SEEDED
 PRIMARY MINING SITE       NirDiamant/GenAI_Agents
 UPSTREAM SNAPSHOT         4c95ae14cc2462c442b5c064cccd74430d02bc46
 MEMORY CROSS-SOURCE       Agent_Memory_Techniques@b7f7240e...
@@ -18,7 +20,6 @@ LICENSE BOUNDARY          RECORDED / S-001 NON-COMMERCIAL CUSTOM LICENSE
 REPOSITORY INVENTORY      COMPLETE FOR MK0
 NORMALIZED INVENTORY      SEED COMPLETE
 P0/P1 CALL PATHS          CLOSED FOR CLASSIFICATION
-AGENT TAXONOMY            MOVED TO MK1 NORMALIZATION
 LOOP/HARNESS MODEL        MK0 FRAME COMPLETE
 TOOLS / ACI               MK0 FRAME COMPLETE
 HITL / SIDE EFFECTS       MK0 FRAME COMPLETE
@@ -28,20 +29,57 @@ MULTI-AGENT               QUALIFIED / MK1 NORMALIZATION OPEN
 CAPABILITY / RISK SCAN    COMPLETE FOR MK0
 THREAT MODEL              MK0 SEED COMPLETE
 SCIENTIFIC CONTRAST       COMPLETE FOR MK0
-REUSABLE RULES            CANDIDATE ONLY
+REUSABLE RULES            CANDIDATE / NORMALIZATION IN PROGRESS
 CANON RULE CERTIFICATION  BLOCKED BY MK1/MK2+
 ```
 
 ## MK progression
 
-| MK | Objective | State |
-|---|---|---|
-| MK0 | Mine source, establish vocabulary, provenance, claims, evidence, contradictions and candidate rules | **CLOSED** |
-| MK1 | Normalize taxonomy and classify architectures, state, tools, control and failure modes | **IN PROGRESS** |
-| MK2 | Convert findings into operational contracts, checklists, schemas and tests | BLOCKED BY MK1 |
-| MK3 | Integrate agent engineering with Jett Engineering Method, security and project workflows | BLOCKED |
-| MK4 | Automate static checks, eval harness templates and evidence gates | BLOCKED |
-| MK5+ | Certify rules against multiple independent agent systems and production-like fixtures | BLOCKED |
+| MK | Objective | State | Package |
+|---|---|---|---|
+| MK0 | Mine source, establish vocabulary, provenance, claims, evidence, contradictions and candidate rules | **✅ CLOSED** | [`mk/MK0/`](./mk/MK0/) |
+| MK1 | Normalize taxonomy and classify architectures, state, tools, control and failure modes | **🟡 IN PROGRESS** | [`mk/MK1/`](./mk/MK1/) |
+| MK2 | Convert findings into operational contracts, checklists, schemas and tests | **🔒 BLOCKED / DESIGN SEEDED** | [`mk/MK2/`](./mk/MK2/) |
+| MK3 | Integrate agent engineering with Jett Engineering Method, security and project workflows | BLOCKED | — |
+| MK4 | Automate static checks, eval harness templates and evidence gates | BLOCKED | — |
+| MK5+ | Certify rules against independent agent systems and production-like fixtures | BLOCKED | — |
+
+## Documentation architecture
+
+Each MK is a **knowledge package**, not a giant README.
+
+```text
+mk/
+├── README.md
+├── MK0/
+│   ├── README.md
+│   ├── SCOPE.md
+│   ├── ONTOLOGY.md
+│   ├── INVARIANTS.md
+│   ├── EVIDENCE.md
+│   ├── UNKNOWNS.md
+│   ├── GATES.md
+│   └── CLOSURE.md
+├── MK1/
+│   ├── README.md
+│   ├── CLASSIFICATION_SCHEMA.md
+│   ├── DIMENSIONS.md
+│   ├── NORMALIZATION_RULES.md
+│   ├── CLASSIFICATION_QUEUE.md
+│   ├── UNKNOWNS.md
+│   └── GATES.md
+└── MK2/
+    ├── README.md
+    ├── CONTRACT_CATALOG.md
+    ├── SCHEMAS.md
+    ├── CHECKLISTS.md
+    ├── TEST_MODEL.md
+    ├── PROMOTION_GATE.md
+    ├── BACKLOG.md
+    └── UNKNOWNS.md
+```
+
+README files are entrypoints/indexes. Substantive knowledge is split by responsibility so provenance, gates and uncertainty remain auditable.
 
 ## MK0 closure evidence
 
@@ -59,16 +97,25 @@ MK0 closed after establishing:
 - MCP tutorial contradiction against current `2026-07-28` protocol lifecycle;
 - current official and scientific contradiction pass;
 - capability-centered threat model and adversarial fixtures;
-- framework-independent MK1 schema.
+- framework-independent MK1 schema foundation.
 
-## Current high-confidence findings carried into MK1
+Detailed package:
+
+- framing: [`mk/MK0/SCOPE.md`](./mk/MK0/SCOPE.md)
+- ontology/distinctions: [`mk/MK0/ONTOLOGY.md`](./mk/MK0/ONTOLOGY.md)
+- candidate rules/anti-patterns: [`mk/MK0/INVARIANTS.md`](./mk/MK0/INVARIANTS.md)
+- evidence ledger: [`mk/MK0/EVIDENCE.md`](./mk/MK0/EVIDENCE.md)
+- transferred unknowns: [`mk/MK0/UNKNOWNS.md`](./mk/MK0/UNKNOWNS.md)
+- gates: [`mk/MK0/GATES.md`](./mk/MK0/GATES.md)
+
+## High-confidence findings carried into MK1
 
 - workflow and agent are different control structures; model-directed control must be explicit;
 - framework identity is not taxonomy;
 - critical invariants belong in code/policy/tool boundaries rather than prompt-only instructions;
 - generated code, general shell and broad browser authority are high-blast-radius capabilities requiring containment;
 - externally visible mutations should support deterministic safe modes, idempotency and receipts where feasible;
-- data egress is consequential even when the logical operation is “read/transform”;
+- data egress is consequential even when the logical operation is `read/transform`;
 - HITL must gate the actual consequential dispatcher when policy requires approval;
 - edited actions are new actions and must be revalidated/re-authorized;
 - state, context, checkpointing, persistence, memory and knowledge are distinct contracts;
@@ -82,82 +129,52 @@ MK0 closed after establishing:
 - protocol revision belongs in integration evidence;
 - production readiness is a vector of evidence, not a label.
 
-## Known UNKNOWNs intentionally transferred beyond MK0
+## Known UNKNOWNs transferred beyond MK0
 
-These do not invalidate MK0 closure because they require normalization, operationalization or execution evidence rather than mining/frame evidence:
+These do not invalidate MK0 closure because they require normalization, operationalization or execution evidence:
 
 1. exact current executability of every upstream notebook;
-2. per-notebook dependency/provider compatibility under today's runtimes;
+2. per-notebook dependency/provider compatibility under current runtimes;
 3. sandbox effectiveness for generated-code examples;
-4. universal sender approval coverage in the HR examples;
+4. universal sender approval coverage in HR examples;
 5. exact DataScribe lower-level mutation dispatcher/filter semantics;
-6. authenticated mutating-browser reachability in browser examples;
+6. authenticated mutating-browser reachability;
 7. complete idempotency/retry contracts for every external write;
 8. project-specific memory quality/isolation/retention behavior;
 9. benchmarked multi-agent benefit for individual topologies;
 10. project-specific deployment/rollback/SLO/incident evidence;
-11. per-language MCP SDK migration details beyond the protocol-level contradiction.
+11. per-language MCP SDK migration details beyond protocol-level contradiction.
 
-They must remain explicit until later MK evidence resolves them.
+Canonical registers:
+
+- [`mk/MK0/UNKNOWNS.md`](./mk/MK0/UNKNOWNS.md)
+- [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md)
+- [`mk/MK2/UNKNOWNS.md`](./mk/MK2/UNKNOWNS.md)
 
 ## MK0 closure gate
 
-- [x] domain contract exists;
-- [x] primary upstream snapshot pinned;
-- [x] license/provenance boundary recorded;
-- [x] repository root and tutorial taxonomy mapped;
-- [x] current dependency baseline inspected;
-- [x] contribution validation model inspected;
-- [x] representative recent tests inspected;
-- [x] minimal loop/harness pattern inspected;
-- [x] HITL approval pattern inspected;
-- [x] trace evaluation pattern inspected;
-- [x] memory/persistence usage sampled;
-- [x] open issue failure signals sampled;
-- [x] official-source contradiction pass completed;
-- [x] scientific contradiction pass completed;
-- [x] candidate portable rules identified;
-- [x] normalized inventory seed covers all tutorials by engineering concern/risk cue;
-- [x] representative capability/blast-radius scan completed;
-- [x] P0/P1 families validated at implementation/classification depth;
-- [x] high-risk mutation/generated-code families inspected sufficiently for MK0 classification;
-- [x] retry/termination semantics framed across representative loop families;
-- [x] tool/error contract requirements extracted;
-- [x] MCP tutorial checked against current protocol revision;
-- [x] memory examples compared against specialized memory source;
-- [x] production claims compared against production-oriented sister source;
-- [x] explicit threat model created;
-- [x] framework-independent MK1 schema created;
-- [x] final MK0 review preserves source-claim vs observation vs inference boundaries.
+All MK0 gates are closed. See [`mk/MK0/GATES.md`](./mk/MK0/GATES.md) and the historical [`mk/MK0/CLOSURE.md`](./mk/MK0/CLOSURE.md).
 
 ## MK1 current work
 
-Canonical MK1 plan: [`mk/MK1/README.md`](./mk/MK1/README.md)
+Active package: [`mk/MK1/`](./mk/MK1/)
 
-Immediate normalization queue:
+Immediate queue: [`mk/MK1/CLASSIFICATION_QUEUE.md`](./mk/MK1/CLASSIFICATION_QUEUE.md)
 
-1. minimal while-loop agent;
-2. HITL approval agent;
-3. trace-evaluation harness;
-4. E2E testing agent;
-5. self-healing code agent;
-6. HR messaging agent;
-7. social publishing agent;
-8. document-intake agent;
-9. DataScribe;
-10. self-improving/reflection example;
-11. representative memory agent;
-12. representative multi-agent system;
-13. MCP tutorial as a legacy/versioned integration example.
+The current work is to pressure-test the classification schema against representative systems, resolve overlapping dimensions, preserve unknowns and freeze a schema revision suitable for MK2 input.
+
+## MK2 state
+
+MK2 has a visible design package at [`mk/MK2/`](./mk/MK2/) so the handoff is explicit. It is **not active** and its schemas/contracts are not canon until MK1 closes.
 
 ## Promotion state
 
 ```text
 MK0 FRAME / EVIDENCE BASE   ✅ CLOSED
 MK1 NORMALIZATION           🟡 IN PROGRESS
-MK2 OPERATIONALIZATION      🔒 BLOCKED
+MK2 OPERATIONALIZATION      🔒 BLOCKED / DESIGN SEEDED
 CANON RULE CERTIFICATION    🔒 BLOCKED
-MAIN MERGE                  🔒 PENDING BRANCH REVIEW
+CURRENT BRANCH MERGE        🔒 PENDING REVIEW
 ```
 
-Closing MK0 does not certify every candidate rule. It only proves the domain is mature enough to normalize and classify without relying on source marketing labels.
+Closing MK0 did not certify candidate rules. MK1 classifies them; MK2 will operationalize survivors; later MKs must integrate, automate and certify them against real systems.
