@@ -2,7 +2,7 @@
 
 Knowledge domain for evidence-driven content growth, editorial systems and audience-to-product positioning.
 
-The initial seed is the **Content Seller / `@emerc0d` TikTok operating strategy**, but the domain is intentionally broader than one platform or account. It should eventually support TikTok, LinkedIn, Instagram and product-led audience building without collapsing platform-specific behavior into universal rules.
+The initial seed is the **Content Seller / `@emerc0d` TikTok operating strategy**, but the domain is intentionally broader than one platform or account. It should support TikTok, LinkedIn, Instagram and product-led audience building without collapsing platform-specific behavior into universal rules.
 
 ## Mission
 
@@ -23,9 +23,9 @@ observed demand + account evidence
   → next-batch adjustment
 ```
 
-## Initial north-star case
+## Active MK0 cases
 
-The first operational case is `Content Seller / emerc0d` on TikTok.
+### Content Seller / TikTok
 
 The desired brand is not "a programming account" and not "a prompt page".
 
@@ -49,6 +49,47 @@ people who want to work better with technology and AI
 
 This is a strategic bridge toward Prompt Machine, but the content account must create standalone value before product conversion is attempted.
 
+Current playbook: [`mk/MK0/CONTENT-SELLER-TIKTOK-PLAYBOOK.md`](./mk/MK0/CONTENT-SELLER-TIKTOK-PLAYBOOK.md)
+
+### LinkedIn / professional inbound
+
+The LinkedIn case has a different economic objective:
+
+> **Convert technical content distribution into employment, contracts, clients, referrals, collaborations and project opportunities.**
+
+Current funnel:
+
+```text
+Reach
+→ Credibility
+→ Evidence
+→ Profile
+→ Conversation
+→ Opportunity
+→ Economic / professional outcome
+```
+
+Current identity principle:
+
+> **Explico software de forma sencilla, pero construyo sistemas de verdad.**
+
+The current four-role hypothesis is:
+
+```text
+1  Reach Engine
+2  Engineering Authority
+3  Proof of Work
+4  Opportunity / Business / AI
+```
+
+SQL is currently the strongest reach family, but must remain an acquisition engine rather than collapse the account into a SQL-only identity.
+
+Current playbook: [`mk/MK0/LINKEDIN-PROFESSIONAL-INBOUND-PLAYBOOK.md`](./mk/MK0/LINKEDIN-PROFESSIONAL-INBOUND-PLAYBOOK.md)
+
+Current evidence: [`quarries/Q-002-linkedin-professional-growth-2026-09-11.md`](./quarries/Q-002-linkedin-professional-growth-2026-09-11.md)
+
+Current measurement model: [`test/LINKEDIN-MEASUREMENT-MODEL.md`](./test/LINKEDIN-MEASUREMENT-MODEL.md)
+
 ## Evolution model
 
 ```text
@@ -58,7 +99,7 @@ MK1  Normalize topics, roles, formats, hook patterns, metric semantics and novel
  ↓
 MK2  Operationalize batch planning, decision rules, scorecards and reusable playbooks
  ↓
-MK3  Integrate with Content Seller / prodAgentic profile, memory and analytics contracts
+MK3  Integrate with profile/product/project systems, editorial memory and analytics contracts
  ↓
 MK4  Automate planning, measurement and recommendation with explicit safety/novelty gates
  ↓
@@ -77,18 +118,18 @@ MK numbers represent knowledge maturity, not arbitrary releases.
 
 No metric-driven recommendation should silently turn correlation into causation.
 
-## Core principles
+## Cross-platform principles
 
 1. **Memory before generation.** Never plan a batch as if the account had no history.
-2. **Role before topic.** Decide what job each post performs before choosing four topics.
+2. **Role before topic.** Decide what job each post performs before selecting topics.
 3. **Aggressive does not mean empty clickbait.** Increase curiosity, tension, relevance and payoff; do not replace substance with generic shock wording.
-4. **One post, one primary job.** Reach, teach, bridge, convert, invite discussion, etc.
+4. **One post, one primary job.** Reach, teach, prove, bridge, convert, invite discussion, etc.
 5. **No repeated topic/angle/hook/creative pattern by default.** Continuations require an explicit reason.
-6. **Metrics are interpreted by intent.** A tutorial, meme and conversion post do not share the same success metric.
+6. **Metrics are interpreted by intent and platform.** A tutorial, meme, proof-of-work post and opportunity magnet do not share one universal success metric.
 7. **The curriculum is a map, not the content format.** Academic subjects become recognizable real-world problems rather than lecture titles.
-8. **Product seeding precedes product selling.** Teach the problem and workflow before presenting Prompt Machine as the solution.
-9. **Quality is a constraint, not a finishing touch.** Visuals, hierarchy, readability and editorial polish affect whether the idea is consumed at all.
-10. **Growth loops must stay falsifiable.** Preserve snapshots, hypotheses and outcomes so strategy can change when evidence disagrees.
+8. **Quality is a constraint, not a finishing touch.** Visuals, hierarchy, readability and editorial polish affect consumption.
+9. **Growth loops must stay falsifiable.** Preserve snapshots, hypotheses and outcomes so strategy can change when evidence disagrees.
+10. **Platform-specific goals remain separate.** TikTok product/audience growth and LinkedIn professional inbound may share editorial machinery without sharing the same North Star.
 
 ## Initial content universes
 
@@ -104,9 +145,7 @@ The current curriculum-backed universe is grouped as:
 
 These are topic reservoirs, not rigid feed categories.
 
-## Initial daily batch model
-
-For Content Seller, the current 4-slot hypothesis is:
+## TikTok batch hypothesis
 
 ```text
 1  Student Reach       identification / discovery / virality
@@ -115,18 +154,14 @@ For Content Seller, the current 4-slot hypothesis is:
 4  AI Leverage         better ways to work/study with AI; seeds Prompt Machine
 ```
 
-This replaces a feed composed only of unrelated technical explainers.
-
-## Initial editorial mix hypothesis
+## LinkedIn batch hypothesis
 
 ```text
-50%  technology / strong technical concepts
-20%  university + life in IT
-20%  projects + career + real-world building
-10%  AI / workflows
+1  Reach Engine          acquisition / discoverability
+2  Engineering Authority technical depth and judgment
+3  Proof of Work         evidence of real building/decisions
+4  Opportunity / AI      business relevance and inbound potential
 ```
-
-The AI/workflow share can rise as Prompt Machine approaches launch, but should not dominate prematurely.
 
 ## Workspace structure
 
