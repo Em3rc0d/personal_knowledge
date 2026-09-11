@@ -88,6 +88,46 @@ Detailed evidence and rules live in:
 - `plan/LOGAN-DAILY-EXPERIMENT-LOOP.md`;
 - `test/LOGAN-METRIC-GATES.md`.
 
+### Case C — LinkedIn / professional inbound
+
+The LinkedIn case has a different economic objective from the TikTok profiles:
+
+> **Convert technical content distribution into employment, contracts, clients, referrals, collaborations and project opportunities.**
+
+Current working funnel:
+
+```text
+Reach
+→ Credibility
+→ Evidence
+→ Profile
+→ Conversation
+→ Opportunity
+→ Professional / economic outcome
+```
+
+Current identity principle:
+
+> **Explico software de forma sencilla, pero construyo sistemas de verdad.**
+
+The four-role hypothesis is:
+
+```text
+1  Reach Engine
+2  Engineering Authority
+3  Proof of Work
+4  Opportunity / Business / AI
+```
+
+The current strongest reach family is SQL. It is treated as an acquisition engine, not as the complete professional identity.
+
+Detailed evidence and rules live in:
+
+- `quarries/Q-003-linkedin-professional-growth-2026-09-11.md`;
+- `mk/MK0/LINKEDIN-PROFESSIONAL-INBOUND-PLAYBOOK.md`;
+- `test/LINKEDIN-MEASUREMENT-MODEL.md`;
+- `test/LINKEDIN-MK0-REVIEW.md`.
+
 ## Evolution model
 
 ```text
@@ -182,15 +222,17 @@ T+7d
 Track by post objective, not only by views:
 
 ```text
-views
+views / impressions
+unique reach when available
 watch time / completion / slide-through
-likes
+likes / reactions
 comments
 shares
 saves
 profile views
 followers gained when attributable or temporally available
 search traffic / queries
+professional opportunity signals when relevant
 clicks / registrations / sales when relevant
 ```
 

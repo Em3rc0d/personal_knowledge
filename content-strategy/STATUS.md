@@ -8,15 +8,17 @@ Updated: 2026-09-11
 DOMAIN                    content-strategy
 CURRENT MK                MK0
 STATE                     IN PROGRESS
-ACTIVE PROFILES            Content Seller / @emerc0d; Logan / mi.logan.pe
-PLATFORMS                  TikTok (current evidence)
+ACTIVE PROFILES            Content Seller / @emerc0d; Logan / mi.logan.pe; LinkedIn professional account
+PLATFORMS                  TikTok + LinkedIn
 CONTENT SELLER SNAPSHOT    2026-09-11 CAPTURED
 LOGAN SNAPSHOT             2026-09-11 CAPTURED
-POSITIONING                FRAMED PER PROFILE
+LINKEDIN SNAPSHOT          2026-09-11 CAPTURED
+POSITIONING                FRAMED PER PROFILE / PLATFORM
 BATCH MODELS               FRAMED / NOT CERTIFIED
 NOVELTY RULES              FRAMED / NOT CERTIFIED
-MEASUREMENT WINDOWS        T+2h / T+24h / T+7d WORKING BASELINE
+MEASUREMENT WINDOWS        T+2h / T+24h / T+7d WORKING BASELINE WHERE APPLICABLE
 PROMPT MACHINE BRIDGE      CONTENT SELLER ONLY / FRAMED / NOT CERTIFIED
+PROFESSIONAL INBOUND       LINKEDIN / FRAMED / NOT ATTRIBUTED
 AUTOMATION                 NOT YET STARTED
 ```
 
@@ -25,7 +27,7 @@ AUTOMATION                 NOT YET STARTED
 | MK | Objective | State |
 |---|---|---|
 | MK0 | Capture evidence, audience, positioning, metrics, editorial rules and hypotheses | IN PROGRESS |
-| MK1 | Normalize taxonomies for profile/role/topic/angle/hook/format/visual/metric | BLOCKED BY MK0 |
+| MK1 | Normalize taxonomies for profile/platform/role/topic/angle/hook/format/visual/metric | BLOCKED BY MK0 |
 | MK2 | Operationalize scorecards, planners, cooldowns and decision rules | BLOCKED |
 | MK3 | Integrate with Profile, Editorial Memory and Analytics contracts | BLOCKED |
 | MK4 | Automate planning/measurement/recommendations with safe gates | BLOCKED |
@@ -60,6 +62,22 @@ metric gates               FRAMED
 historical normalization   OPEN
 ```
 
+### LinkedIn / professional inbound
+
+```text
+metric snapshot            CAPTURED
+impressions_7d             OBSERVED 62,822
+unique_reach               OBSERVED 30,302
+outside_network_reach      OBSERVED 98%
+saves                      OBSERVED 246
+reach_to_profile           INFERRED ~0.41%
+SQL acquisition cluster    OBSERVED / STRONG CURRENT SIGNAL
+4-role model               FRAMED / NOT CERTIFIED
+profile conversion         OPEN OPTIMIZATION AREA
+opportunity attribution    OPEN / UNKNOWN
+historical normalization   OPEN
+```
+
 ## MK0 closure gate
 
 MK0 can close only when:
@@ -68,24 +86,30 @@ MK0 can close only when:
 - [x] provenance vocabulary exists;
 - [x] `@emerc0d` 2026-09-11 TikTok snapshot is captured;
 - [x] `mi.logan.pe` 2026-09-11 TikTok snapshot is captured;
+- [x] LinkedIn 2026-09-11 professional-growth snapshot is captured;
 - [x] Content Seller audience nucleus is documented;
 - [x] Content Seller brand positioning is documented;
 - [x] Logan working positioning is documented;
+- [x] LinkedIn professional-inbound audience architecture and funnel are documented;
 - [x] Content Seller four-slot batch hypothesis is documented;
 - [x] Logan four-post experimental cadence is documented as a hypothesis/practice rather than a law;
+- [x] LinkedIn four-role model is documented as a hypothesis rather than a law;
 - [x] Content Seller editorial mix hypothesis is documented;
 - [x] Logan diagnostic-vs-lifestyle mix hypothesis is documented;
+- [x] LinkedIn SQL-as-reach-engine / broader-authority strategy is documented;
 - [x] academic content universes are documented;
 - [x] Prompt Machine seeding strategy is documented for Content Seller;
-- [x] no-repeat / novelty baseline is documented across both profiles;
-- [x] aggressive-hook boundary is documented across both profiles;
+- [x] LinkedIn opportunity-generation strategy is documented;
+- [x] no-repeat / novelty baseline is documented across active cases;
+- [x] aggressive-hook boundary is documented across active cases;
 - [x] measurement loop is documented;
-- [x] profile-isolation rule is explicit;
-- [ ] historical posts are normalized into a canonical editorial-memory dataset per profile;
-- [ ] top/bottom performers are classified by profile, role, topic, hook, format and visual pattern;
+- [x] profile/platform-isolation rule is explicit;
+- [ ] historical posts are normalized into a canonical editorial-memory dataset per profile/platform;
+- [ ] top/bottom performers are classified by profile/platform, role, topic, hook, format and visual pattern;
 - [ ] current 4-post cadences have enough dated observations to evaluate by role/objective rather than anecdotes;
-- [ ] metric definitions and observation windows are normalized across TikTok and future platforms;
-- [ ] MK0 review finds no unlabeled `OBSERVED → causal claim` jumps across either profile.
+- [ ] metric definitions and observation windows are normalized across platforms;
+- [ ] LinkedIn opportunity ledger is active and content-family attribution is possible;
+- [ ] MK0 review finds no unlabeled `OBSERVED → causal claim` jumps across active cases.
 
 Until these boxes close, the strategy remains a **working operating hypothesis**, not a certified growth formula.
 
@@ -94,7 +118,7 @@ Until these boxes close, the strategy remains a **working operating hypothesis**
 - Whether four posts/day is optimal, merely tolerable, or excessive once quality and attribution are controlled.
 - Which hook families improve attention without harming trust.
 - Which formats produce the best save/share behavior by audience and objective.
-- How much of a tactic is profile-specific versus reusable across channels.
+- How much of a tactic is profile/platform-specific versus reusable across channels.
 - Which visual patterns create recognition without causing creative repetition.
 
 ## Current unknowns — Content Seller
@@ -112,6 +136,19 @@ Until these boxes close, the strategy remains a **working operating hypothesis**
 - How much intentional search traffic can be grown from natural problem-language hooks/captions.
 - Whether lifestyle should remain at 10–15% or move lower/higher with more evidence.
 
+## Current unknowns — LinkedIn
+
+- Which role has the highest profile/follower conversion?
+- Which content families generate recruiter DMs vs clients vs referrals vs project invitations?
+- Whether ~4 posts/day remains efficient without cannibalization or fatigue.
+- How much SQL lift comes from topic vs hook vs visual vs timing vs accumulated momentum.
+- Whether 98% outside-network distribution persists.
+- Whether profile/Featured optimization materially improves the current ~0.41% reach → profile baseline.
+- Which Featured artifacts convert best.
+- Whether comments/shares can increase without reducing saves.
+- What lag exists between content exposure and a professional opportunity.
+- At what point SQL overrepresentation weakens broader software-engineering positioning.
+
 ## Next gate
 
 Create a normalized observation ledger containing at minimum:
@@ -128,11 +165,13 @@ angle
 hook_pattern
 format
 visual_pattern
-views_2h
-views_24h
-views_7d
+views / impressions
+unique_reach when available
+views_2h when relevant
+views_24h when relevant
+views_7d when relevant
 watch_time / slide-through when available
-likes
+likes / reactions
 comments
 shares
 saves
@@ -140,8 +179,10 @@ profile_views
 followers_gained
 search_terms
 CTA
+opportunity_signal
+opportunity_type
 classification
 notes
 ```
 
-Then classify the historical corpus per profile before changing strategic mixes again.
+Then classify the historical corpus per profile/platform before changing strategic mixes again.
