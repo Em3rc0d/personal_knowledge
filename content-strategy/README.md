@@ -23,7 +23,9 @@ observed demand + account evidence
   → next-batch adjustment
 ```
 
-## Initial north-star case
+## Active cases
+
+### Case A — Content Seller / `@emerc0d`
 
 The first operational case is `Content Seller / emerc0d` on TikTok.
 
@@ -48,6 +50,43 @@ people who want to work better with technology and AI
 ```
 
 This is a strategic bridge toward Prompt Machine, but the content account must create standalone value before product conversion is attempted.
+
+### Case B — Logan / `mi.logan.pe`
+
+The second operational case is the automotive TikTok account `mi.logan.pe`.
+
+Current working positioning:
+
+> **Te explico qué podría estar pasando con tu carro antes de que cambies piezas a ciegas.**
+
+The initial metric review indicates meaningful `For You` distribution but weak downstream conversion relative to total views. The working optimization chain is therefore:
+
+```text
+VIEW
+  ↓
+INTERACTION
+  ↓
+PROFILE VISIT
+  ↓
+FOLLOW
+```
+
+Current Logan-specific hypotheses include:
+
+- lead with symptoms/problems rather than component names;
+- keep diagnostic / technical content as the dominant editorial core;
+- use aggressive-but-honest first-frame tension;
+- treat search queries as backlog evidence;
+- maintain four-post experiment throughput only while quality and novelty remain high;
+- aggressively block accidental repetition of topic, symptom, diagnosis, hook or creative structure;
+- treat hashtags, content mix and CTA behavior as profile-specific rather than universal.
+
+Detailed evidence and rules live in:
+
+- `quarries/Q-002-logan-tiktok-2026-09-11.md`;
+- `design/LOGAN-EDITORIAL-OPERATING-SYSTEM.md`;
+- `plan/LOGAN-DAILY-EXPERIMENT-LOOP.md`;
+- `test/LOGAN-METRIC-GATES.md`.
 
 ## Evolution model
 
@@ -80,17 +119,19 @@ No metric-driven recommendation should silently turn correlation into causation.
 ## Core principles
 
 1. **Memory before generation.** Never plan a batch as if the account had no history.
-2. **Role before topic.** Decide what job each post performs before choosing four topics.
+2. **Role before topic.** Decide what job each post performs before choosing topics.
 3. **Aggressive does not mean empty clickbait.** Increase curiosity, tension, relevance and payoff; do not replace substance with generic shock wording.
-4. **One post, one primary job.** Reach, teach, bridge, convert, invite discussion, etc.
+4. **One post, one primary job.** Reach, teach, bridge, convert, invite discussion, save, share, etc.
 5. **No repeated topic/angle/hook/creative pattern by default.** Continuations require an explicit reason.
-6. **Metrics are interpreted by intent.** A tutorial, meme and conversion post do not share the same success metric.
-7. **The curriculum is a map, not the content format.** Academic subjects become recognizable real-world problems rather than lecture titles.
-8. **Product seeding precedes product selling.** Teach the problem and workflow before presenting Prompt Machine as the solution.
-9. **Quality is a constraint, not a finishing touch.** Visuals, hierarchy, readability and editorial polish affect whether the idea is consumed at all.
+6. **Metrics are interpreted by intent.** A tutorial, meme, diagnostic post and conversion post do not share the same success metric.
+7. **Quality is a constraint, not a finishing touch.** Visuals, hierarchy, readability and editorial polish affect whether the idea is consumed at all.
+8. **Search language is demand evidence.** Preserve how users naturally describe their problems and use it to feed the backlog.
+9. **Profile rules stay isolated until replicated.** A tactic that works for Logan does not automatically become a Content Seller or LinkedIn rule.
 10. **Growth loops must stay falsifiable.** Preserve snapshots, hypotheses and outcomes so strategy can change when evidence disagrees.
+11. **Product seeding precedes product selling where a product bridge exists.** Teach the problem and workflow before presenting the product as the solution.
+12. **Cadence exists for learning velocity, not vanity volume.** Reduce output before lowering quality or novelty standards.
 
-## Initial content universes
+## Content Seller — initial content universes
 
 The current curriculum-backed universe is grouped as:
 
@@ -104,7 +145,7 @@ The current curriculum-backed universe is grouped as:
 
 These are topic reservoirs, not rigid feed categories.
 
-## Initial daily batch model
+## Content Seller — initial daily batch model
 
 For Content Seller, the current 4-slot hypothesis is:
 
@@ -117,7 +158,7 @@ For Content Seller, the current 4-slot hypothesis is:
 
 This replaces a feed composed only of unrelated technical explainers.
 
-## Initial editorial mix hypothesis
+## Content Seller — initial editorial mix hypothesis
 
 ```text
 50%  technology / strong technical concepts
@@ -127,6 +168,33 @@ This replaces a feed composed only of unrelated technical explainers.
 ```
 
 The AI/workflow share can rise as Prompt Machine approaches launch, but should not dominate prematurely.
+
+## Cross-profile measurement baseline
+
+When the platform exposes enough data, prefer comparable observation windows:
+
+```text
+T+2h
+T+24h
+T+7d
+```
+
+Track by post objective, not only by views:
+
+```text
+views
+watch time / completion / slide-through
+likes
+comments
+shares
+saves
+profile views
+followers gained when attributable or temporally available
+search traffic / queries
+clicks / registrations / sales when relevant
+```
+
+Unavailable data remains `UNKNOWN`.
 
 ## Workspace structure
 
