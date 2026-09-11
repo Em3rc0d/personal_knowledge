@@ -13,10 +13,12 @@ This registry records source identity and provenance. It does not mean every sou
 | CS-SRC-005 | Existing Content Seller editorial operating system (`02-SISTEMA-EDITORIAL.md`) | Prior generated operating artifact | GENERATED | 2026-09-01 | Cadence, pipeline, QA and measurement loop |
 | CS-SRC-006 | Existing Content Seller backlog (`06-BACKLOG-120.md`) | Prior generated idea corpus | GENERATED | 2026-09-01 | Topic reservoir; must pass novelty and evidence gates before reuse |
 | CS-SRC-007 | prodAgentic / Content Seller architecture notes | Prior product design artifact | GENERATED / INFERRED | 2026-09-04 | Editorial Memory, Batch, role planning, novelty and analytics integration |
+| CS-SRC-008 | TikTok Studio analytics snapshot for `mi.logan.pe` | Account analytics | OBSERVED | 2026-09-11 | Logan reach, engagement, traffic-source and recent-post baseline |
+| CS-SRC-009 | Logan strategy synthesis from metric review and established publishing workflow | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Symptom-first strategy, conversion funnel, aggressive-hook boundary, no-repeat and experiment loop |
 
 ## Source handling rules
 
-### CS-SRC-001 — account analytics
+### CS-SRC-001 — Content Seller account analytics
 
 Treat values as a dated snapshot, never timeless account truth.
 
@@ -54,7 +56,7 @@ Platform guidance observed in the same source emphasizes:
 
 This is platform guidance, not a guaranteed ranking formula.
 
-### CS-SRC-003 — conversation synthesis
+### CS-SRC-003 — Content Seller conversation synthesis
 
 Important working hypotheses:
 
@@ -92,6 +94,44 @@ research / thesis
 ```
 
 Rule: convert subjects into recognizable problems, consequences, misconceptions, projects or bridges to real systems. Do not publish lecture-title content merely because a course exists.
+
+### CS-SRC-008 — Logan account analytics
+
+Treat values as a dated snapshot.
+
+Captured values:
+
+```text
+account                    mi.logan.pe
+window                     last 7 days
+video_views                10.9K
+video_views_change         +561.2%
+profile_views              33
+profile_views_change       +1000%
+likes                      195
+comments                   1
+shares                     3
+followers_shown            14
+publications_shown         51
+for_you_traffic            97.2%
+```
+
+This supports the claim that recommendation distribution is already meaningful. It does **not** prove that any one hook, topic or format caused the growth.
+
+### CS-SRC-009 — Logan strategy synthesis
+
+Working hypotheses:
+
+- optimize `VIEW → INTERACTION → PROFILE → FOLLOW`, not raw reach alone;
+- lead with the symptom/problem rather than component taxonomy;
+- keep technical diagnostic authority as the core;
+- use aggressive-but-honest first-frame tension;
+- maintain four-post daily experiment throughput only while quality and novelty remain high;
+- treat search queries as editorial research;
+- keep generic lifestyle minority-weighted while current evidence favors diagnostic content;
+- use profile-specific semantic hashtags rather than assuming one hashtag convention fits every account.
+
+These remain `GENERATED / INFERRED` until enough longitudinal data supports promotion.
 
 ## Copyright / retention boundary
 
