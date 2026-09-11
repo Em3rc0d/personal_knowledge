@@ -15,6 +15,8 @@ This registry records source identity and provenance. It does not mean every sou
 | CS-SRC-007 | prodAgentic / Content Seller architecture notes | Prior product design artifact | GENERATED / INFERRED | 2026-09-04 | Editorial Memory, Batch, role planning, novelty and analytics integration |
 | CS-SRC-008 | TikTok Studio analytics snapshot for `mi.logan.pe` | Account analytics | OBSERVED | 2026-09-11 | Logan reach, engagement, traffic-source and recent-post baseline |
 | CS-SRC-009 | Logan strategy synthesis from metric review and established publishing workflow | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Symptom-first strategy, conversion funnel, aggressive-hook boundary, no-repeat and experiment loop |
+| CS-SRC-010 | LinkedIn Analytics snapshot supplied by user | Account analytics | OBSERVED | 2026-09-11 | Professional-growth baseline, distribution, profile/search and audience signals |
+| CS-SRC-011 | LinkedIn professional-inbound strategy synthesis from analytics discussion | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Reach engine, authority, proof-of-work, opportunity funnel and measurement strategy |
 
 ## Source handling rules
 
@@ -132,6 +134,61 @@ Working hypotheses:
 - use profile-specific semantic hashtags rather than assuming one hashtag convention fits every account.
 
 These remain `GENERATED / INFERRED` until enough longitudinal data supports promotion.
+
+### CS-SRC-010 — LinkedIn account analytics
+
+Treat values as a dated first-party account snapshot.
+
+Captured values include:
+
+```text
+window                     7 days
+impressions                62,822
+impressions_delta          +1,178%
+unique_reach               30,302
+outside_network_reach      98%
+interactions               852
+reactions                  592
+saves                      246
+comments                   7
+shares                     3
+profile_views              125
+profile_views_delta        +1,075%
+followers                  2,056
+follower_growth            +6%
+search_appearances         51
+search_delta               0%
+posts                      29
+```
+
+Derived ratios such as ~28.9% saves/interactions and ~0.41% reach→profile are `INFERRED`, not directly displayed platform claims.
+
+### CS-SRC-011 — LinkedIn strategy synthesis
+
+Current working hypotheses include:
+
+- SQL is the strongest observed reach family and should operate as acquisition, not total identity;
+- use four differentiated roles: Reach Engine, Engineering Authority, Proof of Work, Opportunity / Business / AI;
+- the current bottleneck has shifted from pure discovery toward profile conversion and conversation;
+- proof-of-work should demonstrate engineering judgment rather than technology checklists;
+- AI/automation content should remain engineering- and business-grounded;
+- monthly success should be measured through professional opportunities, not only engagement;
+- profile + Featured should operate as the conversion surface after content discovery.
+
+These are `GENERATED / INFERRED` until longitudinal evidence and opportunity attribution support them.
+
+## Profile / platform isolation boundary
+
+Do not copy a tactic from one profile or platform into another merely because both are “content”.
+
+Examples:
+
+- TikTok watch behavior and LinkedIn profile conversion are different measurement surfaces;
+- Logan symptom-first automotive rules are not Content Seller or LinkedIn rules by default;
+- Prompt Machine product seeding is currently a Content Seller objective;
+- professional inbound opportunity generation is currently the LinkedIn objective.
+
+Shared editorial machinery may be reused, but profile/platform-specific metrics, audiences and business goals remain explicit.
 
 ## Copyright / retention boundary
 
