@@ -3,7 +3,7 @@
 Updated: **2026-09-16**  
 Role: **canonical live dashboard**
 
-> Historical reasoning belongs in quarries/MK receipts. `STATUS.md` stays intentionally focused on **where the domain is now**.
+> Historical reasoning belongs in quarries/MK receipts. `STATUS.md` answers only **where the domain is now**.
 
 ## Domain state
 
@@ -18,7 +18,7 @@ MK2                        🔒 BLOCKED / DESIGN SEEDED
 MK3+                       🔒 BLOCKED
 ```
 
-## Control-plane documents
+## Control plane
 
 ```text
 HUMAN ENTRYPOINT           README.md
@@ -42,56 +42,44 @@ MK2 HANDOFF CONTRACT       mk/MK2/HANDOFF_CONTRACT.md
 | intervention owner/boundary | ✅ PROMOTED | schema `human_control` qualifiers |
 | Strands × MCP `2026-07-28` | ✅ SUPPORTED / QUALIFIED | [`systems/strands/PROTOCOLS.md`](./systems/strands/PROTOCOLS.md) |
 | normalized record infrastructure | ✅ READY | [`mk/MK1/records/`](./mk/MK1/records/) |
-| representative record set | 🟡 PARTIAL | [`mk/MK1/records/README.md`](./mk/MK1/records/README.md) |
-| A2A reproducibility receipt | 🟡 OPEN | [`mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md`](./mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md) |
-| multi-agent baseline | 🟡 OPEN | [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md) |
-| UNKNOWN reconciliation | 🟡 PARTIAL | [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md) |
-| schema freeze audit | 🔒 BLOCKED BY ABOVE | [`mk/MK1/SCHEMA_HISTORY.md`](./mk/MK1/SCHEMA_HISTORY.md) |
+| representative record set | ✅ NEAR-COMPLETE | 11 materialized/qualified + 2 `COVERED_BY`; REC-012 open |
+| A2A classification-shape gate | ✅ PASS / QUALIFIED | [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-version-drift.md) |
+| Strands A2A `1.0` compatibility | ⚠️ NOT ESTABLISHED / ROUTED DEBT | system freshness/interoperability debt, not hidden as PASS |
+| multi-agent baseline | 🟡 OPEN / BLOCKING | [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md) |
+| UNKNOWN reconciliation | 🟡 FINAL PASS PENDING | [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md) |
+| schema freeze audit | 🔒 WAITS ON MULTI-AGENT + FINAL AUDIT | [`mk/MK1/SCHEMA_HISTORY.md`](./mk/MK1/SCHEMA_HISTORY.md) |
 | MK1 closure receipt | 🔒 NOT YET | future `mk/MK1/CLOSURE.md` |
 | MK2 activation | 🔒 BLOCKED | [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md) |
 
-## Materialized MK1 records
+## Representative-record state
 
 ```text
-REC-001  ✅ QUALIFIED  minimal while-loop / model-tool loop / shell
-REC-002  ✅ QUALIFIED  HITL approval / protected dispatcher
-REC-013  ✅ QUALIFIED  MCP revision drift / lifecycle semantics
-REC-014  ✅ QUALIFIED  Strands Agents canonical classification
+MATERIALIZED / QUALIFIED
+REC-001  minimal while-loop / model-tool loop / shell
+REC-002  HITL approval / protected dispatcher
+REC-003  trace evaluation / outcome-vs-trajectory
+REC-004  generated code + browser + host blast radius
+REC-007  external publication / dry-run / idempotency
+REC-008  document/file data egress
+REC-009  database authority / least privilege
+REC-010  reflection/adaptation vs persistent improvement
+REC-011  state/persistence vs memory lifecycle contrast
+REC-013  MCP revision drift
+REC-014  Strands Agents canonical classification
+
+COVERED_BY
+REC-005  covered by REC-004 + REC-003
+REC-006  covered by REC-002 + REC-007
+
+OPEN / BLOCKING
+REC-012  representative multi-agent baseline/admission evidence
 ```
 
-Registry and family coverage: [`mk/MK1/records/README.md`](./mk/MK1/records/README.md).
+Canonical registry: [`mk/MK1/records/README.md`](./mk/MK1/records/README.md).
 
-Highest-pressure records still missing:
+## Resolved protocol pressure
 
-```text
-REC-004 generated-code/browser capability composition
-REC-008 document/file data egress
-REC-011 dedicated memory lifecycle
-REC-003 trace-evaluation/critic pressure
-REC-012 multi-agent after baseline evidence
-```
-
-## Resolved MK1 pressure tests
-
-### Runtime semantics
-
-Cross-source set:
-
-- Strands Agents;
-- LangGraph;
-- OpenAI Agents SDK.
-
-Result:
-
-```text
-concurrency semantics        → state
-budget enforcement semantics → termination
-intervention owner/boundary  → human_control
-```
-
-Evidence: [`quarries/runtime-semantics-strands-langgraph-openai.md`](./quarries/runtime-semantics-strands-langgraph-openai.md).
-
-### Strands × MCP
+### MCP
 
 Pinned contract: **MCP `2026-07-28`**.
 
@@ -108,71 +96,39 @@ remote rollback             NOT IMPLIED
 independent local rerun     ENVIRONMENT-BLOCKED
 ```
 
+### A2A
+
+Pinned Strands snapshot:
+
+```text
+Python A2A SDK              >=0.3.0,<0.4.0
+TypeScript A2A SDK          ^0.3.10
+current A2A protocol line   1.0
+0.3 implementation          SUPPORTED / QUALIFIED
+integration fixture source  PRESENT
+specific successful CI run  NOT VERIFIED
+independent rerun           NOT RUN
+A2A 1.0 compatibility       NOT ESTABLISHED
+```
+
+Result: the **MK1 classification-shape gate passes in qualified form** because revision, role, transport/task shape, auth boundary, concurrency and evidence limitations are representable without `A2A=true`. A2A `1.0` migration remains explicit version-drift debt.
+
 Current view: [`systems/strands/PROTOCOLS.md`](./systems/strands/PROTOCOLS.md).  
-Detailed receipt: [`quarries/strands-mcp-2026-07-28-compatibility.md`](./quarries/strands-mcp-2026-07-28-compatibility.md).
+Receipt: [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-version-drift.md).
 
 ## Active MK1 blockers
 
-MK1 cannot close until all `OPEN_MK1` items are resolved or explicitly routed.
-
 ```text
-B1 representative family coverage
-B2 A2A revision/auth/transport/execution receipt
-B3 multi-agent baseline/admission evidence
-B4 final schema overlap/freeze audit
-B5 closure UNKNOWN routing
-B6 MK1 CLOSURE.md
+B1 REC-012 multi-agent baseline/admission evidence
+B2 final cross-dimension / overlap audit
+B3 final UNKNOWN routing
+B4 schema freeze decision
+B5 MK1 CLOSURE.md
 ```
+
+A2A `1.0` compatibility is **not silently closed**; it is no longer a taxonomy blocker because the current schema can faithfully represent the version drift and incomplete execution evidence.
 
 Executable dependency graph: [`mk/MK1/CLOSURE_PLAN.md`](./mk/MK1/CLOSURE_PLAN.md).
-
-## Current UNKNOWN policy
-
-Important uncertainty is not hidden inside prose.
-
-Canonical register: [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md).
-
-Closure states:
-
-```text
-OPEN_MK1
-CLOSED
-QUALIFIED
-ROUTED_MK2
-ROUTED_MK3_PLUS
-ROUTED_MK5_PLUS
-OUT_OF_SCOPE
-```
-
-Any material `OPEN_MK1` item blocks MK1 closure.
-
-## Current system packages
-
-### Strands Agents
-
-Status: **CURRENT / QUALIFIED / SOLIDIFIED**
-
-```text
-systems/strands/
-├── README.md
-├── CLASSIFICATION.md
-├── ENGINEERING_RULES.md
-├── PROTOCOLS.md
-├── EVIDENCE.md
-└── LLM_CONTEXT.md
-```
-
-Pinned source snapshot:
-
-```text
-strands-agents/harness-sdk@a9361c54ca190117d5801dd09a1ab8d6d3d9bf20
-```
-
-Current known protocol debt inside the package:
-
-```text
-A2A exact revision/auth/transport/execution receipt = OPEN
-```
 
 ## MK2 state
 
@@ -183,42 +139,23 @@ Activation requires:
 ```text
 frozen MK1 schema
 + representative record coverage PASS
++ multi-agent gate PASS
 + routed UNKNOWNs
-+ protocol/multi-agent gates resolved
 + MK1 CLOSURE.md
 ```
 
 Contract: [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md).
 
-## Source/evidence anchors
-
-```text
-PRIMARY QUARRY SOURCE       NirDiamant/GenAI_Agents
-PRIMARY SNAPSHOT            4c95ae14cc2462c442b5c064cccd74430d02bc46
-MEMORY CROSS-SOURCE         Agent_Memory_Techniques@b7f7240e...
-PRODUCTION CROSS-SOURCE     agents-towards-production@141b0679...
-MCP CURRENT CONTRACT        2026-07-28
-STRANDS SNAPSHOT            a9361c54ca190117d5801dd09a1ab8d6d3d9bf20
-```
-
-Full registry: [`mining-site/SOURCES.md`](./mining-site/SOURCES.md).
-
 ## Next execution order
 
 ```text
-1. materialize REC-004 generated-code/browser
-2. materialize REC-008 data-egress
-3. materialize REC-011 memory lifecycle
-4. close A2A evidence contract
-5. execute multi-agent baseline contract / REC-012
-6. fill remaining non-redundant record pressure
-7. reconcile UNKNOWNs
-8. run schema freeze audit
-9. create MK1 CLOSURE.md
-10. activate MK2 handoff
+1. execute multi-agent baseline / materialize REC-012
+2. reconcile remaining OPEN_MK1 questions
+3. run cross-dimension + schema freeze audit
+4. decide freeze vs new explicit draft revision
+5. create MK1 CLOSURE.md
+6. activate MK2 handoff only after PASS
 ```
-
-This ordering is mirrored in [`ROADMAP.md`](./ROADMAP.md).
 
 ## Promotion state
 
@@ -228,9 +165,10 @@ MK1 NORMALIZATION            🟡 IN PROGRESS
 STRANDS SYSTEM PACKAGE       ✅ SOLIDIFIED
 RUNTIME SEMANTICS CROSSCHECK ✅ COMPLETE
 STRANDS MCP 2026-07-28       ✅ SUPPORTED / QUALIFIED
-RECORD SET                   🟡 PARTIAL
-A2A                          🟡 OPEN
-MULTI-AGENT BASELINE         🟡 OPEN
+RECORD SET                   ✅ NEAR-COMPLETE
+A2A CLASSIFICATION SHAPE     ✅ PASS / QUALIFIED
+A2A 1.0 COMPATIBILITY        ⚠️ NOT ESTABLISHED
+MULTI-AGENT BASELINE         🟡 OPEN / BLOCKING
 SCHEMA FREEZE                🔒 NOT YET
 MK2                          🔒 BLOCKED
 CANON OPERATIONAL RULES      🔒 BLOCKED BY MK2+
