@@ -4,7 +4,7 @@ Status: **MACHINE-ORIENTED CURRENT CONTEXT**
 Use: retrieval/routing guide for LLMs and agents reading `personal_knowledge`  
 Observed baseline: `2026-09-16`
 
-This file is intentionally explicit and redundant at the decision boundaries. It tells an LLM **what to read, what is current, what is historical, and what must not be inferred**.
+This file tells a machine reader **what is current, where evidence lives, and what must not be inferred**.
 
 ## Canonical routing
 
@@ -19,6 +19,7 @@ source_receipt: mining-site/S-109-strands-agents.md
 raw_processed_evidence: quarries/strands-agents.md
 runtime_crosscheck: quarries/runtime-semantics-strands-langgraph-openai.md
 mcp_execution_receipt: quarries/strands-mcp-2026-07-28-compatibility.md
+a2a_version_receipt: quarries/strands-a2a-version-drift.md
 historical_pressure_test: mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md
 schema: mk/MK1/CLASSIFICATION_SCHEMA.md
 domain_status: STATUS.md
@@ -32,17 +33,15 @@ For a general Strands question:
 1. systems/strands/README.md
 2. systems/strands/CLASSIFICATION.md
 3. systems/strands/ENGINEERING_RULES.md
-4. systems/strands/PROTOCOLS.md if protocol-related
-5. systems/strands/EVIDENCE.md if evidence/provenance is required
-6. descend into quarries/mining-site only for audit/detail
+4. systems/strands/PROTOCOLS.md when protocol-related
+5. systems/strands/EVIDENCE.md when provenance is required
+6. quarries/mining-site only for audit/detail
 ```
 
-For current repository/MK state:
+For current domain/MK state:
 
 ```text
-STATUS.md
-→ mk/MK1/GATES.md
-→ mk/MK1/UNKNOWNS.md
+STATUS.md → ROADMAP.md → mk/MK1/GATES.md
 ```
 
 ## Current facts safe to carry forward
@@ -112,19 +111,51 @@ mcp:
 
 a2a:
   framework_support_observed: true
-  exact_revision_pinned: false
-  auth_transport_execution_receipt_closed: false
+  python_dependency: ">=0.3.0,<0.4.0"
+  typescript_dependency: "^0.3.10"
+  pinned_protocol_family: "0.3"
+  current_official_protocol_family: "1.0"
+  client_server_discovery_shape: SUPPORTED
+  invoke_stream_task_fixture_source: PRESENT
+  graph_remote_agent_fixture_source: PRESENT
+  integration_workflow_scope: PRESENT
+  specific_successful_ci_receipt: NOT_VERIFIED
+  independent_rerun: NOT_RUN
+  mk1_classification_shape: PASS_QUALIFIED
+  a2a_1_0_compatibility: NOT_ESTABLISHED
 ```
 
-## Current conceptual interpretation
+## Preferred compact interpretation
 
-Use this statement as the preferred compact model:
+> Strands is an in-process agent SDK whose core Agent loop is model-directed but runtime-bounded, while the same SDK also provides deterministic and mixed orchestration forms. Its tools inherit effective authority from the application/host boundary, its state/session/memory concepts are distinct, and intervention/budget/cancellation guarantees depend on enforcement boundaries. Strands is therefore an implementation and taxonomy pressure test, not a taxonomy, security boundary or production certificate by itself.
 
-> Strands is an in-process agent SDK whose core Agent loop is model-directed but runtime-bounded, while the same SDK also provides deterministic and mixed orchestration forms. Its tools inherit effective authority from the application/host boundary, its state/session/memory concepts are distinct, and its intervention/budget/cancellation guarantees depend on where enforcement occurs. Strands is therefore a useful implementation and taxonomy pressure test, not a taxonomy, security boundary or production certificate by itself.
+## Protocol anti-overclaim rules
+
+For MCP:
+
+```text
+MCP modern-path support
+!= every MCP server/revision compatible
+!= deployment authorization correct
+!= cancellation rolls back remote effects
+```
+
+For A2A:
+
+```text
+Strands A2A support
+!= A2A 1.0 compatibility
+
+A2A 0.3 fixture source exists
+!= specific CI run passed
+!= independent reproduction passed
+```
+
+Current safe A2A claim:
+
+> The pinned Strands snapshot has A2A 0.3.x implementation/integration-fixture evidence. Current A2A is 1.0.x, and compatibility with that line is not established by this evidence set.
 
 ## Prohibited inferences
-
-Do not infer any of the following:
 
 ```yaml
 prohibited:
@@ -139,74 +170,69 @@ prohibited:
   - "MCP support means every MCP server/revision is compatible"
   - "MCP cancellation rolls back remote side effects"
   - "MCP authentication adapter proves business authorization"
-  - "A2A support has a closed revision/auth/transport receipt"
+  - "A2A support means A2A 1.0 compatibility"
+  - "A2A integration fixture in CI scope means a specific run passed"
+  - "context_id is an authentication boundary"
   - "Graph, Swarm or multi-agent improves performance without a baseline"
   - "Python and TypeScript have permanent feature parity"
 ```
 
 ## Historical-state warning
 
-Some older documents intentionally preserve the state *before* later gates closed.
+Older documents intentionally preserve earlier gate state.
 
 Examples:
 
-- `quarries/strands-agents.md` originally labels concurrency, budget-boundary and intervention-owner semantics as candidate dimensions;
-- `mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md` preserves the initial decision not to promote those fields from Strands alone;
-- those candidates were later independently confirmed and promoted in `mk1-draft-2026-09-16.1`;
-- the original Strands quarry also carried MCP `2026-07-28` execution compatibility as open debt;
-- that debt was later qualified/closed at source-evidence level by `quarries/strands-mcp-2026-07-28-compatibility.md`.
+- the first Strands pass held concurrency/budget/intervention fields as candidates;
+- independent runtime evidence later promoted them into `mk1-draft-2026-09-16.1`;
+- the original quarry carried MCP execution compatibility as open debt before the modern MCP receipt;
+- earlier system docs described A2A as unknown before the `0.3 → 1.0` version-drift receipt.
 
-When current state and historical state differ, **do not delete or ignore the historical reasoning**. Report the transition:
-
-```text
-candidate/open at T1
-→ independent evidence at T2
-→ promoted/closed/qualified at T3
-```
+When state differs across time, report the transition rather than rewriting history.
 
 ## Query routing table
 
-| User/agent question | Read first |
+| Question | Read first |
 |---|---|
-| “What is Strands?” | `systems/strands/README.md` |
-| “How should I classify a Strands system?” | `systems/strands/CLASSIFICATION.md` |
-| “What reusable lessons did Strands teach us?” | `systems/strands/ENGINEERING_RULES.md` |
-| “Does Strands support modern MCP?” | `systems/strands/PROTOCOLS.md` |
-| “What exactly was executed for MCP?” | `quarries/strands-mcp-2026-07-28-compatibility.md` |
-| “Why were concurrency/budget/enforcement fields added?” | `quarries/runtime-semantics-strands-langgraph-openai.md` |
-| “Where did this claim come from?” | `systems/strands/EVIDENCE.md` |
-| “What did we originally observe from Strands?” | `quarries/strands-agents.md` |
-| “Which exact upstream source/snapshot?” | `mining-site/S-109-strands-agents.md` |
-| “What remains unknown?” | `systems/strands/README.md` + `mk/MK1/UNKNOWNS.md` |
-| “Can MK1 close now?” | `STATUS.md` + `mk/MK1/GATES.md` |
+| What is Strands? | `systems/strands/README.md` |
+| How is Strands classified? | `systems/strands/CLASSIFICATION.md` |
+| What reusable lessons did it expose? | `systems/strands/ENGINEERING_RULES.md` |
+| What is the MCP state? | `systems/strands/PROTOCOLS.md` → MCP receipt |
+| What is the A2A state? | `systems/strands/PROTOCOLS.md` → `quarries/strands-a2a-version-drift.md` |
+| Why were concurrency/budget/enforcement fields added? | `quarries/runtime-semantics-strands-langgraph-openai.md` |
+| Where did a claim come from? | `systems/strands/EVIDENCE.md` |
+| What was originally observed? | `quarries/strands-agents.md` |
+| Which upstream snapshot? | `mining-site/S-109-strands-agents.md` |
+| What remains unknown? | `systems/strands/README.md` + `mk/MK1/UNKNOWNS.md` |
+| Can MK1 close now? | `STATUS.md` + `mk/MK1/GATES.md` |
 
 ## Evidence discipline
 
 When answering from this package:
 
-1. preserve the pinned snapshot/date when making version-sensitive claims;
+1. preserve pinned snapshot/date for version-sensitive claims;
 2. distinguish framework capability from deployed-application behavior;
-3. distinguish source-owned CI from independent reproduction;
-4. keep `UNKNOWN` when the concrete application/deployment is not described;
+3. distinguish source inspection, CI scope, specific successful run and independent reproduction;
+4. keep `UNKNOWN` when deployment/application evidence is absent;
 5. never use marketing labels as evidence;
 6. prefer normalized engineering semantics over framework vocabulary;
-7. cite the evidence layer when a claim is contested, protocol-specific or version-sensitive;
+7. trace contested/version-sensitive claims into evidence;
 8. treat `systems/strands/` as current synthesis, not as replacement for provenance.
 
-## Freshness / update trigger
+## Freshness triggers
 
-Re-open the package when any of these materially change:
+Re-open this package when any of these materially change:
 
 ```yaml
 triggers:
-  - Strands repository/runtime architecture changes
-  - session/concurrency semantics change
-  - budget/cancellation semantics change
-  - intervention/steering enforcement semantics change
-  - MCP dependency range or protocol support changes
-  - A2A revision/auth/transport becomes executable and pinned
-  - Python/TypeScript provider parity materially changes
-  - independent benchmark evidence changes multi-agent conclusions
+  - Strands runtime architecture
+  - session/concurrency semantics
+  - budget/cancellation semantics
+  - intervention/steering enforcement semantics
+  - MCP dependency range/protocol support
+  - A2A dependency/revision support, especially migration to 1.0+
+  - Python/TypeScript feature parity
+  - independent multi-agent benchmark evidence
 ```
 
-When updating, preserve previous receipts and explicitly record the state transition rather than rewriting history silently.
+Preserve previous receipts and explicitly record state transitions rather than silently rewriting history.
