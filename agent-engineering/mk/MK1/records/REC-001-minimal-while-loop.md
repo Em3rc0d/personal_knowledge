@@ -199,6 +199,6 @@ normalization_issue: none; record reinforces separation of control, capability, 
 
 ## Evidence
 
-- [`../../quarries/genai-agents.md`](../../quarries/genai-agents.md)
-- [`../../quarries/genai-agents-risk-scan.md`](../../quarries/genai-agents-risk-scan.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/genai-agents.md`](../../../quarries/genai-agents.md)
+- [`../../../quarries/genai-agents-risk-scan.md`](../../../quarries/genai-agents-risk-scan.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
