@@ -17,6 +17,7 @@ This README is the **entrypoint/index** for MK1. The schema, dimensions, rules, 
 | [`DIMENSIONS.md`](./DIMENSIONS.md) | control, capabilities, side effects, memory, HITL, retry, termination, eval, protocol, multi-agent and evidence axes |
 | [`NORMALIZATION_RULES.md`](./NORMALIZATION_RULES.md) | rules preventing framework labels, hidden assumptions and dimension collapse |
 | [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md) | prioritized systems/families and classification workflow |
+| [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | first explicit modern-framework pressure test across control, state, concurrency, budgets, interventions, eval and protocols |
 | [`UNKNOWNS.md`](./UNKNOWNS.md) | inherited and MK1-specific uncertainty register |
 | [`GATES.md`](./GATES.md) | pressure tests and closure criteria |
 
@@ -80,9 +81,20 @@ MK1 begins with:
 - reflection/self-improvement claim;
 - memory system;
 - multi-agent system;
-- legacy/current MCP comparison.
+- legacy/current MCP comparison;
+- Strands Agents as an explicit modern framework/runtime pressure test spanning model-directed loops, deterministic workflow, Graph, Swarm, state/session/memory, interventions, evals and protocol adapters.
 
 Full queue: [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md).
+
+### Current Strands result
+
+The Strands pass did **not** justify framework-specific taxonomy. It did surface three candidate qualifiers that need independent confirmation before schema mutation:
+
+1. concurrency semantics for agent/session state;
+2. budget enforcement boundary / overshoot semantics;
+3. intervention enforcement owner (runtime code vs human vs model judge vs provider/infrastructure).
+
+See [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md).
 
 ## State transition
 
