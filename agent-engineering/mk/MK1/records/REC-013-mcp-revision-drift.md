@@ -243,6 +243,6 @@ normalization_issue: confirms protocol records require revision/role/transport/a
 
 ## Evidence
 
-- [`../../quarries/cross-source-memory-production-mcp.md`](../../quarries/cross-source-memory-production-mcp.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/cross-source-memory-production-mcp.md`](../../../quarries/cross-source-memory-production-mcp.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
 - current executable Strands comparison: [`../../../systems/strands/PROTOCOLS.md`](../../../systems/strands/PROTOCOLS.md)
