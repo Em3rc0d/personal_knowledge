@@ -1,35 +1,44 @@
 # MK1 — A2A Evidence Requirements
 
-Status: **OPEN GATE SPECIFICATION**
+Status: **GATE SATISFIED / QUALIFIED FOR PINNED STRANDS 0.3 PATH**  
+Current receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md)
 
 ## Purpose
 
-Define the minimum evidence required before this domain can represent an A2A integration as a reproducible, revision-aware protocol record rather than a feature claim such as `A2A supported`.
+Define the minimum evidence required before this domain may represent an A2A integration as a revision-aware protocol record rather than a feature claim such as `A2A supported`.
 
-This is an **evidence contract**, not an A2A tutorial and not a security certification.
+This remains a reusable **evidence contract**, not an A2A tutorial and not a security certification.
 
-## Current state
+## Current gate result
 
-For the current Strands knowledge package:
+For the pinned Strands snapshot:
 
 ```text
-A2A framework capability          OBSERVED
-exact protocol revision           UNKNOWN
-implementation/version receipt    OPEN
-transport receipt                 OPEN
-identity/discovery receipt        OPEN
-authentication/authz boundary     OPEN
-invocation/task lifecycle         OPEN
-cancellation semantics            OPEN
-trace continuity                  OPEN
-execution interoperability        OPEN
+Strands snapshot                  a9361c54ca190117d5801dd09a1ab8d6d3d9bf20
+Python A2A dependency             >=0.3.0,<0.4.0
+TypeScript A2A dependency         ^0.3.10
+implementation protocol family    0.3
+current official A2A family       1.0
+client/server roles               established
+Agent Card/discovery              established
+invoke/stream/task shape          established
+state/concurrency boundary        established / qualified
+security/auth boundary            established / qualified
+integration fixture source        present
+integration workflow scope        present
+specific successful A2A CI run    NOT VERIFIED
+independent execution             NOT RUN
+A2A 1.0 compatibility             NOT ESTABLISHED
+MK1 classification-shape gate     PASS / QUALIFIED
 ```
 
-The gate remains open until a pinned path is studied.
+The gate is satisfied because the current MK1 protocol model can faithfully represent both **what is supported** and **what is not proven** without collapsing to `A2A=true`.
+
+A2A `1.0` migration/interoperability remains explicit system-version/freshness debt. It must not be reported as current compatibility until new evidence exists.
 
 ## Required receipt identity
 
-Every A2A receipt must pin:
+Every future A2A receipt must pin:
 
 ```yaml
 protocol:
@@ -48,38 +57,33 @@ role:
 observed_date:
 ```
 
-If the protocol revision cannot be established, the record remains `QUALIFIED/UNKNOWN` and cannot close this gate.
+If protocol revision cannot be established, the record remains `QUALIFIED/UNKNOWN` and cannot satisfy this evidence contract.
 
 ## Required semantic dimensions
 
 ### 1. Discovery / identity
 
-Determine what identifies a remote agent and how capabilities are discovered.
-
 Record, where applicable:
 
-- agent/card/descriptor representation;
+- Agent Card/descriptor representation;
 - endpoint identity;
 - capability declaration;
 - version or extension negotiation;
 - cache/freshness semantics;
 - trust assumptions around advertised capabilities.
 
-Do not treat metadata discovery as authorization.
+Metadata discovery is not authorization.
 
 ### 2. Transport
 
-Record the actual tested transport/path rather than `network` generically.
+Record the actual implementation path, including where known:
 
-Examples of evidence questions:
+- binding/transport;
+- request-response vs streaming behavior;
+- TLS/proxy/gateway assumptions;
+- timeouts/reconnect behavior.
 
-- HTTP/streaming/SSE/WebSocket/other?
-- request-response vs long-lived stream?
-- TLS assumptions?
-- proxy/gateway boundary?
-- timeouts/reconnect behavior?
-
-Only claim what the pinned implementation exercises.
+Only claim what the pinned implementation supports/evidences.
 
 ### 3. Authentication and authorization
 
@@ -90,106 +94,66 @@ authentication: who/what is the caller?
 authorization: is this caller allowed to invoke this agent/action?
 ```
 
-Record:
+Record credential mechanism, verification boundary, action authorization and delegated identity behavior where evidenced.
 
-- credential/token mechanism;
-- credential owner/issuer;
-- where verification occurs;
-- where action-level authorization occurs;
-- whether delegated identity is preserved;
-- whether remote agent capability claims influence authorization.
-
-If the test path is unauthenticated, state that directly.
+An isolation/correlation key such as `context_id` must not be treated as authenticated identity unless the security layer explicitly binds it.
 
 ### 4. Invocation / task lifecycle
 
-Reconstruct the protocol lifecycle relevant to work execution:
+Reconstruct the relevant lifecycle:
 
 ```text
 discover/resolve remote agent
 → create/send request/task
 → intermediate status/messages/artifacts
-→ terminal status
+→ terminal/interrupted state
 → result/artifact retrieval
 ```
 
-Identify:
-
-- task/request identifiers;
-- terminal states;
-- streaming/update semantics;
-- retry/resume behavior;
-- duplicate request behavior if known;
-- how unknown outcome is represented.
+Identify task/request IDs, streaming semantics, terminal states, retry/resume behavior and unknown outcomes where known.
 
 ### 5. Cancellation
 
-Record:
+Record how cancellation is requested, which component owns it, when it becomes effective and what terminal state follows.
 
-- how cancellation is requested;
-- which component owns it;
-- when it becomes effective;
-- whether remote work may already have executed;
-- whether cancellation is acknowledged;
-- what state is terminal afterward;
-- whether side-effect rollback is guaranteed.
-
-Default domain rule:
+Default invariant:
 
 ```text
 protocol cancellation != transactional rollback
 ```
 
-Do not weaken it without direct evidence.
+Do not weaken this without direct evidence.
 
 ### 6. Failure semantics
 
-At minimum pressure-test or inspect:
+Inspect/pressure-test relevant cases such as:
 
 - unreachable remote agent;
 - malformed/unsupported request;
 - remote execution error;
-- timeout after request dispatch;
+- timeout after dispatch;
 - disconnect during streaming;
 - duplicate/retried request;
-- authorization failure when auth exists;
-- remote terminal failure vs unknown outcome.
+- authentication/authorization failure;
+- terminal failure vs unknown outcome.
 
-The record may preserve UNKNOWNs; it must not collapse all failures into a generic exception.
+UNKNOWNs are valid; collapsing all failures into one generic exception is not.
 
 ### 7. Observability / trace continuity
 
-If tracing exists, record:
+If tracing exists, record correlation/task IDs, context propagation and whether client/server trace continuity is actually tested.
 
-- correlation/request/task ID;
-- trace/context propagation mechanism;
-- client span;
-- remote/server span;
-- whether parent/trace continuity is actually tested;
-- whether logs/receipts can reconstruct the remote action.
-
-Absence of tracing does not block protocol classification, but it remains an operational qualification.
+Absence of tracing does not block classification, but remains an operational qualification.
 
 ### 8. Extensions / optional capabilities
 
-Record optional protocol extensions separately from core revision support.
+Record optional extensions separately from core revision support:
 
 ```text
-core compatible
-!=
-every extension supported
+core protocol support != every extension supported
 ```
 
-Each material extension should identify:
-
-- name/revision;
-- role;
-- execution evidence;
-- compatibility assumptions.
-
 ## Execution evidence hierarchy
-
-Preferred evidence strength:
 
 ```text
 independent reproducible fixture
@@ -199,11 +163,23 @@ independent reproducible fixture
 > marketing/feature list
 ```
 
-MK1 can accept a qualified source-owned CI receipt when independent execution is impossible, provided the limitation is explicit, as done for the current Strands MCP receipt.
+Crucially:
 
-## Minimum executable fixture
+```text
+fixture exists
+!=
+fixture lies in CI scope
+!=
+specific CI run passed
+!=
+independent reproduction passed
+```
 
-A useful fixture should exercise at least:
+The current Strands receipt preserves those levels separately.
+
+## Minimum executable fixture for stronger future receipts
+
+A stronger execution receipt should exercise at least:
 
 ```text
 1. discover/resolve remote agent
@@ -216,7 +192,7 @@ A useful fixture should exercise at least:
 8. emit reproducibility receipt
 ```
 
-Where streaming/task updates are central to the implementation, include at least one intermediate update path.
+Where streaming/task updates are material, include an intermediate update path.
 
 ## Receipt output shape
 
@@ -243,32 +219,35 @@ protocols:
     unknowns: []
 ```
 
-## Gate pass condition
+## Gate pass semantics
 
-This MK1 gate passes when one relevant A2A path is sufficiently pinned and classified to demonstrate that the current schema can represent distributed-agent interoperability without reducing it to `A2A=true`.
+The MK1 gate passes when one relevant A2A path is sufficiently pinned/classified to prove the current schema can represent distributed-agent interoperability without reducing it to `A2A=true`.
 
-The gate does **not** require:
+The current Strands 0.3 receipt satisfies that requirement **in qualified form**.
+
+The gate does not require:
 
 - universal A2A compatibility;
+- current/future revision compatibility without evidence;
 - every framework implementation;
 - penetration testing;
 - production SLOs;
 - exactly-once semantics;
 - remote side-effect rollback.
 
-Those belong to deployment/project evidence or later MKs.
+## Current non-claim
+
+Do not infer:
+
+```text
+MK1 A2A gate PASS / QUALIFIED
+→ Strands A2A 1.0 compatible
+```
+
+The latter remains **NOT ESTABLISHED**.
 
 ## Promotion consequence
 
-If the A2A receipt fits the existing protocol schema, no schema change is required.
+The current receipt fits existing protocol semantics, so no framework-specific or A2A-specific top-level dimension is required.
 
-If a material semantic difference cannot be represented, apply the normal MK1 admission rule before changing the schema:
-
-1. material engineering impact;
-2. existing dimensions cannot represent it cleanly;
-3. independent evidence/counterexample;
-4. no duplicate dimension.
-
-## Expected current target
-
-Strands is the natural first candidate because its current package already records A2A as an unresolved protocol surface. This is a work-order choice, not a claim that Strands defines A2A semantics.
+If a future A2A revision exposes a material distinction the frozen schema cannot represent, apply the normal MK1/revision-reopen discipline rather than silently patching downstream MK2 artifacts.
