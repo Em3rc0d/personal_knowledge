@@ -1,6 +1,7 @@
 # MK1 — Normalized Dimensions
 
-Status: **OPEN / IN PROGRESS**
+Status: **OPEN / IN PROGRESS**  
+Aligned schema: **`mk1-draft-2026-09-16.1`**
 
 MK1 replaces one-dimensional labels such as `agent`, `multi-agent`, `LangGraph agent` or `self-improving` with orthogonal engineering dimensions.
 
@@ -78,7 +79,7 @@ S4  irreversible/high-impact mutation
 
 Side-effect class is independent of autonomy. A deterministic workflow may be S4; an autonomous research agent may remain S0/S1.
 
-## 4. State / checkpoint / persistence / memory
+## 4. State / checkpoint / persistence / concurrency / memory
 
 ### Runtime state
 
@@ -92,6 +93,39 @@ Serialized runtime state at an execution boundary.
 
 Durability mechanism for state/checkpoints.
 
+### Concurrency semantics
+
+Persistence does not answer whether simultaneous execution is safe.
+
+Record separately when material:
+
+```text
+invocation concurrency
+writer model
+conflict/merge semantics
+locking/serialization mechanism
+```
+
+Representative normalized values:
+
+- `serial_only` — overlapping invocation is rejected or unsupported;
+- `concurrent` — overlapping work is supported without a framework-level bound;
+- `bounded_concurrent` — runtime/config limits concurrency;
+- `single_writer` — one writer owns a state/session scope;
+- `multi_writer` — multiple writers can update state;
+- `reducer_merge` — concurrent updates are reconciled by an explicit reducer/merge function;
+- `optimistic` / `locked` — conflicts are controlled by version checks or locking;
+- `framework_defined` — semantics exist but do not map safely to a stronger normalized claim;
+- `unknown` — evidence is insufficient.
+
+Cross-runtime evidence:
+
+- Strands documents overlapping-invocation/session-writer constraints;
+- LangGraph requires explicit reducer semantics for conflicting parallel state updates;
+- OpenAI Agents SDK separately controls local function-tool concurrency from provider-side parallel tool calls.
+
+Therefore concurrency belongs under **state/runtime semantics**, not as an infrastructure footnote.
+
 ### Memory
 
 Information intentionally retained and recalled under a lifecycle/retrieval policy.
@@ -102,9 +136,9 @@ External source material retrieved to answer or ground the task.
 
 ### Normalization rule
 
-Never infer semantic memory solely because a framework object is named `MemorySaver`, `Store` or similar.
+Never infer semantic memory solely because a framework object is named `MemorySaver`, `Store` or similar. Never infer concurrency safety solely because state is durable.
 
-## 5. Human control
+## 5. Human control and intervention enforcement
 
 ```text
 H0  none
@@ -117,6 +151,31 @@ H4  dispatcher-enforced authorization receipt
 `H4` is strongest because orchestration bypass does not bypass the policy boundary.
 
 Human review in one part of a graph does not imply that every consequential tool is protected.
+
+### Enforcement owner
+
+Two systems can both claim `guardrails` while providing materially different guarantees. Record who/what owns enforcement:
+
+```text
+runtime_code
+human
+model_judge
+provider_guardrail
+infrastructure
+mixed
+unknown
+```
+
+Also record `enforcement_boundary`: where the check sits relative to the model call, tool call, handoff or external side effect.
+
+Examples:
+
+- a blocking pre-dispatch runtime check can prevent a side effect from starting;
+- a parallel model/guardrail check may discover a violation after model/tool work has begun;
+- a human interrupt inside the consequential tool can gate the dispatcher;
+- an LLM steering/judge layer is probabilistic guidance unless backed by a deterministic authorization boundary.
+
+`enforcement_owner` complements, but does not replace, `dispatcher_enforcement` and `approval_binding`.
 
 ## 6. Error and retry semantics
 
@@ -150,7 +209,7 @@ A prose error such as `temporarily unavailable, try again` is not a retry contra
 
 Mutating retries require idempotency, verification or a compensating strategy.
 
-## 7. Termination
+## 7. Termination and budget enforcement
 
 Record separately:
 
@@ -165,6 +224,37 @@ Record separately:
 - external cancellation.
 
 A recursion limit or `max_turns` is a kill switch, not a success definition.
+
+### Budget enforcement boundary
+
+A numeric limit is incomplete when the runtime can perform additional work before the limit becomes effective.
+
+For each material budget, record:
+
+```text
+value/type
+where enforcement occurs
+whether in-flight work may complete
+over/undershoot semantics
+what exception/stop reason is emitted
+```
+
+Useful boundary descriptions include:
+
+- `pre_dispatch` — checked before new model/tool work begins;
+- `loop_boundary` — checked between iterations/steps;
+- `post_turn` — evaluated after a turn has produced work;
+- `tool_local` — tool owns timeout/limit enforcement;
+- `external_supervisor` — process/runtime outside the harness owns the deadline;
+- `cooperative` — running code must observe cancellation;
+- `best_effort_remote` — remote cancellation can be requested but completion is not guaranteed;
+- `unknown`.
+
+Cross-runtime evidence shows that Strands turn/token caps, LangGraph recursion limits and OpenAI Agents SDK `max_turns`/tool timeout controls do not have identical semantics.
+
+### Cancellation
+
+`cancellation: yes` is insufficient. Record the effective boundary and whether already-running consequential work can continue.
 
 ## 8. Evaluation layers
 
@@ -248,6 +338,7 @@ The existence of an unrelated HITL node does not fill the `?`.
 
 Record evidence for:
 
+- schema revision;
 - model/provider/version;
 - dependency versions;
 - external API/protocol revision;
