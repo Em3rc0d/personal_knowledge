@@ -5,135 +5,145 @@ Schema: **`mk1-draft-2026-09-16.1`**
 
 ## Purpose
 
-This queue defines **which representative systems still need classification pressure and why**.
+This queue owns **remaining evidence/classification priority**. The authoritative record state lives in [`records/README.md`](./records/README.md); this file must not maintain a competing status ledger.
 
-The authoritative record/materialization state now lives in [`records/README.md`](./records/README.md). This file owns **priority and admission logic**, not duplicate record status.
+## Representative set
 
-## Current pressure set
-
-The original first set remains useful, but it is now tracked by record IDs:
+The original pressure set remains identified as REC-001 through REC-014. Current disposition:
 
 ```text
-REC-001 minimal while-loop agent
-REC-002 HITL approval agent
-REC-003 trace-evaluation harness
-REC-004 generated-code/browser E2E agent
-REC-005 self-healing generated-code agent
-REC-006 HR messaging agent
-REC-007 social publishing agent
-REC-008 document-intake/file-egress agent
-REC-009 DataScribe/database authority
-REC-010 reflection/self-improvement example
-REC-011 representative memory system
-REC-012 representative multi-agent system
-REC-013 legacy/current MCP comparison
-REC-014 Strands Agents SDK
+11 MATERIALIZED / QUALIFIED
+2  COVERED_BY
+1  OPEN / BLOCKING → REC-012 multi-agent
 ```
 
-See [`records/README.md`](./records/README.md) for materialized/open/blocked state.
+Registry: [`records/README.md`](./records/README.md).
 
 ## Current priority
 
-The highest remaining schema pressure is:
-
 ```text
-P0  REC-004 generated-code/browser capability composition
-P0  REC-008 document/file egress
-P0  REC-011 memory lifecycle
 P0  REC-012 multi-agent baseline/admission evidence
-P0  A2A revision/auth/transport receipt
-P1  REC-003 trace-evaluation harness
-P1  REC-009 database authority if it adds distinct dispatcher pressure
-P2  REC-005/006/007/010 only where they add non-redundant dimensions
+P1  final representative-set / COVERED_BY review
+P1  resolve freeze questions surfaced by existing records
+P1  UNKNOWN reconciliation
+P1  schema freeze audit
 ```
 
-REC-001, REC-002, REC-013 and REC-014 are already materialized/qualified.
+No other existing queue entry should be rematerialized unless new evidence exposes distinct schema pressure.
 
-## Strands pressure-test disposition
+## Closed representative pressure
 
-Strands originally surfaced three candidate qualifiers:
-
-1. concurrency semantics;
-2. budget enforcement boundary / overshoot semantics;
-3. intervention enforcement owner.
-
-Those are **no longer pending candidates**.
-
-Independent contrast against LangGraph and OpenAI Agents SDK satisfied the admission rule, and schema revision `mk1-draft-2026-09-16.1` promoted them as:
+Current records already cover:
 
 ```text
-concurrency semantics        → state
-budget enforcement semantics → termination
-intervention owner/boundary  → human_control
+REC-001 model-tool loop / shell / bounded termination
+REC-002 HITL / dispatcher-enforced mutation
+REC-003 trajectory vs outcome evaluation
+REC-004 generated code + browser + host authority
+REC-007 external publication / dry-run / idempotency
+REC-008 file/data egress / confidentiality pressure
+REC-009 database effective authority
+REC-010 reflection/adaptation vs persistent improvement
+REC-011 state/checkpoint/persistence/memory lifecycle
+REC-013 MCP revision drift
+REC-014 modern mixed-control Strands runtime
 ```
 
-Historical receipt: [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md).  
-Cross-runtime promotion evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md).
+Explicit redundancy decisions:
+
+```text
+REC-005 COVERED_BY REC-004 + REC-003
+REC-006 COVERED_BY REC-002 + REC-007
+```
+
+These decisions must be reviewed during closure, but they are not invitations to create duplicate records by default.
+
+## Protocol pressure disposition
+
+### MCP
+
+Closed/qualified for the studied paths:
+
+- legacy/current lifecycle contrast → REC-013;
+- modern Strands MCP `2026-07-28` path → canonical system package + execution receipt.
+
+### A2A
+
+The MK1 classification-shape gate is **PASS / QUALIFIED**.
+
+Pinned Strands uses A2A `0.3.x`; current official A2A is `1.0.x`. The version drift, fixture strength, auth/state boundaries and unproven current-version compatibility are representable without a new schema axis.
+
+Receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md).  
+Reusable contract: [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md).
+
+A2A `1.0` migration remains system freshness/interoperability debt, not an ordinary MK1 record-writing task.
+
+## Remaining primary evidence target — REC-012
+
+REC-012 must be created from an actual comparison, not topology description alone.
+
+Required input contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).
+
+It must preserve independently:
+
+- admission hypothesis;
+- simpler baseline;
+- topology/authority split;
+- equivalent task/evaluation contract;
+- outcome quality;
+- latency;
+- token/cost where measurable;
+- coordination failure modes;
+- termination behavior;
+- evidence confidence.
+
+A neutral or negative result is valid. The gate is about **classification quality**, not proving multi-agent superiority.
 
 ## Classification workflow
 
 ```text
-select representative record
+select evidence target
     ↓
-verify existing pinned evidence first
+verify pinned evidence first
     ↓
-re-open source only if material evidence is missing/stale
+re-open source/execute only when material evidence is missing
     ↓
 fill normalized record against current schema
     ↓
-mark unsupported facts UNKNOWN
+preserve unsupported facts as UNKNOWN
     ↓
-reconstruct capability/effect path where consequential
+reconstruct authority/effect path
     ↓
-identify schema pressure / overlap / contradiction
+identify schema pressure / overlap
     ↓
 compare against existing records
     ↓
-change schema only if admission rule is satisfied
+change schema only if admission rule passes
     ↓
-update record registry + gates/unknowns if state changed
+update registry + gates/unknowns/status when state changes
 ```
-
-## Required family coverage
-
-Before MK1 closes, the materialized record set must cover:
-
-- minimal/deterministic or model-directed control;
-- model-tool loop;
-- high-capability generated-code/browser path;
-- consequential/HITL mutation;
-- document/data-egress path;
-- database authority where distinct;
-- state/memory lifecycle;
-- evaluator/critic/evaluation path;
-- multi-agent topology + benefit evidence;
-- revision-aware protocol/integration;
-- modern runtime/framework.
-
-The closure audit may mark redundant queue entries `COVERED_BY` another record rather than creating documents for their own sake.
 
 ## Admission rule for schema changes
 
-Do not add a new top-level axis because one framework exposes a new class or field.
+Do not add a top-level axis because one framework exposes a new class or field.
 
-A schema change should be introduced only when:
+Change the schema only when:
 
 1. existing fields cannot represent a material engineering difference without distortion;
 2. the difference affects behavior, risk, reliability, evaluation or reproducibility;
-3. at least two independent examples or one strong counterexample justify it;
-4. the field does not duplicate another dimension;
+3. independent evidence or a strong counterexample supports it;
+4. it does not duplicate another dimension;
 5. change type is recorded in [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md).
 
-Framework-specific terms remain evidence vocabulary, not domain taxonomy.
+## Freeze questions generated by existing records
 
-## Separate open gates
+The next schema work is **audit**, not uncontrolled expansion. In particular:
 
-Two closure blockers are not ordinary record-writing tasks:
+- REC-008 → decide whether confidentiality/data-egress needs stronger MK1 structure or belongs to MK2 policy;
+- REC-011 → decide whether memory update-conflict/forgetting/evaluation belongs to MK1 or MK2;
+- full set → audit `horizon`, H0–H4, sandbox, evaluation and nested-agent authority for overlap/clarity.
 
-- A2A protocol receipt → [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md)
-- multi-agent baseline/admission evidence → [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)
-
-They feed both representative records and the schema freeze audit.
+More fields are not automatically better.
 
 ## Output expectation
 
@@ -141,9 +151,9 @@ MK1 ends with:
 
 ```text
 frozen framework-independent schema
-+ representative normalized records
++ complete representative coverage
 + explicit UNKNOWN routing
-+ protocol receipts
++ revision-aware protocol receipts
 + multi-agent admission evidence
 + closure receipt
 ```
