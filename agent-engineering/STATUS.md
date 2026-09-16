@@ -12,11 +12,15 @@ MK0                       CLOSED / STRUCTURED EVIDENCE PACKAGE
 MK1                       ACTIVE / STRUCTURED NORMALIZATION PACKAGE
 MK2                       BLOCKED / DESIGN PACKAGE SEEDED
 SCHEMA REVISION           mk1-draft-2026-09-16.1
+KNOWLEDGE MAP             AVAILABLE / KNOWLEDGE_MAP.md
+LLM ROUTER                AVAILABLE / LLM_CONTEXT.md
+SYSTEM PACKAGE LAYER      AVAILABLE / systems/
 PRIMARY MINING SITE       NirDiamant/GenAI_Agents
 UPSTREAM SNAPSHOT         4c95ae14cc2462c442b5c064cccd74430d02bc46
 MEMORY CROSS-SOURCE       Agent_Memory_Techniques@b7f7240e...
 PRODUCTION CROSS-SOURCE   agents-towards-production@141b0679...
 MCP CONTRACT              2026-07-28
+STRANDS SYSTEM PACKAGE    systems/strands / CURRENT CANONICAL SYNTHESIS
 STRANDS PRESSURE TEST     harness-sdk@a9361c54... / COMPLETE
 RUNTIME CROSS-SOURCE      STRANDS + LANGGRAPH + OPENAI AGENTS SDK / COMPLETE
 STRANDS MCP 2026-07-28    SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
@@ -40,6 +44,32 @@ REUSABLE RULES            CANDIDATE / NORMALIZATION IN PROGRESS
 CANON RULE CERTIFICATION  BLOCKED BY MK1/MK2+
 ```
 
+## Reading contract
+
+For current answers:
+
+```text
+STATUS.md
+→ systems/<system>/
+→ current MK schema/gates
+```
+
+For provenance/audit:
+
+```text
+current synthesis
+→ MK decision
+→ quarry
+→ source receipt
+→ pinned upstream source
+```
+
+Navigation:
+
+- human knowledge map: [`KNOWLEDGE_MAP.md`](./KNOWLEDGE_MAP.md)
+- machine/LLM router: [`LLM_CONTEXT.md`](./LLM_CONTEXT.md)
+- concrete-system packages: [`systems/`](./systems/)
+
 ## MK progression
 
 | MK | Objective | State | Package |
@@ -53,41 +83,84 @@ CANON RULE CERTIFICATION  BLOCKED BY MK1/MK2+
 
 ## Documentation architecture
 
-Each MK is a **knowledge package**, not a giant README.
+The domain now has both a maturity/evidence pipeline and a current system-view layer.
 
 ```text
-mk/
+agent-engineering/
 ├── README.md
-├── MK0/
+├── STATUS.md
+├── KNOWLEDGE_MAP.md
+├── LLM_CONTEXT.md
+├── systems/
 │   ├── README.md
-│   ├── SCOPE.md
-│   ├── ONTOLOGY.md
-│   ├── INVARIANTS.md
-│   ├── EVIDENCE.md
-│   ├── UNKNOWNS.md
-│   ├── GATES.md
-│   └── CLOSURE.md
-├── MK1/
-│   ├── README.md
-│   ├── CLASSIFICATION_SCHEMA.md
-│   ├── DIMENSIONS.md
-│   ├── NORMALIZATION_RULES.md
-│   ├── CLASSIFICATION_QUEUE.md
-│   ├── STRANDS_AGENTS_PRESSURE_TEST.md
-│   ├── UNKNOWNS.md
-│   └── GATES.md
-└── MK2/
+│   └── strands/
+│       ├── README.md
+│       ├── CLASSIFICATION.md
+│       ├── ENGINEERING_RULES.md
+│       ├── PROTOCOLS.md
+│       ├── EVIDENCE.md
+│       └── LLM_CONTEXT.md
+├── architecture/
+├── mining-site/
+├── quarries/
+└── mk/
     ├── README.md
-    ├── CONTRACT_CATALOG.md
-    ├── SCHEMAS.md
-    ├── CHECKLISTS.md
-    ├── TEST_MODEL.md
-    ├── PROMOTION_GATE.md
-    ├── BACKLOG.md
-    └── UNKNOWNS.md
+    ├── MK0/
+    │   ├── README.md
+    │   ├── SCOPE.md
+    │   ├── ONTOLOGY.md
+    │   ├── INVARIANTS.md
+    │   ├── EVIDENCE.md
+    │   ├── UNKNOWNS.md
+    │   ├── GATES.md
+    │   └── CLOSURE.md
+    ├── MK1/
+    │   ├── README.md
+    │   ├── CLASSIFICATION_SCHEMA.md
+    │   ├── DIMENSIONS.md
+    │   ├── NORMALIZATION_RULES.md
+    │   ├── CLASSIFICATION_QUEUE.md
+    │   ├── STRANDS_AGENTS_PRESSURE_TEST.md
+    │   ├── UNKNOWNS.md
+    │   └── GATES.md
+    └── MK2/
+        ├── README.md
+        ├── CONTRACT_CATALOG.md
+        ├── SCHEMAS.md
+        ├── CHECKLISTS.md
+        ├── TEST_MODEL.md
+        ├── PROMOTION_GATE.md
+        ├── BACKLOG.md
+        └── UNKNOWNS.md
 ```
 
-README files are entrypoints/indexes. Substantive knowledge is split by responsibility so provenance, gates and uncertainty remain auditable.
+README files are entrypoints/indexes. `systems/` answers “what do we know today about this concrete system?”; `quarries/` and `mining-site/` retain the evidence/history needed to audit the answer.
+
+## Canonical system views
+
+### Strands Agents
+
+Current package: [`systems/strands/`](./systems/strands/)
+
+Preferred human path:
+
+```text
+README
+→ ENGINEERING_RULES
+→ CLASSIFICATION
+→ PROTOCOLS
+→ EVIDENCE as needed
+```
+
+Preferred LLM path:
+
+```text
+systems/strands/LLM_CONTEXT.md
+→ smallest canonical document that answers the query
+→ descend to evidence only when needed
+```
+
+The package reconciles the original Strands quarry, the MK1 pressure test, the Strands/LangGraph/OpenAI runtime crosscheck and the Strands↔MCP `2026-07-28` execution receipt.
 
 ## MK0 closure evidence
 
@@ -127,6 +200,9 @@ Detailed package:
 - HITL must gate the actual consequential dispatcher when policy requires approval;
 - edited actions are new actions and must be revalidated/re-authorized;
 - state, context, checkpointing, persistence, memory and knowledge are distinct contracts;
+- persistence does not imply concurrency safety;
+- budget values require enforcement-boundary semantics;
+- intervention mechanisms require enforcement owner and consequential-dispatch coverage;
 - tool design is a first-class interface/authorization/error problem;
 - outcome verification is stronger evidence than agent narration;
 - trace evaluation is useful but does not replace outcome evaluation or repeated trials;
@@ -139,13 +215,14 @@ Detailed package:
 
 ## MK1 Strands pressure-test findings
 
-Source package:
+Source/evidence package:
 
+- current synthesis: [`systems/strands/README.md`](./systems/strands/README.md)
 - source receipt: [`mining-site/S-109-strands-agents.md`](./mining-site/S-109-strands-agents.md)
 - processed quarry: [`quarries/strands-agents.md`](./quarries/strands-agents.md)
-- normalized pressure test: [`mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md`](./mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md)
+- historical normalized pressure test: [`mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md`](./mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md)
 
-The Strands pass exposed three candidate qualifiers:
+The initial Strands pass exposed three candidate qualifiers:
 
 1. concurrency semantics;
 2. budget enforcement boundary;
@@ -176,6 +253,7 @@ This strengthens, rather than replaces, existing fields such as `replay_semantic
 
 ## Strands × MCP `2026-07-28` compatibility gate — 2026-09-16
 
+Current canonical protocol view: [`systems/strands/PROTOCOLS.md`](./systems/strands/PROTOCOLS.md)  
 Detailed receipt: [`quarries/strands-mcp-2026-07-28-compatibility.md`](./quarries/strands-mcp-2026-07-28-compatibility.md).
 
 The previous `exact Strands/MCP execution compatibility` unknown is now closed at the current source-evidence level.
@@ -260,6 +338,7 @@ MK2 has a visible design package at [`mk/MK2/`](./mk/MK2/) so the handoff is exp
 ```text
 MK0 FRAME / EVIDENCE BASE    ✅ CLOSED
 MK1 NORMALIZATION            🟡 IN PROGRESS
+STRANDS SYSTEM PACKAGE       ✅ CURRENT SYNTHESIS AVAILABLE
 STRANDS PRESSURE TEST        ✅ COMPLETE
 RUNTIME SEMANTICS CROSSCHECK ✅ COMPLETE
 STRANDS MCP 2026-07-28       ✅ SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
