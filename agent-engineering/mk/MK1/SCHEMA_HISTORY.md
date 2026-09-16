@@ -37,7 +37,7 @@ Characteristics:
 
 Pressure source:
 
-- initial tutorial-derived records;
+- initial tutorial-derived evidence;
 - Strands Agents first pressure test.
 
 Resolution:
@@ -46,8 +46,8 @@ Strands surfaced candidate qualifiers, but no schema change was promoted from on
 
 ### `mk1-draft-2026-09-16.1`
 
-State: **ACTIVE DRAFT**  
-Change type: **ADDITIVE + CLARIFYING**
+State: **ACTIVE DRAFT / FREEZE CANDIDATE**  
+Change type from prior draft: **ADDITIVE + CLARIFYING**
 
 Added/strengthened:
 
@@ -71,7 +71,7 @@ Evidence basis:
 - LangGraph;
 - OpenAI Agents SDK.
 
-Cross-runtime decision:
+Cross-runtime result:
 
 ```text
 concurrency semantics        PROMOTED under state
@@ -81,21 +81,52 @@ intervention owner/boundary  PROMOTED under human_control
 
 Why additive:
 
-Prior records remain meaningful; newly promoted fields can remain `unknown` until reclassified from evidence.
+Prior records remain meaningful; newly promoted fields may remain `unknown` where evidence does not establish them.
 
-Additional pressure already survived:
+## Pressure already survived by this draft
 
-- Strands MCP `2026-07-28` revision-aware classification;
-- separation of protocol interoperability, authorization and cancellation/rollback.
+The current revision now classifies materially distinct families without adding framework-specific top-level axes:
 
-Still required before freeze:
+```text
+model-tool loop / general shell
+HITL / dispatcher enforcement
+trajectory vs outcome evaluation
+generated-code execution + browser authority
+external publication / safe mode / idempotency
+data egress / confidentiality pressure
+database effective authority
+reflection/adaptation vs persistent improvement
+state/checkpoint/persistence/memory lifecycle
+MCP legacy/current revision drift
+Strands modern mixed runtime
+A2A 0.3 implementation vs current A2A 1.0 version drift
+```
 
-- representative record family coverage;
-- A2A reproducibility receipt;
-- multi-agent admission/baseline evidence;
-- duplicate/overlap audit;
-- UNKNOWN reconciliation;
-- MK2 derivability audit.
+Record state:
+
+```text
+11 MATERIALIZED / QUALIFIED
+2  COVERED_BY
+1  OPEN → REC-012 multi-agent baseline
+```
+
+Protocol pressure:
+
+- Strands MCP `2026-07-28` fits the protocol model with modern execution evidence;
+- A2A classification-shape gate fits the same model in qualified form while preserving `0.3 → 1.0` drift and incomplete execution receipt;
+- no MCP- or A2A-specific top-level category has been required.
+
+## Still required before freeze
+
+```text
+1. materialize REC-012 from actual multi-agent baseline/admission evidence
+2. run final representative-set / COVERED_BY review
+3. reconcile every material OPEN_MK1 unknown
+4. decide cross-dimension questions surfaced by REC-008/REC-011 and other records
+5. verify no duplicated or framework-accidental fields remain
+6. verify MK2 contract families map to stable MK1 semantics
+7. record final schema delta and closure receipt
+```
 
 Potential freeze target:
 
@@ -105,30 +136,57 @@ mk1-v1
 
 Do not create that name until `GATES.md` + `CLOSURE_PLAN.md` pass.
 
+## Explicit freeze questions
+
+The final audit must decide, with evidence rather than aesthetic preference:
+
+- whether `horizon` remains nested under control or becomes independently modeled;
+- whether `data_egress` plus S0–S4 is sufficient or confidentiality/data-classification needs stronger MK1 structure;
+- whether memory update-conflict/forgetting/evaluation belongs in MK1 classification or MK2 operational contracts;
+- whether `sandbox` needs capability-specific qualifiers at classification depth;
+- whether H0–H4 adds useful shorthand beyond enforcement-owner/boundary/dispatcher fields;
+- whether evaluation fields remain sufficiently orthogonal without an ordinal maturity score;
+- whether nested child-agent authority is representable without framework-specific fields.
+
+A question may be resolved by **keeping the existing schema and routing operational detail to MK2**. More fields are not automatically better.
+
 ## Freeze procedure
 
-1. materialize required representative records;
-2. run cross-dimension audit;
-3. close/route material UNKNOWNs;
-4. classify any proposed field change as additive/clarifying/breaking;
-5. re-run affected records if schema changed;
-6. verify MK2 contract families map to stable fields;
-7. record final diff from active draft;
-8. create MK1 `CLOSURE.md`;
-9. declare frozen revision in `STATUS.md` and MK2 handoff.
+1. materialize REC-012;
+2. complete representative-set review;
+3. close/qualify/route material UNKNOWNs;
+4. run cross-dimension audit;
+5. classify any proposed schema change as additive/clarifying/breaking;
+6. rerun only affected records if the schema changes;
+7. verify MK2 contract families map to stable fields;
+8. record final diff from this active draft;
+9. create MK1 `CLOSURE.md`;
+10. declare the frozen revision in `STATUS.md` and MK2 handoff.
 
 ## Migration rule
 
-If a breaking draft becomes necessary before MK1 closes:
+If a new draft becomes necessary before closure:
 
-- keep old revision in this ledger;
-- state why existing semantics failed;
+- retain this revision in the ledger;
+- state exactly why existing semantics failed;
 - identify impacted records;
 - migrate only records whose interpretation changes;
-- do not silently reinterpret old historical pressure tests.
+- never silently reinterpret historical pressure tests.
+
+## Reopen rule after freeze
+
+A frozen schema may be superseded later only when new evidence demonstrates a material classification failure, not merely because a framework introduces a new feature name.
+
+A reopen must identify:
+
+```text
+new evidence
+→ failed existing representation
+→ material engineering consequence
+→ proposed change type
+→ impacted records/contracts
+```
 
 ## LLM rule
 
-When a record names a schema revision, interpret it against that revision first.
-
-For current comparison, normalize forward using documented additive/clarifying changes. Never assume an old omitted field had a favorable value.
+Interpret a record against the schema revision it names. For current comparison, normalize forward only through documented additive/clarifying changes. Never infer a favorable value for an omitted historical field.
