@@ -1,6 +1,6 @@
 # Agent Engineering — Status
 
-Updated: 2026-09-07
+Updated: 2026-09-16
 
 ## Current gate
 
@@ -16,6 +16,7 @@ UPSTREAM SNAPSHOT         4c95ae14cc2462c442b5c064cccd74430d02bc46
 MEMORY CROSS-SOURCE       Agent_Memory_Techniques@b7f7240e...
 PRODUCTION CROSS-SOURCE   agents-towards-production@141b0679...
 MCP CONTRACT              2026-07-28
+STRANDS PRESSURE TEST     harness-sdk@a9361c54... / COMPLETE FOR CURRENT PASS
 LICENSE BOUNDARY          RECORDED / S-001 NON-COMMERCIAL CUSTOM LICENSE
 REPOSITORY INVENTORY      COMPLETE FOR MK0
 NORMALIZED INVENTORY      SEED COMPLETE
@@ -26,6 +27,9 @@ HITL / SIDE EFFECTS       MK0 FRAME COMPLETE
 TRACE EVALUATION          MK0 FRAME COMPLETE
 MEMORY / PERSISTENCE      CROSS-SOURCE FRAME COMPLETE
 MULTI-AGENT               QUALIFIED / MK1 NORMALIZATION OPEN
+CONCURRENCY SEMANTICS     NEW MK1 CANDIDATE / NEEDS SECOND SOURCE
+BUDGET ENFORCEMENT        NEW MK1 CANDIDATE / NEEDS SECOND SOURCE
+INTERVENTION OWNER        NEW MK1 CANDIDATE / CROSS-CHECK PENDING
 CAPABILITY / RISK SCAN    COMPLETE FOR MK0
 THREAT MODEL              MK0 SEED COMPLETE
 SCIENTIFIC CONTRAST       COMPLETE FOR MK0
@@ -66,6 +70,7 @@ mk/
 │   ├── DIMENSIONS.md
 │   ├── NORMALIZATION_RULES.md
 │   ├── CLASSIFICATION_QUEUE.md
+│   ├── STRANDS_AGENTS_PRESSURE_TEST.md
 │   ├── UNKNOWNS.md
 │   └── GATES.md
 └── MK2/
@@ -129,6 +134,29 @@ Detailed package:
 - protocol revision belongs in integration evidence;
 - production readiness is a vector of evidence, not a label.
 
+## MK1 Strands pressure-test findings
+
+Source package:
+
+- source receipt: [`mining-site/S-109-strands-agents.md`](./mining-site/S-109-strands-agents.md)
+- processed quarry: [`quarries/strands-agents.md`](./quarries/strands-agents.md)
+- normalized pressure test: [`mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md`](./mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md)
+
+The Strands pass validates the current framework-independent direction and does **not** justify framework-specific top-level dimensions. It does expose three candidate qualifiers requiring independent confirmation before schema mutation:
+
+1. **concurrency semantics** — one-live-writer/session and overlapping invocation behavior are material state properties;
+2. **budget enforcement boundary** — a nominal turn/token/time budget is incomplete without its soft/hard enforcement and overshoot semantics;
+3. **intervention enforcement owner** — deterministic runtime checks, human confirmation, model-judge steering and provider/infrastructure guardrails have different guarantees.
+
+Additional strengthened findings:
+
+- session persistence, context management and cross-session memory remain distinct;
+- host-process tool permission inheritance makes containment an external architectural concern;
+- structured output validates shape, not semantic truth;
+- cancellation must record where interruption becomes effective;
+- protocol support must remain version/auth/transport aware;
+- production-capable framework features do not certify a specific application.
+
 ## Known UNKNOWNs transferred beyond MK0
 
 These do not invalidate MK0 closure because they require normalization, operationalization or execution evidence:
@@ -143,7 +171,12 @@ These do not invalidate MK0 closure because they require normalization, operatio
 8. project-specific memory quality/isolation/retention behavior;
 9. benchmarked multi-agent benefit for individual topologies;
 10. project-specific deployment/rollback/SLO/incident evidence;
-11. per-language MCP SDK migration details beyond protocol-level contradiction.
+11. per-language MCP SDK migration details beyond protocol-level contradiction;
+12. independent confirmation of concurrency semantics as an MK1 schema qualifier;
+13. independent confirmation of budget enforcement/overshoot semantics;
+14. deterministic HITL vs LLM-steering comparison across independent systems;
+15. executable Strands/MCP compatibility evidence against the pinned `2026-07-28` protocol contract;
+16. A2A revision/auth/transport receipt for reproducible distributed-agent classification.
 
 Canonical registers:
 
@@ -163,6 +196,14 @@ Immediate queue: [`mk/MK1/CLASSIFICATION_QUEUE.md`](./mk/MK1/CLASSIFICATION_QUEU
 
 The current work is to pressure-test the classification schema against representative systems, resolve overlapping dimensions, preserve unknowns and freeze a schema revision suitable for MK2 input.
 
+Next evidence after the Strands pass:
+
+- test concurrency semantics against another independent runtime;
+- test budget enforcement semantics against another framework/runtime;
+- compare deterministic approval gates with model-mediated steering;
+- execute a protocol-focused Strands/MCP fixture;
+- benchmark a Strands multi-agent topology against a simpler baseline before deriving any performance rule.
+
 ## MK2 state
 
 MK2 has a visible design package at [`mk/MK2/`](./mk/MK2/) so the handoff is explicit. It is **not active** and its schemas/contracts are not canon until MK1 closes.
@@ -172,6 +213,7 @@ MK2 has a visible design package at [`mk/MK2/`](./mk/MK2/) so the handoff is exp
 ```text
 MK0 FRAME / EVIDENCE BASE   ✅ CLOSED
 MK1 NORMALIZATION           🟡 IN PROGRESS
+STRANDS PRESSURE TEST       ✅ CURRENT PASS COMPLETE
 MK2 OPERATIONALIZATION      🔒 BLOCKED / DESIGN SEEDED
 CANON RULE CERTIFICATION    🔒 BLOCKED
 CURRENT BRANCH MERGE        🔒 PENDING REVIEW
