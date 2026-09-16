@@ -18,9 +18,18 @@ This README is the **entrypoint/index** for MK1. The schema, dimensions, rules, 
 | [`DIMENSIONS.md`](./DIMENSIONS.md) | control, capabilities, side effects, state/concurrency, memory, HITL, retry, termination, eval, protocol, multi-agent and evidence axes |
 | [`NORMALIZATION_RULES.md`](./NORMALIZATION_RULES.md) | rules preventing framework labels, hidden assumptions and dimension collapse |
 | [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md) | prioritized systems/families and classification workflow |
-| [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | first explicit modern-framework pressure test across control, state, concurrency, budgets, interventions, eval and protocols |
+| [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | **historical first-pass receipt** showing how Strands surfaced schema pressure before independent promotion |
 | [`UNKNOWNS.md`](./UNKNOWNS.md) | inherited and MK1-specific uncertainty register |
 | [`GATES.md`](./GATES.md) | pressure tests and closure criteria |
+
+Current system-level synthesis should be read from [`../../systems/`](../../systems/) rather than reconstructed from historical pressure-test documents.
+
+For Strands specifically:
+
+- human entrypoint: [`../../systems/strands/README.md`](../../systems/strands/README.md)
+- normalized current profile: [`../../systems/strands/CLASSIFICATION.md`](../../systems/strands/CLASSIFICATION.md)
+- machine/LLM context: [`../../systems/strands/LLM_CONTEXT.md`](../../systems/strands/LLM_CONTEXT.md)
+- provenance map: [`../../systems/strands/EVIDENCE.md`](../../systems/strands/EVIDENCE.md)
 
 ## Mission
 
@@ -90,7 +99,7 @@ Full queue: [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md).
 
 ## Runtime-semantics crosscheck
 
-The Strands pass surfaced three schema questions:
+The initial Strands pass surfaced three schema questions:
 
 1. concurrency semantics for agent/session state;
 2. budget enforcement boundary / overshoot semantics;
@@ -109,6 +118,12 @@ intervention owner/boundary  → human_control
 Evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md).
 
 No framework-specific top-level category was introduced.
+
+### Historical-document rule
+
+`STRANDS_AGENTS_PRESSURE_TEST.md` intentionally preserves the state before independent confirmation. If it says a field is a candidate or MCP execution is still open, interpret that as the **historical gate state at the time of the first pressure test**, not the current domain state.
+
+For current state, prefer `systems/strands/`, this README, `GATES.md`, `UNKNOWNS.md` and `STATUS.md`.
 
 ## Strands × MCP `2026-07-28` protocol gate
 
@@ -155,6 +170,7 @@ MK0 = CLOSED
 MK1 = IN PROGRESS
 RUNTIME SEMANTICS CROSSCHECK = PASS
 STRANDS MCP 2026-07-28 = SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
+STRANDS CANONICAL SYSTEM PACKAGE = AVAILABLE
 SCHEMA = mk1-draft-2026-09-16.1
 MK2 = BLOCKED / DESIGN SEEDED
 CANON OPERATIONAL RULES = NOT YET
