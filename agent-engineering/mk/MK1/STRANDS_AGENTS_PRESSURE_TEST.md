@@ -1,10 +1,44 @@
 # MK1 Pressure Test — Strands Agents
 
-Status: **ACTIVE EVIDENCE / NOT SCHEMA-CLOSING**  
+Status: **HISTORICAL PRESSURE-TEST RECEIPT / SUBSEQUENT GATES RESOLVED**  
 Observed: **2026-09-16**  
 Primary source snapshot: `strands-agents/harness-sdk@a9361c54ca190117d5801dd09a1ab8d6d3d9bf20`
 
-Detailed quarry: [`../../quarries/strands-agents.md`](../../quarries/strands-agents.md)
+Detailed quarry: [`../../quarries/strands-agents.md`](../../quarries/strands-agents.md)  
+Current canonical synthesis: [`../../systems/strands/README.md`](../../systems/strands/README.md)
+
+## Resolution notice
+
+This file intentionally preserves the **first MK1 pressure-test state**. It is valuable because it shows which distinctions Strands surfaced *before* they had independent support.
+
+Do not use the candidate/UNKNOWN labels below as the current status.
+
+Subsequent evidence resolved the major debts from this first pass:
+
+```text
+concurrency semantics
+  → independently confirmed with LangGraph + OpenAI Agents SDK
+  → PROMOTED under state
+
+budget enforcement boundary
+  → independently confirmed with LangGraph + OpenAI Agents SDK
+  → PROMOTED under termination
+
+intervention enforcement owner/boundary
+  → independently confirmed with LangGraph + OpenAI Agents SDK
+  → PROMOTED under human_control
+
+Strands ↔ MCP 2026-07-28 core compatibility
+  → modern-only lifecycle fixture + upstream CI + trace receipt
+  → SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
+```
+
+Current schema: [`./CLASSIFICATION_SCHEMA.md`](./CLASSIFICATION_SCHEMA.md) — `mk1-draft-2026-09-16.1`  
+Cross-runtime receipt: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md)  
+MCP receipt: [`../../quarries/strands-mcp-2026-07-28-compatibility.md`](../../quarries/strands-mcp-2026-07-28-compatibility.md)  
+Current Strands classification: [`../../systems/strands/CLASSIFICATION.md`](../../systems/strands/CLASSIFICATION.md)
+
+The unresolved multi-agent benchmark question remains open.
 
 ## Purpose
 
@@ -12,7 +46,9 @@ Pressure-test the MK1 classification schema against a modern framework that inte
 
 The record below classifies the **SDK family and its built-in architecture surfaces**, not a specific deployed application. Application-dependent fields stay `variable` or `UNKNOWN` rather than being inferred from framework capability.
 
-## Normalized classification
+## Historical normalized classification at first pass
+
+The YAML below is preserved as the classification **before** `mk1-draft-2026-09-16.1` added the cross-runtime qualifiers. For the current normalized record, use [`../../systems/strands/CLASSIFICATION.md`](../../systems/strands/CLASSIFICATION.md).
 
 ```yaml
 identity:
@@ -179,15 +215,15 @@ unknowns:
   - cross-language feature parity over time
 ```
 
-## Pressure-test result
+## Pressure-test result at first pass
 
-The existing schema represents most Strands surfaces without framework-specific fields. No framework label needs promotion to a top-level dimension.
+The existing schema represented most Strands surfaces without framework-specific fields. No framework label needed promotion to a top-level dimension.
 
-However, Strands exposes two material distinctions not currently represented cleanly enough.
+However, Strands exposed material distinctions that were not represented cleanly enough.
 
 ### Candidate 1 — concurrency semantics
 
-Current schema records persistence and replay but not whether concurrent invocations/writers are valid.
+At this point in the investigation, the schema recorded persistence and replay but not whether concurrent invocations/writers were valid.
 
 Evidence pressure:
 
@@ -207,13 +243,15 @@ state:
     conflict_semantics:
 ```
 
-**Decision:** do **not** add yet. Seek a second independent system or a stronger counterexample before changing the top-level schema.
+**Historical decision:** do **not** add yet. Seek a second independent system or a stronger counterexample before changing the schema.
+
+**Final outcome:** independently confirmed and promoted under `state`.
 
 ### Candidate 2 — budget enforcement semantics
 
-Current schema can say `turn_budget` or `token_budget`, but not whether that budget is a hard wall or a soft boundary.
+The old schema could say `turn_budget` or `token_budget`, but not whether that budget was a hard wall or a soft boundary.
 
-Strands demonstrates:
+Strands demonstrated:
 
 - caps are checked between loop cycles;
 - a single model response may overshoot token limits;
@@ -238,7 +276,9 @@ termination:
       cancellation_boundary:
 ```
 
-**Decision:** keep as MK1 pressure-test debt until independently confirmed.
+**Historical decision:** keep as MK1 pressure-test debt until independently confirmed.
+
+**Final outcome:** independently confirmed and promoted under `termination`.
 
 ### Candidate 3 — intervention enforcement owner
 
@@ -251,7 +291,9 @@ human_control:
   enforcement_owner: runtime_code | human | model_judge | provider_guardrail | infrastructure | mixed
 ```
 
-**Decision:** likely useful, but test against HITL examples already in the queue before schema mutation.
+**Historical decision:** likely useful, but test against independent HITL/guardrail systems before schema mutation.
+
+**Final outcome:** independently confirmed and promoted under `human_control` with `enforcement_boundary` while retaining `dispatcher_enforcement`.
 
 ## Invariant decisions
 
@@ -273,14 +315,14 @@ human_control:
 - observability support does not equal adequate production monitoring;
 - deployment guidance does not equal application certification.
 
-## MK1 action
+## Original MK1 action list and current resolution
 
-Use Strands as the first explicit **framework pressure test** after the tutorial-derived examples because it stresses multiple dimensions simultaneously without requiring framework identity as taxonomy.
+The first pass required:
 
-Do not close MK1 from this record alone. Required next evidence:
+1. **pressure-test concurrency semantics against another independent runtime** — ✅ completed via LangGraph + OpenAI Agents SDK;
+2. **pressure-test budget enforcement against another framework/runtime** — ✅ completed via LangGraph + OpenAI Agents SDK;
+3. **compare deterministic HITL enforcement vs LLM steering** — ✅ completed through the cross-runtime enforcement-owner/boundary pass;
+4. **execute a protocol-focused Strands/MCP compatibility fixture against the domain-pinned protocol revision** — ✅ completed at `SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED` source-evidence level;
+5. **benchmark at least one Strands multi-agent topology against a single-agent baseline before deriving any performance rule** — 🟡 still open.
 
-1. pressure-test concurrency semantics against another independent runtime;
-2. pressure-test budget enforcement against another framework/runtime;
-3. compare deterministic HITL enforcement vs LLM steering;
-4. execute a protocol-focused Strands/MCP compatibility fixture against the domain-pinned protocol revision;
-5. benchmark at least one Strands multi-agent topology against a single-agent baseline before deriving any performance rule.
+This historical receipt therefore explains **why** the current schema and Strands package look the way they do, while current-state retrieval should use [`../../systems/strands/`](../../systems/strands/).
