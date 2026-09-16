@@ -215,6 +215,6 @@ normalization_issue: confirms publication/communication capability, side-effect 
 
 ## Evidence
 
-- [`../../quarries/genai-agents-risk-scan.md`](../../quarries/genai-agents-risk-scan.md)
-- [`../../quarries/genai-agents-p0-p1-callpaths.md`](../../quarries/genai-agents-p0-p1-callpaths.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/genai-agents-risk-scan.md`](../../../quarries/genai-agents-risk-scan.md)
+- [`../../../quarries/genai-agents-p0-p1-callpaths.md`](../../../quarries/genai-agents-p0-p1-callpaths.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
