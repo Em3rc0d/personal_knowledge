@@ -15,8 +15,29 @@ mk1: IN_PROGRESS
 mk2: BLOCKED_DESIGN_SEEDED
 current_schema: mk1-draft-2026-09-16.1
 canonical_status: STATUS.md
+execution_roadmap: ROADMAP.md
+repository_contract: REPOSITORY_CONTRACT.md
 human_map: KNOWLEDGE_MAP.md
 ```
+
+## First routing decision
+
+Before retrieving detail, classify the user's intent:
+
+```yaml
+intent:
+  current_state: STATUS.md
+  next_work: ROADMAP.md
+  repository_semantics: REPOSITORY_CONTRACT.md
+  system_specific_current: systems/<system>/LLM_CONTEXT.md
+  classification_semantics: mk/MK1/README.md + schema/dimensions
+  record_status: mk/MK1/records/README.md
+  closure_blockers: mk/MK1/CLOSURE_PLAN.md + GATES.md + UNKNOWNS.md
+  provenance: systems/*/EVIDENCE.md -> quarries -> mining-site
+  next_mk_input: mk/MK2/HANDOFF_CONTRACT.md
+```
+
+Do not load raw quarries first for a current-state question when a canonical system/MK entrypoint exists.
 
 ## Folder semantics
 
@@ -25,9 +46,10 @@ folders:
   systems:
     role: current system-specific synthesis
     canonical_for: current interpretation of a concrete framework/runtime
+    package_contract: systems/PACKAGE_SPEC.md
   mk:
     role: maturity pipeline and normalized domain canon
-    canonical_for: schemas, dimensions, gates, promoted vocabulary
+    canonical_for: schemas, dimensions, records, gates, promoted vocabulary
   architecture:
     role: cross-system architecture/threat artifacts
   quarries:
@@ -40,31 +62,39 @@ folders:
 
 ## Current-state precedence
 
-When two documents appear inconsistent because research progressed over time, prefer:
+When documents conflict because research progressed over time:
 
 ```text
 1. STATUS.md
 2. systems/<system>/ current synthesis
-3. active/frozen MK schema + GATES + UNKNOWNS
+3. active/frozen MK schema + records + GATES + UNKNOWNS
 4. quarries/
 5. mining-site/ source receipts
 ```
 
-This precedence answers **what is current**. It does not replace evidence tracing.
+For **work priority**:
+
+```text
+1. ROADMAP.md
+2. active MK CLOSURE_PLAN.md
+3. active MK CLASSIFICATION_QUEUE.md / specialized gate spec
+```
+
+These precedence rules answer **what is current / what is next**. They do not replace evidence tracing.
 
 ## Provenance traversal
 
 For “why?”, “source?”, “evidence?”, “how was this decided?” questions:
 
 ```text
-current synthesis
+current synthesis/record
 → MK decision/gate
 → quarry/cross-source synthesis
 → mining-site source receipt
-→ pinned upstream source/spec
+→ pinned upstream source/spec/test
 ```
 
-Never cite a current synthesis as if it were the original external source.
+Never present a current synthesis as though it were the original external source.
 
 ## Reasoning-state vocabulary
 
@@ -85,11 +115,37 @@ Provenance vocabulary:
 OFFICIAL | OBSERVED | INFERRED | INSPIRED | GENERATED
 ```
 
-Do not silently turn `UNKNOWN` into a likely guess.
+Do not silently turn `UNKNOWN` into a probable/favorable default.
 
-## Core domain rules currently safe to use
+## Current live snapshot
 
-These are high-confidence working principles carried through MK0/MK1. They are not all operationally certified until later MKs.
+```yaml
+mk1:
+  state: IN_PROGRESS
+  schema: mk1-draft-2026-09-16.1
+  materialized_records:
+    - REC-001 minimal while-loop
+    - REC-002 HITL approval
+    - REC-013 MCP revision drift
+    - REC-014 Strands Agents
+  blockers:
+    - generated-code/browser high-capability record
+    - data-egress record
+    - dedicated memory record
+    - evaluation/critic pressure
+    - A2A reproducibility receipt
+    - multi-agent baseline/admission evidence
+    - final schema freeze audit
+mk2:
+  state: BLOCKED_DESIGN_SEEDED
+  handoff: mk/MK2/HANDOFF_CONTRACT.md
+```
+
+For newer state, defer to `STATUS.md`.
+
+## Core domain rules safe as working knowledge
+
+These are high-confidence working principles carried through MK0/MK1. They are not automatically operational certification until MK2+.
 
 ```yaml
 principles:
@@ -99,41 +155,61 @@ principles:
   - model intent and runtime authorization are distinct
   - tools are typed interfaces but permissions/side effects are separate
   - capability composition determines blast radius
-  - side effects require explicit risk/verification reasoning
-  - edited actions are new actions and require revalidation when approval binding matters
+  - side effects and data egress require explicit risk/verification reasoning
+  - edited actions are new actions when approval binding matters
   - context, state, checkpoints, persistence and memory are distinct
   - persistence does not imply concurrency safety
   - budget values require enforcement-boundary semantics
-  - cancellation semantics require an effective boundary and do not imply rollback
+  - cancellation requires an effective boundary and does not imply rollback
   - human control requires enforcement owner/boundary and dispatcher coverage
   - runtime termination does not prove external task success
   - outcome and trajectory evaluation are distinct
-  - stochastic systems need repeated evaluation for reliability claims
-  - multi-agent topology must prove benefit against simpler baselines
+  - stochastic reliability claims require repeated evidence
+  - multi-agent topology and measured benefit are separate
   - least privilege and containment are agent-system invariants
-  - protocol compatibility must be revision-aware and is not authorization
-  - production readiness is a vector of project evidence, not a framework label
+  - protocol compatibility is revision-aware and not authorization
+  - framework capability is not deployment configuration
+  - production readiness is a project evidence vector, not a framework label
 ```
 
 ## Query routing
 
 | Query | Preferred path |
 |---|---|
-| “What is agent engineering here?” | `README.md` → `KNOWLEDGE_MAP.md` |
-| “What are we working on now?” | `STATUS.md` |
-| “What is the MK process?” | `mk/README.md` |
-| “How do we classify systems?” | `mk/MK1/CLASSIFICATION_SCHEMA.md` + `DIMENSIONS.md` |
-| “What rules prevent bad normalization?” | `mk/MK1/NORMALIZATION_RULES.md` |
-| “What still blocks MK1?” | `mk/MK1/GATES.md` + `UNKNOWNS.md` + `CLASSIFICATION_QUEUE.md` |
-| “What do we know about Strands?” | `systems/strands/LLM_CONTEXT.md` |
-| “Why was an MK1 field added?” | relevant cross-source quarry + schema revision note |
-| “What is the raw source/snapshot?” | `mining-site/SOURCES.md` + relevant `S-xxx` receipt |
-| “What are the original observations?” | relevant `quarries/*` |
-| “Is a source claim production-certified?” | default no; inspect evidence/gates |
+| What is agent engineering here? | `README.md` → `KNOWLEDGE_MAP.md` |
+| What are we working on now? | `STATUS.md` → `ROADMAP.md` |
+| What exact work closes MK1? | `mk/MK1/CLOSURE_PLAN.md` |
+| Which representative records exist? | `mk/MK1/records/README.md` |
+| How do I create a new record? | `mk/MK1/records/TEMPLATE.md` |
+| How do we classify systems? | `mk/MK1/CLASSIFICATION_SCHEMA.md` + `DIMENSIONS.md` |
+| Why did the schema change? | `mk/MK1/SCHEMA_HISTORY.md` + relevant quarry |
+| What rules prevent bad normalization? | `mk/MK1/NORMALIZATION_RULES.md` |
+| What still blocks MK1? | `GATES.md` + `CLOSURE_PLAN.md` + `UNKNOWNS.md` |
+| What evidence is required for A2A? | `mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md` |
+| What evidence is required for multi-agent? | `mk/MK1/MULTI_AGENT_BASELINE_SPEC.md` |
+| What does MK2 receive? | `mk/MK2/HANDOFF_CONTRACT.md` |
+| How do I add a current system package? | `systems/PACKAGE_SPEC.md` |
+| What do we know about Strands? | `systems/strands/LLM_CONTEXT.md` |
+| What is the source/snapshot? | `mining-site/SOURCES.md` + relevant `S-xxx` |
+| What were original observations? | relevant `quarries/*` |
+
+## Normalized-record rule
+
+A quarry containing evidence is **not equivalent** to a materialized MK1 record.
+
+For closure claims, inspect:
+
+```text
+mk/MK1/records/README.md
+```
+
+A record must instantiate the current schema or link to a canonical system `CLASSIFICATION.md`.
+
+Do not claim family coverage from evidence-only rows.
 
 ## Strands package
 
-The first complete canonical system package is:
+Current complete system package:
 
 ```text
 systems/strands/
@@ -145,31 +221,27 @@ systems/strands/
 └── LLM_CONTEXT.md
 ```
 
-Use `systems/strands/LLM_CONTEXT.md` before retrieving historical Strands quarries.
+Use `systems/strands/LLM_CONTEXT.md` before historical Strands quarries for current questions.
 
-## Important historical-state behavior
+## Historical-state behavior
 
-Quarries can be **correct historical documents and stale current summaries at the same time**.
+A historical document may be correct for its time while stale for current status.
 
-Example pattern:
+Example:
 
 ```text
-T1: Strands surfaces candidate field
-T2: independent runtimes confirm the distinction
-T3: MK1 promotes field
+T1 Strands surfaces candidate concurrency/budget/intervention fields
+T2 LangGraph + OpenAI Agents SDK confirm distinctions
+T3 MK1 promotes fields into schema
 ```
 
-Do not rewrite T1 as though the field had always been canon. Instead report the transition.
-
-The same applies to an UNKNOWN later closed or qualified by execution evidence.
+Report the transition. Do not rewrite T1 as if the field had always been canon, and do not treat T1's candidate label as current.
 
 ## Framework comparison rule
 
-When comparing frameworks:
+Do not rank frameworks by feature count.
 
-Do not rank by feature count.
-
-Normalize each against dimensions such as:
+Normalize each against:
 
 ```text
 control authority
@@ -188,11 +260,11 @@ reproducibility evidence
 UNKNOWNs
 ```
 
-A framework can support multiple architecture classes simultaneously.
+A framework may support multiple architecture classes simultaneously.
 
-## Safety against overclaiming
+## High-bar claims
 
-Before asserting any of the following, require project/system-specific evidence:
+Require system/project-specific evidence before asserting:
 
 ```yaml
 high_bar_claims:
@@ -210,32 +282,68 @@ high_bar_claims:
   - protocol compatible across all revisions/servers
 ```
 
+## Prohibited inference patterns
+
+Do not infer:
+
+```text
+framework has feature
+→ application enables feature
+
+protocol supported
+→ invocation authorized
+
+cancellation sent
+→ remote effect rolled back
+
+state persisted
+→ concurrent writers safe
+
+structured output valid
+→ semantic output correct
+
+human review exists
+→ every consequential dispatcher is protected
+
+multi-agent topology exists
+→ task performance improves
+
+source says production-ready
+→ project is production-ready
+```
+
 ## MK discipline
 
 ```text
 MK0 = evidence/framing
 MK1 = normalize/classify
 MK2 = operational contracts/tests
-MK3 = integrate with broader engineering method/domains
+MK3 = integrate across domains/systems
 MK4 = automate checks/evals
 MK5+ = repeated/independent certification
 ```
 
-Do not promote an MK1 classification distinction into an operationally certified rule merely because its vocabulary is stable.
+Do not promote an MK1 classification distinction into a certified operational rule merely because its vocabulary is stable.
 
 ## Update discipline
 
-When new evidence arrives:
+When new material evidence arrives:
 
-1. pin source/snapshot;
-2. add/update source receipt;
+1. pin source/revision;
+2. update/add source receipt;
 3. process evidence in quarry;
-4. compare against current normalized schema;
-5. pressure-test proposed schema changes independently;
-6. update system package when current understanding changes;
-7. update STATUS/GATES/UNKNOWNS;
-8. preserve historical reasoning and state transitions.
+4. compare against current schema;
+5. materialize/update normalized record if classification changes or coverage is needed;
+6. pressure-test schema changes independently;
+7. update system package if current system understanding changes;
+8. update GATES/UNKNOWNS/record registry;
+9. update STATUS/ROADMAP only when state or priority changes;
+10. preserve historical reasoning.
+
+Repository-wide structure rules: `REPOSITORY_CONTRACT.md`.
 
 ## Retrieval objective
 
-Prefer the **smallest canonical path that answers the question**, then descend only when evidence detail is needed. This reduces token waste while preserving auditability.
+Prefer the **smallest current canonical path that answers the question**, then descend only when evidence detail is required.
+
+This minimizes token waste while preserving provenance and prevents historical quarries from becoming accidental current truth.
