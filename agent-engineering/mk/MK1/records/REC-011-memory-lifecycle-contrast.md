@@ -299,6 +299,6 @@ No immediate schema mutation is justified from this fixture alone because richer
 
 ## Evidence
 
-- [`../../quarries/genai-agents-p0-p1-callpaths.md`](../../quarries/genai-agents-p0-p1-callpaths.md)
-- [`../../quarries/cross-source-memory-production-mcp.md`](../../quarries/cross-source-memory-production-mcp.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/genai-agents-p0-p1-callpaths.md`](../../../quarries/genai-agents-p0-p1-callpaths.md)
+- [`../../../quarries/cross-source-memory-production-mcp.md`](../../../quarries/cross-source-memory-production-mcp.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
