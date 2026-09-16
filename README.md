@@ -80,6 +80,9 @@ branch cleanup
 - `MK5+`: Certify / Refine — reproducibilidad, fixtures, contraejemplos, resiliencia y refinamiento.
 - `mining-site/`: mapa de investigación y provenance.
 - `quarries/`: extracciones concretas y evidencia procesada desde fuentes; quarry no equivale a canon.
+- `systems/<system>/`: vista canónica **actual** de un sistema concreto cuando el dominio ya posee evidencia suficiente para sintetizarlo sin perder el chain-of-evidence. No sustituye `quarries/` ni `mining-site/`.
+- `KNOWLEDGE_MAP.md`: cuando existe en un dominio, explica cómo navegar sus capas de conocimiento.
+- `LLM_CONTEXT.md`: cuando existe, define routing, precedencia y anti-inference rules para lectores agentic/LLM.
 - No mezclar hechos de fuente con inferencias propias sin etiquetarlos.
 - Provenance base: `OFFICIAL`, `OBSERVED`, `INFERRED`, `INSPIRED`, `GENERATED`.
 - Todo principio reusable debe terminar expresado como una regla verificable, patrón, antipatrón o criterio de test cuando corresponda.
@@ -110,7 +113,7 @@ La especificación completa vive en [`jett-engineering-method/README.md`](./jett
 ## Dominios
 
 - [`jett-engineering-method/`](./jett-engineering-method/) — Operating model interno para llevar problemas desde incertidumbre hasta conocimiento/software demostrado, con gates, claim discipline, evidence y promotion rules.
-- [`agent-engineering/`](./agent-engineering/) — Ingeniería de sistemas agentic/LLM: workflows vs agents, harness/runtime, tools/ACI, state-context-memory, persistence, HITL, side effects, evaluación, seguridad y multi-agent. Actualmente en MK0; `GenAI_Agents` es una cantera inicial, no el canon.
+- [`agent-engineering/`](./agent-engineering/) — Ingeniería de sistemas agentic/LLM: workflows vs agents, harness/runtime, tools/ACI, state-context-memory, persistence/concurrency, HITL/enforcement, side effects, evaluación, seguridad, protocolos y multi-agent. **Actualmente en MK1.** Incluye [`KNOWLEDGE_MAP.md`](./agent-engineering/KNOWLEDGE_MAP.md), [`LLM_CONTEXT.md`](./agent-engineering/LLM_CONTEXT.md) y una capa `systems/` para vistas actuales; el primer paquete completo es [`systems/strands/`](./agent-engineering/systems/strands/). `GenAI_Agents` continúa siendo una cantera inicial, no el canon.
 - [`content-strategy/`](./content-strategy/) — Estrategia editorial y crecimiento basado en evidencia: métricas, audiencia, positioning, roles de batch, novelty/no-repeat, sistemas visuales, loops de medición y puente audiencia→producto. Inicia en MK0 con Content Seller / TikTok.
 - [`ux-laws/`](./ux-laws/) — Psicología aplicada a UX convertida en reglas operables para diseño de producto.
 - [`web-design/`](./web-design/) — Design intelligence para websites: evidencia visual, gramática visual, `DESIGN.md`, tokens, contratos de componentes, responsive, accesibilidad, motion y verificación visual. RICOUI es una fuente relevante dentro de este dominio, no el dominio mismo.
