@@ -34,19 +34,18 @@ capabilities:
 side_effects:
   class: unknown
   reversible: unknown
-  external_mutation: application-defined
   data_egress: unknown
   verification: application-defined; framework execution success is not external outcome proof
 
 state:
   runtime_state: structured
   checkpointing: durable
-  persistence_backend: local files / S3 / custom / repository-style managers depending surface
+  persistence_backend: local files / S3 / custom / repository-style managers depending configured surface
   replay_semantics: partial
   invocation_concurrency: framework_defined
   writer_model: single_writer
-  concurrency_conflict_semantics: overlapping agent invocation is constrained; documented session model assumes one live writer per conversation; external shared state remains application-defined
-  locking: none
+  concurrency_conflict_semantics: overlapping agent invocation is constrained; documented session model assumes one live writer per conversation; external shared state and custom backends remain application-defined
+  locking: framework_defined
 
 memory:
   semantic_role:
@@ -55,7 +54,6 @@ memory:
     - context_injection
     - durable_memory_extraction
   scope: cross_session
-  persistence: remote_durable
   retrieval_policy: configurable search and/or pre-model injection
   write_policy: explicit add and/or configurable extraction
   isolation_key: store/scope dependent
@@ -194,6 +192,14 @@ It means the framework exposes durable-capable session/state mechanisms. A concr
 ### `writer_model: single_writer` is not a universal database theorem
 
 It records the documented live-session assumption relevant to Strands session handling. External databases or custom managers may implement stronger concurrency semantics and must be classified separately.
+
+### `locking: framework_defined` is intentionally conservative
+
+The inspected runtime constrains overlapping use at some local execution boundaries, while the documented session managers do not establish a universal distributed-locking guarantee. A concrete deployment must state its actual local/distributed/optimistic/custom locking behavior rather than inheriting a blanket value from the SDK family.
+
+### Memory persistence is intentionally not forced into one enum here
+
+The framework can compose different stores/backends. The actual application must classify the memory store it configures as process/local-durable/remote-durable as appropriate.
 
 ### `sandbox: none` means no core security sandbox is implied
 
