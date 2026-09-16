@@ -1,13 +1,16 @@
 # MK1 — Normalized Record Registry
 
-Status: **ACTIVE**  
+Status: **ACTIVE / REPRESENTATIVE COVERAGE NEAR-COMPLETE**  
 Schema: `mk1-draft-2026-09-16.1`
 
 ## Purpose
 
 This registry tracks whether MK1's classification schema has been **materially instantiated against representative systems**, rather than merely discussed in prose.
 
-A record is not considered complete because evidence exists somewhere in a quarry. It must have a normalized classification artifact or a canonical system classification linked here.
+Evidence in a quarry is not enough for closure. A required family must have either:
+
+- a normalized record against the current schema; or
+- an explicit `COVERED_BY` decision showing why another record already provides the same schema pressure.
 
 ## Record states
 
@@ -17,78 +20,113 @@ IN_PROGRESS      normalization is being written/reconciled
 MATERIALIZED     normalized record exists against current schema
 QUALIFIED        materialized with explicit important UNKNOWNs/limits
 BLOCKED          missing evidence prevents useful classification
-COVERED_BY       separate record adds no material schema pressure; coverage is explicit
+COVERED_BY       another normalized record/set already supplies the material schema pressure
 SUPERSEDED       historical record replaced by a newer schema/revision
 ```
 
 `QUALIFIED` is a valid completed record state when uncertainty is real and explicit.
 
-## Required representative coverage
+## Record registry
 
-MK1 does not need one record for every tutorial or framework. It needs enough **materially different systems** to pressure-test every important dimension.
-
-| ID | Representative system/family | Primary pressure | State | Normalized record |
+| ID | Representative system/family | Primary pressure | State | Normalized record / coverage |
 |---|---|---|---|---|
 | REC-001 | minimal while-loop agent | control authority, loop, termination, shell capability | **MATERIALIZED / QUALIFIED** | [`REC-001-minimal-while-loop.md`](./REC-001-minimal-while-loop.md) |
 | REC-002 | HITL approval agent | human control, dispatcher enforcement, edited action | **MATERIALIZED / QUALIFIED** | [`REC-002-hitl-approval.md`](./REC-002-hitl-approval.md) |
-| REC-003 | trace-evaluation harness | outcome vs trajectory, evaluation evidence | EVIDENCE_READY | OPEN |
-| REC-004 | generated-code / browser E2E agent | capability composition, sandbox/blast radius | EVIDENCE_READY | OPEN |
-| REC-005 | self-healing generated-code agent | retry ownership, verifier boundary, code execution | EVIDENCE_READY | OPEN |
-| REC-006 | HR outbound messaging agent | consequential external send, HITL/idempotency | EVIDENCE_READY | OPEN |
-| REC-007 | social publishing agent | live publication, irreversible/visible effects | EVIDENCE_READY | OPEN |
-| REC-008 | document-intake / file-egress agent | data egress, confidentiality, read-vs-side-effect distinction | EVIDENCE_READY | OPEN |
-| REC-009 | DataScribe / database authority | DB read/write authority, lower-level dispatcher UNKNOWNs | EVIDENCE_READY | OPEN |
-| REC-010 | reflection / self-improvement example | intrinsic correction vs external verification | EVIDENCE_READY | OPEN |
-| REC-011 | representative memory system | context/session/persistence/memory lifecycle | EVIDENCE_READY | OPEN |
-| REC-012 | representative multi-agent system | topology, admission hypothesis, baseline/benefit | BLOCKED/PARTIAL | waits on baseline evidence |
-| REC-013 | legacy/current MCP integration example | protocol revision, lifecycle drift, auth boundary | **MATERIALIZED / QUALIFIED** | [`REC-013-mcp-revision-drift.md`](./REC-013-mcp-revision-drift.md) |
+| REC-003 | trace-evaluation harness | outcome vs trajectory, evaluation evidence | **MATERIALIZED / QUALIFIED** | [`REC-003-trace-evaluation-harness.md`](./REC-003-trace-evaluation-harness.md) |
+| REC-004 | generated-code/browser E2E agent | capability composition, sandbox/blast radius | **MATERIALIZED / QUALIFIED** | [`REC-004-generated-code-browser-e2e.md`](./REC-004-generated-code-browser-e2e.md) |
+| REC-005 | self-healing generated-code agent | generated-code execution + verifier/promotion boundary | **COVERED_BY** | REC-004 covers generated-code execution; REC-003 covers verification/gating separation. Upstream evidence remains in P0/P1 quarry. |
+| REC-006 | HR outbound messaging agent | external send + incomplete approval coverage | **COVERED_BY** | REC-002 covers dispatcher-enforced HITL positive case; REC-007 covers external-send/publication mutation. HR-specific approval gap remains preserved in quarry/UNKNOWN evidence. |
+| REC-007 | social publishing agent | live publication, dry-run enforcement, idempotency | **MATERIALIZED / QUALIFIED** | [`REC-007-social-publication.md`](./REC-007-social-publication.md) |
+| REC-008 | document-intake/file-egress agent | data egress, confidentiality, read-vs-side-effect distinction | **MATERIALIZED / QUALIFIED** | [`REC-008-document-data-egress.md`](./REC-008-document-data-egress.md) |
+| REC-009 | DataScribe/database authority | effective DB credential authority, lower-level dispatcher UNKNOWNs | **MATERIALIZED / QUALIFIED** | [`REC-009-database-authority.md`](./REC-009-database-authority.md) |
+| REC-010 | reflection/self-improvement example | reflection/adaptation vs persistent improvement evidence | **MATERIALIZED / QUALIFIED** | [`REC-010-reflection-adaptation.md`](./REC-010-reflection-adaptation.md) |
+| REC-011 | memory lifecycle | state/checkpoint/persistence vs memory vs knowledge | **MATERIALIZED / QUALIFIED CONTRAST** | [`REC-011-memory-lifecycle-contrast.md`](./REC-011-memory-lifecycle-contrast.md) |
+| REC-012 | representative multi-agent system | topology, admission hypothesis, baseline/benefit | **BLOCKED / OPEN_MK1** | waits on [`../MULTI_AGENT_BASELINE_SPEC.md`](../MULTI_AGENT_BASELINE_SPEC.md) execution evidence |
+| REC-013 | legacy/current MCP integration | protocol revision, lifecycle drift, auth boundary | **MATERIALIZED / QUALIFIED** | [`REC-013-mcp-revision-drift.md`](./REC-013-mcp-revision-drift.md) |
 | REC-014 | Strands Agents SDK | modern runtime, mixed topology, concurrency/budgets/intervention/protocols | **MATERIALIZED / QUALIFIED** | [`../../../systems/strands/CLASSIFICATION.md`](../../../systems/strands/CLASSIFICATION.md) |
 
-## Current materialized set
+## Coverage decisions
+
+### REC-005 → `COVERED_BY REC-004 + REC-003`
+
+The self-healing example adds a useful implementation example but no new MK1 dimension beyond:
 
 ```text
-REC-001  minimal model-tool loop / shell / bounded termination
-REC-002  HITL / dispatcher-enforced consequential mutation
-REC-013  protocol revision drift / MCP lifecycle
-REC-014  modern runtime / Strands current system package
+generated model code crosses execution boundary   → REC-004
+verification/test success != safe promotion        → REC-003 + REC-004 qualifications
 ```
 
-This set is meaningful but not sufficient to close MK1. The remaining highest-pressure gaps are **generated-code/browser capability composition**, **data egress**, **memory lifecycle** and **multi-agent benefit evidence**.
+Its source evidence remains preserved; a dedicated normalized record would duplicate pressure rather than improve schema coverage.
+
+### REC-006 → `COVERED_BY REC-002 + REC-007`
+
+The HR sender is important negative evidence because human interrupts elsewhere do not prove the outbound-message dispatcher is protected.
+
+MK1 already represents both halves:
+
+```text
+dispatcher-enforced approval semantics   → REC-002
+external-send/publication mutation       → REC-007
+```
+
+The HR-specific universal-approval gap remains `UNKNOWN` in quarry evidence and is not silently treated as safe.
+
+## Materialized pressure set
+
+```text
+REC-001  model-tool loop / shell / bounded termination
+REC-002  HITL / protected consequential dispatcher
+REC-003  trace vs outcome evaluation / regression gate
+REC-004  generated code + browser + host blast radius
+REC-007  external publication / dry-run / idempotency
+REC-008  file data-egress / confidentiality boundary
+REC-009  database authority / least-privilege credential boundary
+REC-010  reflection/adaptation vs learning claim
+REC-011  persistence/state vs memory lifecycle contrast
+REC-013  protocol revision/lifecycle drift
+REC-014  modern mixed-control runtime / Strands
+```
+
+The only required record family still **structurally blocked by missing new evidence** is REC-012 multi-agent benefit/admission.
 
 ## Family coverage view
 
-| Engineering family | Record coverage | Current state |
+| Engineering family | Coverage | State |
 |---|---|---|
-| minimal/model-directed control | REC-001 / REC-014 | COVERED |
-| HITL / consequential mutation | REC-002 | COVERED |
-| generated code / browser / high capability | REC-004 / REC-005 | OPEN |
-| document / data egress | REC-008 | OPEN |
-| database authority | REC-009 | OPEN |
-| state / memory | REC-011 / REC-014 | PARTIAL — dedicated memory record still required |
-| evaluation / critic | REC-003 / REC-010 / REC-014 | PARTIAL — dedicated eval/critic pressure still required |
-| multi-agent | REC-012 / REC-014 topology surfaces | OPEN — benefit/baseline evidence missing |
-| protocol / interoperability | REC-013 / REC-014 MCP | COVERED FOR MCP; A2A gate still open |
-| modern agent runtime | REC-014 | COVERED |
+| minimal/model-directed control | REC-001 / REC-014 | **COVERED** |
+| HITL / consequential mutation | REC-002 / REC-007 | **COVERED** |
+| generated code / browser / high capability | REC-004 | **COVERED** |
+| external communication/publication | REC-007 + REC-006 quarry negative case | **COVERED** |
+| document / data egress | REC-008 | **COVERED** |
+| database authority | REC-009 | **COVERED / QUALIFIED** |
+| state / memory lifecycle | REC-011 / REC-014 | **COVERED / QUALIFIED** |
+| evaluation / critic / epistemic claims | REC-003 / REC-010 | **COVERED** |
+| multi-agent | REC-012 / REC-014 topology surfaces | **OPEN — baseline/benefit evidence missing** |
+| protocol / interoperability | REC-013 / REC-014 MCP | **COVERED FOR MCP; A2A OPEN** |
+| modern runtime/framework | REC-014 | **COVERED** |
+
+## Schema pressure discovered by records
+
+No new field has yet earned immediate promotion from the new representative records.
+
+Two questions are explicitly deferred to the **schema freeze audit**:
+
+1. `REC-008` — whether `data_egress` needs stronger confidentiality/data-classification severity structure beyond current side-effect fields;
+2. `REC-011` — whether memory update-conflict/forgetting/evaluation belong in MK1 classification or should remain MK2 operational contracts.
+
+They are not silently ignored and do not trigger schema mutation from one record alone.
 
 ## Closure requirement
 
-MK1 does **not** require all 14 rows to become separate long documents if some are redundant.
+Representative-record coverage passes only when:
 
-It does require:
-
-1. every material engineering family above to have at least one normalized record;
-2. P0/high-blast-radius examples to have explicit capability-composition and side-effect classification;
-3. memory to be represented by lifecycle fields, not a boolean;
-4. protocol examples to be revision-aware;
-5. multi-agent to include admission/baseline fields rather than topology alone;
-6. records to preserve UNKNOWN rather than infer missing implementation details;
-7. architecture description to remain separate from production certification.
-
-A closure audit may mark some queue entries `COVERED_BY` another record when there is no additional schema pressure. That decision must be explicit.
+1. REC-012 multi-agent gate has measured baseline/admission evidence;
+2. A2A protocol evidence is either represented through an appropriate record/system package or explicitly routed by the closure audit;
+3. freeze audit confirms `COVERED_BY` decisions do not hide a material distinction;
+4. every material record remains interpretable under the frozen schema;
+5. architecture classification stays separate from production certification.
 
 ## Record location
-
-Prefer one of two forms:
 
 ### Domain representative record
 
@@ -96,17 +134,17 @@ Prefer one of two forms:
 mk/MK1/records/REC-xxx-<slug>.md
 ```
 
-Use for tutorial/example/system records that exist primarily to pressure-test MK1.
-
-### Canonical system record
+### Canonical current-system record
 
 ```text
 systems/<system>/CLASSIFICATION.md
 ```
 
-Use when a complete current system package already exists. Do not duplicate the classification under `records/`; link it from this registry.
+Do not duplicate a complete system classification under `records/`; link it here.
 
 ## Record contract
+
+Full template: [`TEMPLATE.md`](./TEMPLATE.md).
 
 Every materialized record must identify:
 
@@ -118,39 +156,28 @@ source_receipts:
 evidence_scope:
 classification:
 material_unknowns:
-production_certification: false | qualified-by-separate-evidence
+production_certification:
 ```
 
-Full template: [`TEMPLATE.md`](./TEMPLATE.md).
+## Evidence discipline
 
-## Evidence sources already available
+Primary current evidence bases include:
 
-The initial queue is primarily backed by:
-
-- `../../quarries/genai-agents.md`;
-- `../../quarries/genai-agents-inventory.md`;
-- `../../quarries/genai-agents-risk-scan.md`;
-- `../../quarries/genai-agents-p0-p1-callpaths.md`;
-- `../../quarries/cross-source-memory-production-mcp.md`;
-- `../../quarries/runtime-semantics-strands-langgraph-openai.md`;
+- `../../../quarries/genai-agents.md`;
+- `../../../quarries/genai-agents-risk-scan.md`;
+- `../../../quarries/genai-agents-p0-p1-callpaths.md`;
+- `../../../quarries/cross-source-memory-production-mcp.md`;
+- `../../../quarries/runtime-semantics-strands-langgraph-openai.md`;
 - `../../../systems/strands/`.
 
-Do not re-mine upstream by default when existing pinned evidence is sufficient. Re-open source only when a material classification field remains unsupported or freshness is required.
+Do not re-mine upstream when pinned evidence is sufficient. Re-open source when a material field is unsupported, contradicted or freshness-sensitive.
 
-## Next materialization order
-
-The first three foundational records are now materialized. Continue by **maximum remaining schema pressure**, not numeric order:
+## Next record action
 
 ```text
-1. REC-004 generated-code/browser E2E
-2. REC-008 document/file egress
-3. REC-011 dedicated memory lifecycle
-4. REC-003 trace-evaluation harness
-5. REC-009 DataScribe/database authority if DB semantics add distinct pressure
-6. REC-012 multi-agent after baseline evidence
-7. classify REC-005/006/007/010 only where they add non-redundant pressure
+REC-012 multi-agent
 ```
 
-REC-013 and REC-014 already cover revision-aware MCP from complementary historical/current implementation angles.
+must wait for actual baseline/admission evidence rather than being filled from topology documentation alone.
 
-This sequence is a work plan, not a ranking of system quality.
+Spec: [`../MULTI_AGENT_BASELINE_SPEC.md`](../MULTI_AGENT_BASELINE_SPEC.md).
