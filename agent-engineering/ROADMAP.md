@@ -3,8 +3,8 @@
 Status: **CURRENT EXECUTION ROADMAP**  
 Current stage: **MK1 — Normalize & Classify**
 
-`STATUS.md` answers **what state are we in now?**  
-This document answers **what sequence closes the current stage without skipping evidence?**
+`STATUS.md` answers **where are we?**  
+This document answers **what sequence closes MK1 without skipping evidence?**
 
 ## Current snapshot
 
@@ -17,218 +17,211 @@ MK1                              🟡 ACTIVE
  ├─ budget enforcement semantics ✅ PROMOTED
  ├─ intervention ownership       ✅ PROMOTED
  ├─ MCP 2026-07-28 / Strands     ✅ SUPPORTED / QUALIFIED
- ├─ record infrastructure        ✅ READY
- ├─ representative records       🟡 PARTIAL (4 materialized)
- ├─ A2A reproducibility receipt  🟡 OPEN
- ├─ multi-agent baseline         🟡 OPEN
+ ├─ representative records       ✅ 11 MATERIALIZED + 2 COVERED_BY
+ ├─ A2A classification shape     ✅ PASS / QUALIFIED
+ │   └─ A2A 1.0 compatibility    ⚠️ NOT ESTABLISHED / ROUTED DEBT
+ ├─ multi-agent baseline         🟡 OPEN / BLOCKING
+ ├─ final UNKNOWN reconciliation 🟡 PENDING
  └─ schema freeze audit          🔒 WAITS ON ABOVE
 
 MK2                              🔒 BLOCKED / DESIGN SEEDED
 ```
 
-## Execution principle
-
-Do not work by topic popularity. Work by **closure dependency and remaining schema pressure**.
+## Closure dependency graph
 
 ```text
-representative records
-        ├──────────────┐
-        │              │
-A2A evidence           │
-        │              ▼
-        └──────► schema pressure / UNKNOWN reconciliation
-                       │
-multi-agent baseline ──┘
-                       │
-                       ▼
-                 schema freeze audit
-                       │
-                       ▼
-                    MK1 PASS
-                       │
-                       ▼
-               MK1 → MK2 handoff
-                       │
-                       ▼
-                    MK2 OPEN
+multi-agent baseline / REC-012
+          ↓
+final representative-set review
+          ↓
+UNKNOWN reconciliation
+          ↓
+cross-dimension + overlap audit
+          ↓
+schema freeze decision
+    ┌─────┴─────┐
+    │           │
+  PASS         FAIL
+    │           │
+freeze mk1-v1   issue explicit new draft
+    │           └→ rerun affected records
+    ↓
+MK1 CLOSURE.md
+    ↓
+MK2 handoff activation
 ```
 
-## Workstream A — Representative MK1 records
+## Workstream A — Representative records
 
-State: **PARTIAL**
+State: **NEAR-COMPLETE**
 
 Registry: [`mk/MK1/records/README.md`](./mk/MK1/records/README.md).
 
-Materialized now:
-
 ```text
-REC-001 minimal while-loop
-REC-002 HITL approval
-REC-013 MCP revision drift
-REC-014 Strands Agents
+11 MATERIALIZED / QUALIFIED
+2  COVERED_BY
+1  OPEN / BLOCKING → REC-012 multi-agent
 ```
 
-Highest remaining pressure:
+Required families already represented:
+
+- model-tool loop / bounded termination;
+- consequential/HITL dispatcher enforcement;
+- generated-code/browser high capability;
+- external publication/safe mode/idempotency;
+- document/data egress;
+- database authority;
+- evaluation/outcome-vs-trajectory;
+- reflection/adaptation claim discipline;
+- state/persistence/memory lifecycle;
+- revision-aware MCP;
+- modern mixed-control runtime.
+
+The only remaining required family needing **new evidence**, rather than more normalization, is multi-agent benefit/admission.
+
+## Workstream B — A2A protocol classification
+
+State: **PASS / QUALIFIED FOR MK1 SHAPE**
+
+Evidence contract: [`mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md`](./mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md).  
+Receipt: [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-version-drift.md).
+
+Established for the pinned Strands path:
 
 ```text
-REC-004 generated-code/browser E2E
-REC-008 document/file egress
-REC-011 dedicated memory lifecycle
-REC-003 trace-evaluation/critic
-REC-012 multi-agent after baseline evidence
+protocol family              A2A 0.3
+Python dependency            >=0.3.0,<0.4.0
+TypeScript dependency        ^0.3.10
+client/server roles          represented
+Agent Card/discovery         represented
+invoke/stream/task shape     represented
+context/concurrency boundary represented
+security/auth boundary       represented / qualified
+integration fixture source   present
+specific CI PASS             not verified
+independent run              not run
+current A2A line             1.0
+0.3 → 1.0 compatibility      NOT ESTABLISHED
 ```
 
-Minimum closure expectations:
+The taxonomy gate is satisfied because the schema can represent all of those facts without collapsing to `A2A=true`.
 
-- control/model-tool loop;
-- consequential/HITL system;
-- generated-code/browser or high-capability system;
-- data-egress system;
-- memory/state system;
-- evaluator/critic system;
-- multi-agent system;
-- revision-aware protocol system;
-- modern runtime/framework.
-
-Acceptance:
-
-```text
-for each required family:
-  normalized record exists or explicit COVERED_BY decision
-  source/snapshot pinned
-  material UNKNOWNs explicit
-  architecture != production certification
-  no framework-name taxonomy
-```
-
-## Workstream B — A2A reproducibility receipt
-
-State: **OPEN**
-
-Purpose: convert `A2A supported` from a feature statement into a revision-aware interoperability record.
-
-Evidence contract: [`mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md`](./mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md).
-
-Must establish for a pinned implementation path:
-
-- protocol revision/spec identity;
-- role(s);
-- discovery/identity semantics;
-- transport;
-- authentication/authorization boundary;
-- invocation/task lifecycle;
-- cancellation/unknown-outcome semantics;
-- observability/trace continuity if available;
-- implementation snapshot/dependency receipt;
-- execution evidence or explicit `NOT_RUN` reason.
-
-Not required:
-
-- universal A2A interoperability;
-- universal security certification;
-- production SLO evidence.
+A2A `1.0` migration/interoperability remains explicit system freshness debt and must not be reported as PASS.
 
 ## Workstream C — Multi-agent baseline
 
-State: **OPEN**
+State: **OPEN / PRIMARY BLOCKER**
 
 Contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md).
 
-At least one representative topology must be compared against a simpler baseline under the same task/evaluation contract.
+One representative topology must be compared against a simpler baseline under the same task/evaluation contract.
 
-The repository must be able to represent independently:
+The result may be positive, neutral, negative or inconclusive. The gate tests whether MK1 can represent independently:
 
 - admission hypothesis;
-- topology;
-- authority/task partitioning;
-- coordination cost;
-- quality/outcome;
+- topology/authority split;
+- outcome quality;
 - latency;
-- tokens/cost where measurable;
-- failure/termination behavior.
+- model/tool cost where measurable;
+- coordination failures;
+- termination behavior;
+- benefit vs complexity.
 
-A neutral/no-gain result is valid evidence.
+A showcase run without a baseline does not pass.
 
-## Workstream D — Schema freeze audit
+## Workstream D — Final UNKNOWN reconciliation
 
-State: **BLOCKED until A/B/C are sufficiently complete**
+State: **BLOCKED UNTIL REC-012 EXISTS**
+
+Every remaining material UNKNOWN must become exactly one of:
+
+```text
+CLOSED
+QUALIFIED
+ROUTED_MK2
+ROUTED_MK3_PLUS
+ROUTED_MK5_PLUS
+OUT_OF_SCOPE
+```
+
+No material `OPEN_MK1` item may survive closure.
+
+Owner: [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md).
+
+## Workstream E — Schema freeze audit
+
+State: **BLOCKED UNTIL C + D**
 
 Inputs:
 
-- current schema;
-- representative records;
+- current schema/dimensions/rules;
+- full representative record set;
 - A2A receipt;
-- multi-agent baseline;
+- multi-agent baseline/REC-012;
 - GATES;
 - UNKNOWN register;
 - schema history.
 
-Questions:
+Required decisions include:
 
-1. Does every material family fit without a new top-level category?
-2. Are dimensions orthogonal enough to avoid misleading collapse?
-3. Are concurrency/budget/intervention qualifiers stable?
-4. Are protocols revision-aware?
-5. Can multi-agent benefit remain independent from topology?
-6. Can `UNKNOWN` survive without form-filling pressure?
-7. Can MK2 derive contracts without reopening terminology?
-8. Are any fields framework-specific accidents?
-9. Are any fields duplicated under different names?
-10. Is the final change additive/clarifying/breaking?
+1. Does every material family fit without framework-name taxonomy?
+2. Does `data_egress` need a stronger confidentiality/data-classification dimension in MK1, or is that MK2 policy?
+3. Do memory update-conflict/forgetting/evaluation fields belong in MK1 classification or MK2 operational contracts?
+4. Are `horizon`, side-effect severity, human-control levels and evaluation fields orthogonal enough?
+5. Are any dimensions duplicates under different names?
+6. Can MK2 derive contracts without reopening basic vocabulary?
+7. Is the resulting revision additive/clarifying/breaking?
 
-Possible outcomes:
+Possible outcome:
 
 ```text
-FREEZE mk1-draft-2026-09-16.1 as mk1-v1
-or
-ISSUE another explicit draft revision and rerun affected records
+PASS → freeze mk1-draft-2026-09-16.1 as mk1-v1
+FAIL → issue a new explicit draft and rerun only affected records
 ```
 
-Do not rename a draft to `v1` until the gate passes.
+Do not create `mk1-v1` early.
 
-## Workstream E — MK1 → MK2 handoff
+## Workstream F — MK1 → MK2 handoff
 
-State: **BLOCKED by MK1 closure**
+State: **BLOCKED BY MK1 CLOSURE**
 
 Contract: [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md).
 
-MK2 may open only when it receives:
+MK2 receives only:
 
 - frozen schema revision;
-- normalized dimension definitions;
+- normalized dimensions/rules;
 - representative records;
 - promoted principles with scope;
-- explicit UNKNOWN routing;
-- evidence/protocol receipts;
+- revision-aware protocol receipts;
+- routed UNKNOWNs;
 - MK1 closure receipt.
+
+Raw quarries do not become operational policy directly.
 
 ## Priority order
 
 ```text
-P0  REC-004 generated-code/browser record
-P0  REC-008 data-egress record
-P0  REC-011 memory-lifecycle record
-P0  A2A revision/auth/transport receipt
-P0  multi-agent baseline / REC-012
-P1  REC-003 evaluation record
-P1  remaining non-redundant pressure records
-P1  UNKNOWN reconciliation
-P1  schema freeze audit
-P1  MK1 closure receipt
-P1  activate MK2 handoff
-P2  add more system packages only when evidence warrants them
+P0  execute multi-agent baseline / materialize REC-012
+P0  final UNKNOWN reconciliation
+P0  cross-dimension + schema freeze audit
+P1  issue new draft only if freeze audit requires it
+P1  write MK1 CLOSURE.md
+P1  activate MK2 handoff after PASS
+P2  refresh A2A to 1.0 when Strands/current implementation evidence warrants it
+P2  add additional system packages only when they add distinct evidence value
 ```
 
 ## Stop conditions
 
 Do not open MK2 while any of these remain true:
 
-- ordinary representative systems still force schema invention;
-- major families exist only as quarry evidence, not normalized records;
-- protocol records collapse to booleans;
-- multi-agent remains an untested architecture preference;
+- REC-012 lacks actual baseline evidence;
 - material `OPEN_MK1` UNKNOWNs remain;
-- MK2 contract families depend on undefined MK1 vocabulary.
+- schema overlap questions are unresolved;
+- the schema still needs ordinary framework-specific exceptions;
+- no frozen schema revision exists;
+- `MK1/CLOSURE.md` does not exist.
 
 ## Definition of “well armed”
 
@@ -237,14 +230,13 @@ A new human or LLM should be able to answer without reconstructing history manua
 ```text
 where am I?
 what is current?
-what is evidence?
-what is historical?
+what is historical evidence?
 what remains unknown?
 what exact gate is next?
-what artifact do I create?
+what artifact must be created?
 what evidence must it contain?
 what would falsify the claim?
 what does the next MK receive?
 ```
 
-When MK1 closes, preserve this roadmap's completed state in the closure receipt and replace its active execution section with the MK2 roadmap.
+When MK1 closes, preserve this roadmap's completed state in the closure receipt and promote the active execution plan to MK2.
