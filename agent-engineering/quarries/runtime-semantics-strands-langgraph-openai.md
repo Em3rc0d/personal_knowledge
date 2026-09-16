@@ -1,7 +1,8 @@
 # Runtime Semantics — Strands × LangGraph × OpenAI Agents SDK
 
-Status: **PROCESSED CROSS-SOURCE EVIDENCE / MK1 PROMOTION CANDIDATE**  
-Observed: **2026-09-16**
+Status: **PROCESSED CROSS-SOURCE EVIDENCE / PROMOTED INTO MK1**  
+Observed: **2026-09-16**  
+Promotion target: `mk1-draft-2026-09-16.1`
 
 ## Sources
 
@@ -10,6 +11,8 @@ Observed: **2026-09-16**
 - `S-111` — OpenAI Agents SDK `@5f9899d584c5cfc879d3579352eb929fd4b34756`
 
 Purpose: determine whether three distinctions surfaced by the Strands pressure test are framework-specific accidents or reusable agent-engineering dimensions.
+
+Current Strands synthesis: [`../systems/strands/README.md`](../systems/strands/README.md).
 
 ## Promotion rule applied
 
@@ -20,7 +23,7 @@ MK1 permits a schema change only when:
 3. at least two independent examples or one strong counterexample justify it;
 4. the proposed field does not duplicate an existing dimension.
 
-All three candidates below now have independent evidence across materially different runtimes.
+All three candidates below have independent evidence across materially different runtimes and were promoted into schema revision `mk1-draft-2026-09-16.1`.
 
 ---
 
@@ -49,7 +52,7 @@ All three candidates below now have independent evidence across materially diffe
 
 ### Promotion
 
-Promote concurrency as a **state subdimension**, not a new top-level axis.
+**PROMOTED** as a **state subdimension**, not a new top-level axis.
 
 ---
 
@@ -81,7 +84,7 @@ Classification must distinguish at least:
 
 ### Promotion
 
-Promote budget-enforcement qualifiers inside **termination**.
+**PROMOTED** as budget-enforcement qualifiers inside **termination**.
 
 ---
 
@@ -114,7 +117,7 @@ Relevant owners include:
 
 ### Promotion
 
-Promote `enforcement_owner` inside **human_control** and retain `dispatcher_enforcement` as the stronger call-path property.
+**PROMOTED** as `enforcement_owner` / `enforcement_boundary` inside **human_control**, while retaining `dispatcher_enforcement` as the stronger call-path property.
 
 ---
 
@@ -130,15 +133,17 @@ This remains a candidate operational contract, not MK1 certification.
 
 ## 5. Schema promotion decision
 
-The three Strands candidates now satisfy the MK1 admission rule through independent evidence:
+The three Strands candidates satisfied the MK1 admission rule through independent evidence:
 
 ```text
-concurrency semantics       → PROMOTE under state
-budget enforcement boundary → PROMOTE under termination
-intervention owner          → PROMOTE under human_control
+concurrency semantics       → PROMOTED under state
+budget enforcement boundary → PROMOTED under termination
+intervention owner          → PROMOTED under human_control
 ```
 
 Do **not** create framework-specific fields such as `langgraph_reducer`, `strands_session_lock` or `openai_guardrail_mode`. Normalize the engineering semantics instead.
+
+Current schema: [`../mk/MK1/CLASSIFICATION_SCHEMA.md`](../mk/MK1/CLASSIFICATION_SCHEMA.md).
 
 ## 6. Residual UNKNOWNs
 
@@ -153,8 +158,17 @@ Promotion of the dimensions does not close implementation-specific questions:
 
 These remain explicit UNKNOWNs or MK2+ contract/evaluation debt.
 
-## 7. Next gate
+## 7. Subsequent gate status
 
-With these runtime semantics normalized, the next high-value gate is the executable **Strands ↔ MCP `2026-07-28`** compatibility fixture already identified by `S-109`.
+The next gate identified by this crosscheck was Strands ↔ MCP `2026-07-28` execution evidence.
 
-That fixture should verify protocol version receipt, discovery/tool invocation, auth boundary, cancellation behavior and trace continuity without treating MCP interoperability as authorization.
+That subsequent gate has now been completed at the current source-evidence level:
+
+```text
+Strands × MCP 2026-07-28
+→ SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
+```
+
+Receipt: [`./strands-mcp-2026-07-28-compatibility.md`](./strands-mcp-2026-07-28-compatibility.md).
+
+Remaining protocol debt is narrower: external protected-server OAuth behavior, remote side-effect outcome after cancellation, universal interoperability claims and A2A revision/auth/transport execution evidence remain outside what the completed MCP fixture proves.
