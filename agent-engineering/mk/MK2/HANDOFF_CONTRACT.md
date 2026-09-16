@@ -81,20 +81,25 @@ A principle still marked candidate/UNKNOWN does not silently become policy.
 
 ### 4. Protocol receipts
 
-At minimum, protocol-related MK2 contract work needs revision-aware records rather than protocol booleans.
+Protocol-related MK2 work consumes **revision-aware receipts**, never protocol booleans.
 
-Expected evidence includes:
+Each relevant receipt should expose:
 
 - revision;
 - role;
-- transport;
-- auth boundary;
-- lifecycle/capabilities;
-- cancellation semantics;
-- execution receipt;
-- UNKNOWNs.
+- transport/binding;
+- discovery/lifecycle semantics;
+- authentication and authorization boundary;
+- cancellation/unknown-outcome semantics;
+- execution-evidence strength;
+- explicit UNKNOWNs/version drift.
 
-Current examples include the Strands MCP `2026-07-28` receipt and the planned A2A receipt.
+Current MK1 examples include:
+
+- Strands MCP `2026-07-28` — supported/upstream-executed/qualified;
+- Strands A2A `0.3` vs current A2A `1.0` — classification-shape PASS/qualified, with `1.0` compatibility explicitly **NOT ESTABLISHED**.
+
+MK2 must pin whichever protocol revision a concrete operational contract targets. Routed version debt is not a compatibility default.
 
 ### 5. UNKNOWN routing table
 
@@ -102,9 +107,10 @@ Every material MK1 UNKNOWN must be categorized:
 
 ```text
 CLOSED
-ROUTED_TO_MK2
-ROUTED_TO_MK3+
-ROUTED_TO_MK5+
+QUALIFIED
+ROUTED_MK2
+ROUTED_MK3_PLUS
+ROUTED_MK5_PLUS
 OUT_OF_SCOPE
 ```
 
@@ -144,7 +150,7 @@ EvaluationPlan
 ReproducibilityReceipt
 ```
 
-Names remain subject to MK2 design review; the important point is that each must trace back to stable MK1 semantics.
+Names remain subject to MK2 design review; each must trace back to stable MK1 semantics.
 
 ## What MK2 must not do
 
@@ -156,8 +162,9 @@ MK2 must not:
 - convert `UNKNOWN` into a default;
 - infer production readiness from a classification record;
 - require multi-agent architecture because one benchmark favored it;
-- treat protocol compatibility as authorization;
+- treat protocol interoperability as authorization;
 - equate cancellation with rollback;
+- infer A2A `1.0` compatibility from a Strands `0.3.x` receipt;
 - encode one framework's API names as domain-level contracts.
 
 ## Traceability requirement
@@ -204,16 +211,20 @@ Before changing this document's status from design/blocked to active handoff:
 - [ ] schema revision is frozen;
 - [ ] `MK1/GATES.md` closure checklist passes;
 - [ ] `MK1/records/README.md` shows required family coverage;
-- [ ] A2A protocol debt is closed or explicitly routed without blocking the frozen scope;
+- [x] A2A protocol debt is represented and current-version compatibility debt is explicitly routed without becoming a false PASS;
 - [ ] multi-agent baseline gate passes;
-- [ ] MK1 UNKNOWNs are routed;
+- [ ] MK1 UNKNOWNs are fully routed;
 - [ ] `STATUS.md` changes MK2 from BLOCKED to ACTIVE.
 
 ## Current state
 
 ```text
-MK1 schema     mk1-draft-2026-09-16.1 / ACTIVE DRAFT
-MK1 closure    NOT YET
-MK2 handoff    NOT ACTIVE
-MK2 status     BLOCKED / DESIGN SEEDED
+MK1 schema                  mk1-draft-2026-09-16.1 / ACTIVE DRAFT
+representative records      11 MATERIALIZED/QUALIFIED + 2 COVERED_BY + REC-012 OPEN
+A2A classification shape    PASS / QUALIFIED
+A2A 1.0 compatibility       NOT ESTABLISHED / ROUTED DEBT
+multi-agent baseline        OPEN / BLOCKING
+MK1 closure                 NOT YET
+MK2 handoff                 NOT ACTIVE
+MK2 status                  BLOCKED / DESIGN SEEDED
 ```
