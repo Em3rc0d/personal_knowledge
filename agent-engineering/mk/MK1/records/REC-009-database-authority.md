@@ -200,6 +200,6 @@ normalization_issue: confirms capability classification must use effective crede
 
 ## Evidence
 
-- [`../../quarries/genai-agents-p0-p1-callpaths.md`](../../quarries/genai-agents-p0-p1-callpaths.md)
-- [`../../quarries/genai-agents-risk-scan.md`](../../quarries/genai-agents-risk-scan.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/genai-agents-p0-p1-callpaths.md`](../../../quarries/genai-agents-p0-p1-callpaths.md)
+- [`../../../quarries/genai-agents-risk-scan.md`](../../../quarries/genai-agents-risk-scan.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
