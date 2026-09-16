@@ -20,7 +20,8 @@ Priority order:
 10. self-improving/reflection example;
 11. representative memory agent;
 12. representative multi-agent system;
-13. MCP tutorial as a legacy protocol example.
+13. MCP tutorial as a legacy protocol example;
+14. Strands Agents SDK as a modern framework/runtime pressure test.
 
 ## Why this set comes first
 
@@ -35,7 +36,33 @@ It covers the dimensions most likely to expose overlap or ambiguity:
 - retry and unknown-outcome semantics;
 - trace vs outcome evaluation;
 - multi-agent topology;
-- protocol version drift.
+- protocol version drift;
+- framework/runtime concurrency assumptions;
+- budget enforcement boundaries;
+- deterministic policy vs model-mediated intervention.
+
+## Strands pressure-test role
+
+Strands is not admitted because it is a popular framework. It is admitted because one SDK exposes several control structures at once:
+
+- model-directed single-agent loop;
+- deterministic Workflow;
+- developer-structured Graph;
+- peer/model-directed Swarm;
+- agents-as-tools hierarchy;
+- explicit state/session/memory separation;
+- runtime limits/cancellation;
+- hooks, human interrupts and LLM steering;
+- observability/evaluation surfaces;
+- MCP/A2A protocol adapters.
+
+Current evidence: [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md).
+
+It surfaced three candidate qualifiers that remain **unpromoted** pending independent evidence:
+
+1. concurrency semantics;
+2. budget enforcement boundary / overshoot semantics;
+3. intervention enforcement owner.
 
 ## Classification workflow
 
@@ -72,7 +99,8 @@ After the first set, cover at least one representative system from each family:
 - generated-code/browser system;
 - external-mutating system;
 - multi-agent system;
-- protocol/integration system.
+- protocol/integration system;
+- modern agent runtime/framework with explicit operational controls.
 
 ## Admission rule for new top-level dimensions
 
