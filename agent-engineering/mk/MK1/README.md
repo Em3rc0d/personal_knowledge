@@ -110,6 +110,30 @@ Evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../..
 
 No framework-specific top-level category was introduced.
 
+## Strands × MCP `2026-07-28` protocol gate
+
+The Strands MCP record has now been checked against a pinned protocol revision rather than represented as `MCP=true`.
+
+Current evidence state:
+
+```text
+core interoperability       SUPPORTED / UPSTREAM-EXECUTED
+modern lifecycle            REGRESSION-TESTED
+Streamable HTTP             UPSTREAM-EXECUTED
+MRTR / prompts / resources  SUPPORTED BY PINNED MODERN FIXTURE
+list-changed subscription   UPSTREAM-EXECUTED
+trace continuity            UPSTREAM E2E TESTED
+auth adapter                SUPPORTED / deployment authorization separate
+remote rollback on cancel   NOT IMPLIED
+independent local rerun     BLOCKED BY CURRENT ENVIRONMENT NETWORK
+```
+
+The strongest fixture runs a real MCP 2.x server and explicitly rejects the legacy `initialize` handshake, so a successful connection proves the tested path uses the modern lifecycle rather than silently falling back to the legacy protocol.
+
+Evidence: [`../../quarries/strands-mcp-2026-07-28-compatibility.md`](../../quarries/strands-mcp-2026-07-28-compatibility.md).
+
+This closes the Strands-specific core compatibility unknown at the source-evidence level. It does **not** turn MCP interoperability into proof of authorization correctness, remote-effect rollback or universal server compatibility.
+
 ## State transition
 
 ```text
@@ -130,6 +154,7 @@ MK2 already contains **design scaffolding only** so the handoff shape is visible
 MK0 = CLOSED
 MK1 = IN PROGRESS
 RUNTIME SEMANTICS CROSSCHECK = PASS
+STRANDS MCP 2026-07-28 = SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
 SCHEMA = mk1-draft-2026-09-16.1
 MK2 = BLOCKED / DESIGN SEEDED
 CANON OPERATIONAL RULES = NOT YET

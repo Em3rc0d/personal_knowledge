@@ -122,12 +122,32 @@ Residual unknowns:
 - adversarial reliability of model-mediated intervention;
 - provider/built-in tool paths that bypass application guardrail pipelines.
 
-## Protocol execution evidence — still open
+## Protocol execution evidence
 
-- executable Strands/MCP compatibility against the domain-pinned MCP `2026-07-28` contract;
-- exact MCP transport/auth/version receipts for a reproducible fixture;
-- A2A protocol revision, authentication and transport receipts for distributed-agent classification;
-- behavior when remote MCP/A2A work is cancelled after execution may already have begun.
+### RESOLVED / QUALIFIED — Strands × MCP `2026-07-28` core interoperability
+
+The pinned Strands source now carries executable upstream evidence rather than only protocol-name/documentation evidence.
+
+Supported by:
+
+- declared MCP 2.x dependency support at `harness-sdk@a9361c54...`;
+- protocol-aware `server/discover` compatibility path;
+- an integration fixture that refuses the legacy `initialize` handshake;
+- real MCP 2.x server execution over Streamable HTTP;
+- successful upstream CI for modern negotiation, tools, structured output/errors, multi-round-trip input and list-changed behavior;
+- current pinned fixture coverage for prompts/resources;
+- a separate merged end-to-end MCP 2.x trace-continuity test.
+
+Receipt: [`../../quarries/strands-mcp-2026-07-28-compatibility.md`](../../quarries/strands-mcp-2026-07-28-compatibility.md).
+
+Residual protocol unknowns / qualifications:
+
+- independent local reproduction is not available in the present execution environment because outbound network/package installation is blocked;
+- end-to-end OAuth authorization behavior against a protected external MCP server remains deployment-specific;
+- cancellation does not prove rollback of remote side effects already started;
+- universal interoperability across arbitrary MCP servers is not certified by one SDK fixture;
+- protocol behavior outside the pinned MCP dependency range remains future evidence;
+- A2A protocol revision, authentication and transport receipts remain open for distributed-agent classification.
 
 ## Framework/runtime qualification — still open
 

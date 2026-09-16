@@ -19,6 +19,7 @@ PRODUCTION CROSS-SOURCE   agents-towards-production@141b0679...
 MCP CONTRACT              2026-07-28
 STRANDS PRESSURE TEST     harness-sdk@a9361c54... / COMPLETE
 RUNTIME CROSS-SOURCE      STRANDS + LANGGRAPH + OPENAI AGENTS SDK / COMPLETE
+STRANDS MCP 2026-07-28    SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
 LICENSE BOUNDARY          RECORDED / S-001 NON-COMMERCIAL CUSTOM LICENSE
 REPOSITORY INVENTORY      COMPLETE FOR MK0
 NORMALIZED INVENTORY      SEED COMPLETE
@@ -173,6 +174,37 @@ Schema revision: [`mk/MK1/CLASSIFICATION_SCHEMA.md`](./mk/MK1/CLASSIFICATION_SCH
 
 This strengthens, rather than replaces, existing fields such as `replay_semantics`, `dispatcher_enforcement`, `approval_binding`, semantic success predicates and error/idempotency contracts.
 
+## Strands × MCP `2026-07-28` compatibility gate — 2026-09-16
+
+Detailed receipt: [`quarries/strands-mcp-2026-07-28-compatibility.md`](./quarries/strands-mcp-2026-07-28-compatibility.md).
+
+The previous `exact Strands/MCP execution compatibility` unknown is now closed at the current source-evidence level.
+
+Evidence includes:
+
+- declared MCP 2.x support in the pinned Strands dependency range;
+- a protocol-aware `server/discover` negotiation path;
+- an integration fixture whose server rejects any legacy `initialize` handshake;
+- real MCP 2.x `MCPServer` execution over Streamable HTTP;
+- tools/list + tools/call, structured result/error behavior and modern multi-round-trip input;
+- prompts/resources and modern list-change subscription behavior in the current pinned fixture;
+- successful upstream CI for the MCP 2.x integration suite;
+- a separate merged end-to-end MCP 2.x OpenTelemetry trace-continuity test.
+
+Normalized evidence state:
+
+```text
+CORE INTEROPERABILITY        SUPPORTED / UPSTREAM-EXECUTED
+MODERN LIFECYCLE             REGRESSION-TESTED
+TRACE CONTINUITY             UPSTREAM E2E TESTED
+AUTH ADAPTER                 SUPPORTED
+EXTERNAL OAUTH E2E           DEPLOYMENT-SPECIFIC / OPEN
+REMOTE EFFECT ROLLBACK       NOT IMPLIED BY CANCELLATION
+INDEPENDENT LOCAL RE-RUN     BLOCKED BY CURRENT ENVIRONMENT NETWORK
+```
+
+This strengthens the rule that protocol compatibility is a **vector of evidence**, not a boolean. Interoperability remains separate from authorization and transactional safety.
+
 ## Known UNKNOWNs transferred beyond MK0
 
 These remain open because they require normalization, operationalization or execution evidence:
@@ -187,11 +219,11 @@ These remain open because they require normalization, operationalization or exec
 8. project-specific memory quality/isolation/retention behavior;
 9. benchmarked multi-agent benefit for individual topologies;
 10. project-specific deployment/rollback/SLO/incident evidence;
-11. per-language MCP SDK migration details beyond protocol-level contradiction;
+11. per-language protocol/SDK feature parity as versions evolve;
 12. backend-specific concurrency implementation details after the normalized state qualifiers are populated;
 13. exact hard/cooperative/best-effort cancellation behavior for individual model/tool/remote paths;
 14. application-specific approval binding and revalidation coverage;
-15. executable Strands/MCP compatibility evidence against the pinned `2026-07-28` protocol contract;
+15. external protected-server MCP OAuth authorization E2E and deployment-specific policy behavior;
 16. A2A revision/auth/transport receipt for reproducible distributed-agent classification.
 
 Canonical registers:
@@ -212,12 +244,12 @@ Immediate queue: [`mk/MK1/CLASSIFICATION_QUEUE.md`](./mk/MK1/CLASSIFICATION_QUEU
 
 Current work remains to finish representative normalized records, resolve remaining overlaps, preserve unknowns and freeze a schema revision suitable for MK2 input.
 
-Next evidence after the cross-runtime pass:
+Next evidence after the Strands MCP gate:
 
-- execute a protocol-focused **Strands ↔ MCP `2026-07-28`** compatibility fixture;
-- verify version/auth/transport/cancellation/trace-continuity receipts rather than protocol-name presence;
 - continue representative classifications needed by the MK1 closure checklist;
-- benchmark multi-agent topology against a simpler baseline before deriving any performance rule.
+- pin A2A revision/auth/transport semantics before using it as distributed-agent reproducibility evidence;
+- benchmark at least one multi-agent topology against a simpler baseline before deriving a performance rule;
+- decide whether remaining classification records are sufficient to freeze `mk1-draft-2026-09-16.1` or require another additive draft.
 
 ## MK2 state
 
@@ -226,13 +258,14 @@ MK2 has a visible design package at [`mk/MK2/`](./mk/MK2/) so the handoff is exp
 ## Promotion state
 
 ```text
-MK0 FRAME / EVIDENCE BASE   ✅ CLOSED
-MK1 NORMALIZATION           🟡 IN PROGRESS
-STRANDS PRESSURE TEST       ✅ COMPLETE
+MK0 FRAME / EVIDENCE BASE    ✅ CLOSED
+MK1 NORMALIZATION            🟡 IN PROGRESS
+STRANDS PRESSURE TEST        ✅ COMPLETE
 RUNTIME SEMANTICS CROSSCHECK ✅ COMPLETE
-SCHEMA REVISION             mk1-draft-2026-09-16.1
-MK2 OPERATIONALIZATION      🔒 BLOCKED / DESIGN SEEDED
-CANON RULE CERTIFICATION    🔒 BLOCKED
+STRANDS MCP 2026-07-28       ✅ SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
+SCHEMA REVISION              mk1-draft-2026-09-16.1
+MK2 OPERATIONALIZATION       🔒 BLOCKED / DESIGN SEEDED
+CANON RULE CERTIFICATION     🔒 BLOCKED
 ```
 
 Closing MK0 did not certify candidate rules. MK1 classifies them; MK2 will operationalize survivors; later MKs must integrate, automate and certify them against real systems.
