@@ -231,6 +231,6 @@ normalization_issue: capability composition is essential; generated-code executi
 
 ## Evidence
 
-- [`../../quarries/genai-agents-risk-scan.md`](../../quarries/genai-agents-risk-scan.md)
-- [`../../quarries/genai-agents-p0-p1-callpaths.md`](../../quarries/genai-agents-p0-p1-callpaths.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/genai-agents-risk-scan.md`](../../../quarries/genai-agents-risk-scan.md)
+- [`../../../quarries/genai-agents-p0-p1-callpaths.md`](../../../quarries/genai-agents-p0-p1-callpaths.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
