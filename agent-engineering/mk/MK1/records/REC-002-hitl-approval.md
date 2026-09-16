@@ -226,6 +226,6 @@ normalization_issue: current human_control fields correctly distinguish human de
 
 ## Evidence
 
-- [`../../quarries/genai-agents.md`](../../quarries/genai-agents.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/genai-agents.md`](../../../quarries/genai-agents.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
 - official LangGraph HITL/interrupt/persistence sources registered as `S-105`–`S-107`
