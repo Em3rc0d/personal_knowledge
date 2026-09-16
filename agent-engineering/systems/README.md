@@ -4,6 +4,8 @@
 
 It does not replace the evidence pipeline. It makes the current engineering understanding readable without requiring a human or LLM to reconstruct conclusions from source receipts, quarries and MK promotion history.
 
+Package contract: [`PACKAGE_SPEC.md`](./PACKAGE_SPEC.md).
+
 ## Why this layer exists
 
 The repository keeps two complementary views:
@@ -12,9 +14,9 @@ The repository keeps two complementary views:
 EVIDENCE / HISTORY                         CURRENT SYSTEM VIEW
 
 mining-site/                               systems/<system>/
-    ↓ source receipts                          ↓ canonical synthesis
-quarries/                                  architecture + classification
-    ↓ processed observations                  ↓ evidence map
+    ↓ source receipts                          ↓ current synthesis
+quarries/                                  mental model + classification
+    ↓ processed observations                  ↓ evidence/protocol map
 mk/MK*/                                    STATUS / active gates
     ↓ normalization / promotion
 STATUS.md
@@ -30,38 +32,68 @@ For a concrete system/framework:
 
 1. `systems/<system>/README.md` is the preferred human entrypoint.
 2. `systems/<system>/LLM_CONTEXT.md` is the preferred machine/agent entrypoint.
-3. `systems/<system>/CLASSIFICATION.md` contains the current normalized MK classification.
-4. `systems/<system>/EVIDENCE.md` maps every material conclusion back to receipts/quarries/MK decisions.
-5. `systems/<system>/PROTOCOLS.md` records revision-aware interoperability separately from framework identity.
-6. `systems/<system>/ENGINEERING_RULES.md` records reusable lessons and explicitly says what the system does **not** prove.
-7. Quarries remain evidence, not current canon. They may preserve historical candidate states that were later promoted, qualified or closed.
+3. `systems/<system>/CLASSIFICATION.md` contains the current normalized MK classification when applicable.
+4. `systems/<system>/EVIDENCE.md` maps material conclusions back to receipts/quarries/MK decisions.
+5. `systems/<system>/PROTOCOLS.md` records revision-aware interoperability when protocols are material.
+6. `systems/<system>/ENGINEERING_RULES.md` records reusable lessons and explicitly states non-claims.
+7. Quarries remain evidence/history, not current canon.
+
+Exact requirements: [`PACKAGE_SPEC.md`](./PACKAGE_SPEC.md).
 
 ## Conflict resolution
 
-When documents appear to disagree, distinguish **current state** from **historical evidence**.
-
-For current claims, use this precedence:
+For current claims:
 
 ```text
 STATUS.md
   ↓
-systems/<system>/ current package
+systems/<system>/
   ↓
-active/frozen MK schema + gates
+active/frozen MK schema + gates + records
   ↓
 quarries/
   ↓
-mining-site/ source receipt
+mining-site/
 ```
 
-For provenance, traverse in the opposite direction until the original source/snapshot is reached.
+For provenance, traverse downward until the original source/snapshot is reached.
 
-A newer canonical synthesis may supersede the *status* of an older quarry finding, but must not erase the older evidence or reasoning trail.
+A newer synthesis may supersede the **status** of an older finding, but must not erase the older evidence or reasoning trail.
 
 ## Current packages
 
-- [`strands/`](./strands/) — Strands Agents SDK: runtime/control model, state/memory, tools, interventions, budgets, concurrency, evaluation, MCP `2026-07-28`, security boundary and remaining unknowns.
+- [`strands/`](./strands/) — Strands Agents SDK: runtime/control model, state/memory, tools, interventions, budgets, concurrency, evaluation, MCP `2026-07-28`, security boundary and remaining UNKNOWNs.
 
 ## Package admission rule
 
-Create a system package only when the system has enough evidence to support a stable cross-document synthesis. A package is **not** an endorsement, production certification or framework ranking.
+Create a system package only when the system has enough evidence to support a stable cross-document synthesis.
+
+Minimum admission:
+
+```text
+source identity pinned
++ processed evidence exists
++ MK relationship exists
++ current limitations/UNKNOWNs expressible
++ evidence map can be constructed
+```
+
+A package is **not**:
+
+- an endorsement;
+- production certification;
+- framework ranking;
+- a reason to duplicate raw quarry content.
+
+## Future package workflow
+
+```text
+source receipt
+→ quarry/cross-source evidence
+→ MK classification pressure
+→ package admission check
+→ systems/<system>/ current synthesis
+→ record registry link
+```
+
+If a framework has too little evidence for a stable synthesis, keep it in `mining-site/` + `quarries/` until admission criteria are met.

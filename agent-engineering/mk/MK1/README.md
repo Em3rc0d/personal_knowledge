@@ -4,55 +4,71 @@ Status: **🟡 OPEN / IN PROGRESS**
 Precondition: **MK0 CLOSED**  
 Current schema: **`mk1-draft-2026-09-16.1`**
 
-## Purpose
+## Mission
 
-MK1 turns mined evidence into a **framework-independent classification system**. It normalizes vocabulary and architecture descriptions before MK2 converts them into operational contracts.
+MK1 turns mined evidence into a **framework-independent classification system** that can describe materially different agent systems without relying on framework names, marketing labels or hidden assumptions.
 
-This README is the **entrypoint/index** for MK1. The schema, dimensions, rules, queue, unknowns and gates live in dedicated files.
+MK1 answers:
+
+```text
+What kind of system is this?
+Who/what controls execution?
+What can it reach and mutate?
+How does state/memory/concurrency work?
+Where are policy, approval and termination enforced?
+What evidence supports the classification?
+What remains UNKNOWN?
+```
+
+MK1 does **not** define the full operational policy a production system must satisfy. That is MK2.
 
 ## Package map
 
+### Core semantics
+
 | Artifact | Responsibility |
 |---|---|
-| [`CLASSIFICATION_SCHEMA.md`](./CLASSIFICATION_SCHEMA.md) | normalized machine/human-readable record shape |
-| [`DIMENSIONS.md`](./DIMENSIONS.md) | control, capabilities, side effects, state/concurrency, memory, HITL, retry, termination, eval, protocol, multi-agent and evidence axes |
-| [`NORMALIZATION_RULES.md`](./NORMALIZATION_RULES.md) | rules preventing framework labels, hidden assumptions and dimension collapse |
-| [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md) | prioritized systems/families and classification workflow |
-| [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | **historical first-pass receipt** showing how Strands surfaced schema pressure before independent promotion |
-| [`UNKNOWNS.md`](./UNKNOWNS.md) | inherited and MK1-specific uncertainty register |
-| [`GATES.md`](./GATES.md) | pressure tests and closure criteria |
+| [`CLASSIFICATION_SCHEMA.md`](./CLASSIFICATION_SCHEMA.md) | current normalized record shape |
+| [`DIMENSIONS.md`](./DIMENSIONS.md) | semantic definitions for each dimension |
+| [`NORMALIZATION_RULES.md`](./NORMALIZATION_RULES.md) | anti-collapse / anti-framework normalization rules |
+| [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) | revision/change ledger and freeze procedure |
 
-Current system-level synthesis should be read from [`../../systems/`](../../systems/) rather than reconstructed from historical pressure-test documents.
+### Evidence application
 
-For Strands specifically:
+| Artifact | Responsibility |
+|---|---|
+| [`records/README.md`](./records/README.md) | canonical normalized-record registry and family coverage |
+| [`records/TEMPLATE.md`](./records/TEMPLATE.md) | record materialization contract |
+| [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md) | priority/admission logic for remaining evidence |
+| [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | historical first-pass Strands receipt |
 
-- human entrypoint: [`../../systems/strands/README.md`](../../systems/strands/README.md)
-- normalized current profile: [`../../systems/strands/CLASSIFICATION.md`](../../systems/strands/CLASSIFICATION.md)
-- machine/LLM context: [`../../systems/strands/LLM_CONTEXT.md`](../../systems/strands/LLM_CONTEXT.md)
-- provenance map: [`../../systems/strands/EVIDENCE.md`](../../systems/strands/EVIDENCE.md)
+### Closure control
 
-## Mission
+| Artifact | Responsibility |
+|---|---|
+| [`GATES.md`](./GATES.md) | formal closure gates |
+| [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md) | executable dependency plan |
+| [`UNKNOWNS.md`](./UNKNOWNS.md) | uncertainty register/routing |
+| [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md) | reusable A2A evidence contract; current gate PASS/QUALIFIED |
+| [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md) | remaining primary evidence gate |
 
-The classification model must be:
+## Current system synthesis
 
-- orthogonal where possible;
-- explicit about control authority;
-- explicit about reachable capabilities and compositions;
-- explicit about side effects independently of autonomy;
-- explicit about state/checkpoint/persistence/memory lifecycle;
-- explicit about concurrency/writer/conflict semantics when shared state or parallel work is reachable;
-- explicit about human approval, enforcement owner and dispatcher binding;
-- explicit about retries/errors/unknown outcomes;
-- explicit about semantic termination, resource budgets and enforcement boundaries;
-- explicit about evaluation evidence;
-- revision-aware for protocols/integrations;
-- capable of preserving `UNKNOWN` instead of forcing a label.
+For current framework/runtime answers, prefer canonical system packages over historical pressure tests.
 
-## Core principle
+Current complete package: [`../../systems/strands/`](../../systems/strands/).
+
+- human mental model → [`../../systems/strands/README.md`](../../systems/strands/README.md)
+- current normalized profile → [`../../systems/strands/CLASSIFICATION.md`](../../systems/strands/CLASSIFICATION.md)
+- protocols → [`../../systems/strands/PROTOCOLS.md`](../../systems/strands/PROTOCOLS.md)
+- provenance → [`../../systems/strands/EVIDENCE.md`](../../systems/strands/EVIDENCE.md)
+- machine context → [`../../systems/strands/LLM_CONTEXT.md`](../../systems/strands/LLM_CONTEXT.md)
+
+## Core classification principle
 
 > Classify what the system can actually decide and do, not what the repository/framework calls it.
 
-A single system may be deterministic in one stage, model-routed in another, model-directed for tools, human-gated for writes and durably checkpointed by the runtime. Therefore a single `agent_type` is insufficient.
+A single SDK may expose deterministic workflows, model-routed branches, model-directed loops, peer handoffs and remote-agent protocols. Framework identity cannot substitute for architecture classification.
 
 ## Primary dimensions
 
@@ -76,38 +92,37 @@ UNKNOWNs
 
 Full definitions: [`DIMENSIONS.md`](./DIMENSIONS.md).
 
-## First pressure-test set
+## Current representative records
 
-MK1 begins with:
+```text
+MATERIALIZED / QUALIFIED
+REC-001  minimal while-loop / model-tool loop / shell
+REC-002  HITL approval / protected dispatcher
+REC-003  trace evaluation / outcome-vs-trajectory
+REC-004  generated code + browser + host blast radius
+REC-007  social publication / dry-run / idempotency
+REC-008  document/data egress
+REC-009  database authority / least privilege
+REC-010  reflection/adaptation claim discipline
+REC-011  state/persistence/memory lifecycle contrast
+REC-013  MCP revision drift
+REC-014  Strands Agents canonical classification
 
-- minimal while-loop;
-- HITL approval;
-- trace-evaluation harness;
-- E2E generated-code/browser execution;
-- self-healing generated code;
-- HR messaging;
-- social publishing;
-- document intake/data egress;
-- DataScribe database authority;
-- reflection/self-improvement claim;
-- memory system;
-- multi-agent system;
-- legacy/current MCP comparison;
-- Strands Agents as an explicit modern framework/runtime pressure test spanning model-directed loops, deterministic workflow, Graph, Swarm, state/session/memory, interventions, evals and protocol adapters.
+COVERED_BY
+REC-005  REC-004 + REC-003
+REC-006  REC-002 + REC-007
 
-Full queue: [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md).
+OPEN / BLOCKING
+REC-012  multi-agent baseline/admission evidence
+```
 
-## Runtime-semantics crosscheck
+Registry: [`records/README.md`](./records/README.md).
 
-The initial Strands pass surfaced three schema questions:
+The set exists to pressure-test the schema, not to maximize document count.
 
-1. concurrency semantics for agent/session state;
-2. budget enforcement boundary / overshoot semantics;
-3. intervention enforcement owner and boundary.
+## Closed runtime-semantics promotion
 
-They were **not** promoted from Strands alone. MK1 then cross-checked them against LangGraph and OpenAI Agents SDK. All three survived as framework-independent engineering distinctions.
-
-Promotion in `mk1-draft-2026-09-16.1`:
+Independent contrast across Strands, LangGraph and OpenAI Agents SDK promoted:
 
 ```text
 concurrency semantics        → state
@@ -117,61 +132,91 @@ intervention owner/boundary  → human_control
 
 Evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md).
 
-No framework-specific top-level category was introduced.
+## Protocol state
 
-### Historical-document rule
+### MCP
 
-`STRANDS_AGENTS_PRESSURE_TEST.md` intentionally preserves the state before independent confirmation. If it says a field is a candidate or MCP execution is still open, interpret that as the **historical gate state at the time of the first pressure test**, not the current domain state.
-
-For current state, prefer `systems/strands/`, this README, `GATES.md`, `UNKNOWNS.md` and `STATUS.md`.
-
-## Strands × MCP `2026-07-28` protocol gate
-
-The Strands MCP record has now been checked against a pinned protocol revision rather than represented as `MCP=true`.
-
-Current evidence state:
-
-```text
-core interoperability       SUPPORTED / UPSTREAM-EXECUTED
-modern lifecycle            REGRESSION-TESTED
-Streamable HTTP             UPSTREAM-EXECUTED
-MRTR / prompts / resources  SUPPORTED BY PINNED MODERN FIXTURE
-list-changed subscription   UPSTREAM-EXECUTED
-trace continuity            UPSTREAM E2E TESTED
-auth adapter                SUPPORTED / deployment authorization separate
-remote rollback on cancel   NOT IMPLIED
-independent local rerun     BLOCKED BY CURRENT ENVIRONMENT NETWORK
-```
-
-The strongest fixture runs a real MCP 2.x server and explicitly rejects the legacy `initialize` handshake, so a successful connection proves the tested path uses the modern lifecycle rather than silently falling back to the legacy protocol.
+Strands ↔ MCP `2026-07-28` is **SUPPORTED / QUALIFIED** with upstream execution evidence for the modern path and explicit authorization/cancellation limits.
 
 Evidence: [`../../quarries/strands-mcp-2026-07-28-compatibility.md`](../../quarries/strands-mcp-2026-07-28-compatibility.md).
 
-This closes the Strands-specific core compatibility unknown at the source-evidence level. It does **not** turn MCP interoperability into proof of authorization correctness, remote-effect rollback or universal server compatibility.
+### A2A
 
-## State transition
+The A2A classification-shape gate is now **PASS / QUALIFIED**.
+
+Pinned Strands evidence shows:
 
 ```text
-MK0 evidence/framing
-        ↓
-MK1 normalize/classify      ← current
-        ↓
-freeze classification schema revision
-        ↓
-MK2 operationalize contracts/tests
+Python SDK        a2a-sdk >=0.3.0,<0.4.0
+TypeScript SDK    @a2a-js/sdk ^0.3.10
+implemented line  A2A 0.3
+current line      A2A 1.0
+fixtures          source present / integration scope present
+specific CI PASS  not verified
+independent run   not run
+A2A 1.0 compat    NOT ESTABLISHED
 ```
 
-MK2 already contains **design scaffolding only** so the handoff shape is visible, but MK2 implementation remains blocked until MK1 closes.
+Receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md).
+
+The taxonomy can represent this version drift without `A2A=true`; therefore current-version migration debt remains explicit but is not a hidden MK1 taxonomy blocker.
+
+## Remaining closure blockers
+
+```text
+REC-012 multi-agent baseline/admission evidence    OPEN / BLOCKING
+final UNKNOWN reconciliation                       PENDING REC-012
+cross-dimension + overlap audit                     PENDING
+schema freeze decision                              NOT YET
+MK1 CLOSURE.md                                     NOT YET
+MK2 activation                                     BLOCKED
+```
+
+Execution order: [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md).
+
+## Historical-document rule
+
+Historical receipts are intentionally preserved. If `STRANDS_AGENTS_PRESSURE_TEST.md` says a field is candidate/open, interpret it as first-pass state, not current truth.
+
+Current-state precedence:
+
+```text
+STATUS.md
+> systems/<system>/
+> current MK schema/gates/records
+> quarries/
+> mining-site/
+```
+
+## MK1 output contract
+
+MK1 closes with:
+
+```text
+frozen schema revision
++ normalized dimensions/rules
++ complete representative record coverage
++ revision-aware protocol evidence
++ multi-agent admission/baseline evidence
++ routed UNKNOWNs
++ closure receipt
+```
+
+Then, and only then, MK2 receives the package defined by [`../MK2/HANDOFF_CONTRACT.md`](../MK2/HANDOFF_CONTRACT.md).
 
 ## Current promotion state
 
 ```text
-MK0 = CLOSED
-MK1 = IN PROGRESS
-RUNTIME SEMANTICS CROSSCHECK = PASS
-STRANDS MCP 2026-07-28 = SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED
-STRANDS CANONICAL SYSTEM PACKAGE = AVAILABLE
-SCHEMA = mk1-draft-2026-09-16.1
-MK2 = BLOCKED / DESIGN SEEDED
-CANON OPERATIONAL RULES = NOT YET
+MK0                           CLOSED
+MK1                           IN PROGRESS
+SCHEMA                        mk1-draft-2026-09-16.1
+RUNTIME SEMANTICS CROSSCHECK  PASS
+STRANDS MCP 2026-07-28        SUPPORTED / QUALIFIED
+A2A CLASSIFICATION SHAPE      PASS / QUALIFIED
+A2A 1.0 COMPATIBILITY         NOT ESTABLISHED
+STRANDS SYSTEM PACKAGE        SOLIDIFIED
+REPRESENTATIVE RECORD SET     NEAR-COMPLETE
+MULTI-AGENT BASELINE          OPEN / BLOCKING
+SCHEMA FREEZE                 NOT YET
+MK2                           BLOCKED / DESIGN SEEDED
 ```

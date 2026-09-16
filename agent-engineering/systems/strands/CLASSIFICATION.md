@@ -131,13 +131,23 @@ protocols:
       - SEP-2663 tasks when configured/supported
 
   - name: A2A
-    revision: unknown
-    role: remote-agent interoperability
-    transport: network service / implementation dependent
+    revision: "0.3"
+    role: client + server / remote-agent interoperability
+    transport: HTTP / JSON-RPC path in pinned Strands implementation; streaming supported
     capabilities:
-      - remote agent invocation/delegation surfaces
-    auth_model: unknown
-    extensions: unknown
+      - Agent Card discovery
+      - synchronous and asynchronous invocation
+      - streaming protocol events
+      - task/context state handling
+      - input_required interrupt binding
+      - Graph remote-agent node integration
+    auth_model: caller/deployment configured transport auth; context_id is explicitly not an authentication boundary
+    extensions:
+      - task store / queue / push-notification extension surfaces depending configured server
+    compatibility:
+      current_a2a_protocol: "1.0"
+      current_a2a_1_0_compatibility: NOT_ESTABLISHED
+      drift: pinned Python and TypeScript SDK paths remain on A2A 0.3.x
 
 security:
   trust_boundaries:
@@ -145,6 +155,7 @@ security:
     - model provider
     - registered tool implementations
     - MCP/A2A remote endpoints
+    - A2A identity/authentication gateway
     - session storage
     - memory storage
     - deployment infrastructure
@@ -154,6 +165,7 @@ security:
   receipts:
     - tool/model OpenTelemetry surfaces available
     - MCP modern trace continuity tested upstream
+    - A2A context_id is not treated as authenticated tenant identity
     - framework documentation explicitly places tool permission responsibility on host/application boundary
 
 reproducibility:
@@ -163,6 +175,8 @@ reproducibility:
     snapshot: a9361c54ca190117d5801dd09a1ab8d6d3d9bf20
     python_release_observed: python/v1.56.0
     typescript_release_observed: typescript/v1.18.0
+    python_a2a_sdk: ">=0.3.0,<0.4.0"
+    typescript_a2a_sdk: "^0.3.10"
   external_api_receipt: deployment-specific
   execution_evidence:
     framework_source_inspection: PASS
@@ -170,9 +184,13 @@ reproducibility:
     mcp_2026_07_28_upstream_ci: PASS
     mcp_trace_continuity_upstream_ci: PASS
     independent_local_mcp_rerun: NOT_RUN_ENVIRONMENT_BLOCKED
+    a2a_0_3_integration_fixture_source: PRESENT
+    a2a_0_3_integration_workflow_scope: PRESENT
+    a2a_specific_successful_ci_run: NOT_VERIFIED
+    a2a_independent_rerun: NOT_RUN
 
 unknowns:
-  - A2A exact revision/auth/transport execution receipt
+  - Strands A2A 1.0 migration/interoperability execution receipt
   - distributed concurrency semantics of each concrete persistence backend
   - application-specific idempotency and unknown-outcome recovery
   - hard containment for arbitrary host-process tools
@@ -209,6 +227,20 @@ A deployment may add containers, VMs, managed runtimes or capability-specific is
 
 The SDK provides evaluation and observability surfaces. `repeated_trials: false` and `regression_gate: false` intentionally mean those controls are not automatic properties of merely using Strands.
 
+### A2A support is revision-specific
+
+The pinned Strands implementation is a real A2A implementation, but its Python and TypeScript SDK dependencies are on the `0.3` family while the current A2A compatibility line is `1.0`.
+
+Therefore:
+
+```text
+Strands supports A2A 0.3
+!=
+Strands is proven compatible with A2A 1.0
+```
+
+The current A2A 1.0 migration/interoperability receipt remains open as system-version debt.
+
 ## Historical promotion path
 
 The first Strands pressure test could not cleanly encode:
@@ -223,8 +255,11 @@ That sequence matters: **the classification schema changed because a reusable en
 
 ## Related documents
 
+- system protocols: [`PROTOCOLS.md`](./PROTOCOLS.md)
+- system evidence: [`EVIDENCE.md`](./EVIDENCE.md)
 - schema definition: [`../../mk/MK1/CLASSIFICATION_SCHEMA.md`](../../mk/MK1/CLASSIFICATION_SCHEMA.md)
 - dimension definitions: [`../../mk/MK1/DIMENSIONS.md`](../../mk/MK1/DIMENSIONS.md)
 - normalization rules: [`../../mk/MK1/NORMALIZATION_RULES.md`](../../mk/MK1/NORMALIZATION_RULES.md)
 - cross-runtime promotion evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md)
 - Strands raw processed evidence: [`../../quarries/strands-agents.md`](../../quarries/strands-agents.md)
+- A2A version-drift receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md)

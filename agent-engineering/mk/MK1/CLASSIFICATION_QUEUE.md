@@ -1,118 +1,161 @@
 # MK1 — Classification Queue
 
-Status: **ACTIVE**
+Status: **ACTIVE / RECORD-DRIVEN**  
+Schema: **`mk1-draft-2026-09-16.1`**
 
-MK1 begins with systems already supported by strong MK0 evidence, then expands across the remaining engineering families.
+## Purpose
 
-## First classification set
+This queue owns **remaining evidence/classification priority**. The authoritative record state lives in [`records/README.md`](./records/README.md); this file must not maintain a competing status ledger.
 
-Priority order:
+## Representative set
 
-1. minimal while-loop agent;
-2. HITL approval agent;
-3. trace-evaluation harness;
-4. E2E testing agent;
-5. self-healing code agent;
-6. HR messaging agent;
-7. social publishing agent;
-8. document-intake agent;
-9. DataScribe;
-10. self-improving/reflection example;
-11. representative memory agent;
-12. representative multi-agent system;
-13. MCP tutorial as a legacy protocol example;
-14. Strands Agents SDK as a modern framework/runtime pressure test.
+The original pressure set remains identified as REC-001 through REC-014. Current disposition:
 
-## Why this set comes first
+```text
+11 MATERIALIZED / QUALIFIED
+2  COVERED_BY
+1  OPEN / BLOCKING → REC-012 multi-agent
+```
 
-It covers the dimensions most likely to expose overlap or ambiguity:
+Registry: [`records/README.md`](./records/README.md).
 
-- deterministic vs model-directed control;
-- shell/generated-code/browser authority;
-- external messaging/publication/data egress;
-- dispatcher-enforced HITL;
-- state/checkpoint/persistence;
-- memory lifecycle;
-- retry and unknown-outcome semantics;
-- trace vs outcome evaluation;
-- multi-agent topology;
-- protocol version drift;
-- framework/runtime concurrency assumptions;
-- budget enforcement boundaries;
-- deterministic policy vs model-mediated intervention.
+## Current priority
 
-## Strands pressure-test role
+```text
+P0  REC-012 multi-agent baseline/admission evidence
+P1  final representative-set / COVERED_BY review
+P1  resolve freeze questions surfaced by existing records
+P1  UNKNOWN reconciliation
+P1  schema freeze audit
+```
 
-Strands is not admitted because it is a popular framework. It is admitted because one SDK exposes several control structures at once:
+No other existing queue entry should be rematerialized unless new evidence exposes distinct schema pressure.
 
-- model-directed single-agent loop;
-- deterministic Workflow;
-- developer-structured Graph;
-- peer/model-directed Swarm;
-- agents-as-tools hierarchy;
-- explicit state/session/memory separation;
-- runtime limits/cancellation;
-- hooks, human interrupts and LLM steering;
-- observability/evaluation surfaces;
-- MCP/A2A protocol adapters.
+## Closed representative pressure
 
-Current evidence: [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md).
+Current records already cover:
 
-It surfaced three candidate qualifiers that remain **unpromoted** pending independent evidence:
+```text
+REC-001 model-tool loop / shell / bounded termination
+REC-002 HITL / dispatcher-enforced mutation
+REC-003 trajectory vs outcome evaluation
+REC-004 generated code + browser + host authority
+REC-007 external publication / dry-run / idempotency
+REC-008 file/data egress / confidentiality pressure
+REC-009 database effective authority
+REC-010 reflection/adaptation vs persistent improvement
+REC-011 state/checkpoint/persistence/memory lifecycle
+REC-013 MCP revision drift
+REC-014 modern mixed-control Strands runtime
+```
 
-1. concurrency semantics;
-2. budget enforcement boundary / overshoot semantics;
-3. intervention enforcement owner.
+Explicit redundancy decisions:
+
+```text
+REC-005 COVERED_BY REC-004 + REC-003
+REC-006 COVERED_BY REC-002 + REC-007
+```
+
+These decisions must be reviewed during closure, but they are not invitations to create duplicate records by default.
+
+## Protocol pressure disposition
+
+### MCP
+
+Closed/qualified for the studied paths:
+
+- legacy/current lifecycle contrast → REC-013;
+- modern Strands MCP `2026-07-28` path → canonical system package + execution receipt.
+
+### A2A
+
+The MK1 classification-shape gate is **PASS / QUALIFIED**.
+
+Pinned Strands uses A2A `0.3.x`; current official A2A is `1.0.x`. The version drift, fixture strength, auth/state boundaries and unproven current-version compatibility are representable without a new schema axis.
+
+Receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md).  
+Reusable contract: [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md).
+
+A2A `1.0` migration remains system freshness/interoperability debt, not an ordinary MK1 record-writing task.
+
+## Remaining primary evidence target — REC-012
+
+REC-012 must be created from an actual comparison, not topology description alone.
+
+Required input contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).
+
+It must preserve independently:
+
+- admission hypothesis;
+- simpler baseline;
+- topology/authority split;
+- equivalent task/evaluation contract;
+- outcome quality;
+- latency;
+- token/cost where measurable;
+- coordination failure modes;
+- termination behavior;
+- evidence confidence.
+
+A neutral or negative result is valid. The gate is about **classification quality**, not proving multi-agent superiority.
 
 ## Classification workflow
 
 ```text
-select system
+select evidence target
     ↓
-pin source + snapshot
+verify pinned evidence first
     ↓
-collect implementation/test evidence
+re-open source/execute only when material evidence is missing
     ↓
-fill classification schema
+fill normalized record against current schema
     ↓
-mark unsupported fields UNKNOWN
+preserve unsupported facts as UNKNOWN
     ↓
-identify dimension overlap/conflict
+reconstruct authority/effect path
     ↓
-pressure-test normalization rules
+identify schema pressure / overlap
     ↓
-compare against another system family
+compare against existing records
     ↓
-refine schema only when evidence requires it
+change schema only if admission rule passes
+    ↓
+update registry + gates/unknowns/status when state changes
 ```
 
-## Expansion families
+## Admission rule for schema changes
 
-After the first set, cover at least one representative system from each family:
+Do not add a top-level axis because one framework exposes a new class or field.
 
-- single-call/deterministic LLM task;
-- graph workflow;
-- model-tool loop;
-- retrieval/document system;
-- state/memory system;
-- evaluator/critic loop;
-- generated-code/browser system;
-- external-mutating system;
-- multi-agent system;
-- protocol/integration system;
-- modern agent runtime/framework with explicit operational controls.
+Change the schema only when:
 
-## Admission rule for new top-level dimensions
-
-Do not add a new top-level axis because one framework exposes a new class or field.
-
-A new dimension should be introduced only when:
-
-1. existing axes cannot represent a material engineering difference without distortion;
+1. existing fields cannot represent a material engineering difference without distortion;
 2. the difference affects behavior, risk, reliability, evaluation or reproducibility;
-3. at least two independent examples or one strong counterexample justify the distinction;
-4. the new dimension does not duplicate another field under a different name.
+3. independent evidence or a strong counterexample supports it;
+4. it does not duplicate another dimension;
+5. change type is recorded in [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md).
+
+## Freeze questions generated by existing records
+
+The next schema work is **audit**, not uncontrolled expansion. In particular:
+
+- REC-008 → decide whether confidentiality/data-egress needs stronger MK1 structure or belongs to MK2 policy;
+- REC-011 → decide whether memory update-conflict/forgetting/evaluation belongs to MK1 or MK2;
+- full set → audit `horizon`, H0–H4, sandbox, evaluation and nested-agent authority for overlap/clarity.
+
+More fields are not automatically better.
 
 ## Output expectation
 
-MK1 should end with a stable schema plus normalized records/pressure tests sufficient for MK2 to derive operational contracts without re-litigating basic vocabulary.
+MK1 ends with:
+
+```text
+frozen framework-independent schema
++ complete representative coverage
++ explicit UNKNOWN routing
++ revision-aware protocol receipts
++ multi-agent admission evidence
++ closure receipt
+```
+
+Only then may MK2 operationalize the surviving semantics.

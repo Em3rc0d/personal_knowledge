@@ -1,181 +1,255 @@
 # MK1 — UNKNOWN Register
 
-Status: **ACTIVE**
+Status: **ACTIVE / CLOSURE-ROUTED**
 
-MK1 does not try to eliminate every unknown. It makes uncertainty classifiable and routes it to the MK where evidence can actually resolve it.
+MK1 does not try to eliminate every unknown. It makes uncertainty explicit and routes it to the stage where evidence can actually resolve it.
 
-## Inherited from MK0
+## UNKNOWN states
 
-### Runtime / reproducibility
+```text
+OPEN_MK1        missing evidence may change MK1 classification/schema
+CLOSED          evidence resolved the question
+QUALIFIED       scoped claim is supported; important boundary remains
+ROUTED_MK2      classification is stable; operational contract remains open
+ROUTED_MK3_PLUS integration/system concern beyond MK1
+ROUTED_MK5_PLUS requires repeated/production-like/independent evidence
+OUT_OF_SCOPE     not required for declared MK1 closure scope
+```
 
-- per-notebook execution proof under current dependencies;
-- exact behavior under current model/provider versions;
-- current SDK migration details for legacy examples;
-- complete external API compatibility receipts.
+No material item may disappear merely because it is inconvenient to close.
 
-### Security / containment
+## Closure-blocking OPEN_MK1 items
 
-- project-specific sandbox effectiveness;
-- tenant/secrets isolation;
-- authenticated browser mutation reachability for every browser example;
-- complete consequential dispatcher enforcement;
-- external-service retention behavior.
+### U-MK1-001 — Multi-agent measured benefit model
 
-### Side effects / retries
+State: **OPEN_MK1 / PRIMARY EVIDENCE BLOCKER**
 
-- exact retry/idempotency semantics for every tutorial;
-- unknown-outcome handling after timeout;
-- compensating actions where idempotency is unavailable;
-- DataScribe's exact lower-level mutation path and permission enforcement;
-- universal approval coverage for HR outbound communication.
+The representative registry is near-complete:
 
-### Memory / epistemics
+```text
+11 MATERIALIZED / QUALIFIED
+2  COVERED_BY
+1  OPEN → REC-012 multi-agent
+```
 
-- quality metrics by memory family;
-- memory-write validation and poisoning resistance;
-- retention/deletion policies;
-- persistent improvement evidence for `self-improving` claims.
+Topology is already classifiable, but MK1 still needs one representative baseline comparison demonstrating that topology and measured benefit are independent fields.
 
-### Multi-agent / operations
+Contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).  
+Registry: [`records/README.md`](./records/README.md).
 
-- benchmarked multi-agent gains;
-- coordination cost;
-- failure containment;
-- deployment/rollback/SLO evidence;
-- production observability completeness.
+### U-MK1-002 — Final schema overlap/freeze audit
 
-## MK1-specific unknowns
+State: **OPEN_MK1 / BLOCKED BY REC-012**
 
-The normalization process must determine:
+Questions still to resolve at closure:
 
-- whether `horizon` should remain inside control or become a completely independent axis;
-- whether side-effect class S0-S4 needs a separate confidentiality/data-egress severity dimension;
-- whether `sandbox` can be represented by one enum or requires capability-specific isolation fields;
-- whether evaluation layers E0-E7 are better represented as independent booleans than an ordinal shorthand;
-- whether human-control H0-H4 remains useful after explicit `enforcement_owner`, `enforcement_boundary` and dispatcher binding fields are populated;
-- how to represent nested systems where child agents have materially different authorities;
-- how to freeze/version the classification schema once MK1 closes.
+- whether `horizon` should stay nested under control or be independent;
+- whether S0–S4 plus `data_egress` sufficiently separates integrity/impact from confidentiality;
+- whether one `sandbox` enum is sufficient for classification or needs capability-specific containment qualifiers;
+- whether evaluation fields are sufficiently orthogonal without an ordinal maturity layer;
+- whether H0–H4 remains useful alongside enforcement owner/boundary/dispatcher fields;
+- whether nested child-agent authority is represented cleanly enough by current topology/capability fields;
+- whether memory update-conflict/forgetting/evaluation belongs in MK1 or MK2;
+- whether the active schema can freeze without a breaking revision.
 
-## Runtime-semantics pressure-test resolution — 2026-09-16
+Procedure: [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) + [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md).
 
-The Strands Agents pass originally surfaced three candidate qualifiers. Independent evidence from LangGraph and OpenAI Agents SDK now satisfies the MK1 admission rule.
+### U-MK1-003 — Final UNKNOWN routing
 
-### RESOLVED / PROMOTED — concurrency semantics
+State: **OPEN_MK1 / BLOCKED BY FINAL REPRESENTATIVE SET**
 
-Promoted into `state` in schema revision `mk1-draft-2026-09-16.1`:
+Once REC-012 exists, every material remaining UNKNOWN must be assigned one final closure state and recorded in MK1 `CLOSURE.md`.
 
-- `invocation_concurrency`;
-- `writer_model`;
-- `concurrency_conflict_semantics`;
-- `locking`.
+## Representative family coverage
 
-Cross-source basis:
+State: **QUALIFIED / NON-MULTI-AGENT COVERAGE CLOSED**
 
-- Strands: overlapping-invocation/session single-writer constraints;
-- LangGraph: concurrent state updates require explicit merge/reducer semantics;
-- OpenAI Agents SDK: SDK-side local tool concurrency is separately bounded from provider-side parallel tool calling.
+Materialized/qualified:
 
-Residual unknowns:
+- REC-001 minimal while-loop;
+- REC-002 HITL approval;
+- REC-003 trace evaluation;
+- REC-004 generated-code/browser E2E;
+- REC-007 social publication;
+- REC-008 document/data egress;
+- REC-009 database authority;
+- REC-010 reflection/adaptation;
+- REC-011 memory lifecycle contrast;
+- REC-013 MCP revision drift;
+- REC-014 Strands Agents.
 
-- backend-specific distributed locking / optimistic concurrency behavior;
-- conflict recovery semantics for individual persistence implementations;
-- application-defined external shared-state concurrency.
+Explicit coverage decisions:
 
-### RESOLVED / PROMOTED — budget enforcement boundary
+- REC-005 → `COVERED_BY REC-004 + REC-003`;
+- REC-006 → `COVERED_BY REC-002 + REC-007`.
 
-Promoted into `termination` in schema revision `mk1-draft-2026-09-16.1`:
+Only REC-012 requires new representative evidence.
 
-- enforcement qualifiers for turn/tool/time/token-cost budgets;
-- `overshoot_semantics`;
-- `cancellation_effective_boundary`.
+## Resolved / promoted runtime-semantics questions
 
-Cross-source basis:
+### U-RUN-001 — Concurrency semantics
 
-- Strands: soft loop-boundary limits and cooperative cancellation;
-- LangGraph: recursion limit as step kill switch rather than success predicate;
-- OpenAI Agents SDK: runner turn limit plus distinct tool timeout/cancellation controls.
+State: **CLOSED / PROMOTED**
 
-Residual unknowns:
+Promoted into `state` in `mk1-draft-2026-09-16.1`:
 
-- exact enforcement boundary for every runtime/provider/tool combination;
-- hard-vs-cooperative cancellation for arbitrary user tools;
-- remote cancellation behavior after a side effect may have begun.
+```text
+invocation_concurrency
+writer_model
+concurrency_conflict_semantics
+locking
+```
 
-### RESOLVED / PROMOTED — intervention enforcement owner
+Cross-source basis: Strands + LangGraph + OpenAI Agents SDK.
 
-Promoted into `human_control` in schema revision `mk1-draft-2026-09-16.1`:
+### U-RUN-002 — Budget enforcement boundary
 
-- `enforcement_owner`;
-- `enforcement_boundary`;
-- stronger `dispatcher_enforcement` semantics retained.
+State: **CLOSED / PROMOTED**
 
-Cross-source basis:
+Promoted into `termination`:
 
-- Strands: deterministic hooks, human confirmation and LLM steering have different guarantees;
-- LangGraph: interrupts can gate the consequential tool path before effect;
-- OpenAI Agents SDK: blocking vs parallel guardrails and distinct handoff/tool coverage boundaries.
+```text
+*_budget_enforcement
+overshoot_semantics
+cancellation_effective_boundary
+```
 
-Residual unknowns:
+### U-RUN-003 — Intervention enforcement owner
 
-- exact application-level approval binding when arguments are edited;
-- whether every consequential dispatcher is covered in a given system;
-- adversarial reliability of model-mediated intervention;
-- provider/built-in tool paths that bypass application guardrail pipelines.
+State: **CLOSED / PROMOTED**
 
-## Protocol execution evidence
+Promoted into `human_control`:
 
-### RESOLVED / QUALIFIED — Strands × MCP `2026-07-28` core interoperability
+```text
+enforcement_owner
+enforcement_boundary
+```
 
-The pinned Strands source now carries executable upstream evidence rather than only protocol-name/documentation evidence.
+`dispatcher_enforcement` and `approval_binding` remain separate stronger call-path properties.
 
-Supported by:
+Evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md).
 
-- declared MCP 2.x dependency support at `harness-sdk@a9361c54...`;
-- protocol-aware `server/discover` compatibility path;
-- an integration fixture that refuses the legacy `initialize` handshake;
-- real MCP 2.x server execution over Streamable HTTP;
-- successful upstream CI for modern negotiation, tools, structured output/errors, multi-round-trip input and list-changed behavior;
-- current pinned fixture coverage for prompts/resources;
-- a separate merged end-to-end MCP 2.x trace-continuity test.
+## Protocol questions
+
+### U-PROTO-001 — Strands × MCP `2026-07-28`
+
+State: **QUALIFIED / CORE INTEROPERABILITY CLOSED**
+
+Supported by pinned source + upstream execution evidence for modern lifecycle, Streamable HTTP, tools, structured results/errors, multi-round-trip input, prompts/resources, list-change behavior and trace continuity.
 
 Receipt: [`../../quarries/strands-mcp-2026-07-28-compatibility.md`](../../quarries/strands-mcp-2026-07-28-compatibility.md).
 
-Residual protocol unknowns / qualifications:
+Residual qualifications:
 
-- independent local reproduction is not available in the present execution environment because outbound network/package installation is blocked;
-- end-to-end OAuth authorization behavior against a protected external MCP server remains deployment-specific;
-- cancellation does not prove rollback of remote side effects already started;
-- universal interoperability across arbitrary MCP servers is not certified by one SDK fixture;
-- protocol behavior outside the pinned MCP dependency range remains future evidence;
-- A2A protocol revision, authentication and transport receipts remain open for distributed-agent classification.
+- independent local rerun blocked by environment network/package constraints;
+- external protected-server OAuth E2E remains deployment-specific;
+- cancellation does not imply remote-effect rollback;
+- universal server interoperability is not certified;
+- versions outside pinned dependency range require new evidence.
 
-## Framework/runtime qualification — still open
+### U-PROTO-002 — A2A classification shape
 
-- provider feature parity across Python and TypeScript releases;
-- project-specific idempotency and unknown-outcome handling for consequential tools;
-- containment effectiveness for arbitrary tools inheriting host-process permissions;
-- benchmarked benefit of Graph/Swarm/agents-as-tools against simpler single-agent or deterministic baselines;
-- adversarial/repeated evaluation of LLM-mediated steering before treating it as a reliability mechanism.
+State: **QUALIFIED / CLOSED FOR MK1 CLASSIFICATION SHAPE**
 
-## Routing rule
+Pinned Strands evidence now establishes:
 
 ```text
-unknown about vocabulary/dimensions
-  → MK1
-
-unknown about required operational behavior/contract
-  → MK2
-
-unknown requiring integration across domains
-  → MK3
-
-unknown requiring automated verification
-  → MK4
-
-unknown requiring repeated execution / real-system evidence
-  → MK5+
+Python A2A SDK                    >=0.3.0,<0.4.0
+TypeScript A2A SDK                ^0.3.10
+implementation protocol family    0.3
+current official A2A family       1.0
+client/server/discovery semantics represented
+invoke/stream/task semantics      represented
+state/concurrency boundary        represented
+security/auth boundary            represented / qualified
+integration fixture source        present
+specific successful CI run        NOT VERIFIED
+independent rerun                 NOT RUN
+A2A 1.0 compatibility             NOT ESTABLISHED
 ```
+
+Receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md).
+
+Why it no longer blocks MK1 taxonomy:
+
+- protocol revision is explicit;
+- evidence strength is explicit;
+- current-version drift is explicit;
+- existing protocol fields represent the semantics without a framework-specific category;
+- no unsupported A2A `1.0` claim is required to classify the pinned implementation.
+
+### U-PROTO-003 — Strands A2A `1.0` migration/interoperability
+
+State: **ROUTED_MK2 / ROUTED_MK5_PLUS / SYSTEM FRESHNESS DEBT**
+
+The pinned Strands snapshot is not proven A2A `1.0` compatible. Future compatibility evidence should update the Strands system package and may feed later operational/certification work.
+
+It reopens MK1 only if a future A2A revision exposes a material semantic distinction the frozen schema cannot represent.
+
+## Routed operational UNKNOWNs
+
+### Security / containment
+
+- project-specific sandbox effectiveness → **ROUTED_MK2/MK5+**;
+- tenant/secrets isolation → **ROUTED_MK2/MK5+**;
+- authenticated browser mutation reachability per deployment → **ROUTED_MK2/MK5+**;
+- complete consequential dispatcher coverage per application → **ROUTED_MK2/MK5+**;
+- external-service retention behavior → **ROUTED_MK2/MK5+**.
+
+### Side effects / retries
+
+- exact retry/idempotency contract for every tutorial → **OUT_OF_SCOPE for universal MK1 closure**;
+- project-specific mutating retry safety → **ROUTED_MK2/MK5+**;
+- timeout unknown-outcome recovery → **ROUTED_MK2**;
+- compensating actions without idempotency → **ROUTED_MK2**;
+- DataScribe exact lower-level mutation dispatcher/filter semantics → **ROUTED_MK2/MK5+** after REC-009 preserved the classification uncertainty;
+- universal HR sender approval coverage → **ROUTED_MK2/MK5+**; REC-006 negative evidence remains preserved.
+
+### Memory / epistemics
+
+- memory quality metrics by family → **ROUTED_MK2/MK5+**;
+- poisoning/write validation → **ROUTED_MK2/MK5+**;
+- retention/deletion enforcement → **ROUTED_MK2**;
+- persistent improvement proof for self-improvement claims → **ROUTED_MK5+**; MK1 classifies claim/evidence type.
+
+### Production / operations
+
+- deployment/rollback/SLO evidence → **ROUTED_MK2/MK5+**;
+- production observability completeness → **ROUTED_MK2/MK5+**;
+- incident operability → **ROUTED_MK2/MK5+**;
+- capacity/cost limits → **ROUTED_MK2**.
+
+### Framework-specific residuals
+
+- Python/TypeScript feature parity over time → **system-package freshness debt / OUT_OF_SCOPE for schema freeze unless classification changes**;
+- concrete backend locking semantics → **per-system UNKNOWN / MK2+**;
+- exact hard/cooperative/best-effort cancellation per path → **per-record UNKNOWN / MK2+**;
+- adversarial reliability of LLM steering → **ROUTED_MK5+**.
+
+## Reproducibility UNKNOWNs inherited from MK0
+
+Universal per-notebook execution proof is not required to freeze a framework-independent classification schema.
+
+- representative execution evidence → **MK1 only when it changes classification**;
+- all-tutorial current executability → **OUT_OF_SCOPE for MK1 closure**;
+- project/runtime reproducibility contract → **MK2**;
+- repeated independent certification → **MK5+**.
+
+## Closure routing rule
+
+Before MK1 closes, each remaining material UNKNOWN must appear in the closure receipt as:
+
+```yaml
+id:
+state: CLOSED | QUALIFIED | ROUTED_MK2 | ROUTED_MK3_PLUS | ROUTED_MK5_PLUS | OUT_OF_SCOPE
+why_it_does_not_block_mk1:
+evidence_or_destination:
+```
+
+Any item still `OPEN_MK1` blocks closure.
 
 ## Non-negotiable rule
 
-`UNKNOWN` is not technical debt when the evidence genuinely does not exist. Hidden assumptions are technical debt.
+`UNKNOWN` is not technical debt when evidence genuinely does not exist.
+
+**Hidden assumptions are technical debt.**

@@ -8,18 +8,22 @@ This file answers **“why do we believe the canonical Strands view?”** withou
 ## Evidence chain
 
 ```text
-S-109 source receipt
+S-109 Strands source receipt
         ↓
-strands-agents quarry
+Strands broad quarry
         ↓
 MK1 Strands pressure test
         ↓
 independent runtime crosscheck
         ↓
 MK1 schema promotion
-        ↓
-Strands × MCP 2026-07-28 execution receipt
-        ↓
+        ├───────────────┐
+        ▼               ▼
+MCP current receipt   A2A current-spec receipt S-112
+        │               ↓
+        │         Strands A2A version-drift receipt
+        └───────┬───────┘
+                ▼
 systems/strands/ canonical current view
 ```
 
@@ -40,6 +44,20 @@ Carries:
 - links into processed evidence.
 
 Use when verifying **which Strands version/source** a claim refers to.
+
+### Current A2A protocol — S-112
+
+Path: [`../../mining-site/S-112-a2a-protocol.md`](../../mining-site/S-112-a2a-protocol.md)
+
+Carries:
+
+- official A2A repository/spec identity;
+- current protocol compatibility line `1.0`;
+- observed latest patch release `v1.0.1`;
+- breaking-change boundary between `0.3` and `1.0`;
+- Agent Card/task/binding/auth/cancellation semantics relevant to MK1.
+
+Use when comparing Strands' pinned A2A implementation against the **current protocol**, not merely its bundled SDK API.
 
 ### Detailed Strands quarry
 
@@ -123,6 +141,28 @@ Carries the protocol-specific execution evidence for:
 
 Use when making any concrete claim about current Strands ↔ MCP `2026-07-28` interoperability.
 
+### A2A version-drift / interoperability receipt
+
+Path: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md)
+
+Carries the revision-aware A2A evidence for the pinned Strands snapshot:
+
+- Python dependency `a2a-sdk>=0.3.0,<0.4.0`;
+- TypeScript dependency `@a2a-js/sdk ^0.3.10`;
+- current official A2A compatibility line `1.0`;
+- real `A2AAgent` client implementation;
+- server/Agent Card/task/context surfaces;
+- sync/async/streaming integration fixture source;
+- Graph composition with a remote A2A node;
+- integration workflow scope containing `tests_integ`;
+- per-context `agent_factory` vs deprecated locked shared-agent concurrency behavior;
+- explicit warning that `context_id` is not an authentication boundary;
+- `input_required` interrupt binding semantics;
+- exact evidence limitation: no specific successful A2A CI run receipt was verified in this pass;
+- exact compatibility limitation: A2A `1.0` interoperability is **not established** for the pinned Strands `0.3.x` implementation.
+
+Use when making any claim stronger than “Strands exposes A2A integration surfaces.”
+
 ## Normalized canon dependencies
 
 ### Current MK1 schema
@@ -171,7 +211,13 @@ These decide what is still open even if older quarries describe the same item as
 | MCP trace continuity works in tested modern path | MCP trace receipt | **UPSTREAM E2E TESTED** |
 | MCP external OAuth policy is universally correct | no sufficient evidence | **NOT CLAIMED** |
 | remote cancellation rolls back side effects | no sufficient evidence | **NOT CLAIMED** |
-| A2A current revision/auth/transport is fully pinned and executed | incomplete receipt | **UNKNOWN / OPEN** |
+| pinned Strands Python and TypeScript A2A integrations target A2A `0.3.x` | dependency receipts + A2A quarry | **SUPPORTED** |
+| Strands A2A exposes Agent Card, invoke/stream, server/task/context and Graph integration surfaces | pinned source/docs/integration fixture | **SUPPORTED** |
+| A2A integration fixture source exists and lies under the integration-test tree | pinned source/workflow | **OBSERVED** |
+| that exact A2A fixture passed a specific CI run at the pinned snapshot | no specific run receipt verified | **UNKNOWN / NOT CLAIMED** |
+| current official A2A protocol compatibility line is `1.0` and broke from `0.3` | S-112 official release/spec evidence | **SUPPORTED** |
+| pinned Strands A2A `0.3.x` is compatible with current A2A `1.0` | no migration/execution receipt | **NOT ESTABLISHED** |
+| A2A `context_id` is an authentication/tenant boundary | pinned Strands docs explicitly warn otherwise | **CONTRADICTED AS A SECURITY CLAIM** |
 | Graph/Swarm is generally better than a simpler architecture | no benchmark evidence | **NOT CLAIMED** |
 | every Strands app is production-ready | impossible from framework evidence alone | **NOT CLAIMED** |
 
@@ -202,6 +248,15 @@ All current Strands facts in this package are anchored to:
 ```text
 snapshot: a9361c54ca190117d5801dd09a1ab8d6d3d9bf20
 observed: 2026-09-16
+```
+
+Protocol-specific freshness triggers now include:
+
+```text
+MCP dependency range or protocol revision changes
+A2A SDK dependency moves from 0.3.x to 1.x+
+A2A Agent Card/task/auth/binding semantics change
+new A2A integration execution receipts appear
 ```
 
 If a future Strands release changes runtime semantics, protocol ranges, orchestration behavior or API guarantees:
