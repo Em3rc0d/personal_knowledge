@@ -206,6 +206,29 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
 
 The `S-001` MCP tutorial is therefore retained as a useful legacy learning artifact for tool discovery/execution concepts but is **not** a current lifecycle reference for MCP `2026-07-28`.
 
+### S-109 — Strands Agents
+
+- provenance: `OFFICIAL` + `OBSERVED`
+- documentation: https://strandsagents.com
+- repository: https://github.com/strands-agents/harness-sdk
+- pinned snapshot: `a9361c54ca190117d5801dd09a1ab8d6d3d9bf20`
+- observed: 2026-09-16
+- release receipts at observation: `python/v1.56.0`, `typescript/v1.18.0`
+- license: Apache-2.0
+- relevance:
+  - modern in-process agent harness pressure test spanning model-directed loops and deterministic/mixed orchestration;
+  - explicit Graph, Swarm, Workflow and agents-as-tools topologies;
+  - explicit separation of conversation, agent state, invocation state, session persistence, context management and cross-session memory;
+  - tool permissions inherit the host process unless separately constrained;
+  - loop budgets and cancellation expose enforcement-boundary semantics not captured by a simple boolean/value;
+  - hooks, human confirmation and LLM steering expose different intervention/authorization guarantees;
+  - native observability, eval and protocol adapters provide implementation evidence without becoming taxonomy.
+- detailed receipt: [`S-109-strands-agents.md`](./S-109-strands-agents.md)
+- processed quarry: [`../quarries/strands-agents.md`](../quarries/strands-agents.md)
+- MK1 pressure test: [`../mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md`](../mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md)
+
+Important qualification: Strands-specific capabilities are evidence about one framework implementation. They do not certify model-driven orchestration, multi-agent systems, security or production readiness in general.
+
 ## Scientific literature
 
 ### S-201 — ReAct
