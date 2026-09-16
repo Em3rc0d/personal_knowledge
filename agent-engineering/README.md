@@ -10,25 +10,21 @@ MK1  Normalize & Classify  🟡 IN PROGRESS
 MK2  Operationalize        🔒 BLOCKED / DESIGN SEEDED
 ```
 
-### Empieza aquí
+## Empieza aquí
 
-- **mapa humano del conocimiento:** [`KNOWLEDGE_MAP.md`](./KNOWLEDGE_MAP.md)
-- **router para LLMs/agentes:** [`LLM_CONTEXT.md`](./LLM_CONTEXT.md)
-- **tablero canónico de estado:** [`STATUS.md`](./STATUS.md)
-- **vista actual de sistemas concretos:** [`systems/`](./systems/)
-- **Strands Agents — síntesis canónica:** [`systems/strands/README.md`](./systems/strands/README.md)
+| Necesidad | Archivo |
+|---|---|
+| entender el dominio | [`README.md`](./README.md) |
+| ver estado vivo | [`STATUS.md`](./STATUS.md) |
+| saber qué ejecutar después | [`ROADMAP.md`](./ROADMAP.md) |
+| entender qué archivo manda sobre qué | [`REPOSITORY_CONTRACT.md`](./REPOSITORY_CONTRACT.md) |
+| navegar el knowledge graph | [`KNOWLEDGE_MAP.md`](./KNOWLEDGE_MAP.md) |
+| dar contexto mínimo a un LLM/agente | [`LLM_CONTEXT.md`](./LLM_CONTEXT.md) |
+| ver sistemas concretos actuales | [`systems/`](./systems/) |
+| estudiar Strands actualmente | [`systems/strands/README.md`](./systems/strands/README.md) |
+| continuar MK1 | [`mk/MK1/README.md`](./mk/MK1/README.md) |
 
-### Navegación por capa
-
-- progresión y estructura MK: [`mk/README.md`](./mk/README.md)
-- MK0 evidence/framing package: [`mk/MK0/`](./mk/MK0/)
-- MK1 normalization package: [`mk/MK1/`](./mk/MK1/)
-- MK2 operationalization design package: [`mk/MK2/`](./mk/MK2/)
-- threat model: [`architecture/THREAT_MODEL.md`](./architecture/THREAT_MODEL.md)
-- source registry: [`mining-site/SOURCES.md`](./mining-site/SOURCES.md)
-- processed evidence/quarries: [`quarries/`](./quarries/)
-
-## Cómo leer este dominio
+## Cómo está diseñado el dominio
 
 El repositorio conserva dos vistas simultáneas:
 
@@ -40,9 +36,26 @@ systems/<system>/                    quarries/
 mk/ canon vigente                    MK pressure tests / gates
 ```
 
-`systems/` es una capa de síntesis actual por framework/runtime. No reemplaza la evidencia. Un humano puede comenzar por `systems/strands/README.md`; un LLM debe comenzar por `systems/strands/LLM_CONTEXT.md`.
+La estructura no está organizada por popularidad de frameworks sino por **rol epistemológico**.
 
-Los `quarries/` conservan observaciones y estados históricos, incluso cuando una deuda luego fue promovida, cerrada o calificada. Para estado actual, no deben leerse aisladamente.
+```text
+agent-engineering/
+│
+├── README.md                 orientación humana
+├── STATUS.md                 estado canónico actual
+├── ROADMAP.md                secuencia de ejecución vigente
+├── REPOSITORY_CONTRACT.md    autoridad / lifecycle / conflict rules
+├── KNOWLEDGE_MAP.md          mapa humano
+├── LLM_CONTEXT.md            router para máquinas
+│
+├── systems/                  síntesis actual por sistema
+├── mk/                       madurez / canon normalizado
+├── architecture/             artefactos cross-system
+├── quarries/                 evidencia procesada / historia
+└── mining-site/              receipts / snapshots / provenance
+```
+
+Contrato completo: [`REPOSITORY_CONTRACT.md`](./REPOSITORY_CONTRACT.md).
 
 ## Propósito
 
@@ -58,7 +71,7 @@ Incluye:
 - agent loop / harness / runtime;
 - planificación, routing y orchestration;
 - herramientas y Agent-Computer Interface (ACI);
-- MCP como contrato de interoperabilidad versionado, no como arquitectura completa;
+- protocolos como MCP/A2A tratados por revisión/rol/transport/auth, no como arquitectura completa;
 - state, checkpoint, context, memory y persistence;
 - concurrency/writer/conflict semantics;
 - retries, termination, budgets y enforcement boundaries;
@@ -66,7 +79,7 @@ Incluye:
 - side effects, idempotencia y auditabilidad;
 - evaluación de outcome, trajectory/trace y regresiones;
 - seguridad, permissions, sandboxing y blast radius;
-- multi-agent coordination y failure modes;
+- multi-agent coordination, admission hypotheses y failure modes;
 - reproducibilidad, version drift y lifecycle de agent systems.
 
 Fuera de alcance por defecto:
@@ -80,7 +93,7 @@ Fuera de alcance por defecto:
 
 ```text
                     ┌───────────────┐
-request / objective │   POLICY      │
+request / objective │    POLICY     │
         ───────────►│ risk / scope  │
                     └──────┬────────┘
                            │
@@ -113,63 +126,71 @@ request / objective │   POLICY      │
 
 El modelo puede proponer; el runtime/policy boundary decide qué está permitido ejecutar.
 
-## Reglas candidatas heredadas de MK0
+## Principios de ingeniería actualmente seguros como working knowledge
 
-Estas reglas siguen siendo **candidatas**, no canon operacional certificado. La versión estructurada vive en [`mk/MK0/INVARIANTS.md`](./mk/MK0/INVARIANTS.md); MK1 las normaliza y MK2 deberá convertir las que sobrevivan en contratos/tests.
+Estos principios sobrevivieron MK0/MK1 como reglas de trabajo de alta confianza, aunque sus contratos operacionales completos pertenecen a MK2+.
 
-1. **Use the simplest sufficient architecture.** Un workflow determinista es preferible si el problema no necesita control dinámico del modelo.
+1. **Use the simplest sufficient architecture.** Más autonomía/topología requiere una necesidad demostrable.
 2. **Policy belongs in enforceable code.** Una regla crítica no puede depender exclusivamente del prompt.
-3. **Every loop is bounded.** Turns, tool calls, retries, tiempo, tokens/costo y condiciones terminales deben tener límites explícitos; MK1 además registra dónde se hacen cumplir.
-4. **Tools are typed contracts.** Schema, permisos, errores, semántica, idempotencia y outputs forman parte de la arquitectura.
-5. **Side effects cross a policy boundary.** Acciones mutantes/consecuenciales requieren risk classification y, cuando aplique, aprobación previa al efecto.
-6. **Modified actions are new actions.** Si una persona o el modelo modifica argumentos, deben revalidarse antes de ejecutar.
-7. **Context is curated state, not merely chat history.** System instructions, tool definitions, retrieved evidence, structured state, memory y transcript son componentes distintos.
-8. **Persistence is not memory.** Checkpointing/durability, conversational memory y long-term knowledge tienen contratos diferentes.
-9. **Durability is not concurrency safety.** Persistir estado no demuestra writer/locking/conflict semantics seguros.
-10. **Agent says DONE != task is DONE.** El cierre debe probarse mediante estado externo, fixtures, tests o evidencia observable.
-11. **Evaluate outcomes and trajectories.** El resultado final y la secuencia de acciones pueden fallar independientemente.
-12. **Stochastic systems need repeated evaluation.** Un único run no certifica comportamiento estable.
-13. **Reflection needs a verifier or feedback signal.** La autocorrección intrínseca no se presume confiable.
-14. **Multi-agent must earn its complexity.** Solo se justifica si partición, paralelismo o especialización mejoran métricas frente a una baseline más simple.
-15. **Least privilege is an agent invariant.** Shell, red, filesystem, secrets y herramientas mutantes deben limitar blast radius.
-16. **Frameworks are adapters, not truth.** Los principios deben sobrevivir a cambios de SDK, modelo y proveedor.
-17. **Version compatibility is evidence.** Un notebook que no se ejecuta contra su entorno declarado es material educativo degradado, no una referencia operacional.
-18. **Protocol compatibility is a vector.** Revisión, lifecycle, transport, extensiones, auth, cancelación y execution receipt deben permanecer explícitos.
+3. **Every loop is bounded.** Budget value y enforcement boundary son contratos distintos.
+4. **Tools are typed contracts.** Schema no equivale a permission ni a safety.
+5. **Capability composition determines blast radius.** El riesgo emerge de combinaciones alcanzables.
+6. **Side effects cross a policy boundary.** Mutación y data egress requieren clasificación explícita.
+7. **Modified actions are new actions.** Cambiar argumentos invalida autorización/validación cuando el binding importa.
+8. **Context is curated state.** No es sinónimo de chat history.
+9. **Persistence is not memory.** Durabilidad y semántica de recuerdo son contratos distintos.
+10. **Durability is not concurrency safety.** Writer/merge/locking semantics deben registrarse aparte.
+11. **Runtime DONE != task DONE.** Stop reason no demuestra outcome externo.
+12. **Outcome and trajectory are separate evaluation surfaces.** Ambas pueden fallar independientemente.
+13. **Stochastic reliability requires repeated evidence.** Un único run no certifica estabilidad.
+14. **Reflection requires verifier/feedback for improvement claims.** Autocrítica no equivale a aprendizaje.
+15. **Multi-agent must earn its complexity.** Topología y beneficio medido son campos distintos.
+16. **Least privilege is an agent invariant.** Shell/red/filesystem/secrets mutantes necesitan containment proporcional.
+17. **Frameworks are adapters, not truth.** La taxonomía debe sobrevivir cambios de SDK/proveedor.
+18. **Protocol compatibility is a vector.** Revision/lifecycle/transport/auth/extensions/cancellation/evidence importan.
+19. **Protocol interoperability != authorization.** Capability discovery no concede permiso de ejecución.
+20. **Production readiness is an evidence vector.** Un framework production-capable no certifica la aplicación.
 
-## Fuente inicial: GenAI_Agents
+## Fuentes y provenance
 
-El primer mining site del dominio es `NirDiamant/GenAI_Agents`, fijado en:
+El primer mining site fue `NirDiamant/GenAI_Agents`, fijado en:
 
 ```text
 repository: NirDiamant/GenAI_Agents
-branch:     main
 snapshot:   4c95ae14cc2462c442b5c064cccd74430d02bc46
 observed:   2026-09-07
 ```
 
-Se utiliza como **catálogo pedagógico y cantera de patrones**, no como especificación normativa.
+Se utiliza como **catálogo pedagógico/cantera de patrones**, no como especificación normativa.
 
-MK0 añadió además fuentes especializadas:
+Fuentes complementarias ya incorporadas incluyen:
 
-- `NirDiamant/Agent_Memory_Techniques@b7f7240e...` para presión taxonómica de memory;
-- `NirDiamant/agents-towards-production@141b0679...` para patrones/claims de production;
-- MCP `2026-07-28` como contrato protocolar vigente para esta iteración.
+- `Agent_Memory_Techniques@b7f7240e...` para memory;
+- `agents-towards-production@141b0679...` para production concerns;
+- MCP `2026-07-28` como contrato protocolar vigente del pass actual;
+- Strands Agents, LangGraph y OpenAI Agents SDK como presión cross-runtime sobre MK1.
 
-MK1 incorporó además runtimes/frameworks modernos como instrumentos de presión de la taxonomía. El primer system package completo es **Strands Agents** y sus hallazgos fueron contrastados con LangGraph y OpenAI Agents SDK antes de modificar el schema.
+Registry: [`mining-site/SOURCES.md`](./mining-site/SOURCES.md).
 
 ### Boundary legal
 
-`GenAI_Agents` usa una licencia custom de uso no comercial con atribución y reserva de derechos comerciales. Por ello este dominio:
+`GenAI_Agents` usa licencia custom de uso no comercial con atribución/reserva comercial. Por eso este dominio:
 
-- no copia notebooks ni implementaciones;
-- no incorpora código upstream como plantilla;
-- registra factual metadata, observaciones y principios independientemente redactados;
-- mantiene provenance y snapshot;
-- contrasta los patrones con documentación oficial y literatura científica independiente.
+- no copia notebooks/implementaciones como canon;
+- registra metadata y observaciones;
+- redacta principios independientemente;
+- mantiene provenance/snapshot;
+- contrasta con fuentes oficiales y literatura independiente.
 
-## Regla de clasificación MK1
+## MK1 — estado real
 
-No usamos un único `agent_type`. Clasificamos dimensiones ortogonales:
+Schema actual:
+
+```text
+mk1-draft-2026-09-16.1
+```
+
+No usamos un único `agent_type`. Clasificamos:
 
 ```text
 control authority
@@ -180,22 +201,27 @@ memory lifecycle
 human control + enforcement owner/boundary
 errors / retries
 termination + budget enforcement/cancellation
-outcome / trajectory evaluation
+evaluation
 protocol revision
 security boundary
 reproducibility evidence
 UNKNOWNs
 ```
 
-- schema: [`mk/MK1/CLASSIFICATION_SCHEMA.md`](./mk/MK1/CLASSIFICATION_SCHEMA.md)
-- dimensions: [`mk/MK1/DIMENSIONS.md`](./mk/MK1/DIMENSIONS.md)
-- rules: [`mk/MK1/NORMALIZATION_RULES.md`](./mk/MK1/NORMALIZATION_RULES.md)
+Materializado actualmente:
 
-## Strands como pressure test
+```text
+REC-001  minimal while-loop
+REC-002  HITL approval
+REC-013  MCP revision drift
+REC-014  Strands Agents
+```
 
-Strands no fue incorporado como “la forma correcta” de construir agentes. Se utilizó para tensionar la taxonomía porque una misma SDK expone varias formas de control y una separación rica de state/session/memory/interventions/protocols.
+Registry: [`mk/MK1/records/README.md`](./mk/MK1/records/README.md).
 
-El pass inicial encontró tres distinciones faltantes:
+### Hallazgos de Strands ya promovidos
+
+Strands tensionó el schema y reveló:
 
 ```text
 concurrency semantics
@@ -203,24 +229,44 @@ budget enforcement boundary
 intervention enforcement owner/boundary
 ```
 
-No se promovieron desde Strands solo. LangGraph y OpenAI Agents SDK aportaron confirmación independiente y las tres terminaron normalizadas en `mk1-draft-2026-09-16.1`.
+No se promovieron por Strands solo. LangGraph + OpenAI Agents SDK confirmaron esas diferencias y quedaron incorporadas en `mk1-draft-2026-09-16.1`.
 
-El pass posterior Strands ↔ MCP cerró la deuda principal de interoperabilidad `2026-07-28` a nivel **SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED**, preservando como abiertas las garantías de OAuth externo, rollback remoto y compatibilidad universal.
+Strands ↔ MCP `2026-07-28` también pasó a **SUPPORTED / UPSTREAM-EXECUTED / QUALIFIED**, sin convertir interoperabilidad en autorización ni cancelación en rollback.
 
 Vista consolidada: [`systems/strands/`](./systems/strands/).
 
+## Qué falta para cerrar MK1
+
+```text
+generated-code/browser record      OPEN
+data-egress record                  OPEN
+dedicated memory record             OPEN
+eval/critic pressure                OPEN
+A2A reproducibility receipt         OPEN
+multi-agent baseline                OPEN
+schema freeze audit                 BLOCKED BY ABOVE
+MK1 CLOSURE.md                      NOT YET
+```
+
+Plan exacto: [`mk/MK1/CLOSURE_PLAN.md`](./mk/MK1/CLOSURE_PLAN.md).  
+Roadmap del dominio: [`ROADMAP.md`](./ROADMAP.md).
+
 ## MK2 handoff
 
-MK2 ya tiene scaffolding explícito en [`mk/MK2/`](./mk/MK2/) para contratos, schemas, checklists, test model, gates y backlog. **Eso no significa que MK2 esté abierto**: permanece bloqueado hasta que MK1 cierre y congele su schema de entrada.
+MK2 tiene diseño sembrado, pero sigue bloqueado.
+
+No consume raw quarries como policy. Recibirá únicamente un paquete MK1 cerrado/frozen según:
+
+[`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md).
 
 ## Flujo de madurez
 
 ```text
-MK0  Mine & Frame                    ✅
+MK0  Mine & Frame                    ✅ CLOSED
  ↓
-MK1  Normalize & Classify            ← current
+MK1  Normalize & Classify            🟡 CURRENT
  ↓
-MK2  Operationalize contracts/tests  🔒 design seeded
+MK2  Operationalize contracts/tests  🔒 BLOCKED / DESIGN SEEDED
  ↓
 MK3  Integrate with Jett Engineering Method + domains
  ↓
@@ -229,4 +275,4 @@ MK4  Automate validators / eval harnesses
 MK5+ Certify against independent systems/counterexamples
 ```
 
-`STATUS.md` es el tablero canónico. **Cerrar MK0 no certificó las reglas candidatas**; solo cerró el framing. MK1 normaliza; MK2 operacionaliza; los MK posteriores integran y certifican.
+`STATUS.md` es el tablero canónico; `ROADMAP.md` es la secuencia de ejecución; `REPOSITORY_CONTRACT.md` define la autoridad de cada capa.
