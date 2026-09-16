@@ -1,6 +1,7 @@
 # MK1 — Normalization Rules
 
-Status: **OPEN / IN PROGRESS**
+Status: **OPEN / IN PROGRESS**  
+Aligned schema: **`mk1-draft-2026-09-16.1`**
 
 ## Core rule
 
@@ -15,11 +16,11 @@ Separate at minimum:
 - control authority;
 - capability;
 - side-effect class;
-- state/checkpoint/persistence;
+- state/checkpoint/persistence/concurrency semantics;
 - memory lifecycle;
-- human control;
+- human control and enforcement ownership;
 - retry/error ownership;
-- termination;
+- termination and budget enforcement;
 - evaluation;
 - protocol revision;
 - security/reproducibility.
@@ -135,3 +136,41 @@ Do not infer approval coverage, sandboxing, idempotency, persistence or producti
 A complete record describes architecture and evidence state. It does not prove the system is secure, reliable or production-ready.
 
 Operational claims belong to MK2+ evidence gates.
+
+## NR-17 — Persistence does not imply concurrency safety
+
+A durable checkpoint/session store does not reveal whether concurrent invocations or writers are safe.
+
+When shared state or parallel execution is reachable, classify:
+
+- invocation concurrency;
+- writer model;
+- conflict/merge semantics;
+- locking/serialization mechanism.
+
+A reducer-based merge, a single-writer session, an optimistic version check and distributed locking are materially different contracts.
+
+This rule is supported independently by Strands Agents, LangGraph and OpenAI Agents SDK runtime behavior.
+
+## NR-18 — Budget values require enforcement semantics
+
+`max_turns=10`, `recursion_limit=25`, a wall-clock timeout and a token cap are not interchangeable evidence.
+
+Record where a budget becomes effective and whether work already in flight may complete or overshoot the nominal limit.
+
+For consequential work, also record whether cancellation is hard, cooperative, boundary-based or best-effort remote.
+
+A kill switch is still not a semantic success predicate.
+
+## NR-19 — Intervention mechanism is not enforcement strength
+
+`guardrail`, `interrupt`, `approval`, `steering` and `judge` are implementation labels, not equivalent policy guarantees.
+
+Classify:
+
+- enforcement owner;
+- enforcement boundary;
+- dispatcher binding;
+- approval binding/revalidation when arguments change.
+
+Deterministic pre-dispatch policy, human approval, model-mediated judging, provider guardrails and infrastructure policy may all coexist, but their guarantees differ. Parallel validation that can trip after model/tool work begins must not be described as equivalent to blocking pre-effect authorization.
