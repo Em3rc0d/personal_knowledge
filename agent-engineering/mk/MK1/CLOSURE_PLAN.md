@@ -7,84 +7,86 @@ Schema under evaluation: **`mk1-draft-2026-09-16.1`**
 
 Close MK1 only when the classification system is stable enough that MK2 can derive operational contracts **without reopening basic vocabulary, framework-specific exceptions or hidden assumptions**.
 
-This document converts the broad checklist in `GATES.md` into an executable dependency plan.
-
 ## Current gate graph
 
 ```text
-                    ┌─────────────────────────────┐
-                    │ REPRESENTATIVE RECORD SET   │
-                    │ records/README.md           │
-                    └──────────────┬──────────────┘
-                                   │
-             ┌─────────────────────┼─────────────────────┐
-             │                     │                     │
-             ▼                     ▼                     ▼
-   ┌─────────────────┐   ┌─────────────────┐   ┌────────────────────┐
-   │ A2A RECEIPT     │   │ MULTI-AGENT     │   │ HIGH-RISK RECORDS  │
-   │ revision/auth/  │   │ BASELINE        │   │ capability/effects │
-   │ transport/eval  │   │ admission test  │   │ HITL/egress/etc.   │
-   └────────┬────────┘   └────────┬────────┘   └─────────┬──────────┘
-            │                     │                      │
-            └─────────────────────┴──────────────────────┘
-                                  │
-                                  ▼
-                     ┌────────────────────────┐
-                     │ SCHEMA FREEZE AUDIT    │
-                     │ dimensions + records  │
-                     │ unknown reconciliation│
-                     └────────────┬───────────┘
-                                  │
-                     ┌────────────▼───────────┐
-                     │ MK1 CLOSURE RECEIPT    │
-                     │ freeze schema revision│
-                     └────────────┬───────────┘
-                                  │
-                                  ▼
-                     ┌────────────────────────┐
-                     │ MK2 HANDOFF CONTRACT   │
-                     └────────────────────────┘
+REPRESENTATIVE RECORD SET
+11 materialized + 2 COVERED_BY
+        │
+        ├── A2A classification shape ✅ PASS / QUALIFIED
+        │      └── A2A 1.0 compatibility → routed version debt
+        │
+        └── REC-012 multi-agent 🟡 OPEN / BLOCKING
+                         ↓
+                UNKNOWN reconciliation
+                         ↓
+               cross-dimension audit
+                         ↓
+                schema freeze audit
+                   ┌─────┴─────┐
+                   │           │
+                 PASS         FAIL
+                   │           │
+             freeze mk1-v1     new explicit draft
+                   │           └→ rerun affected records
+                   ↓
+               MK1 CLOSURE.md
+                   ↓
+            MK2 HANDOFF activation
 ```
 
-## Gate C1 — Representative records materialized
+## Gate C1 — Representative records
 
-Owner artifact: [`records/README.md`](./records/README.md)
+State: **PASS EXCEPT REC-012**  
+Owner: [`records/README.md`](./records/README.md)
 
-Pass when:
+Current coverage already includes:
 
-- every required engineering family has at least one normalized record;
-- P0/high-capability cases include capability composition;
-- consequential systems reconstruct dispatcher/effect/verification boundaries;
-- memory is lifecycle-classified;
-- protocol records are revision-aware;
-- material UNKNOWNs are visible;
-- records explicitly deny production certification unless separate evidence exists.
+- model-tool loop / shell / bounded termination;
+- HITL / dispatcher enforcement;
+- generated code + browser + host blast radius;
+- publication / safe mode / idempotency;
+- file/data egress;
+- database effective authority;
+- trace/outcome evaluation;
+- reflection/adaptation claim discipline;
+- state/persistence/memory lifecycle;
+- protocol revision drift;
+- modern mixed-control runtime.
 
-Do not require redundant records that add no schema pressure. Mark them `COVERED_BY` during closure review if justified.
+Two redundant candidates are explicitly `COVERED_BY`; they are not silently omitted.
 
-## Gate C2 — A2A reproducibility evidence
+C1 fully passes when REC-012 materializes from actual multi-agent baseline evidence and final review confirms the `COVERED_BY` decisions hide no unique schema pressure.
 
-Owner artifact: [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md)
+## Gate C2 — A2A classification evidence
 
-Pass when at least one current A2A path relevant to the studied runtime ecosystem has a pinned, reproducible receipt covering the minimum contract:
+State: **PASS / QUALIFIED FOR MK1 CLASSIFICATION SHAPE**  
+Contract: [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md)  
+Receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md)
+
+Established:
 
 ```text
-spec/revision
-implementation snapshot
-authoritative role
-transport
-discovery/identity
-invocation/task lifecycle
-auth boundary
-cancellation / unknown-outcome semantics
-execution evidence or explicit environment block
+pinned Strands A2A family        0.3
+current official A2A family      1.0
+client/server/discovery shape    represented
+invoke/stream/task semantics     represented
+state/concurrency boundary       represented
+security/auth boundary           represented / qualified
+integration fixture source       present
+specific successful CI receipt   not verified
+independent rerun                not run
+A2A 1.0 compatibility            NOT ESTABLISHED
 ```
 
-It is acceptable for security or universal interoperability to remain qualified/unknown. It is not acceptable to represent `A2A=true` as the whole protocol classification.
+The gate passes because MK1 can represent the implementation and its version drift without `A2A=true` or invented compatibility.
+
+A2A `1.0` migration/interoperability remains **system freshness/version debt**, not an implicit PASS and not a taxonomy blocker.
 
 ## Gate C3 — Multi-agent baseline/admission evidence
 
-Owner artifact: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)
+State: **OPEN / PRIMARY EVIDENCE BLOCKER**  
+Owner: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)
 
 Pass when one representative topology has:
 
@@ -93,16 +95,36 @@ Pass when one representative topology has:
 - equivalent task/eval contract;
 - quality/outcome comparison;
 - latency comparison;
-- token/cost comparison when available;
+- token/cost comparison when measurable;
 - coordination/failure observations;
 - termination behavior;
-- result that can be neutral, positive or negative without changing the gate semantics.
+- neutral, positive, negative or inconclusive result recorded without changing the gate semantics.
 
-This gate validates the **classification/evidence model**, not a claim that multi-agent is generally superior.
+The gate validates the classification/evidence model, not a general claim that multi-agent is superior.
 
-## Gate C4 — Cross-dimension audit
+## Gate C4 — UNKNOWN reconciliation
 
-Pass when normalized records demonstrate these distinctions remain independently expressible:
+State: **BLOCKED UNTIL C3**  
+Owner: [`UNKNOWNS.md`](./UNKNOWNS.md)
+
+Not every UNKNOWN must be closed. Every material one must be exactly one of:
+
+```text
+CLOSED
+QUALIFIED
+ROUTED_MK2
+ROUTED_MK3_PLUS
+ROUTED_MK5_PLUS
+OUT_OF_SCOPE
+```
+
+No `OPEN_MK1` item may survive closure.
+
+## Gate C5 — Cross-dimension audit
+
+State: **BLOCKED UNTIL COMPLETE REPRESENTATIVE SET**
+
+The final set must preserve these distinctions independently:
 
 ```text
 control authority != side-effect severity
@@ -115,78 +137,67 @@ HITL presence != dispatcher enforcement
 structured output != semantic correctness
 runtime termination != outcome verification
 protocol interoperability != authorization
+protocol family support != future/current revision compatibility
 multi-agent topology != measured benefit
 framework capability != deployment property
 ```
 
-If a representative record cannot express one distinction cleanly, MK1 remains open.
+Explicit freeze questions include:
 
-## Gate C5 — Schema freeze audit
+- whether `data_egress` needs stronger confidentiality/data-classification severity structure in MK1 or belongs to MK2 policy;
+- whether memory update-conflict/forgetting/evaluation belongs in MK1 classification or MK2 operational contracts;
+- whether `horizon`, H0–H4, sandbox and evaluation fields remain orthogonal and useful;
+- whether nested child-agent authority is represented without framework-specific fields.
+
+## Gate C6 — Schema freeze audit
 
 Inputs:
 
 - `CLASSIFICATION_SCHEMA.md`;
 - `DIMENSIONS.md`;
 - `NORMALIZATION_RULES.md`;
-- representative records;
+- full representative record set;
 - `UNKNOWNS.md`;
-- cross-runtime receipts;
-- protocol receipts;
-- multi-agent baseline.
+- cross-runtime/protocol receipts;
+- multi-agent baseline;
+- `SCHEMA_HISTORY.md`.
 
 Pass criteria:
 
-1. no ordinary representative system requires a framework-name field;
-2. no material distinction is hidden in free-form notes because the schema cannot express it;
+1. ordinary representative systems require no framework-name taxonomy;
+2. no material distinction is hidden in notes because the schema cannot represent it;
 3. no two dimensions encode the same concept under different names;
 4. optional fields do not force unsupported assumptions;
-5. protocol representation is revision-aware;
-6. concurrency/budget/intervention qualifiers survive the representative set;
-7. current records remain interpretable under the proposed frozen revision;
-8. unresolved facts are explicit UNKNOWNs, not schema holes;
-9. downstream MK2 contract families map to stable MK1 dimensions;
-10. schema change type is declared in `SCHEMA_HISTORY.md`.
+5. protocol records are revision-aware;
+6. concurrency/budget/intervention qualifiers survive the full set;
+7. all records remain interpretable under the proposed frozen revision;
+8. unresolved facts are explicit UNKNOWNs rather than schema holes;
+9. MK2 contract families map to stable MK1 dimensions;
+10. final change type is recorded in `SCHEMA_HISTORY.md`.
 
-Possible result:
+Outcome:
 
 ```text
-PASS → freeze as mk1-v1
+PASS → freeze mk1-draft-2026-09-16.1 as mk1-v1
 or
-FAIL → issue additive/clarifying/breaking draft and rerun affected records
+FAIL → issue explicit additive/clarifying/breaking draft and rerun affected records
 ```
-
-## Gate C6 — UNKNOWN reconciliation
-
-Not every UNKNOWN must be closed.
-
-Every material UNKNOWN must be in exactly one state:
-
-```text
-CLOSED
-ROUTED_TO_MK2
-ROUTED_TO_MK3+
-ROUTED_TO_MK5+
-OUT_OF_SCOPE
-BLOCKS_MK1
-```
-
-MK1 cannot close while a material item is simultaneously marked `UNKNOWN` and implicitly assumed by a promoted rule.
 
 ## Gate C7 — Closure receipt
 
-When C1–C6 pass, create `CLOSURE.md` under MK1 containing:
+After C1–C6 pass, create `CLOSURE.md` containing:
 
 - closure date;
 - frozen schema revision;
-- exact record set used;
+- exact record set;
 - gates passed;
-- known qualifications;
+- important qualifications;
 - UNKNOWN routing table;
 - schema change history;
 - explicit non-claims;
 - MK2 handoff pointer.
 
-Until that file exists and gates pass:
+Until then:
 
 ```text
 MK1 = IN PROGRESS
@@ -201,27 +212,25 @@ MK2 opens only after the closure receipt names the exact frozen inputs.
 ## Work ordering
 
 ```text
-1. materialize minimal high-pressure records
-2. close A2A evidence contract
-3. execute multi-agent baseline contract
-4. complete record family coverage
-5. reconcile UNKNOWNs
-6. run schema freeze audit
-7. write MK1 CLOSURE.md
-8. activate MK2
+1. execute multi-agent baseline / materialize REC-012
+2. final representative-set review
+3. reconcile UNKNOWNs
+4. run cross-dimension + schema freeze audit
+5. issue new draft only if audit requires it
+6. write MK1 CLOSURE.md
+7. activate MK2
 ```
-
-Steps 1–4 may run in parallel where evidence is independent. Steps 5–8 are ordered gates.
 
 ## Anti-shortcut rules
 
 Do not close MK1 because:
 
-- the schema “looks comprehensive”;
-- Strands fits it;
-- three frameworks share one runtime semantic;
+- the schema looks comprehensive;
 - documentation is extensive;
-- MK2 scaffolding already exists;
-- the remaining unknowns seem likely to resolve favorably.
+- Strands fits it;
+- A2A 0.3 has fixtures;
+- A2A 1.0 debt seems likely to resolve later;
+- multi-agent topology exists;
+- MK2 scaffolding already exists.
 
-Close MK1 only because representative evidence demonstrates the taxonomy is stable for its declared scope.
+Close MK1 only when representative evidence demonstrates the taxonomy is stable for its declared scope.
