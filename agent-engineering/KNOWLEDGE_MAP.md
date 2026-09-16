@@ -40,14 +40,12 @@ Structure contract: [`REPOSITORY_CONTRACT.md`](./REPOSITORY_CONTRACT.md).
 
 ## The five operational questions
 
-The repository should make these five questions cheap to answer:
-
 ```text
-1. Where are we?             → STATUS.md
-2. What happens next?        → ROADMAP.md
-3. What do we know today?    → systems/ + active/frozen MK
-4. Why do we believe it?     → quarries/ + mining-site/
-5. What must be true to move?→ active MK GATES / CLOSURE_PLAN / handoff
+1. Where are we?              → STATUS.md
+2. What happens next?         → ROADMAP.md
+3. What do we know today?     → systems/ + active/frozen MK
+4. Why do we believe it?      → quarries/ + mining-site/
+5. What must be true to move? → active MK GATES / CLOSURE_PLAN / handoff
 ```
 
 ## Knowledge layers
@@ -97,7 +95,7 @@ Answers:
 - What closes the current MK?
 - What will the next MK receive?
 
-In MK1, the key artifacts are:
+In MK1:
 
 ```text
 CLASSIFICATION_SCHEMA.md
@@ -123,7 +121,7 @@ Answers:
 - Which candidate distinction emerged?
 - What did the state look like before promotion?
 
-A quarry is **not current canon**. It can intentionally preserve a candidate/UNKNOWN that was later promoted or closed.
+A quarry is **not current canon**. It can preserve a candidate/UNKNOWN that was later promoted, qualified or closed.
 
 ### 5. Source provenance layer
 
@@ -163,8 +161,6 @@ New evidence may loop backward and pressure the schema again. The flow is audita
 
 ## Current-state precedence
 
-When historical and current files differ because research progressed:
-
 ```text
 1. STATUS.md
 2. systems/<system>/ current package
@@ -195,12 +191,13 @@ For provenance, traverse downward to the pinned source.
 | Understand Strands today | `systems/strands/README.md` |
 | Inspect system-package requirements | `systems/PACKAGE_SPEC.md` |
 | Inspect current classification schema | `mk/MK1/CLASSIFICATION_SCHEMA.md` |
-| See materialized representative records | `mk/MK1/records/README.md` |
+| See representative record coverage | `mk/MK1/records/README.md` |
 | See MK1 closure dependencies | `mk/MK1/CLOSURE_PLAN.md` |
 | See formal MK1 gates | `mk/MK1/GATES.md` |
 | See unresolved/routed uncertainty | `mk/MK1/UNKNOWNS.md` |
 | See schema revision history | `mk/MK1/SCHEMA_HISTORY.md` |
-| Understand A2A evidence requirements | `mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md` |
+| Inspect A2A evidence contract | `mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md` |
+| Inspect current A2A receipt | `quarries/strands-a2a-version-drift.md` |
 | Understand multi-agent baseline contract | `mk/MK1/MULTI_AGENT_BASELINE_SPEC.md` |
 | Understand MK1→MK2 input | `mk/MK2/HANDOFF_CONTRACT.md` |
 | Audit a system claim | `systems/*/EVIDENCE.md` → `quarries/` → `mining-site/` |
@@ -223,8 +220,7 @@ STATUS.md
 → ROADMAP.md
 → mk/MK1/README.md
 → mk/MK1/CLOSURE_PLAN.md
-→ mk/MK1/records/README.md
-→ specialized open gate
+→ mk/MK1/MULTI_AGENT_BASELINE_SPEC.md
 ```
 
 ### Deep Strands audit
@@ -235,7 +231,7 @@ systems/strands/README.md
 → ENGINEERING_RULES.md
 → PROTOCOLS.md
 → EVIDENCE.md
-→ quarries/source receipts only as needed
+→ quarries/source receipts as needed
 ```
 
 ### Add another system package
@@ -275,15 +271,11 @@ MK2 remains blocked until that transition actually passes.
 
 Machine readers start at [`LLM_CONTEXT.md`](./LLM_CONTEXT.md).
 
-The retrieval objective is:
-
 > Load the smallest current canonical context sufficient for the question, then descend into evidence only when provenance or ambiguity requires it.
-
-This avoids wasting tokens on raw historical material while preserving auditability.
 
 ## Knowledge preservation rule
 
-Never “clean up” by deleting historical evidence merely because a later pass resolved it.
+Never delete historical evidence merely because a later pass resolved it.
 
 Instead:
 
@@ -297,11 +289,6 @@ The repository must answer both:
 
 ```text
 What do we know now?
-```
-
-and:
-
-```text
 Why did we come to believe it?
 ```
 
@@ -329,9 +316,11 @@ MK2                              BLOCKED / DESIGN SEEDED
 Strands package                  SOLIDIFIED
 runtime semantic crosscheck      COMPLETE
 MCP 2026-07-28 core pass         SUPPORTED / QUALIFIED
-representative record set        PARTIAL
-A2A reproducibility receipt      OPEN
-multi-agent baseline             OPEN
+representative record set        NEAR-COMPLETE (11 + 2 COVERED_BY)
+A2A classification shape         PASS / QUALIFIED
+A2A 1.0 compatibility            NOT ESTABLISHED
+multi-agent baseline / REC-012   OPEN / BLOCKING
+UNKNOWN reconciliation           FINAL PASS PENDING
 schema freeze                    NOT YET
 ```
 
