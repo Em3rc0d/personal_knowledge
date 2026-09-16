@@ -26,14 +26,14 @@ MK2: What must be true, recorded and tested before we may build/operate/promote 
 
 MK2 implementation work does not begin until MK1 closes and freezes a classification-schema revision.
 
-The exact transition contract is [`HANDOFF_CONTRACT.md`](./HANDOFF_CONTRACT.md).
+Transition contract: [`HANDOFF_CONTRACT.md`](./HANDOFF_CONTRACT.md).
 
 Required incoming package:
 
 ```text
 frozen MK1 schema
 + normalized dimensions/rules
-+ representative record set
++ complete representative record coverage
 + promoted principles with scope
 + revision-aware protocol receipts
 + routed UNKNOWNs
@@ -57,8 +57,6 @@ Until that package exists, files here remain **design scaffolding**, not certifi
 
 ## Planned contract families
 
-Current design candidates include:
-
 ```text
 AgentSystemContract
 ToolContract
@@ -79,7 +77,7 @@ These remain design candidates until MK1 freezes the semantics they depend on.
 
 ## Traceability invariant
 
-An MK2 contract must be able to trace backward:
+An MK2 contract must trace backward:
 
 ```text
 MK2 operational rule
@@ -97,21 +95,45 @@ MK2 does not:
 
 - choose one framework;
 - generate application code by default;
-- certify a system merely because it satisfies a document template;
+- certify a system because it satisfies a document template;
 - replace runtime testing with checklists;
-- allow a source/tutorial claim to become policy without normalized evidence;
-- reinterpret MK1 UNKNOWNs as defaults;
+- promote source/tutorial claims directly into policy;
+- reinterpret MK1 UNKNOWNs as favorable defaults;
 - encode framework API names as universal contracts.
 
-## Current blockers
+## Current incoming-package state
 
 ```text
-MK1 representative records       PARTIAL
-A2A receipt                      OPEN
-multi-agent baseline             OPEN
-MK1 schema freeze                NOT YET
-MK1 closure receipt              NOT YET
-MK2 handoff activation           BLOCKED
+representative records       NEAR-COMPLETE
+  materialized/qualified     11
+  COVERED_BY                 2
+  open                       REC-012 multi-agent
+MCP protocol evidence        PASS / QUALIFIED
+A2A classification shape     PASS / QUALIFIED
+A2A 1.0 compatibility        NOT ESTABLISHED / routed version debt
+multi-agent baseline         OPEN / BLOCKING
+UNKNOWN final routing        PENDING
+MK1 schema freeze            NOT YET
+MK1 closure receipt          NOT YET
+MK2 handoff activation       BLOCKED
+```
+
+The A2A `1.0` compatibility debt does not become an MK2 assumption. Any operational A2A contract must pin the protocol revision it actually targets.
+
+## Current blocker chain
+
+```text
+REC-012 multi-agent baseline
+        ↓
+final UNKNOWN reconciliation
+        ↓
+cross-dimension/schema freeze audit
+        ↓
+MK1 CLOSURE.md
+        ↓
+HANDOFF_CONTRACT activation
+        ↓
+MK2 OPEN
 ```
 
 See [`../MK1/CLOSURE_PLAN.md`](../MK1/CLOSURE_PLAN.md).
