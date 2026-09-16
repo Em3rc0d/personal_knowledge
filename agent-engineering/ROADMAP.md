@@ -17,7 +17,8 @@ MK1                              🟡 ACTIVE
  ├─ budget enforcement semantics ✅ PROMOTED
  ├─ intervention ownership       ✅ PROMOTED
  ├─ MCP 2026-07-28 / Strands     ✅ SUPPORTED / QUALIFIED
- ├─ representative records       🟡 OPEN
+ ├─ record infrastructure        ✅ READY
+ ├─ representative records       🟡 PARTIAL (4 materialized)
  ├─ A2A reproducibility receipt  🟡 OPEN
  ├─ multi-agent baseline         🟡 OPEN
  └─ schema freeze audit          🔒 WAITS ON ABOVE
@@ -27,7 +28,7 @@ MK2                              🔒 BLOCKED / DESIGN SEEDED
 
 ## Execution principle
 
-Do not work by topic popularity. Work by **closure dependency**.
+Do not work by topic popularity. Work by **closure dependency and remaining schema pressure**.
 
 ```text
 representative records
@@ -54,29 +55,46 @@ multi-agent baseline ──┘
 
 ## Workstream A — Representative MK1 records
 
-State: **OPEN**
+State: **PARTIAL**
 
-Purpose: prove the schema can classify materially different systems without creating framework-specific fields or hiding UNKNOWNs.
+Registry: [`mk/MK1/records/README.md`](./mk/MK1/records/README.md).
 
-Required coverage is tracked in [`mk/MK1/RECORDS.md`](./mk/MK1/RECORDS.md).
+Materialized now:
+
+```text
+REC-001 minimal while-loop
+REC-002 HITL approval
+REC-013 MCP revision drift
+REC-014 Strands Agents
+```
+
+Highest remaining pressure:
+
+```text
+REC-004 generated-code/browser E2E
+REC-008 document/file egress
+REC-011 dedicated memory lifecycle
+REC-003 trace-evaluation/critic
+REC-012 multi-agent after baseline evidence
+```
 
 Minimum closure expectations:
 
-- deterministic/single-call or workflow-like system;
-- model-tool loop;
+- control/model-tool loop;
 - consequential/HITL system;
 - generated-code/browser or high-capability system;
+- data-egress system;
 - memory/state system;
-- evaluator/critic or trace-evaluation system;
+- evaluator/critic system;
 - multi-agent system;
-- revision-aware protocol/integration system;
-- modern runtime/framework pressure test.
+- revision-aware protocol system;
+- modern runtime/framework.
 
 Acceptance:
 
 ```text
 for each required family:
-  normalized record exists
+  normalized record exists or explicit COVERED_BY decision
   source/snapshot pinned
   material UNKNOWNs explicit
   architecture != production certification
@@ -91,22 +109,22 @@ Purpose: convert `A2A supported` from a feature statement into a revision-aware 
 
 Evidence contract: [`mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md`](./mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md).
 
-Must establish, for the selected pinned implementation path:
+Must establish for a pinned implementation path:
 
 - protocol revision/spec identity;
-- role(s): client/server/remote agent;
-- discovery/card/identity semantics where applicable;
+- role(s);
+- discovery/identity semantics;
 - transport;
 - authentication/authorization boundary;
 - invocation/task lifecycle;
 - cancellation/unknown-outcome semantics;
 - observability/trace continuity if available;
 - implementation snapshot/dependency receipt;
-- actual execution evidence or an explicit `NOT_RUN` reason.
+- execution evidence or explicit `NOT_RUN` reason.
 
-Not required for MK1 closure:
+Not required:
 
-- proving every A2A implementation interoperates;
+- universal A2A interoperability;
 - universal security certification;
 - production SLO evidence.
 
@@ -114,23 +132,20 @@ Not required for MK1 closure:
 
 State: **OPEN**
 
-Purpose: prevent `multi-agent` from becoming a maturity label or unmeasured architecture preference.
+Contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md).
 
-Benchmark/admission contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md).
+At least one representative topology must be compared against a simpler baseline under the same task/evaluation contract.
 
-At minimum one representative multi-agent topology must be compared against a simpler baseline under the same task/evaluation contract.
-
-The objective is not to prove multi-agent is better. It is to establish that the repository can represent:
+The repository must be able to represent independently:
 
 - admission hypothesis;
 - topology;
-- task partitioning;
+- authority/task partitioning;
 - coordination cost;
 - quality/outcome;
 - latency;
-- token/cost footprint;
-- failure/termination behavior;
-- conditions where complexity is or is not justified.
+- tokens/cost where measurable;
+- failure/termination behavior.
 
 A neutral/no-gain result is valid evidence.
 
@@ -142,7 +157,7 @@ Inputs:
 
 - current schema;
 - representative records;
-- protocol receipt;
+- A2A receipt;
 - multi-agent baseline;
 - GATES;
 - UNKNOWN register;
@@ -159,14 +174,14 @@ Questions:
 7. Can MK2 derive contracts without reopening terminology?
 8. Are any fields framework-specific accidents?
 9. Are any fields duplicated under different names?
-10. Is the revision additive/clarifying/breaking relative to prior records?
+10. Is the final change additive/clarifying/breaking?
 
 Possible outcomes:
 
 ```text
 FREEZE mk1-draft-2026-09-16.1 as mk1-v1
 or
-ISSUE additive draft mk1-draft-...
+ISSUE another explicit draft revision and rerun affected records
 ```
 
 Do not rename a draft to `v1` until the gate passes.
@@ -183,38 +198,41 @@ MK2 may open only when it receives:
 - normalized dimension definitions;
 - representative records;
 - promoted principles with scope;
-- explicit UNKNOWNs routed forward;
+- explicit UNKNOWN routing;
 - evidence/protocol receipts;
-- closure receipt.
-
-MK2 must not consume raw quarries as if they were operational policy.
+- MK1 closure receipt.
 
 ## Priority order
 
 ```text
-P0  finish representative record registry + highest-value records
+P0  REC-004 generated-code/browser record
+P0  REC-008 data-egress record
+P0  REC-011 memory-lifecycle record
 P0  A2A revision/auth/transport receipt
-P0  multi-agent baseline/admission evidence
+P0  multi-agent baseline / REC-012
+P1  REC-003 evaluation record
+P1  remaining non-redundant pressure records
+P1  UNKNOWN reconciliation
 P1  schema freeze audit
 P1  MK1 closure receipt
 P1  activate MK2 handoff
-P2  expand system packages beyond Strands when evidence warrants it
+P2  add more system packages only when evidence warrants them
 ```
 
 ## Stop conditions
 
-Do not open MK2 if any of these remain true:
+Do not open MK2 while any of these remain true:
 
-- schema still changes to accommodate ordinary representative systems;
-- representative records are mostly implied rather than materialized;
+- ordinary representative systems still force schema invention;
+- major families exist only as quarry evidence, not normalized records;
 - protocol records collapse to booleans;
-- multi-agent remains an untested architectural preference;
-- material UNKNOWNs are hidden or implicitly assumed;
-- MK2 contract families require undefined MK1 vocabulary.
+- multi-agent remains an untested architecture preference;
+- material `OPEN_MK1` UNKNOWNs remain;
+- MK2 contract families depend on undefined MK1 vocabulary.
 
-## Definition of “well armed” for this domain
+## Definition of “well armed”
 
-The repository is operationally well-armed when a new human or LLM can answer, without reconstructing history manually:
+A new human or LLM should be able to answer without reconstructing history manually:
 
 ```text
 where am I?
@@ -225,8 +243,8 @@ what remains unknown?
 what exact gate is next?
 what artifact do I create?
 what evidence must it contain?
-what would make the claim invalid?
+what would falsify the claim?
 what does the next MK receive?
 ```
 
-This roadmap is intentionally finite. When MK1 closes, archive its active sequence into the closure receipt and update this document to the MK2 execution plan.
+When MK1 closes, preserve this roadmap's completed state in the closure receipt and replace its active execution section with the MK2 roadmap.
