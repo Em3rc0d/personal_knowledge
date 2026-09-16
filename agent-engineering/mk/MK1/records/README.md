@@ -17,6 +17,7 @@ IN_PROGRESS      normalization is being written/reconciled
 MATERIALIZED     normalized record exists against current schema
 QUALIFIED        materialized with explicit important UNKNOWNs/limits
 BLOCKED          missing evidence prevents useful classification
+COVERED_BY       separate record adds no material schema pressure; coverage is explicit
 SUPERSEDED       historical record replaced by a newer schema/revision
 ```
 
@@ -26,10 +27,10 @@ SUPERSEDED       historical record replaced by a newer schema/revision
 
 MK1 does not need one record for every tutorial or framework. It needs enough **materially different systems** to pressure-test every important dimension.
 
-| ID | Representative system/family | Primary pressure | Evidence state | Normalized record |
+| ID | Representative system/family | Primary pressure | State | Normalized record |
 |---|---|---|---|---|
-| REC-001 | minimal while-loop agent | control authority, loop, termination | EVIDENCE_READY | OPEN |
-| REC-002 | HITL approval agent | human control, dispatcher enforcement, edited action | EVIDENCE_READY | OPEN |
+| REC-001 | minimal while-loop agent | control authority, loop, termination, shell capability | **MATERIALIZED / QUALIFIED** | [`REC-001-minimal-while-loop.md`](./REC-001-minimal-while-loop.md) |
+| REC-002 | HITL approval agent | human control, dispatcher enforcement, edited action | **MATERIALIZED / QUALIFIED** | [`REC-002-hitl-approval.md`](./REC-002-hitl-approval.md) |
 | REC-003 | trace-evaluation harness | outcome vs trajectory, evaluation evidence | EVIDENCE_READY | OPEN |
 | REC-004 | generated-code / browser E2E agent | capability composition, sandbox/blast radius | EVIDENCE_READY | OPEN |
 | REC-005 | self-healing generated-code agent | retry ownership, verifier boundary, code execution | EVIDENCE_READY | OPEN |
@@ -40,24 +41,34 @@ MK1 does not need one record for every tutorial or framework. It needs enough **
 | REC-010 | reflection / self-improvement example | intrinsic correction vs external verification | EVIDENCE_READY | OPEN |
 | REC-011 | representative memory system | context/session/persistence/memory lifecycle | EVIDENCE_READY | OPEN |
 | REC-012 | representative multi-agent system | topology, admission hypothesis, baseline/benefit | BLOCKED/PARTIAL | waits on baseline evidence |
-| REC-013 | legacy/current MCP integration example | protocol revision, lifecycle drift, auth boundary | EVIDENCE_READY | OPEN |
-| REC-014 | Strands Agents SDK | modern runtime, mixed topology, concurrency/budgets/intervention/protocols | MATERIALIZED / QUALIFIED | [`../../../systems/strands/CLASSIFICATION.md`](../../../systems/strands/CLASSIFICATION.md) |
+| REC-013 | legacy/current MCP integration example | protocol revision, lifecycle drift, auth boundary | **MATERIALIZED / QUALIFIED** | [`REC-013-mcp-revision-drift.md`](./REC-013-mcp-revision-drift.md) |
+| REC-014 | Strands Agents SDK | modern runtime, mixed topology, concurrency/budgets/intervention/protocols | **MATERIALIZED / QUALIFIED** | [`../../../systems/strands/CLASSIFICATION.md`](../../../systems/strands/CLASSIFICATION.md) |
+
+## Current materialized set
+
+```text
+REC-001  minimal model-tool loop / shell / bounded termination
+REC-002  HITL / dispatcher-enforced consequential mutation
+REC-013  protocol revision drift / MCP lifecycle
+REC-014  modern runtime / Strands current system package
+```
+
+This set is meaningful but not sufficient to close MK1. The remaining highest-pressure gaps are **generated-code/browser capability composition**, **data egress**, **memory lifecycle** and **multi-agent benefit evidence**.
 
 ## Family coverage view
 
-| Engineering family | Record coverage |
-|---|---|
-| deterministic / minimal control | REC-001 |
-| model-tool loop | REC-001 / REC-014 |
-| HITL / consequential mutation | REC-002 / REC-006 / REC-007 |
-| generated code / browser / high capability | REC-004 / REC-005 |
-| document / data egress | REC-008 |
-| database authority | REC-009 |
-| state / memory | REC-011 / REC-014 |
-| evaluation / critic | REC-003 / REC-010 / REC-014 |
-| multi-agent | REC-012 / REC-014 topology surfaces |
-| protocol / interoperability | REC-013 / REC-014 MCP |
-| modern agent runtime | REC-014 |
+| Engineering family | Record coverage | Current state |
+|---|---|---|
+| minimal/model-directed control | REC-001 / REC-014 | COVERED |
+| HITL / consequential mutation | REC-002 | COVERED |
+| generated code / browser / high capability | REC-004 / REC-005 | OPEN |
+| document / data egress | REC-008 | OPEN |
+| database authority | REC-009 | OPEN |
+| state / memory | REC-011 / REC-014 | PARTIAL — dedicated memory record still required |
+| evaluation / critic | REC-003 / REC-010 / REC-014 | PARTIAL — dedicated eval/critic pressure still required |
+| multi-agent | REC-012 / REC-014 topology surfaces | OPEN — benefit/baseline evidence missing |
+| protocol / interoperability | REC-013 / REC-014 MCP | COVERED FOR MCP; A2A gate still open |
+| modern agent runtime | REC-014 | COVERED |
 
 ## Closure requirement
 
@@ -122,23 +133,24 @@ The initial queue is primarily backed by:
 - `../../quarries/genai-agents-p0-p1-callpaths.md`;
 - `../../quarries/cross-source-memory-production-mcp.md`;
 - `../../quarries/runtime-semantics-strands-langgraph-openai.md`;
-- `../../systems/strands/`.
+- `../../../systems/strands/`.
 
 Do not re-mine upstream by default when existing pinned evidence is sufficient. Re-open source only when a material classification field remains unsupported or freshness is required.
 
 ## Next materialization order
 
-To maximize schema pressure while minimizing redundant work:
+The first three foundational records are now materialized. Continue by **maximum remaining schema pressure**, not numeric order:
 
 ```text
-1. REC-001 minimal while-loop
-2. REC-002 HITL approval
-3. REC-004 generated-code/browser E2E
-4. REC-008 document/file egress
-5. REC-011 memory
-6. REC-013 protocol legacy/current MCP
-7. REC-012 multi-agent after baseline evidence
-8. fill additional records only where they add distinct pressure
+1. REC-004 generated-code/browser E2E
+2. REC-008 document/file egress
+3. REC-011 dedicated memory lifecycle
+4. REC-003 trace-evaluation harness
+5. REC-009 DataScribe/database authority if DB semantics add distinct pressure
+6. REC-012 multi-agent after baseline evidence
+7. classify REC-005/006/007/010 only where they add non-redundant pressure
 ```
+
+REC-013 and REC-014 already cover revision-aware MCP from complementary historical/current implementation angles.
 
 This sequence is a work plan, not a ranking of system quality.
