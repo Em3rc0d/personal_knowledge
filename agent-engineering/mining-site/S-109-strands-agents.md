@@ -21,6 +21,20 @@ Observed: **2026-09-16**
 | Authority | official for Strands-specific behavior; not normative for general agent engineering |
 | Confidence | HIGH for documented/source-specific facts; VARIABLE for general claims of superiority or production readiness |
 
+## Current canonical synthesis
+
+This file is the **source receipt**, not the preferred current explanation of Strands.
+
+For the reconciled current view use:
+
+- human entrypoint: [`../systems/strands/README.md`](../systems/strands/README.md)
+- normalized classification: [`../systems/strands/CLASSIFICATION.md`](../systems/strands/CLASSIFICATION.md)
+- protocol state: [`../systems/strands/PROTOCOLS.md`](../systems/strands/PROTOCOLS.md)
+- evidence map: [`../systems/strands/EVIDENCE.md`](../systems/strands/EVIDENCE.md)
+- LLM context: [`../systems/strands/LLM_CONTEXT.md`](../systems/strands/LLM_CONTEXT.md)
+
+The `systems/strands/` package incorporates later cross-runtime and MCP gates while preserving this receipt as the provenance anchor.
+
 ## Canonical project state at observation
 
 The active repository is `strands-agents/harness-sdk`. It contains the Python SDK, TypeScript SDK, documentation site and supporting packages. Earlier standalone repositories were consolidated/archived during 2026.
@@ -116,4 +130,5 @@ Do not use `S-109` alone to:
 
 Processed evidence: [`../quarries/strands-agents.md`](../quarries/strands-agents.md)  
 MK1 pressure test: [`../mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md`](../mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md)  
-MCP compatibility receipt: [`../quarries/strands-mcp-2026-07-28-compatibility.md`](../quarries/strands-mcp-2026-07-28-compatibility.md)
+MCP compatibility receipt: [`../quarries/strands-mcp-2026-07-28-compatibility.md`](../quarries/strands-mcp-2026-07-28-compatibility.md)  
+Current canonical synthesis: [`../systems/strands/README.md`](../systems/strands/README.md)
