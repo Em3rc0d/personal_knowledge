@@ -243,6 +243,6 @@ normalization_issue: evaluation must remain multi-surface; final freeze audit sh
 
 ## Evidence
 
-- [`../../quarries/genai-agents.md`](../../quarries/genai-agents.md)
-- [`../../mining-site/SOURCES.md`](../../mining-site/SOURCES.md)
+- [`../../../quarries/genai-agents.md`](../../../quarries/genai-agents.md)
+- [`../../../mining-site/SOURCES.md`](../../../mining-site/SOURCES.md)
 - official evaluation contrast registered as `S-104`
