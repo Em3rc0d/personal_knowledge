@@ -21,6 +21,7 @@ Promotion requires normalization in MK1 and operationalization/testing in later 
 - [`genai-agents-p0-p1-callpaths.md`](./genai-agents-p0-p1-callpaths.md) — P0/P1 verification pass that reconstructs consequential call paths and preserves material UNKNOWNs.
 - [`cross-source-memory-production-mcp.md`](./cross-source-memory-production-mcp.md) — specialized cross-check against Agent Memory Techniques, Agents Towards Production and MCP `2026-07-28`.
 - [`strands-agents.md`](./strands-agents.md) — Strands Agents `harness-sdk@a9361c54...` framework pressure test covering model-driven control, Graph/Swarm/Workflow, state/session/memory, budgets, concurrency, interventions, observability, evals and protocol boundaries.
+- [`runtime-semantics-strands-langgraph-openai.md`](./runtime-semantics-strands-langgraph-openai.md) — cross-runtime synthesis that validates concurrency semantics, budget-enforcement boundaries and intervention ownership across Strands Agents, LangGraph and OpenAI Agents SDK, promoting them into MK1 schema revision `mk1-draft-2026-09-16.1`.
 
 ## Architecture evidence promoted from quarries
 
