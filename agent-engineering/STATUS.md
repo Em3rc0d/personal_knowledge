@@ -216,7 +216,6 @@ MK1 NORMALIZATION           🟡 IN PROGRESS
 STRANDS PRESSURE TEST       ✅ CURRENT PASS COMPLETE
 MK2 OPERATIONALIZATION      🔒 BLOCKED / DESIGN SEEDED
 CANON RULE CERTIFICATION    🔒 BLOCKED
-CURRENT BRANCH MERGE        🔒 PENDING REVIEW
 ```
 
 Closing MK0 did not certify candidate rules. MK1 classifies them; MK2 will operationalize survivors; later MKs must integrate, automate and certify them against real systems.
