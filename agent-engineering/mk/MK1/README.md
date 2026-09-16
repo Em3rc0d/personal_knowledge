@@ -20,7 +20,7 @@ What evidence supports the classification?
 What remains UNKNOWN?
 ```
 
-MK1 does **not** yet define the full operational policy a production system must satisfy. That is MK2.
+MK1 does **not** define the full operational policy a production system must satisfy. That is MK2.
 
 ## Package map
 
@@ -39,36 +39,24 @@ MK1 does **not** yet define the full operational policy a production system must
 |---|---|
 | [`records/README.md`](./records/README.md) | canonical normalized-record registry and family coverage |
 | [`records/TEMPLATE.md`](./records/TEMPLATE.md) | record materialization contract |
-| [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md) | priority/admission logic for remaining records |
-| [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | historical first-pass Strands pressure-test receipt |
+| [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md) | priority/admission logic for remaining evidence |
+| [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | historical first-pass Strands receipt |
 
 ### Closure control
 
 | Artifact | Responsibility |
 |---|---|
-| [`GATES.md`](./GATES.md) | formal closure checklist |
-| [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md) | executable dependency plan for closing MK1 |
-| [`UNKNOWNS.md`](./UNKNOWNS.md) | uncertainty register and routing |
-| [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md) | protocol evidence contract for the open A2A gate |
-| [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md) | admission/baseline contract for multi-agent evidence |
+| [`GATES.md`](./GATES.md) | formal closure gates |
+| [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md) | executable dependency plan |
+| [`UNKNOWNS.md`](./UNKNOWNS.md) | uncertainty register/routing |
+| [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md) | reusable A2A evidence contract; current gate PASS/QUALIFIED |
+| [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md) | remaining primary evidence gate |
 
 ## Current system synthesis
 
-Do not reconstruct current framework knowledge from historical pressure tests when a canonical system package exists.
+For current framework/runtime answers, prefer canonical system packages over historical pressure tests.
 
-Current complete package:
-
-```text
-../../systems/strands/
-├── README.md
-├── CLASSIFICATION.md
-├── ENGINEERING_RULES.md
-├── PROTOCOLS.md
-├── EVIDENCE.md
-└── LLM_CONTEXT.md
-```
-
-For Strands:
+Current complete package: [`../../systems/strands/`](../../systems/strands/).
 
 - human mental model → [`../../systems/strands/README.md`](../../systems/strands/README.md)
 - current normalized profile → [`../../systems/strands/CLASSIFICATION.md`](../../systems/strands/CLASSIFICATION.md)
@@ -80,7 +68,7 @@ For Strands:
 
 > Classify what the system can actually decide and do, not what the repository/framework calls it.
 
-A single SDK may expose deterministic workflows, model-routed branches, model-directed loops, peer handoffs and remote-agent protocols. Framework identity therefore cannot substitute for architecture classification.
+A single SDK may expose deterministic workflows, model-routed branches, model-directed loops, peer handoffs and remote-agent protocols. Framework identity cannot substitute for architecture classification.
 
 ## Primary dimensions
 
@@ -104,32 +92,37 @@ UNKNOWNs
 
 Full definitions: [`DIMENSIONS.md`](./DIMENSIONS.md).
 
-## Current normalized records
-
-Materialized/qualified records currently include:
+## Current representative records
 
 ```text
-REC-001  minimal while-loop agent
-REC-002  HITL approval agent
-REC-013  MCP legacy/current revision-drift comparison
-REC-014  Strands Agents SDK (canonical system classification)
+MATERIALIZED / QUALIFIED
+REC-001  minimal while-loop / model-tool loop / shell
+REC-002  HITL approval / protected dispatcher
+REC-003  trace evaluation / outcome-vs-trajectory
+REC-004  generated code + browser + host blast radius
+REC-007  social publication / dry-run / idempotency
+REC-008  document/data egress
+REC-009  database authority / least privilege
+REC-010  reflection/adaptation claim discipline
+REC-011  state/persistence/memory lifecycle contrast
+REC-013  MCP revision drift
+REC-014  Strands Agents canonical classification
+
+COVERED_BY
+REC-005  REC-004 + REC-003
+REC-006  REC-002 + REC-007
+
+OPEN / BLOCKING
+REC-012  multi-agent baseline/admission evidence
 ```
 
-See [`records/README.md`](./records/README.md) for live coverage and remaining gaps.
+Registry: [`records/README.md`](./records/README.md).
 
-The representative set exists to **pressure-test the schema**, not to build a catalog for its own sake.
+The set exists to pressure-test the schema, not to maximize document count.
 
-## Cross-runtime promotion already closed
+## Closed runtime-semantics promotion
 
-The first Strands pass surfaced three distinctions:
-
-1. concurrency semantics;
-2. budget enforcement boundary / overshoot;
-3. intervention enforcement owner/boundary.
-
-They were not promoted from Strands alone. Independent contrast against LangGraph and OpenAI Agents SDK confirmed them as reusable engineering semantics.
-
-Current mapping:
+Independent contrast across Strands, LangGraph and OpenAI Agents SDK promoted:
 
 ```text
 concurrency semantics        → state
@@ -139,51 +132,53 @@ intervention owner/boundary  → human_control
 
 Evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md).
 
-Schema revision: `mk1-draft-2026-09-16.1`.
+## Protocol state
 
-## MCP revision-aware gate already closed for Strands
+### MCP
 
-The Strands MCP path is no longer represented as `MCP=true`.
-
-Current scoped evidence:
-
-```text
-revision                     2026-07-28
-core interoperability        SUPPORTED / UPSTREAM-EXECUTED
-modern lifecycle             REGRESSION-TESTED
-Streamable HTTP              UPSTREAM-EXECUTED
-MRTR/prompts/resources       SUPPORTED BY PINNED FIXTURE
-list-changed subscription    UPSTREAM-EXECUTED
-trace continuity             UPSTREAM E2E TESTED
-auth adapter                 SUPPORTED / deployment authorization separate
-remote rollback on cancel    NOT IMPLIED
-independent local rerun      ENVIRONMENT-BLOCKED
-```
+Strands ↔ MCP `2026-07-28` is **SUPPORTED / QUALIFIED** with upstream execution evidence for the modern path and explicit authorization/cancellation limits.
 
 Evidence: [`../../quarries/strands-mcp-2026-07-28-compatibility.md`](../../quarries/strands-mcp-2026-07-28-compatibility.md).
 
-This closes one implementation path. The broader A2A protocol gate remains open under [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md).
+### A2A
+
+The A2A classification-shape gate is now **PASS / QUALIFIED**.
+
+Pinned Strands evidence shows:
+
+```text
+Python SDK        a2a-sdk >=0.3.0,<0.4.0
+TypeScript SDK    @a2a-js/sdk ^0.3.10
+implemented line  A2A 0.3
+current line      A2A 1.0
+fixtures          source present / integration scope present
+specific CI PASS  not verified
+independent run   not run
+A2A 1.0 compat    NOT ESTABLISHED
+```
+
+Receipt: [`../../quarries/strands-a2a-version-drift.md`](../../quarries/strands-a2a-version-drift.md).
+
+The taxonomy can represent this version drift without `A2A=true`; therefore current-version migration debt remains explicit but is not a hidden MK1 taxonomy blocker.
 
 ## Remaining closure blockers
 
 ```text
-representative high-pressure records      OPEN
-A2A revision/auth/transport receipt        OPEN
-multi-agent baseline/admission evidence    OPEN
-schema freeze audit                        BLOCKED BY ABOVE
-MK1 CLOSURE.md                             NOT YET
-MK2 activation                             BLOCKED
+REC-012 multi-agent baseline/admission evidence    OPEN / BLOCKING
+final UNKNOWN reconciliation                       PENDING REC-012
+cross-dimension + overlap audit                     PENDING
+schema freeze decision                              NOT YET
+MK1 CLOSURE.md                                     NOT YET
+MK2 activation                                     BLOCKED
 ```
 
 Execution order: [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md).
 
 ## Historical-document rule
 
-Historical receipts are intentionally preserved.
+Historical receipts are intentionally preserved. If `STRANDS_AGENTS_PRESSURE_TEST.md` says a field is candidate/open, interpret it as first-pass state, not current truth.
 
-If `STRANDS_AGENTS_PRESSURE_TEST.md` says a field is a candidate or MCP execution is open, interpret that as the state of the **first pass**, not current domain truth.
-
-Current-state precedence remains:
+Current-state precedence:
 
 ```text
 STATUS.md
@@ -200,30 +195,14 @@ MK1 closes with:
 ```text
 frozen schema revision
 + normalized dimensions/rules
-+ representative materialized records
-+ protocol evidence
-+ multi-agent admission evidence
++ complete representative record coverage
++ revision-aware protocol evidence
++ multi-agent admission/baseline evidence
 + routed UNKNOWNs
 + closure receipt
 ```
 
 Then, and only then, MK2 receives the package defined by [`../MK2/HANDOFF_CONTRACT.md`](../MK2/HANDOFF_CONTRACT.md).
-
-## State transition
-
-```text
-MK0 evidence/framing                 ✅ CLOSED
-        ↓
-MK1 normalize/classify               🟡 CURRENT
-        ↓
-representative records + gates
-        ↓
-schema freeze audit
-        ↓
-MK1 closure receipt
-        ↓
-MK2 handoff                          🔒 BLOCKED UNTIL PASS
-```
 
 ## Current promotion state
 
@@ -233,10 +212,11 @@ MK1                           IN PROGRESS
 SCHEMA                        mk1-draft-2026-09-16.1
 RUNTIME SEMANTICS CROSSCHECK  PASS
 STRANDS MCP 2026-07-28        SUPPORTED / QUALIFIED
+A2A CLASSIFICATION SHAPE      PASS / QUALIFIED
+A2A 1.0 COMPATIBILITY         NOT ESTABLISHED
 STRANDS SYSTEM PACKAGE        SOLIDIFIED
-REPRESENTATIVE RECORD SET     PARTIAL
-A2A RECEIPT                   OPEN
-MULTI-AGENT BASELINE          OPEN
+REPRESENTATIVE RECORD SET     NEAR-COMPLETE
+MULTI-AGENT BASELINE          OPEN / BLOCKING
 SCHEMA FREEZE                 NOT YET
 MK2                           BLOCKED / DESIGN SEEDED
 ```
