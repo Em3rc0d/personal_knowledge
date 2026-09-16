@@ -56,6 +56,44 @@ The normalization process must determine:
 - how to represent nested systems where child agents have materially different authorities;
 - how to version the classification schema itself once records exist.
 
+## Strands pressure-test unknowns — 2026-09-16
+
+The Strands Agents pass (`harness-sdk@a9361c54ca190117d5801dd09a1ab8d6d3d9bf20`) exposed additional questions. These are **pressure-test debt**, not promoted dimensions.
+
+### Concurrency semantics
+
+- whether invocation concurrency and session-writer concurrency deserve an explicit schema qualifier;
+- whether local locking, distributed locking, optimistic concurrency and conflict behavior should be represented separately;
+- whether another independent runtime exhibits the same material distinction strongly enough to satisfy the admission rule for schema changes.
+
+### Budget / termination enforcement
+
+- whether every budget record needs an enforcement boundary (`pre_call`, `loop_boundary`, `in_tool`, external supervisor, etc.);
+- whether overshoot semantics should be mandatory when a budget is soft;
+- how to encode cooperative cancellation separately from hard termination;
+- how to represent already-running consequential tools when cancellation or a budget threshold is reached.
+
+### Intervention / authorization
+
+- whether `human_control` needs an explicit `enforcement_owner` dimension distinguishing deterministic runtime policy, human approval, model-judge steering, provider guardrails and infrastructure gates;
+- where LLM steering is useful as behavior guidance but insufficient as authorization evidence;
+- how modified or model-guided actions bind to prior approval when arguments change.
+
+### Protocol execution evidence
+
+- executable Strands/MCP compatibility against the domain-pinned MCP `2026-07-28` contract;
+- exact MCP transport/auth/version receipts for a reproducible fixture;
+- A2A protocol revision, authentication and transport receipts for distributed-agent classification;
+- behavior when remote MCP/A2A work is cancelled after execution may already have begun.
+
+### Framework/runtime qualification
+
+- provider feature parity across Python and TypeScript releases;
+- project-specific idempotency and unknown-outcome handling for consequential tools;
+- containment effectiveness for arbitrary tools inheriting host-process permissions;
+- benchmarked benefit of Graph/Swarm/agents-as-tools against simpler single-agent or deterministic baselines;
+- adversarial/repeated evaluation of LLM-mediated steering before treating it as a reliability mechanism.
+
 ## Routing rule
 
 ```text
