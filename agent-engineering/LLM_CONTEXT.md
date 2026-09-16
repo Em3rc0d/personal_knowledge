@@ -22,15 +22,13 @@ human_map: KNOWLEDGE_MAP.md
 
 ## First routing decision
 
-Before retrieving detail, classify the user's intent:
-
 ```yaml
 intent:
   current_state: STATUS.md
   next_work: ROADMAP.md
   repository_semantics: REPOSITORY_CONTRACT.md
   system_specific_current: systems/<system>/LLM_CONTEXT.md
-  classification_semantics: mk/MK1/README.md + schema/dimensions
+  classification_semantics: mk/MK1/README.md + CLASSIFICATION_SCHEMA.md + DIMENSIONS.md
   record_status: mk/MK1/records/README.md
   closure_blockers: mk/MK1/CLOSURE_PLAN.md + GATES.md + UNKNOWNS.md
   provenance: systems/*/EVIDENCE.md -> quarries -> mining-site
@@ -62,8 +60,6 @@ folders:
 
 ## Current-state precedence
 
-When documents conflict because research progressed over time:
-
 ```text
 1. STATUS.md
 2. systems/<system>/ current synthesis
@@ -72,7 +68,7 @@ When documents conflict because research progressed over time:
 5. mining-site/ source receipts
 ```
 
-For **work priority**:
+For work priority:
 
 ```text
 1. ROADMAP.md
@@ -80,11 +76,7 @@ For **work priority**:
 3. active MK CLASSIFICATION_QUEUE.md / specialized gate spec
 ```
 
-These precedence rules answer **what is current / what is next**. They do not replace evidence tracing.
-
-## Provenance traversal
-
-For “why?”, “source?”, “evidence?”, “how was this decided?” questions:
+For provenance:
 
 ```text
 current synthesis/record
@@ -93,8 +85,6 @@ current synthesis/record
 → mining-site source receipt
 → pinned upstream source/spec/test
 ```
-
-Never present a current synthesis as though it were the original external source.
 
 ## Reasoning-state vocabulary
 
@@ -115,7 +105,7 @@ Provenance vocabulary:
 OFFICIAL | OBSERVED | INFERRED | INSPIRED | GENERATED
 ```
 
-Do not silently turn `UNKNOWN` into a probable/favorable default.
+Never convert `UNKNOWN` into a favorable default.
 
 ## Current live snapshot
 
@@ -123,19 +113,22 @@ Do not silently turn `UNKNOWN` into a probable/favorable default.
 mk1:
   state: IN_PROGRESS
   schema: mk1-draft-2026-09-16.1
-  materialized_records:
-    - REC-001 minimal while-loop
-    - REC-002 HITL approval
-    - REC-013 MCP revision drift
-    - REC-014 Strands Agents
+  record_coverage:
+    materialized_or_qualified: 11
+    covered_by: 2
+    open_blocking:
+      - REC-012 multi-agent baseline/admission evidence
+  protocols:
+    mcp_2026_07_28: SUPPORTED_QUALIFIED
+    a2a_classification_shape: PASS_QUALIFIED
+    strands_a2a_0_3: SUPPORTED_QUALIFIED
+    strands_a2a_1_0_compatibility: NOT_ESTABLISHED
   blockers:
-    - generated-code/browser high-capability record
-    - data-egress record
-    - dedicated memory record
-    - evaluation/critic pressure
-    - A2A reproducibility receipt
-    - multi-agent baseline/admission evidence
-    - final schema freeze audit
+    - REC-012 multi-agent baseline/admission evidence
+    - final UNKNOWN reconciliation
+    - cross-dimension/overlap audit
+    - schema freeze decision
+    - MK1 CLOSURE.md
 mk2:
   state: BLOCKED_DESIGN_SEEDED
   handoff: mk/MK2/HANDOFF_CONTRACT.md
@@ -143,9 +136,40 @@ mk2:
 
 For newer state, defer to `STATUS.md`.
 
-## Core domain rules safe as working knowledge
+## Current record set
 
-These are high-confidence working principles carried through MK0/MK1. They are not automatically operational certification until MK2+.
+Materialized/qualified:
+
+```text
+REC-001 minimal while-loop
+REC-002 HITL approval
+REC-003 trace evaluation
+REC-004 generated-code/browser E2E
+REC-007 social publication
+REC-008 document/data egress
+REC-009 database authority
+REC-010 reflection/adaptation
+REC-011 memory lifecycle contrast
+REC-013 MCP revision drift
+REC-014 Strands Agents
+```
+
+Coverage decisions:
+
+```text
+REC-005 COVERED_BY REC-004 + REC-003
+REC-006 COVERED_BY REC-002 + REC-007
+```
+
+Open:
+
+```text
+REC-012 multi-agent baseline/admission evidence
+```
+
+Authoritative registry: `mk/MK1/records/README.md`.
+
+## Core domain rules safe as working knowledge
 
 ```yaml
 principles:
@@ -172,6 +196,8 @@ principles:
   - production readiness is a project evidence vector, not a framework label
 ```
 
+These are working principles, not automatic MK2 operational certification.
+
 ## Query routing
 
 | Query | Preferred path |
@@ -183,9 +209,9 @@ principles:
 | How do I create a new record? | `mk/MK1/records/TEMPLATE.md` |
 | How do we classify systems? | `mk/MK1/CLASSIFICATION_SCHEMA.md` + `DIMENSIONS.md` |
 | Why did the schema change? | `mk/MK1/SCHEMA_HISTORY.md` + relevant quarry |
-| What rules prevent bad normalization? | `mk/MK1/NORMALIZATION_RULES.md` |
-| What still blocks MK1? | `GATES.md` + `CLOSURE_PLAN.md` + `UNKNOWNS.md` |
-| What evidence is required for A2A? | `mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md` |
+| What still blocks MK1? | `mk/MK1/GATES.md` + `CLOSURE_PLAN.md` + `UNKNOWNS.md` |
+| What is the A2A status? | `systems/strands/PROTOCOLS.md` + `quarries/strands-a2a-version-drift.md` |
+| What evidence contract applies to A2A? | `mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md` |
 | What evidence is required for multi-agent? | `mk/MK1/MULTI_AGENT_BASELINE_SPEC.md` |
 | What does MK2 receive? | `mk/MK2/HANDOFF_CONTRACT.md` |
 | How do I add a current system package? | `systems/PACKAGE_SPEC.md` |
@@ -193,23 +219,25 @@ principles:
 | What is the source/snapshot? | `mining-site/SOURCES.md` + relevant `S-xxx` |
 | What were original observations? | relevant `quarries/*` |
 
-## Normalized-record rule
+## A2A anti-overclaim rule
 
-A quarry containing evidence is **not equivalent** to a materialized MK1 record.
-
-For closure claims, inspect:
+Current safe statement:
 
 ```text
-mk/MK1/records/README.md
+Pinned Strands supports A2A 0.3 surfaces with source + integration-fixture evidence.
+Current A2A protocol line is 1.0.
+Strands A2A 1.0 compatibility is NOT ESTABLISHED.
 ```
 
-A record must instantiate the current schema or link to a canonical system `CLASSIFICATION.md`.
+Do not turn `A2A classification-shape PASS / QUALIFIED` into `A2A 1.0 interoperability PASS`.
 
-Do not claim family coverage from evidence-only rows.
+## Normalized-record rule
+
+A quarry containing evidence is not equivalent to a materialized MK1 record. For family-coverage/closure claims inspect `mk/MK1/records/README.md`.
+
+A record must instantiate the current schema or link to a canonical system `CLASSIFICATION.md`. `COVERED_BY` is allowed only when the registry explicitly records why a separate record would add no material schema pressure.
 
 ## Strands package
-
-Current complete system package:
 
 ```text
 systems/strands/
@@ -225,7 +253,7 @@ Use `systems/strands/LLM_CONTEXT.md` before historical Strands quarries for curr
 
 ## Historical-state behavior
 
-A historical document may be correct for its time while stale for current status.
+Historical documents may be correct for their observation time and stale for current status.
 
 Example:
 
@@ -235,13 +263,11 @@ T2 LangGraph + OpenAI Agents SDK confirm distinctions
 T3 MK1 promotes fields into schema
 ```
 
-Report the transition. Do not rewrite T1 as if the field had always been canon, and do not treat T1's candidate label as current.
+Report state transitions; never rewrite historical evidence as if later conclusions were already known.
 
 ## Framework comparison rule
 
-Do not rank frameworks by feature count.
-
-Normalize each against:
+Do not rank frameworks by feature count. Normalize each against:
 
 ```text
 control authority
@@ -260,11 +286,9 @@ reproducibility evidence
 UNKNOWNs
 ```
 
-A framework may support multiple architecture classes simultaneously.
-
 ## High-bar claims
 
-Require system/project-specific evidence before asserting:
+Require project/system-specific evidence before asserting:
 
 ```yaml
 high_bar_claims:
@@ -284,32 +308,17 @@ high_bar_claims:
 
 ## Prohibited inference patterns
 
-Do not infer:
-
 ```text
-framework has feature
-→ application enables feature
-
-protocol supported
-→ invocation authorized
-
-cancellation sent
-→ remote effect rolled back
-
-state persisted
-→ concurrent writers safe
-
-structured output valid
-→ semantic output correct
-
-human review exists
-→ every consequential dispatcher is protected
-
-multi-agent topology exists
-→ task performance improves
-
-source says production-ready
-→ project is production-ready
+framework has feature             != application enables feature
+protocol supported                != invocation authorized
+cancellation sent                 != remote effect rolled back
+state persisted                   != concurrent writers safe
+structured output valid           != semantic output correct
+human review exists               != every consequential dispatcher protected
+multi-agent topology exists       != task performance improves
+source says production-ready      != project production-ready
+A2A 0.3 implementation exists     != A2A 1.0 compatibility
+fixture exists/in CI scope        != specific CI run passed
 ```
 
 ## MK discipline
@@ -323,8 +332,6 @@ MK4 = automate checks/evals
 MK5+ = repeated/independent certification
 ```
 
-Do not promote an MK1 classification distinction into a certified operational rule merely because its vocabulary is stable.
-
 ## Update discipline
 
 When new material evidence arrives:
@@ -333,17 +340,13 @@ When new material evidence arrives:
 2. update/add source receipt;
 3. process evidence in quarry;
 4. compare against current schema;
-5. materialize/update normalized record if classification changes or coverage is needed;
+5. materialize/update normalized record when classification or coverage changes;
 6. pressure-test schema changes independently;
-7. update system package if current system understanding changes;
+7. update system package when current understanding changes;
 8. update GATES/UNKNOWNS/record registry;
 9. update STATUS/ROADMAP only when state or priority changes;
 10. preserve historical reasoning.
 
-Repository-wide structure rules: `REPOSITORY_CONTRACT.md`.
-
 ## Retrieval objective
 
-Prefer the **smallest current canonical path that answers the question**, then descend only when evidence detail is required.
-
-This minimizes token waste while preserving provenance and prevents historical quarries from becoming accidental current truth.
+Prefer the **smallest current canonical path that answers the question**, then descend only when provenance or ambiguity requires it. This minimizes token waste without sacrificing auditability.
