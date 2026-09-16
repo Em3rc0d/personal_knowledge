@@ -2,54 +2,87 @@
 
 Status: **CANONICAL NAVIGATION MAP**
 
-This document explains how `agent-engineering/` is organized so a human or LLM can locate the **current answer**, the **normalization contract**, and the **evidence trail** without confusing them.
+This document explains how `agent-engineering/` is organized so a human or LLM can locate the **current answer**, the **execution plan**, the **normalization contract**, and the **evidence trail** without confusing them.
 
 ## Repository model
 
-The domain is organized by **epistemic role** rather than by framework popularity.
+The domain is organized by **epistemic role** and **maturity role**, not by framework popularity.
 
 ```text
 agent-engineering/
 │
-├── README.md              # domain orientation / human entrypoint
-├── STATUS.md              # current MK state and active blockers
-├── KNOWLEDGE_MAP.md       # this navigation contract
-├── LLM_CONTEXT.md         # machine routing / precedence rules
+├── README.md                # domain orientation / human entrypoint
+├── STATUS.md                # live state: active, closed, blocked
+├── ROADMAP.md               # execution order / next gates
+├── REPOSITORY_CONTRACT.md   # authority, lifecycle, conflict rules
+├── KNOWLEDGE_MAP.md         # this navigation map
+├── LLM_CONTEXT.md           # machine routing / anti-inference rules
 │
-├── systems/               # current canonical view of concrete systems
-│   └── strands/           # first complete system package
+├── systems/                 # current canonical view of concrete systems
+│   ├── PACKAGE_SPEC.md      # contract for future system packages
+│   └── strands/             # first complete system package
 │
-├── mk/                    # maturity pipeline / normalized domain canon
-│   ├── MK0/               # evidence framing — closed
-│   ├── MK1/               # taxonomy/classification — active
-│   └── MK2/               # operationalization design — blocked
+├── mk/                      # maturity pipeline / normalized domain canon
+│   ├── MK0/                 # evidence framing — closed
+│   ├── MK1/                 # taxonomy/classification — active
+│   │   ├── records/         # normalized representative classifications
+│   │   ├── CLOSURE_PLAN.md  # exact closure dependency graph
+│   │   └── ...
+│   └── MK2/                 # operationalization design — blocked
+│       └── HANDOFF_CONTRACT.md
 │
-├── architecture/          # cross-system architectural artifacts
-│
-├── mining-site/           # source registry + immutable-ish source receipts
-│
-└── quarries/              # processed evidence, contradictions, candidates, history
+├── architecture/            # cross-system architectural artifacts
+├── mining-site/             # source registry + source receipts
+└── quarries/                # processed evidence, contradictions, history
 ```
 
-## The four knowledge layers
+Structure contract: [`REPOSITORY_CONTRACT.md`](./REPOSITORY_CONTRACT.md).
 
-### 1. Current state
+## The five operational questions
+
+The repository should make these five questions cheap to answer:
+
+```text
+1. Where are we?             → STATUS.md
+2. What happens next?        → ROADMAP.md
+3. What do we know today?    → systems/ + active/frozen MK
+4. Why do we believe it?     → quarries/ + mining-site/
+5. What must be true to move?→ active MK GATES / CLOSURE_PLAN / handoff
+```
+
+## Knowledge layers
+
+### 1. Live control layer
 
 Files:
 
 - `STATUS.md`
+- `ROADMAP.md`
+- `REPOSITORY_CONTRACT.md`
+
+Answers:
+
+- What is active/blocked/closed?
+- Which blocker should be attacked next?
+- Which file owns which kind of truth?
+- What transition rules prevent silent promotion?
+
+### 2. Current system layer
+
+Files:
+
 - `systems/<system>/`
 
 Answers:
 
-- What do we currently believe?
-- What has passed a gate?
-- What remains open?
-- What is the current interpretation of a concrete framework/runtime?
+- What do we currently know about this concrete framework/runtime?
+- What is its current normalized classification?
+- What reusable engineering lessons did it expose?
+- What protocol evidence/UNKNOWNs remain?
 
-Use this layer first for current answers.
+System-package contract: [`systems/PACKAGE_SPEC.md`](./systems/PACKAGE_SPEC.md).
 
-### 2. Normalized domain canon
+### 3. Normalized domain layer
 
 Files:
 
@@ -58,14 +91,26 @@ Files:
 
 Answers:
 
-- What vocabulary and dimensions are framework-independent?
-- Which rules are merely candidates vs promoted?
-- Which gates define maturity?
-- What schema should another system be classified against?
+- What vocabulary/dimensions are framework-independent?
+- Which schema revision is active/frozen?
+- Which records instantiate it?
+- What closes the current MK?
+- What will the next MK receive?
 
-Use this layer for reusable engineering semantics.
+In MK1, the key artifacts are:
 
-### 3. Processed evidence
+```text
+CLASSIFICATION_SCHEMA.md
+DIMENSIONS.md
+NORMALIZATION_RULES.md
+SCHEMA_HISTORY.md
+records/
+GATES.md
+CLOSURE_PLAN.md
+UNKNOWNS.md
+```
+
+### 4. Processed evidence layer
 
 Files:
 
@@ -74,13 +119,13 @@ Files:
 Answers:
 
 - What did we observe?
-- What contradictions appeared?
-- Which candidate distinctions were surfaced?
-- How did reasoning evolve before promotion?
+- What contradiction/failure surfaced?
+- Which candidate distinction emerged?
+- What did the state look like before promotion?
 
-A quarry is **not current canon**. It can intentionally contain historical candidate states later resolved elsewhere.
+A quarry is **not current canon**. It can intentionally preserve a candidate/UNKNOWN that was later promoted or closed.
 
-### 4. Source provenance
+### 5. Source provenance layer
 
 Files:
 
@@ -88,17 +133,15 @@ Files:
 
 Answers:
 
-- Which source/repository/spec was inspected?
-- Which snapshot/version/date?
-- What authority/license does the source have?
+- Which source/spec/repository was inspected?
+- Which snapshot/revision/date?
+- What authority/license applies?
 - Where is its processed evidence?
-
-Use this layer to anchor claims and reproduce research scope.
 
 ## Canonical information flow
 
 ```text
-SOURCE
+SOURCE / SPEC
 mining-site/S-xxx
       │
       ▼
@@ -108,54 +151,80 @@ quarries/*
       ├─────────────► systems/<system>/ current synthesis
       │
       ▼
-NORMALIZATION / GATES
+NORMALIZATION / RECORDS / GATES
 mk/MK*
       │
       ▼
-DOMAIN STATE
-STATUS.md
+DOMAIN STATE + EXECUTION
+STATUS.md + ROADMAP.md
 ```
 
-The pipeline is not strictly linear: new framework pressure tests may reveal a schema weakness, causing another cross-source pass before promotion.
+New evidence may loop backward and pressure the schema again. The flow is auditable, not strictly one-way.
 
-## Why `systems/` exists
+## Current-state precedence
 
-The evidence/MK pipeline is excellent for auditability but expensive for direct retrieval. A reader asking “what do we know about Strands today?” should not need to manually reconcile five historical documents.
+When historical and current files differ because research progressed:
 
-`systems/<system>/` provides a **lossless synthesis layer**:
+```text
+1. STATUS.md
+2. systems/<system>/ current package
+3. active/frozen MK schema + records + gates + unknowns
+4. quarries/
+5. mining-site/
+```
 
-- current mental model;
-- current normalized classification;
-- reusable engineering rules;
-- protocol state;
-- evidence/provenance map;
-- LLM-specific routing/anti-inference contract.
+For execution priority:
 
-It never replaces raw evidence.
+```text
+ROADMAP.md
+> active MK CLOSURE_PLAN.md
+> active MK CLASSIFICATION_QUEUE.md
+```
+
+For provenance, traverse downward to the pinned source.
 
 ## Human navigation by intent
 
 | Intent | Start here |
 |---|---|
 | Understand the domain | `README.md` |
-| See what is active/blocked | `STATUS.md` |
+| See active/blocked state | `STATUS.md` |
+| Know exactly what to do next | `ROADMAP.md` |
+| Understand repository authority/lifecycle | `REPOSITORY_CONTRACT.md` |
 | Understand repository structure | `KNOWLEDGE_MAP.md` |
 | Understand Strands today | `systems/strands/README.md` |
-| Inspect framework-independent classification | `mk/MK1/CLASSIFICATION_SCHEMA.md` |
-| Inspect normalized dimensions | `mk/MK1/DIMENSIONS.md` |
-| Audit an evidence claim | relevant `systems/*/EVIDENCE.md` → `quarries/` → `mining-site/` |
-| See unresolved questions | active MK `UNKNOWNS.md` |
-| See closure criteria | active MK `GATES.md` |
+| Inspect system-package requirements | `systems/PACKAGE_SPEC.md` |
+| Inspect current classification schema | `mk/MK1/CLASSIFICATION_SCHEMA.md` |
+| See materialized representative records | `mk/MK1/records/README.md` |
+| See MK1 closure dependencies | `mk/MK1/CLOSURE_PLAN.md` |
+| See formal MK1 gates | `mk/MK1/GATES.md` |
+| See unresolved/routed uncertainty | `mk/MK1/UNKNOWNS.md` |
+| See schema revision history | `mk/MK1/SCHEMA_HISTORY.md` |
+| Understand A2A evidence requirements | `mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md` |
+| Understand multi-agent baseline contract | `mk/MK1/MULTI_AGENT_BASELINE_SPEC.md` |
+| Understand MK1→MK2 input | `mk/MK2/HANDOFF_CONTRACT.md` |
+| Audit a system claim | `systems/*/EVIDENCE.md` → `quarries/` → `mining-site/` |
 | Understand threat/capability model | `architecture/` |
 
-## Recommended human reading paths
+## Recommended reading paths
 
-### Fast domain orientation
+### Fast orientation
 
 ```text
 README.md
 → STATUS.md
-→ systems/strands/README.md
+→ ROADMAP.md
+```
+
+### Continue active MK1 engineering
+
+```text
+STATUS.md
+→ ROADMAP.md
+→ mk/MK1/README.md
+→ mk/MK1/CLOSURE_PLAN.md
+→ mk/MK1/records/README.md
+→ specialized open gate
 ```
 
 ### Deep Strands audit
@@ -166,61 +235,65 @@ systems/strands/README.md
 → ENGINEERING_RULES.md
 → PROTOCOLS.md
 → EVIDENCE.md
-→ underlying quarries/source receipts as needed
+→ quarries/source receipts only as needed
 ```
 
-### Continue MK1 work
+### Add another system package
 
 ```text
-STATUS.md
-→ mk/MK1/README.md
-→ mk/MK1/GATES.md
-→ mk/MK1/CLASSIFICATION_QUEUE.md
-→ mk/MK1/UNKNOWNS.md
-→ schema/dimensions/rules
+REPOSITORY_CONTRACT.md
+→ systems/PACKAGE_SPEC.md
+→ verify source/quarry/MK evidence
+→ create systems/<system>/
+→ link normalized record registry
 ```
 
-### Build future operational contracts
-
-Do not begin from quarries directly.
+### Materialize a new MK1 record
 
 ```text
-frozen/promoted MK1 semantics
-→ MK2 contract catalog
-→ schemas/checklists/test obligations
+mk/MK1/records/README.md
+→ records/TEMPLATE.md
+→ existing quarry/source evidence
+→ normalized record
+→ registry update
+→ GATES/UNKNOWNS only if state changed
 ```
 
-MK2 remains blocked until MK1 closes.
+### Freeze MK1 / open MK2
+
+```text
+mk/MK1/CLOSURE_PLAN.md
+→ GATES.md
+→ SCHEMA_HISTORY.md
+→ CLOSURE.md
+→ mk/MK2/HANDOFF_CONTRACT.md
+```
+
+MK2 remains blocked until that transition actually passes.
 
 ## LLM navigation
 
-Machine readers should start at [`LLM_CONTEXT.md`](./LLM_CONTEXT.md).
+Machine readers start at [`LLM_CONTEXT.md`](./LLM_CONTEXT.md).
 
-The general precedence for **current state** is:
+The retrieval objective is:
 
-```text
-STATUS
-> current system package
-> current MK schema/gates
-> quarry
-> source receipt
-```
+> Load the smallest current canonical context sufficient for the question, then descend into evidence only when provenance or ambiguity requires it.
 
-The precedence for **provenance** is not the same: trace downward until the source receipt and exact upstream snapshot are identified.
+This avoids wasting tokens on raw historical material while preserving auditability.
 
 ## Knowledge preservation rule
 
-Never “clean up” the repository by deleting a historical quarry merely because its candidate state is no longer current.
+Never “clean up” by deleting historical evidence merely because a later pass resolved it.
 
 Instead:
 
-1. preserve the original evidence;
-2. add a current canonical synthesis;
-3. mark state transitions explicitly;
-4. update indexes/LLM routing;
-5. keep UNKNOWNs visible until evidence closes them.
+1. preserve evidence/history;
+2. mark state transition;
+3. update current synthesis;
+4. update record/gate/UNKNOWN status;
+5. update machine/human routing if retrieval behavior changed.
 
-This lets the repository answer both:
+The repository must answer both:
 
 ```text
 What do we know now?
@@ -235,24 +308,31 @@ Why did we come to believe it?
 ## Naming semantics
 
 - `S-xxx-*` — source receipt / evidence identity.
-- `quarries/*` — processed but non-canonical evidence.
+- `quarries/*` — processed non-canonical evidence/history.
 - `systems/<name>/*` — current system-specific synthesis.
-- `mk/MKx/*` — maturity-stage domain artifacts.
-- `STATUS.md` — current domain transition state.
-- `GATES.md` — explicit admission/closure requirements.
-- `UNKNOWNS.md` — uncertainty that must remain visible.
+- `mk/MKx/records/REC-xxx-*` — representative normalized classification.
+- `SCHEMA_HISTORY.md` — schema version/change ledger.
+- `GATES.md` — formal pass/fail criteria.
+- `CLOSURE_PLAN.md` — executable route to satisfying gates.
+- `UNKNOWNS.md` — uncertainty/routing register.
+- `HANDOFF_CONTRACT.md` — exact MK transition input contract.
+- `STATUS.md` — live domain transition state.
+- `ROADMAP.md` — current execution ordering.
 
 ## Current maturity snapshot
 
 ```text
-MK0  evidence/framing       CLOSED
-MK1  normalize/classify     IN PROGRESS
-MK2  operationalize         BLOCKED / DESIGN SEEDED
+MK0                              CLOSED
+MK1                              IN PROGRESS
+MK2                              BLOCKED / DESIGN SEEDED
 
-Strands framework pass      COMPLETE
-runtime semantic crosscheck COMPLETE
-MCP 2026-07-28 core pass    SUPPORTED / QUALIFIED
-A2A reproducibility receipt OPEN
+Strands package                  SOLIDIFIED
+runtime semantic crosscheck      COMPLETE
+MCP 2026-07-28 core pass         SUPPORTED / QUALIFIED
+representative record set        PARTIAL
+A2A reproducibility receipt      OPEN
+multi-agent baseline             OPEN
+schema freeze                    NOT YET
 ```
 
-For the precise live state, always defer to `STATUS.md`.
+For precise live state, always defer to `STATUS.md`.
