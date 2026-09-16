@@ -1,7 +1,8 @@
 # MK1 — Normalize & Classify
 
 Status: **🟡 OPEN / IN PROGRESS**  
-Precondition: **MK0 CLOSED**
+Precondition: **MK0 CLOSED**  
+Current schema: **`mk1-draft-2026-09-16.1`**
 
 ## Purpose
 
@@ -14,7 +15,7 @@ This README is the **entrypoint/index** for MK1. The schema, dimensions, rules, 
 | Artifact | Responsibility |
 |---|---|
 | [`CLASSIFICATION_SCHEMA.md`](./CLASSIFICATION_SCHEMA.md) | normalized machine/human-readable record shape |
-| [`DIMENSIONS.md`](./DIMENSIONS.md) | control, capabilities, side effects, memory, HITL, retry, termination, eval, protocol, multi-agent and evidence axes |
+| [`DIMENSIONS.md`](./DIMENSIONS.md) | control, capabilities, side effects, state/concurrency, memory, HITL, retry, termination, eval, protocol, multi-agent and evidence axes |
 | [`NORMALIZATION_RULES.md`](./NORMALIZATION_RULES.md) | rules preventing framework labels, hidden assumptions and dimension collapse |
 | [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md) | prioritized systems/families and classification workflow |
 | [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md) | first explicit modern-framework pressure test across control, state, concurrency, budgets, interventions, eval and protocols |
@@ -30,9 +31,10 @@ The classification model must be:
 - explicit about reachable capabilities and compositions;
 - explicit about side effects independently of autonomy;
 - explicit about state/checkpoint/persistence/memory lifecycle;
-- explicit about human approval and dispatcher enforcement;
+- explicit about concurrency/writer/conflict semantics when shared state or parallel work is reachable;
+- explicit about human approval, enforcement owner and dispatcher binding;
 - explicit about retries/errors/unknown outcomes;
-- explicit about semantic termination and resource budgets;
+- explicit about semantic termination, resource budgets and enforcement boundaries;
 - explicit about evaluation evidence;
 - revision-aware for protocols/integrations;
 - capable of preserving `UNKNOWN` instead of forcing a label.
@@ -50,11 +52,11 @@ CONTROL AUTHORITY
 HORIZON / TOPOLOGY
 CAPABILITIES + COMPOSITION
 SIDE-EFFECT CLASS
-STATE / CHECKPOINT / PERSISTENCE
+STATE / CHECKPOINT / PERSISTENCE / CONCURRENCY
 MEMORY LIFECYCLE
-HUMAN CONTROL
+HUMAN CONTROL + ENFORCEMENT OWNER/BOUNDARY
 ERROR / RETRY OWNERSHIP
-TERMINATION
+TERMINATION + BUDGET ENFORCEMENT
 EVALUATION
 PROTOCOL REVISION
 SECURITY / CONTAINMENT
@@ -86,15 +88,27 @@ MK1 begins with:
 
 Full queue: [`CLASSIFICATION_QUEUE.md`](./CLASSIFICATION_QUEUE.md).
 
-### Current Strands result
+## Runtime-semantics crosscheck
 
-The Strands pass did **not** justify framework-specific taxonomy. It did surface three candidate qualifiers that need independent confirmation before schema mutation:
+The Strands pass surfaced three schema questions:
 
 1. concurrency semantics for agent/session state;
 2. budget enforcement boundary / overshoot semantics;
-3. intervention enforcement owner (runtime code vs human vs model judge vs provider/infrastructure).
+3. intervention enforcement owner and boundary.
 
-See [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md).
+They were **not** promoted from Strands alone. MK1 then cross-checked them against LangGraph and OpenAI Agents SDK. All three survived as framework-independent engineering distinctions.
+
+Promotion in `mk1-draft-2026-09-16.1`:
+
+```text
+concurrency semantics        → state
+budget enforcement semantics → termination
+intervention owner/boundary  → human_control
+```
+
+Evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md).
+
+No framework-specific top-level category was introduced.
 
 ## State transition
 
@@ -115,6 +129,8 @@ MK2 already contains **design scaffolding only** so the handoff shape is visible
 ```text
 MK0 = CLOSED
 MK1 = IN PROGRESS
+RUNTIME SEMANTICS CROSSCHECK = PASS
+SCHEMA = mk1-draft-2026-09-16.1
 MK2 = BLOCKED / DESIGN SEEDED
 CANON OPERATIONAL RULES = NOT YET
 ```

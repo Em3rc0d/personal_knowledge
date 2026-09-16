@@ -11,12 +11,14 @@ STATE                     IN PROGRESS
 MK0                       CLOSED / STRUCTURED EVIDENCE PACKAGE
 MK1                       ACTIVE / STRUCTURED NORMALIZATION PACKAGE
 MK2                       BLOCKED / DESIGN PACKAGE SEEDED
+SCHEMA REVISION           mk1-draft-2026-09-16.1
 PRIMARY MINING SITE       NirDiamant/GenAI_Agents
 UPSTREAM SNAPSHOT         4c95ae14cc2462c442b5c064cccd74430d02bc46
 MEMORY CROSS-SOURCE       Agent_Memory_Techniques@b7f7240e...
 PRODUCTION CROSS-SOURCE   agents-towards-production@141b0679...
 MCP CONTRACT              2026-07-28
-STRANDS PRESSURE TEST     harness-sdk@a9361c54... / COMPLETE FOR CURRENT PASS
+STRANDS PRESSURE TEST     harness-sdk@a9361c54... / COMPLETE
+RUNTIME CROSS-SOURCE      STRANDS + LANGGRAPH + OPENAI AGENTS SDK / COMPLETE
 LICENSE BOUNDARY          RECORDED / S-001 NON-COMMERCIAL CUSTOM LICENSE
 REPOSITORY INVENTORY      COMPLETE FOR MK0
 NORMALIZED INVENTORY      SEED COMPLETE
@@ -27,9 +29,9 @@ HITL / SIDE EFFECTS       MK0 FRAME COMPLETE
 TRACE EVALUATION          MK0 FRAME COMPLETE
 MEMORY / PERSISTENCE      CROSS-SOURCE FRAME COMPLETE
 MULTI-AGENT               QUALIFIED / MK1 NORMALIZATION OPEN
-CONCURRENCY SEMANTICS     NEW MK1 CANDIDATE / NEEDS SECOND SOURCE
-BUDGET ENFORCEMENT        NEW MK1 CANDIDATE / NEEDS SECOND SOURCE
-INTERVENTION OWNER        NEW MK1 CANDIDATE / CROSS-CHECK PENDING
+CONCURRENCY SEMANTICS     PROMOTED UNDER STATE / CROSS-RUNTIME SUPPORTED
+BUDGET ENFORCEMENT        PROMOTED UNDER TERMINATION / CROSS-RUNTIME SUPPORTED
+INTERVENTION OWNER        PROMOTED UNDER HUMAN_CONTROL / CROSS-RUNTIME SUPPORTED
 CAPABILITY / RISK SCAN    COMPLETE FOR MK0
 THREAT MODEL              MK0 SEED COMPLETE
 SCIENTIFIC CONTRAST       COMPLETE FOR MK0
@@ -142,24 +144,38 @@ Source package:
 - processed quarry: [`quarries/strands-agents.md`](./quarries/strands-agents.md)
 - normalized pressure test: [`mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md`](./mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md)
 
-The Strands pass validates the current framework-independent direction and does **not** justify framework-specific top-level dimensions. It does expose three candidate qualifiers requiring independent confirmation before schema mutation:
+The Strands pass exposed three candidate qualifiers:
 
-1. **concurrency semantics** — one-live-writer/session and overlapping invocation behavior are material state properties;
-2. **budget enforcement boundary** — a nominal turn/token/time budget is incomplete without its soft/hard enforcement and overshoot semantics;
-3. **intervention enforcement owner** — deterministic runtime checks, human confirmation, model-judge steering and provider/infrastructure guardrails have different guarantees.
+1. concurrency semantics;
+2. budget enforcement boundary;
+3. intervention enforcement owner.
 
-Additional strengthened findings:
+They were initially held as UNKNOWN/promotion debt pending independent evidence.
 
-- session persistence, context management and cross-session memory remain distinct;
-- host-process tool permission inheritance makes containment an external architectural concern;
-- structured output validates shape, not semantic truth;
-- cancellation must record where interruption becomes effective;
-- protocol support must remain version/auth/transport aware;
-- production-capable framework features do not certify a specific application.
+## MK1 cross-runtime promotion — 2026-09-16
+
+Independent contrast against LangGraph and OpenAI Agents SDK closed that debt.
+
+Evidence package:
+
+- `S-110`: [`mining-site/S-110-langgraph-runtime-semantics.md`](./mining-site/S-110-langgraph-runtime-semantics.md)
+- `S-111`: [`mining-site/S-111-openai-agents-sdk-runtime-semantics.md`](./mining-site/S-111-openai-agents-sdk-runtime-semantics.md)
+- synthesis: [`quarries/runtime-semantics-strands-langgraph-openai.md`](./quarries/runtime-semantics-strands-langgraph-openai.md)
+
+Promotion result:
+
+- **concurrency semantics** → promoted as `state` qualifiers;
+- **budget enforcement boundary / overshoot / cancellation boundary** → promoted under `termination`;
+- **intervention enforcement owner + boundary** → promoted under `human_control`;
+- no framework-specific top-level dimension was required.
+
+Schema revision: [`mk/MK1/CLASSIFICATION_SCHEMA.md`](./mk/MK1/CLASSIFICATION_SCHEMA.md) → `mk1-draft-2026-09-16.1`.
+
+This strengthens, rather than replaces, existing fields such as `replay_semantics`, `dispatcher_enforcement`, `approval_binding`, semantic success predicates and error/idempotency contracts.
 
 ## Known UNKNOWNs transferred beyond MK0
 
-These do not invalidate MK0 closure because they require normalization, operationalization or execution evidence:
+These remain open because they require normalization, operationalization or execution evidence:
 
 1. exact current executability of every upstream notebook;
 2. per-notebook dependency/provider compatibility under current runtimes;
@@ -172,9 +188,9 @@ These do not invalidate MK0 closure because they require normalization, operatio
 9. benchmarked multi-agent benefit for individual topologies;
 10. project-specific deployment/rollback/SLO/incident evidence;
 11. per-language MCP SDK migration details beyond protocol-level contradiction;
-12. independent confirmation of concurrency semantics as an MK1 schema qualifier;
-13. independent confirmation of budget enforcement/overshoot semantics;
-14. deterministic HITL vs LLM-steering comparison across independent systems;
+12. backend-specific concurrency implementation details after the normalized state qualifiers are populated;
+13. exact hard/cooperative/best-effort cancellation behavior for individual model/tool/remote paths;
+14. application-specific approval binding and revalidation coverage;
 15. executable Strands/MCP compatibility evidence against the pinned `2026-07-28` protocol contract;
 16. A2A revision/auth/transport receipt for reproducible distributed-agent classification.
 
@@ -194,15 +210,14 @@ Active package: [`mk/MK1/`](./mk/MK1/)
 
 Immediate queue: [`mk/MK1/CLASSIFICATION_QUEUE.md`](./mk/MK1/CLASSIFICATION_QUEUE.md)
 
-The current work is to pressure-test the classification schema against representative systems, resolve overlapping dimensions, preserve unknowns and freeze a schema revision suitable for MK2 input.
+Current work remains to finish representative normalized records, resolve remaining overlaps, preserve unknowns and freeze a schema revision suitable for MK2 input.
 
-Next evidence after the Strands pass:
+Next evidence after the cross-runtime pass:
 
-- test concurrency semantics against another independent runtime;
-- test budget enforcement semantics against another framework/runtime;
-- compare deterministic approval gates with model-mediated steering;
-- execute a protocol-focused Strands/MCP fixture;
-- benchmark a Strands multi-agent topology against a simpler baseline before deriving any performance rule.
+- execute a protocol-focused **Strands ↔ MCP `2026-07-28`** compatibility fixture;
+- verify version/auth/transport/cancellation/trace-continuity receipts rather than protocol-name presence;
+- continue representative classifications needed by the MK1 closure checklist;
+- benchmark multi-agent topology against a simpler baseline before deriving any performance rule.
 
 ## MK2 state
 
@@ -213,7 +228,9 @@ MK2 has a visible design package at [`mk/MK2/`](./mk/MK2/) so the handoff is exp
 ```text
 MK0 FRAME / EVIDENCE BASE   ✅ CLOSED
 MK1 NORMALIZATION           🟡 IN PROGRESS
-STRANDS PRESSURE TEST       ✅ CURRENT PASS COMPLETE
+STRANDS PRESSURE TEST       ✅ COMPLETE
+RUNTIME SEMANTICS CROSSCHECK ✅ COMPLETE
+SCHEMA REVISION             mk1-draft-2026-09-16.1
 MK2 OPERATIONALIZATION      🔒 BLOCKED / DESIGN SEEDED
 CANON RULE CERTIFICATION    🔒 BLOCKED
 ```

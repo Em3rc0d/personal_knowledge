@@ -1,10 +1,15 @@
 # MK1 — Classification Schema
 
-Status: **OPEN / IN PROGRESS**
+Status: **OPEN / IN PROGRESS**  
+Schema revision: **`mk1-draft-2026-09-16.1`**
 
 This is the normalized record shape used to classify representative agent systems without relying on framework or marketing labels.
 
+The 2026-09-16.1 draft adds cross-runtime qualifiers for **concurrency semantics**, **budget enforcement boundaries** and **intervention enforcement ownership** after independent pressure tests across Strands Agents, LangGraph and OpenAI Agents SDK.
+
 ```yaml
+schema_revision: mk1-draft-2026-09-16.1
+
 identity:
   name:
   source:
@@ -41,6 +46,10 @@ state:
   checkpointing: none | memory | durable
   persistence_backend:
   replay_semantics: known | partial | unknown
+  invocation_concurrency: serial_only | concurrent | bounded_concurrent | framework_defined | unknown
+  writer_model: single_writer | multi_writer | reducer_merge | optimistic | locked | framework_defined | unknown
+  concurrency_conflict_semantics:
+  locking: none | local | distributed | optimistic | custom | framework_defined | unknown
 
 memory:
   semantic_role: []
@@ -55,7 +64,9 @@ memory:
 human_control:
   level: H0 | H1 | H2 | H3 | H4 | mixed | unknown
   mode: none | review_after | approval_before | approval_edit_before | mixed
-  dispatcher_enforcement: yes | no | unknown
+  dispatcher_enforcement: yes | no | partial | unknown
+  enforcement_owner: runtime_code | human | model_judge | provider_guardrail | infrastructure | mixed | unknown
+  enforcement_boundary:
   approval_binding:
 
 errors_and_retries:
@@ -69,11 +80,17 @@ termination:
   success_predicate:
   terminal_failure_predicate:
   turn_budget:
+  turn_budget_enforcement:
   tool_budget:
+  tool_budget_enforcement:
   time_budget:
+  time_budget_enforcement:
   cost_or_token_budget:
+  cost_or_token_budget_enforcement:
+  overshoot_semantics:
   oscillation_detection:
   cancellation:
+  cancellation_effective_boundary:
 
 evaluation:
   static_contracts: []
@@ -122,12 +139,21 @@ unknowns: []
 9. Human review in one node does not prove dispatcher enforcement for every consequential tool.
 10. Evidence-state vocabulary matches the domain reasoning-state labels and must remain explicit.
 11. A classification record describes the system supported by evidence; it is not a production-readiness certificate.
+12. Persistence does not imply concurrency safety. Record invocation/writer/conflict semantics when concurrent execution or shared state is reachable.
+13. A budget value is incomplete without its enforcement boundary when that boundary affects in-flight model/tool work or side effects.
+14. `guardrail`, `interrupt`, `approval` or `steering` do not prove equivalent protection. Record who owns enforcement and where it sits relative to the consequential dispatcher.
+15. Cancellation must identify its effective boundary when the runtime can only stop cooperatively or remote work may already have started.
+
+## Revision compatibility
+
+`mk1-draft-2026-09-16.1` is additive relative to the previous MK1 draft. Existing classification records remain interpretable; newly promoted fields may be `unknown` until the source evidence supports them. Do not backfill them from framework reputation or adjacent features.
 
 ## Minimal record
 
 When evidence is sparse, the minimum useful record is:
 
 ```yaml
+schema_revision:
 identity:
 control:
 capabilities:

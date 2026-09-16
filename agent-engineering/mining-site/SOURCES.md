@@ -229,6 +229,49 @@ The `S-001` MCP tutorial is therefore retained as a useful legacy learning artif
 
 Important qualification: Strands-specific capabilities are evidence about one framework implementation. They do not certify model-driven orchestration, multi-agent systems, security or production readiness in general.
 
+### S-110 — LangGraph runtime semantics
+
+- provenance: `OFFICIAL` + `OBSERVED`
+- documentation: https://docs.langchain.com/oss/python/langgraph/
+- repository: https://github.com/langchain-ai/langgraph
+- pinned snapshot: `230927fb3a9ac9b2893a30322b4dfea7cdea9a8f`
+- observed: 2026-09-16
+- license: MIT
+- relevance:
+  - concurrent graph updates expose explicit reducer/merge requirements rather than implicit state safety;
+  - interrupts persist/resume execution but can replay code before the interrupt boundary;
+  - recursion limits are execution kill switches, not semantic success predicates;
+  - tool-local interrupts can place human approval directly before a consequential dispatcher.
+- detailed receipt: [`S-110-langgraph-runtime-semantics.md`](./S-110-langgraph-runtime-semantics.md)
+
+### S-111 — OpenAI Agents SDK runtime semantics
+
+- provenance: `OFFICIAL` + `OBSERVED`
+- documentation: https://openai.github.io/openai-agents-python/
+- repository: https://github.com/openai/openai-agents-python
+- pinned snapshot: `5f9899d584c5cfc879d3579352eb929fd4b34756`
+- observed: 2026-09-16
+- latest release observed: `v0.22.2` (2026-09-09)
+- license: MIT
+- relevance:
+  - `max_turns`, tool timeouts and cancellation are distinct runtime controls;
+  - blocking and parallel guardrail modes have materially different pre-effect guarantees;
+  - tool guardrails, agent guardrails and handoff authorization cover different call paths;
+  - local function-tool concurrency can be bounded separately from provider-side parallel tool calls.
+- detailed receipt: [`S-111-openai-agents-sdk-runtime-semantics.md`](./S-111-openai-agents-sdk-runtime-semantics.md)
+
+### Cross-runtime promotion receipt
+
+`S-109` + `S-110` + `S-111` jointly support three MK1 subdimensions without introducing framework-specific taxonomy:
+
+```text
+concurrency semantics        → state
+budget enforcement semantics → termination
+intervention owner/boundary  → human_control
+```
+
+Synthesis: [`../quarries/runtime-semantics-strands-langgraph-openai.md`](../quarries/runtime-semantics-strands-langgraph-openai.md).
+
 ## Scientific literature
 
 ### S-201 — ReAct
