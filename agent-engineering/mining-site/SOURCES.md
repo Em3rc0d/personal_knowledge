@@ -111,9 +111,7 @@ The source advertises production-oriented topics including stateful workflows, m
 Important qualification:
 
 - its pinned `.github/` directory contains funding, issue-template and Dependabot configuration but no visible GitHub Actions workflow;
-- therefore `production-grade` / `production-ready` labels are treated as source claims and tutorial scope descriptions, not evidence that the whole repository is continuously integration-tested or certified.
-
-This source is useful for MK1/MK2 architecture and operational pattern mining, but it cannot retroactively make `S-001` examples production-ready.
+- therefore `production-grade` / `production-ready` labels are source claims/tutorial-scope descriptions, not repository-wide certification.
 
 ## Official technical contrast
 
@@ -123,10 +121,10 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
 - URL: https://www.anthropic.com/engineering/building-effective-agents
 - published: 2024-12-19
 - relevance:
-  - distinguishes predefined **workflows** from model-directed **agents**;
+  - distinguishes predefined workflows from model-directed agents;
   - recommends the simplest architecture that meets the task;
-  - frames additional agentic complexity as a latency/cost tradeoff;
-  - emphasizes transparency and Agent-Computer Interface/tool quality;
+  - frames additional agentic complexity as latency/cost tradeoff;
+  - emphasizes transparency and tool/ACI quality;
   - warns that frameworks can obscure underlying behavior.
 
 ### S-102 — Anthropic: Writing Effective Tools for Agents
@@ -135,10 +133,10 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
 - URL: https://www.anthropic.com/engineering/writing-tools-for-agents
 - published: 2025-09-11
 - relevance:
-  - tool design is an agent-facing interface design problem;
-  - realistic eval tasks and held-out evaluation matter;
-  - collect tool-call count, errors, runtime and token use in addition to outcome quality;
-  - tool descriptions/schema and result shape materially affect agent behavior.
+  - tool design is an agent-facing interface problem;
+  - realistic held-out evaluation matters;
+  - tool-call count, errors, runtime and token use complement outcome quality;
+  - tool descriptions/schema/result shape materially affect behavior.
 
 ### S-103 — Anthropic: Effective Context Engineering for AI Agents
 
@@ -146,9 +144,9 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
 - URL: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 - published: 2025-09-29
 - relevance:
-  - context is a finite, curated token budget;
+  - context is a finite curated token budget;
   - context is broader than transcript/history;
-  - context selection is part of system design, not merely prompt wording.
+  - context selection is a system-design concern.
 
 ### S-104 — Anthropic: Demystifying Evals for AI Agents
 
@@ -159,7 +157,7 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
   - separates tasks, trials, graders, traces/transcripts, outcomes and harnesses;
   - stochastic agents require repeated trials;
   - outcome and trajectory may require different graders;
-  - automated evals should be complemented by production monitoring and human review.
+  - automated evals should be complemented by production monitoring/human review.
 
 ### S-105 — LangGraph: Human-in-the-loop
 
@@ -169,7 +167,7 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
   - policy-driven tool interruption;
   - approve/edit/reject decisions;
   - persisted graph state required to resume;
-  - persistent database-backed checkpointer recommended in production.
+  - durable checkpointer recommended in production.
 
 ### S-106 — LangGraph: Interrupts
 
@@ -178,7 +176,7 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
 - relevance:
   - dynamic pause/resume semantics;
   - `thread_id` identifies persisted execution;
-  - pre-interrupt side effects must be idempotent because node execution can replay.
+  - pre-interrupt side effects must be replay-safe/idempotent.
 
 ### S-107 — LangGraph: Persistence
 
@@ -195,16 +193,14 @@ This source is useful for MK1/MK2 architecture and operational pattern mining, b
 - current specification revision for this pass: `2026-07-28`
 - release source: https://blog.modelcontextprotocol.io/posts/2026-07-28/
 - relevance:
-  - introduces a stateless protocol core;
-  - removes the core `initialize` / `initialized` handshake and `Mcp-Session-Id` lifecycle used by older MCP examples;
-  - requests carry protocol version, client identity/capabilities metadata and routing information;
-  - `server/discover` is optional for upfront capability discovery;
-  - list results become cacheable/deterministic;
-  - authorization is hardened;
-  - extensions become a formal mechanism, including long-running/task-style capabilities;
-  - MCP remains an interoperability/capability protocol, not a substitute for runtime policy, authorization, persistence or evaluation.
+  - stateless protocol core;
+  - mandatory legacy `initialize`/`initialized` and `Mcp-Session-Id` lifecycle removed from core;
+  - per-request protocol/client metadata;
+  - optional `server/discover`;
+  - authorization hardening and formal extensions;
+  - protocol interoperability remains distinct from runtime authorization/policy.
 
-The `S-001` MCP tutorial is therefore retained as a useful legacy learning artifact for tool discovery/execution concepts but is **not** a current lifecycle reference for MCP `2026-07-28`.
+The `S-001` MCP tutorial remains a useful historical integration artifact, not a current `2026-07-28` lifecycle reference.
 
 ### S-109 — Strands Agents
 
@@ -213,21 +209,18 @@ The `S-001` MCP tutorial is therefore retained as a useful legacy learning artif
 - repository: https://github.com/strands-agents/harness-sdk
 - pinned snapshot: `a9361c54ca190117d5801dd09a1ab8d6d3d9bf20`
 - observed: 2026-09-16
-- release receipts at observation: `python/v1.56.0`, `typescript/v1.18.0`
+- release receipts: `python/v1.56.0`, `typescript/v1.18.0`
 - license: Apache-2.0
 - relevance:
-  - modern in-process agent harness pressure test spanning model-directed loops and deterministic/mixed orchestration;
-  - explicit Graph, Swarm, Workflow and agents-as-tools topologies;
-  - explicit separation of conversation, agent state, invocation state, session persistence, context management and cross-session memory;
-  - tool permissions inherit the host process unless separately constrained;
-  - loop budgets and cancellation expose enforcement-boundary semantics not captured by a simple boolean/value;
-  - hooks, human confirmation and LLM steering expose different intervention/authorization guarantees;
-  - native observability, eval and protocol adapters provide implementation evidence without becoming taxonomy.
+  - modern in-process harness pressure test across model-directed/deterministic/mixed orchestration;
+  - Graph, Swarm, Workflow and agents-as-tools;
+  - explicit state/session/context/memory separation;
+  - host-process capability boundary;
+  - budget/cancellation/intervention enforcement pressure;
+  - observability/eval/protocol adapters.
 - detailed receipt: [`S-109-strands-agents.md`](./S-109-strands-agents.md)
 - processed quarry: [`../quarries/strands-agents.md`](../quarries/strands-agents.md)
 - MK1 pressure test: [`../mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md`](../mk/MK1/STRANDS_AGENTS_PRESSURE_TEST.md)
-
-Important qualification: Strands-specific capabilities are evidence about one framework implementation. They do not certify model-driven orchestration, multi-agent systems, security or production readiness in general.
 
 ### S-110 — LangGraph runtime semantics
 
@@ -238,10 +231,10 @@ Important qualification: Strands-specific capabilities are evidence about one fr
 - observed: 2026-09-16
 - license: MIT
 - relevance:
-  - concurrent graph updates expose explicit reducer/merge requirements rather than implicit state safety;
-  - interrupts persist/resume execution but can replay code before the interrupt boundary;
-  - recursion limits are execution kill switches, not semantic success predicates;
-  - tool-local interrupts can place human approval directly before a consequential dispatcher.
+  - concurrent graph updates expose reducer/merge requirements;
+  - interrupts persist/resume but can replay pre-interrupt code;
+  - recursion limits are kill switches, not semantic success predicates;
+  - tool-local interrupts can gate consequential dispatch.
 - detailed receipt: [`S-110-langgraph-runtime-semantics.md`](./S-110-langgraph-runtime-semantics.md)
 
 ### S-111 — OpenAI Agents SDK runtime semantics
@@ -254,15 +247,38 @@ Important qualification: Strands-specific capabilities are evidence about one fr
 - latest release observed: `v0.22.2` (2026-09-09)
 - license: MIT
 - relevance:
-  - `max_turns`, tool timeouts and cancellation are distinct runtime controls;
-  - blocking and parallel guardrail modes have materially different pre-effect guarantees;
-  - tool guardrails, agent guardrails and handoff authorization cover different call paths;
-  - local function-tool concurrency can be bounded separately from provider-side parallel tool calls.
+  - `max_turns`, tool timeouts and cancellation are distinct controls;
+  - blocking vs parallel guardrails have different pre-effect guarantees;
+  - agent/tool/handoff guardrails cover different paths;
+  - local tool concurrency differs from provider-side parallel calls.
 - detailed receipt: [`S-111-openai-agents-sdk-runtime-semantics.md`](./S-111-openai-agents-sdk-runtime-semantics.md)
+
+### S-112 — Agent2Agent (A2A) Protocol
+
+- provenance: `OFFICIAL`
+- documentation: https://a2a-protocol.org/
+- specification: https://a2a-protocol.org/dev/specification/
+- repository: https://github.com/a2aproject/A2A
+- repository snapshot observed: `afda8316c64951a2ecb2a0d3d10867405d2b4095`
+- observed: 2026-09-16
+- latest repository release observed: `v1.0.1` (2026-05-28)
+- protocol compatibility line: `1.0`
+- major `v1.0.0` release: 2026-03-12; explicitly breaking relative to `0.3`
+- license: Apache-2.0
+- relevance:
+  - current revision-aware distributed-agent interoperability contract;
+  - Agent Card discovery/identity/capability metadata;
+  - task/message lifecycle and terminal/interrupted states;
+  - standard JSON-RPC, gRPC and HTTP+JSON bindings;
+  - security/auth declaration separated from application authorization;
+  - cancellation does not imply transactional rollback;
+  - provides the current-spec contrast proving Strands `0.3.x` support cannot be silently promoted to A2A `1.0` compatibility.
+- detailed receipt: [`S-112-a2a-protocol.md`](./S-112-a2a-protocol.md)
+- Strands comparison: [`../quarries/strands-a2a-version-drift.md`](../quarries/strands-a2a-version-drift.md)
 
 ### Cross-runtime promotion receipt
 
-`S-109` + `S-110` + `S-111` jointly support three MK1 subdimensions without introducing framework-specific taxonomy:
+`S-109` + `S-110` + `S-111` jointly support:
 
 ```text
 concurrency semantics        → state
@@ -272,6 +288,18 @@ intervention owner/boundary  → human_control
 
 Synthesis: [`../quarries/runtime-semantics-strands-langgraph-openai.md`](../quarries/runtime-semantics-strands-langgraph-openai.md).
 
+### Protocol-version pressure receipt
+
+`S-109` + `S-112` establish the current A2A version-drift fact:
+
+```text
+Strands pinned A2A SDK line  0.3.x
+current A2A protocol line    1.0
+compatibility                NOT ESTABLISHED without new evidence
+```
+
+This supports revision-aware classification; it does not certify current-version interoperability.
+
 ## Scientific literature
 
 ### S-201 — ReAct
@@ -280,7 +308,7 @@ Synthesis: [`../quarries/runtime-semantics-strands-langgraph-openai.md`](../quar
 - Yao et al., ICLR 2023
 - URL: https://arxiv.org/abs/2210.03629
 - provenance: external scientific evidence
-- relevance: interleaving model reasoning/planning with environment actions can improve interactive task solving and provide inspectable trajectories.
+- relevance: reasoning/action interleaving in interactive task solving.
 
 ### S-202 — Reflexion
 
@@ -288,7 +316,7 @@ Synthesis: [`../quarries/runtime-semantics-strands-langgraph-openai.md`](../quar
 - Shinn et al., NeurIPS 2023
 - URL: https://arxiv.org/abs/2303.11366
 - provenance: external scientific evidence
-- relevance: textual reflection can improve later trials when coupled to feedback and episodic memory; it is not equivalent to model-weight learning.
+- relevance: feedback + episodic memory can improve later trials under studied conditions; not model-weight learning.
 
 ### S-203 — Limits of intrinsic self-correction
 
@@ -296,7 +324,7 @@ Synthesis: [`../quarries/runtime-semantics-strands-langgraph-openai.md`](../quar
 - Huang et al., ICLR 2024
 - URL: https://arxiv.org/abs/2310.01798
 - provenance: external scientific evidence
-- relevance: intrinsic self-correction without external feedback is unreliable and can degrade reasoning performance.
+- relevance: intrinsic self-correction without external feedback is unreliable and may degrade reasoning.
 
 ### S-204 — AgentBench
 
@@ -304,7 +332,7 @@ Synthesis: [`../quarries/runtime-semantics-strands-langgraph-openai.md`](../quar
 - Liu et al., ICLR 2024
 - URL: https://arxiv.org/abs/2308.03688
 - provenance: external scientific evidence
-- relevance: agent capability requires evaluation in interactive environments, not only static language benchmarks.
+- relevance: agent capability requires interactive-environment evaluation, not only static language benchmarks.
 
 ### S-205 — Multi-agent failure taxonomy
 
@@ -312,7 +340,7 @@ Synthesis: [`../quarries/runtime-semantics-strands-langgraph-openai.md`](../quar
 - Cemri et al., 2025
 - URL: https://arxiv.org/abs/2503.13657
 - provenance: external scientific evidence
-- relevance: identifies failure classes spanning system/specification design, inter-agent misalignment, verification and termination; multi-agent complexity is not free performance.
+- relevance: failure classes across system/spec design, inter-agent misalignment, verification and termination; multi-agent complexity is not free performance.
 
 ## Source hierarchy for promotion
 
@@ -332,6 +360,6 @@ community issue / anecdote
 marketing label
 ```
 
-Specialization and scope also matter. A dedicated memory corpus may be a better taxonomy quarry for memory than a general agents corpus, while the current MCP specification outranks an older tutorial's protocol lifecycle.
+Specialization, applicability and recency matter. Current protocol specifications outrank older tutorial lifecycle assumptions for claims about current protocol behavior.
 
-No single source automatically wins every dispute. The hierarchy indicates default evidentiary weight; applicability, recency, methodology and reproducibility must still be examined.
+No single source automatically wins every dispute; scope, methodology and reproducibility still determine what may be promoted.
