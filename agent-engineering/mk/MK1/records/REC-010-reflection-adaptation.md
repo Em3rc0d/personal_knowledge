@@ -202,6 +202,6 @@ normalization_issue: current evaluation + memory + control fields can represent 
 
 ## Evidence
 
-- [`../../quarries/genai-agents-p0-p1-callpaths.md`](../../quarries/genai-agents-p0-p1-callpaths.md)
-- [`../../quarries/genai-agents.md`](../../quarries/genai-agents.md)
+- [`../../../quarries/genai-agents-p0-p1-callpaths.md`](../../../quarries/genai-agents-p0-p1-callpaths.md)
+- [`../../../quarries/genai-agents.md`](../../../quarries/genai-agents.md)
 - scientific sources registered as `S-202` and `S-203`
