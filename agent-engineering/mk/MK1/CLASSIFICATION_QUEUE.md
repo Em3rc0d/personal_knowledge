@@ -1,118 +1,151 @@
 # MK1 — Classification Queue
 
-Status: **ACTIVE**
+Status: **ACTIVE / RECORD-DRIVEN**  
+Schema: **`mk1-draft-2026-09-16.1`**
 
-MK1 begins with systems already supported by strong MK0 evidence, then expands across the remaining engineering families.
+## Purpose
 
-## First classification set
+This queue defines **which representative systems still need classification pressure and why**.
 
-Priority order:
+The authoritative record/materialization state now lives in [`records/README.md`](./records/README.md). This file owns **priority and admission logic**, not duplicate record status.
 
-1. minimal while-loop agent;
-2. HITL approval agent;
-3. trace-evaluation harness;
-4. E2E testing agent;
-5. self-healing code agent;
-6. HR messaging agent;
-7. social publishing agent;
-8. document-intake agent;
-9. DataScribe;
-10. self-improving/reflection example;
-11. representative memory agent;
-12. representative multi-agent system;
-13. MCP tutorial as a legacy protocol example;
-14. Strands Agents SDK as a modern framework/runtime pressure test.
+## Current pressure set
 
-## Why this set comes first
+The original first set remains useful, but it is now tracked by record IDs:
 
-It covers the dimensions most likely to expose overlap or ambiguity:
+```text
+REC-001 minimal while-loop agent
+REC-002 HITL approval agent
+REC-003 trace-evaluation harness
+REC-004 generated-code/browser E2E agent
+REC-005 self-healing generated-code agent
+REC-006 HR messaging agent
+REC-007 social publishing agent
+REC-008 document-intake/file-egress agent
+REC-009 DataScribe/database authority
+REC-010 reflection/self-improvement example
+REC-011 representative memory system
+REC-012 representative multi-agent system
+REC-013 legacy/current MCP comparison
+REC-014 Strands Agents SDK
+```
 
-- deterministic vs model-directed control;
-- shell/generated-code/browser authority;
-- external messaging/publication/data egress;
-- dispatcher-enforced HITL;
-- state/checkpoint/persistence;
-- memory lifecycle;
-- retry and unknown-outcome semantics;
-- trace vs outcome evaluation;
-- multi-agent topology;
-- protocol version drift;
-- framework/runtime concurrency assumptions;
-- budget enforcement boundaries;
-- deterministic policy vs model-mediated intervention.
+See [`records/README.md`](./records/README.md) for materialized/open/blocked state.
 
-## Strands pressure-test role
+## Current priority
 
-Strands is not admitted because it is a popular framework. It is admitted because one SDK exposes several control structures at once:
+The highest remaining schema pressure is:
 
-- model-directed single-agent loop;
-- deterministic Workflow;
-- developer-structured Graph;
-- peer/model-directed Swarm;
-- agents-as-tools hierarchy;
-- explicit state/session/memory separation;
-- runtime limits/cancellation;
-- hooks, human interrupts and LLM steering;
-- observability/evaluation surfaces;
-- MCP/A2A protocol adapters.
+```text
+P0  REC-004 generated-code/browser capability composition
+P0  REC-008 document/file egress
+P0  REC-011 memory lifecycle
+P0  REC-012 multi-agent baseline/admission evidence
+P0  A2A revision/auth/transport receipt
+P1  REC-003 trace-evaluation harness
+P1  REC-009 database authority if it adds distinct dispatcher pressure
+P2  REC-005/006/007/010 only where they add non-redundant dimensions
+```
 
-Current evidence: [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md).
+REC-001, REC-002, REC-013 and REC-014 are already materialized/qualified.
 
-It surfaced three candidate qualifiers that remain **unpromoted** pending independent evidence:
+## Strands pressure-test disposition
+
+Strands originally surfaced three candidate qualifiers:
 
 1. concurrency semantics;
 2. budget enforcement boundary / overshoot semantics;
 3. intervention enforcement owner.
 
+Those are **no longer pending candidates**.
+
+Independent contrast against LangGraph and OpenAI Agents SDK satisfied the admission rule, and schema revision `mk1-draft-2026-09-16.1` promoted them as:
+
+```text
+concurrency semantics        → state
+budget enforcement semantics → termination
+intervention owner/boundary  → human_control
+```
+
+Historical receipt: [`STRANDS_AGENTS_PRESSURE_TEST.md`](./STRANDS_AGENTS_PRESSURE_TEST.md).  
+Cross-runtime promotion evidence: [`../../quarries/runtime-semantics-strands-langgraph-openai.md`](../../quarries/runtime-semantics-strands-langgraph-openai.md).
+
 ## Classification workflow
 
 ```text
-select system
+select representative record
     ↓
-pin source + snapshot
+verify existing pinned evidence first
     ↓
-collect implementation/test evidence
+re-open source only if material evidence is missing/stale
     ↓
-fill classification schema
+fill normalized record against current schema
     ↓
-mark unsupported fields UNKNOWN
+mark unsupported facts UNKNOWN
     ↓
-identify dimension overlap/conflict
+reconstruct capability/effect path where consequential
     ↓
-pressure-test normalization rules
+identify schema pressure / overlap / contradiction
     ↓
-compare against another system family
+compare against existing records
     ↓
-refine schema only when evidence requires it
+change schema only if admission rule is satisfied
+    ↓
+update record registry + gates/unknowns if state changed
 ```
 
-## Expansion families
+## Required family coverage
 
-After the first set, cover at least one representative system from each family:
+Before MK1 closes, the materialized record set must cover:
 
-- single-call/deterministic LLM task;
-- graph workflow;
+- minimal/deterministic or model-directed control;
 - model-tool loop;
-- retrieval/document system;
-- state/memory system;
-- evaluator/critic loop;
-- generated-code/browser system;
-- external-mutating system;
-- multi-agent system;
-- protocol/integration system;
-- modern agent runtime/framework with explicit operational controls.
+- high-capability generated-code/browser path;
+- consequential/HITL mutation;
+- document/data-egress path;
+- database authority where distinct;
+- state/memory lifecycle;
+- evaluator/critic/evaluation path;
+- multi-agent topology + benefit evidence;
+- revision-aware protocol/integration;
+- modern runtime/framework.
 
-## Admission rule for new top-level dimensions
+The closure audit may mark redundant queue entries `COVERED_BY` another record rather than creating documents for their own sake.
+
+## Admission rule for schema changes
 
 Do not add a new top-level axis because one framework exposes a new class or field.
 
-A new dimension should be introduced only when:
+A schema change should be introduced only when:
 
-1. existing axes cannot represent a material engineering difference without distortion;
+1. existing fields cannot represent a material engineering difference without distortion;
 2. the difference affects behavior, risk, reliability, evaluation or reproducibility;
-3. at least two independent examples or one strong counterexample justify the distinction;
-4. the new dimension does not duplicate another field under a different name.
+3. at least two independent examples or one strong counterexample justify it;
+4. the field does not duplicate another dimension;
+5. change type is recorded in [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md).
+
+Framework-specific terms remain evidence vocabulary, not domain taxonomy.
+
+## Separate open gates
+
+Two closure blockers are not ordinary record-writing tasks:
+
+- A2A protocol receipt → [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md)
+- multi-agent baseline/admission evidence → [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)
+
+They feed both representative records and the schema freeze audit.
 
 ## Output expectation
 
-MK1 should end with a stable schema plus normalized records/pressure tests sufficient for MK2 to derive operational contracts without re-litigating basic vocabulary.
+MK1 ends with:
+
+```text
+frozen framework-independent schema
++ representative normalized records
++ explicit UNKNOWN routing
++ protocol receipts
++ multi-agent admission evidence
++ closure receipt
+```
+
+Only then may MK2 operationalize the surviving semantics.
