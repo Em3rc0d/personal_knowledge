@@ -35,10 +35,12 @@ Artifacts:
 - [`SOURCE-INTAKE-CONTRACT.md`](./SOURCE-INTAKE-CONTRACT.md)
 - [`templates/SOURCE-INTAKE-RECORD.md`](./templates/SOURCE-INTAKE-RECORD.md)
 - [`mk/MK1/README.md`](./mk/MK1/README.md)
+- [`mk/MK1/fixtures/FIXTURE-001-BLOCKED-SHORTLINK.md`](./mk/MK1/fixtures/FIXTURE-001-BLOCKED-SHORTLINK.md)
 
 ## Remaining MK1 work for this slice
 
-- [ ] exercise the contract against representative real-source fixtures;
+- [x] exercise the fail-closed path against one real blocked short-link fixture;
+- [ ] exercise the success/partial/drift paths against additional representative real-source fixtures;
 - [ ] compare terminology with domain-specific source registries already present in `personal_knowledge`;
 - [ ] verify that no existing domain treats previews/snippets as canonical evidence;
 - [ ] resolve any contradictions found during that audit;
