@@ -14,6 +14,7 @@ Artifacts:
 
 - [Source Intake Contract](../../SOURCE-INTAKE-CONTRACT.md)
 - [Source Intake Record template](../../templates/SOURCE-INTAKE-RECORD.md)
+- [FIXTURE-001 — unresolved short-link](./fixtures/FIXTURE-001-BLOCKED-SHORTLINK.md)
 
 ## Acceptance criteria for this slice
 
@@ -23,7 +24,8 @@ Artifacts:
 - [x] snippets/previews cannot silently substitute for source content;
 - [x] dynamic-source drift has an observation boundary;
 - [x] a reusable source intake record exists;
-- [ ] contract is exercised against representative real-source fixtures;
+- [x] blocked short-link failure behavior is exercised against a real incoming pointer;
+- [ ] contract is exercised against additional representative real-source fixtures;
 - [ ] terminology is checked against existing domain-specific source registries;
 - [ ] contradictions with existing provenance semantics are resolved;
 - [ ] MK1 review certifies the contract for cross-domain use.
