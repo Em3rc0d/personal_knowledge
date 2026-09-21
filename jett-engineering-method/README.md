@@ -71,7 +71,11 @@ Una clase de verdad no implica automáticamente las demás.
 Dentro de `personal_knowledge`, JEM convive con el pipeline epistemológico del monorepo:
 
 ```text
-SOURCE
+SOURCE POINTER
+  ↓
+SOURCE INTAKE / RESOLUTION
+  ↓
+ACCESS / CAPTURE / VERIFICATION
   ↓
 MINING SITE
   ↓
@@ -98,7 +102,35 @@ MAIN / CANON
 
 Este pipeline expresa madurez del conocimiento; no obliga a crear burocracia o documentos vacíos en cada fase.
 
+El intake transversal de fuentes se normaliza en [`SOURCE-INTAKE-CONTRACT.md`](./SOURCE-INTAKE-CONTRACT.md). Su propósito es impedir que un pointer, short-link, snippet o preview se convierta silenciosamente en evidencia no inspeccionada.
+
 ## Phase contracts
+
+### 0. SOURCE INTAKE
+
+Se usa cuando el trabajo comienza desde una referencia externa: URL, short-link, post, PDF, repositorio, video, dashboard, mensaje, screenshot u otro pointer.
+
+```text
+pointer
+  ↓
+resolve identity
+  ↓
+inspect access
+  ↓
+capture the relevant evidence boundary
+  ↓
+verify what the source can actually support
+```
+
+Reglas:
+
+- pointer ≠ source identity;
+- source identity ≠ inspected evidence;
+- snippet/preview ≠ source content;
+- cuando el acceso falla, el estado correcto puede ser `BLOCKED` o `UNKNOWN`;
+- un fallo de acceso no autoriza a completar el contenido por inferencia.
+
+Contrato completo: [`SOURCE-INTAKE-CONTRACT.md`](./SOURCE-INTAKE-CONTRACT.md).
 
 ### 1. PROBLEM
 
@@ -326,6 +358,8 @@ public repository    → permission to publish
 inference            → fact
 prototype            → production system
 agent says DONE      → verified completion
+short-link received   → source content inspected
+search snippet seen   → underlying source verified
 ```
 
 Cuando algo no se sabe, `UNKNOWN` permanece `UNKNOWN`.
@@ -341,6 +375,8 @@ Taxonomía base del monorepo:
 - `GENERATED`: contenido producido por nosotros o por agentes/IA.
 
 Nunca promover `INFERRED → OFFICIAL` o `GENERATED → VERIFIED` sin nueva evidencia.
+
+La provenance de una afirmación tampoco compensa un source boundary débil: una fuente marcada como `OFFICIAL` sigue necesitando identidad suficiente, contenido inspeccionado y una relación claim→evidence verificable.
 
 ## Constitutional rules
 
@@ -374,6 +410,9 @@ Nunca promover `INFERRED → OFFICIAL` o `GENERATED → VERIFIED` sin nueva evid
 28. UNKNOWN remains UNKNOWN.
 29. Claims require explicit boundaries.
 30. Kill decisions are valid engineering decisions.
+31. Pointer ≠ source identity.
+32. Source identity ≠ inspected evidence.
+33. Promotion fails closed when the source boundary cannot support the claim.
 
 ## Relationship with other domains
 
@@ -407,4 +446,4 @@ knowledge/<domain>-<mk>-<purpose>
 
 ## Current maturity
 
-See [`STATUS.md`](./STATUS.md) and [`mk/README.md`](./mk/README.md).
+See [`STATUS.md`](./STATUS.md), [`mk/README.md`](./mk/README.md) and the active [`MK1`](./mk/MK1/README.md) normalization slice.
