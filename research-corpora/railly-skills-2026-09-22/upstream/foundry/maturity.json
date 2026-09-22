@@ -1,0 +1,146 @@
+{
+ "schema_version": 1,
+ "release": "0.0.10",
+ "skills": {
+  "before-after": {
+   "type": "communication",
+   "channel": "experimental",
+   "maturity": "dogfooded",
+   "summary": "Browser-openable before/after artifacts for visual behavior, benchmark deltas, and feature tours. Registered after repeated personal use across wterm work; no baseline comparison has been completed.",
+   "decision": "rounds/008-register-before-after/README.md"
+  },
+  "issue-intake": {
+   "type": "intake",
+   "channel": "stable",
+   "maturity": "dogfooded",
+   "summary": "Canonical contributor-side intake gate. It qualifies a bounded shortlist, keeps the final choice human, optionally uses xref as graph evidence, and seeds the Issue Contract without owning reproduction or implementation.",
+   "decision": "rounds/005-issue-intake-rename/README.md"
+  },
+  "record-a-case": {
+   "type": "foundry",
+   "channel": "stable",
+   "maturity": "dogfooded",
+   "summary": "Used to capture real public maintenance work and backfills as evidence ledgers. Promoted to the stable distribution surface; it has not completed a baseline comparison.",
+   "decision": "rounds/003-distribution-ladder/README.md"
+  },
+  "review-gate": {
+   "type": "gate",
+   "channel": "stable",
+   "maturity": "evaluated",
+   "summary": "Pre-review gate harvested from maintainer review rounds across agent-browser and portless cases. Blind replication round 002 compared the method against an answer key and exposed both catches and verification losses.",
+   "decision": "rounds/003-distribution-ladder/README.md"
+  },
+  "trail-decisions": {
+   "type": "foundry",
+   "channel": "candidate",
+   "maturity": "experimental",
+   "summary": "Append-only decision trail written to the canonical Foundry during implementation so review can audit choices, not only the diff. Redesigned after the lifecycle audit and awaiting one real dogfood run.",
+   "decision": "rounds/004-skill-lifecycle-audit/README.md"
+  },
+  "signature-repro": {
+   "type": "triage",
+   "channel": "candidate",
+   "maturity": "dogfooded",
+   "summary": "Niche triage for bugs that require unavailable hardware or platforms, using structural or visual signatures on available machines. Applied as written on agent-browser #1461 and needed no revision. Baseline eval round still pending.",
+   "decision": "rounds/006-usage-based-reclassification/README.md"
+  },
+  "handoff": {
+   "type": "foundry",
+   "channel": "experimental",
+   "maturity": "dogfooded",
+   "summary": "End-of-cycle handoff derived from twelve hand-written handoffs across vcut, petdex, portless, wterm, gateway-spend, and agent-browser. Promoted on Hunter's direct call after heavy personal dogfooding; a dedicated repository case is still owed.",
+   "decision": "rounds/007-human-override-promotions/README.md"
+  },
+  "herdr-workstreams": {
+   "type": "coordination",
+   "channel": "experimental",
+   "maturity": "experimental",
+   "summary": "Runtime adapter for materializing selected workstreams as repo-scoped Herdr workspaces and launching specialists visibly on demand. Derived from one live portfolio design session; no end-to-end dogfood run has completed.",
+   "decision": "rounds/012-register-herdr-workstreams/README.md"
+  },
+  "quality-baseline": {
+   "type": "audit",
+   "channel": "experimental",
+   "maturity": "dogfooded",
+   "summary": "Read-only repository quality baseline. Ran on portless #369 and surfaced the untested write paths that led directly to the fix. Baseline comparison remains pending.",
+   "decision": "rounds/006-usage-based-reclassification/README.md"
+  },
+  "performance-proof": {
+   "type": "optimization",
+   "channel": "experimental",
+   "maturity": "experimental",
+   "summary": "Measurement-first performance workflow. Frozen outside the default issue workflow and invoked only for an evidenced performance claim.",
+   "decision": "rounds/004-skill-lifecycle-audit/README.md"
+  },
+  "test-strength": {
+   "type": "verification",
+   "channel": "experimental",
+   "maturity": "dogfooded",
+   "summary": "Test effectiveness workflow using falsification, mutation, properties, real boundaries, and artifact checks. Applied inside real Review Gate runs on portless #366 and #374. Baseline comparison remains pending.",
+   "decision": "rounds/006-usage-based-reclassification/README.md"
+  },
+  "resilience-audit": {
+   "type": "audit",
+   "channel": "experimental",
+   "maturity": "experimental",
+   "summary": "Failure-path audit. Frozen outside the default issue workflow and invoked only when timeout, cancellation, retry, cleanup, overload, or concurrency risk triggers it.",
+   "decision": "rounds/004-skill-lifecycle-audit/README.md"
+  },
+  "security-review": {
+   "type": "audit",
+   "channel": "experimental",
+   "maturity": "evaluated",
+   "summary": "Threat-boundary review that separates exploitable vulnerabilities from hardening, non-security defects, and verification gaps. One five-case baseline comparison passed 18/18 assertions versus 16/18 without the skill; transfer and repeated trials remain pending.",
+   "decision": "rounds/014-register-security-review/README.md"
+  },
+  "simplify": {
+   "type": "optimization",
+   "channel": "experimental",
+   "maturity": "dogfooded",
+   "summary": "Bounded behavior-preserving reduction workflow derived from a real feature simplification below a PR line budget. Deterministic, Test Strength, Resilience, and external review gates passed; baseline comparison remains pending.",
+   "decision": "rounds/009-register-simplify/README.md"
+  },
+  "solution-gate": {
+   "type": "gate",
+   "channel": "stable",
+   "maturity": "dogfooded",
+   "summary": "Orchestrates Shaping before implementation: freezes the evidence-backed contract, runs isolated Shaping passes, probes weak assumptions, feeds evidence back into fit checks, and gates the surviving shape before detailing. Promoted to stable on Hunter's direct call; formal baseline comparison remains pending.",
+   "decision": "rounds/007-human-override-promotions/README.md"
+  },
+  "work-intake": {
+   "type": "intake",
+   "channel": "experimental",
+   "maturity": "experimental",
+   "summary": "Read-only admission assessment for one already-selected issue, pull request, or manual request. It classifies intent, recommends the minimum workflow, and stops for human confirmation before mutation authority is granted.",
+   "decision": "rounds/006-work-intake/README.md"
+  },
+  "workstream-reconcile": {
+   "type": "coordination",
+   "channel": "experimental",
+   "maturity": "dogfooded",
+   "summary": "Revalidates handoff and portfolio claims against live GitHub, local Git, releases, deployments, and package artifacts, then classifies drift and stalled work into a current read-only queue. Applied twice on real Vercel Labs portfolio work; no baseline comparison yet.",
+   "decision": "rounds/011-register-workstream-reconcile/README.md"
+  },
+  "xref": {
+   "type": "intake",
+   "channel": "experimental",
+   "maturity": "dogfooded",
+   "summary": "Snapshots the reference graph of a GitHub pull request or issue to surface orphans, competing work, structural links, and file-overlap risks. Registered after repeated real use; no baseline comparison yet.",
+   "decision": "rounds/005-register-xref/README.md"
+  },
+  "software-factory": {
+   "type": "protocol",
+   "channel": "experimental",
+   "maturity": "experimental",
+   "summary": "Staged execution protocol between Solution Gate and Review Gate. It separates implementation, reduction, applicable resilience hardening, final-code Test Strength, and real-behavior proof. Contract tests cover ordering and stale evidence, but no real run or baseline comparison has been recorded.",
+   "decision": "rounds/011-register-software-factory/README.md"
+  },
+  "factory-loop": {
+   "type": "orchestration",
+   "channel": "experimental",
+   "maturity": "experimental",
+   "summary": "Master router for one admitted engineering cycle. It enters at the earliest incomplete state, delegates phase methods, invalidates stale downstream evidence, and stops at explicit mutation and promotion gates.",
+   "decision": "rounds/013-register-factory-loop/README.md"
+  }
+ }
+}
