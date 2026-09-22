@@ -84,7 +84,7 @@ PASS criteria:
 - define coordination-cost measurements;
 - define stop/kill conditions.
 
-Current: FAIL — first dogfood item not yet selected in this MK package.
+Current: **PASS** — DOGFOOD-001 selects Future Wardrobe RC1 and defines a prospective B0 → F1 → F2 comparison, measurements and kill conditions in `DOGFOOD-001-FUTURE-WARDROBE.md`.
 
 ## G7 — No premature build
 
@@ -97,6 +97,8 @@ Current: PASS.
 
 ## MK0 closure state
 
-OPEN because G6 is not satisfied.
+**PASS — MK0 CLOSED FOR PROMOTION TO MK1.**
 
-The next valuable action is selecting and instrumenting the first dogfood cycle, not adding more speculative layers.
+All research/frame gates are satisfied. This does not validate the candidate Foundry architecture.
+
+The next phase is MK1 normalization plus execution of DOGFOOD-001. Any mechanism that fails the dogfood may be simplified, rejected or removed.
