@@ -1,7 +1,7 @@
 # EM3RC0D Foundry — Status
 
 Updated: 2026-09-22
-State: **MK0 ACTIVE**
+State: **MK0 CLOSED · MK1 DOGFOOD ADMITTED**
 
 ## Current truth
 
@@ -20,9 +20,10 @@ State: **MK0 ACTIVE**
 | Cases corpus | INVENTORIED + representative lessons traced |
 | Run corpus | INVENTORIED by run family; not every historical run re-narrated |
 | Railly-specific runtime dependencies | SEPARATED from portable mechanisms |
-| Initial EM3RC0D Foundry model | GENERATED / not promoted |
-| First real EM3RC0D dogfood cycle | NOT STARTED |
-| MK0 closure | OPEN |
+| Initial EM3RC0D Foundry model | GENERATED / not validated |
+| First real EM3RC0D dogfood | FUTURE WARDROBE RC1 selected |
+| MK0 closure | PASS |
+| MK1 execution | READY TO START |
 
 ## Corpus identity
 
@@ -31,37 +32,45 @@ Commit: 77fdde3e8d7e13b7c27c7660f7c15619839e38af
 Root tree: 701944bade5f718381446a7cd9224ed01ea1f952
 Raw snapshot: ../research-corpora/railly-skills-2026-09-22/upstream/
 
-Observed repository tree at the pinned commit:
+## DOGFOOD-001
 
-- 1,323 files total.
-- foundry/: 1,013 files, approximately 18 MB.
-- cases/: 113 files.
-- skills/: 101 files.
-- scripts/: 42 files.
-- subagents/: 4 files.
-- www/: 24 files.
-- foundry/maturity.json currently registers 20 skills.
+Target: `Em3rc0d/Future-Wardrobe`.
 
-Historical prose in NORTH.md says 19 registered skills. The machine-readable maturity registry at the pinned commit contains 20. For current catalog count, the registry wins; the discrepancy is preserved as evidence that prose can lag state.
+Observed GitHub state at admission:
 
-## What “distilled” means here
+- `main`: `686160ff6ccca52943b6b39ef787a9efb045be87`
+- `astra/release-rc1`: `a80f1aacc4936ce6329f0e71b499d371086be6fa`
+- `astra/release-rc1-vercel-preview`: `84e0f4291b13ddf05eb6c9697c0127edc7b53560`
+- draft PR #8 remains open;
+- PR body explicitly says `ENGINEERING_READY=NO` and `RELEASE_READY=NO`.
 
-The full repository tree was inventoried. The architecture and control model were derived by directly reading:
+The selection does not grant mutation or release authority. First phase is read-only recovery and B0 baseline capture.
 
-- root direction/governance documents;
-- all registered SKILL.md contracts;
-- their trigger/eval contracts where present;
-- high-value reference contracts for shaping, proof and review;
-- Foundry maturity, cases, rounds, knowledge and proposal-impact surfaces;
-- work-item, knowledge, validation, usage-receipt and installation scripts;
-- representative case/run families and corpus-level counts.
+Dogfood contract: `mk/MK0/DOGFOOD-001-FUTURE-WARDROBE.md`.
 
-MK0 does **not** claim that every one of the hundreds of historical run reports has been manually paraphrased line by line. Those artifacts remain retrievable raw evidence. The distillation preserves their role and the recurring mechanisms they support without duplicating the full corpus.
+## Why Future Wardrobe first
 
-## Current blocker
+The first test should stress the claims that distinguish a Foundry from a template generator:
 
-The primary MK0 blocker is no longer source understanding. It is **adaptation validation**:
+- recover a complex existing project;
+- distinguish historical prose from current state;
+- resume at the earliest valid node;
+- reuse or invalidate exact-state evidence;
+- route conditional risk/design gates;
+- preserve human promotion boundaries.
 
-Which proposed EM3RC0D Foundry mechanisms survive contact with a real EM3RC0D product without adding more coordination cost than they save?
+PocketFinances remains useful as a later greenfield comparison after the recovery-oriented mechanisms survive DOGFOOD-001.
 
-That answer requires dogfood, not more speculative architecture.
+## What is not claimed
+
+MK0 closure means the research/frame package is sufficient to run an experiment.
+
+It does **not** mean:
+
+- the Foundry architecture is validated;
+- the Product Graph is final;
+- all proposed artifacts are worth their cost;
+- Future Wardrobe is engineering- or release-ready;
+- Railly maturity transfers to EM3RC0D.
+
+MK1 exists to falsify those assumptions on real work.
