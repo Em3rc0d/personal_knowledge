@@ -1,0 +1,82 @@
+name: Import Railly Skills corpus
+
+on:
+  push:
+    branches:
+      - knowledge/agent-engineering-mk1-railly-skills-corpus
+    paths:
+      - .github/workflows/import-railly-skills.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout personal_knowledge
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Snapshot Railly/skills at pinned commit
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          UPSTREAM_REPO="https://github.com/Railly/skills.git"
+          UPSTREAM_SHA="77fdde3e8d7e13b7c27c7660f7c15619839e38af"
+          SNAPSHOT_DATE="2026-09-22"
+          ROOT="research-corpora/railly-skills-${SNAPSHOT_DATE}"
+          DEST="${ROOT}/upstream"
+
+          rm -rf /tmp/railly-skills
+          git init -q /tmp/railly-skills
+          git -C /tmp/railly-skills remote add origin "${UPSTREAM_REPO}"
+          git -C /tmp/railly-skills fetch -q --depth 1 origin "${UPSTREAM_SHA}"
+          git -C /tmp/railly-skills checkout -q --detach FETCH_HEAD
+
+          ACTUAL_SHA="$(git -C /tmp/railly-skills rev-parse HEAD)"
+          test "${ACTUAL_SHA}" = "${UPSTREAM_SHA}"
+
+          rm -rf "${DEST}"
+          mkdir -p "${DEST}"
+          rsync -a --delete --exclude='.git/' /tmp/railly-skills/ "${DEST}/"
+
+          cat > "${ROOT}/SOURCE.md" <<'EOF'
+# Railly Skills — upstream snapshot
+
+- Provenance: OFFICIAL external source snapshot
+- Upstream repository: https://github.com/Railly/skills
+- Upstream commit: `77fdde3e8d7e13b7c27c7660f7c15619839e38af`
+- Snapshot date: 2026-09-22
+- License: MIT; the upstream `LICENSE` is preserved verbatim inside `upstream/`.
+- Status in personal_knowledge: research corpus, not canon.
+- Purpose: preserve the exact upstream material before EM3RC0D-specific quarrying, comparison, distillation, and promotion.
+
+## Boundary
+
+Files under `upstream/` are an unmodified source snapshot except for omission of the nested `.git/` database. Interpretations, adaptations, normalized records, and promoted knowledge must live outside `upstream/` so provenance remains auditable.
+EOF
+
+          # The importer is temporary. Keep the corpus, not the bootstrap workflow.
+          rm -f .github/workflows/import-railly-skills.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+
+      - name: Commit corpus snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to commit."
+            exit 0
+          fi
+
+          git commit -m "research(agent-engineering): snapshot Railly skills corpus"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
