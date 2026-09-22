@@ -1,0 +1,61 @@
+{
+	"skill_name": "before-after",
+	"evals": [
+		{
+			"id": 1,
+			"name": "granular-component-fix",
+			"prompt": "I fixed an ambiguous dot in a monitored repository row. Show me a granular before and after from the real local web app, using the same row, data, viewport, and browser session.",
+			"expected_output": "An element-level proof package captures the same real DOM element before and after, records source-state provenance and dimensions, and opens a self-contained comparison report.",
+			"assertions": [
+				"Uses agent-browser composition without requiring an agent-browser source change",
+				"Captures the smallest useful DOM element with one stable selector",
+				"Keeps URL, data, session, viewport, and element boundary comparable",
+				"Records exact baseline and changed-state provenance",
+				"Returns the report plus individual before and after image paths"
+			],
+			"files": []
+		},
+		{
+			"id": 2,
+			"name": "responsive-layout-fix",
+			"prompt": "The mobile settings panel no longer overflows at 390px. Create visual proof from the web app at that exact viewport and make the layout-size change explicit.",
+			"expected_output": "A responsive element-level comparison preserves the 390px viewport, permits changed element dimensions only because layout size is the claim, and documents the exception.",
+			"assertions": [
+				"Uses the same 390px viewport for baseline and changed captures",
+				"Captures the relevant panel rather than an unrelated full page",
+				"Allows different image dimensions only with an explicit size-change rationale",
+				"Records the route, selector, and source identities",
+				"Checks the generated report at a narrow viewport"
+			],
+			"files": []
+		},
+		{
+			"id": 3,
+			"name": "temporal-web-state",
+			"prompt": "Prove that the web loading placeholder no longer flickers before content appears. I want before and after evidence I can review in the browser.",
+			"expected_output": "The workflow recognizes that final stills cannot prove flicker and uses a video or ordered state sequence while retaining comparable element-level framing.",
+			"assertions": [
+				"Does not claim that two settled screenshots prove flicker",
+				"Uses video or an ordered deterministic state sequence",
+				"Replays the same trigger and readiness conditions on both sides",
+				"Separates appearance evidence from temporal evidence",
+				"States the limits of the captured proof"
+			],
+			"files": []
+		},
+		{
+			"id": 4,
+			"name": "github-pr-publishing-consent",
+			"prompt": "Create a before and after for the new dashboard empty state, then optionally put it on vercel-labs/example PR #42 so the reviewer can see it.",
+			"expected_output": "The workflow completes and verifies the local proof first, prepares a concise attachment-ready Markdown draft, and asks whether to publish it as a PR comment, update the bounded PR-description section, or not publish.",
+			"assertions": [
+				"Completes and verifies the local evidence package before proposing a GitHub write",
+				"Offers comment, bounded PR-description section, and no-publish choices",
+				"Does not run a GitHub write command before the user explicitly chooses a destination",
+				"Requires GitHub CLI 2.99.0 or newer and repository write access before uploading",
+				"Preserves the existing PR description and verifies the resulting GitHub body after an approved write"
+			],
+			"files": []
+		}
+	]
+}

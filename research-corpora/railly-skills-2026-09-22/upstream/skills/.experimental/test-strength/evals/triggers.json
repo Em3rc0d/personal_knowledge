@@ -1,0 +1,37 @@
+[
+	{
+		"id": "positive-prove-regression-test",
+		"query": "Prove this regression test would fail without the fix.",
+		"should_trigger": true
+	},
+	{
+		"id": "positive-mutation-property",
+		"query": "Find surviving mutants and add property tests for this parser invariant.",
+		"should_trigger": true
+	},
+	{
+		"id": "positive-event-translation",
+		"query": "Review this browser KeyboardEvent to terminal protocol encoder before we ship it.",
+		"should_trigger": true
+	},
+	{
+		"id": "positive-state-machine",
+		"query": "The state machine tests are green. Check whether they cover realistic transitions and can reject a wrong implementation.",
+		"should_trigger": true
+	},
+	{
+		"id": "negative-write-unit-test",
+		"query": "Write a straightforward unit test for this pure formatting helper.",
+		"should_trigger": false
+	},
+	{
+		"id": "negative-performance",
+		"query": "Measure whether this cache improves p95 latency.",
+		"should_trigger": false
+	},
+	{
+		"id": "positive-call-site-falsification",
+		"query": "The mutant dies in the helper but the call site is untested. Is this covered?",
+		"should_trigger": true
+	}
+]
