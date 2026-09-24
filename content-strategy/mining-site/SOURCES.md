@@ -17,6 +17,7 @@ This registry records source identity and provenance. It does not mean every sou
 | CS-SRC-009 | Logan strategy synthesis from metric review and established publishing workflow | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Symptom-first strategy, conversion funnel, aggressive-hook boundary, no-repeat and experiment loop |
 | CS-SRC-010 | LinkedIn Analytics snapshot supplied by user | Account analytics | OBSERVED | 2026-09-11 | Professional-growth baseline, distribution, profile/search and audience signals |
 | CS-SRC-011 | LinkedIn professional-inbound strategy synthesis from analytics discussion | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Reach engine, authority, proof-of-work, opportunity funnel and measurement strategy |
+| CS-SRC-012 | `cporter202/social-media-scraping-apis` at commit `18b787f1f24ad2863b6b75467a981b74c993bbda` | External GitHub catalog / generated Apify index | OBSERVED / COMMERCIAL-INCENTIVE | 2026-09-23 | Discovery source for public social-data collectors; not a provider recommendation |
 
 ## Source handling rules
 
@@ -193,3 +194,34 @@ Shared editorial machinery may be reused, but profile/platform-specific metrics,
 ## Copyright / retention boundary
 
 This domain stores **our observations, abstractions, metrics, rules and source identifiers**. It should not mirror large copyrighted source texts. External material remains represented by provenance and concise extracted evidence.
+
+### CS-SRC-012 — social-media scraping/API catalog
+
+Captured source:
+
+```text
+repository            cporter202/social-media-scraping-apis
+commit                18b787f1f24ad2863b6b75467a981b74c993bbda
+captured               2026-09-23
+last_push_observed     2026-01-20
+license                NONE DECLARED
+source_role            DISCOVERY_ONLY
+```
+
+Observed repository mechanics:
+
+- fetches Apify Store actors with pagination;
+- generates categorized documentation programmatically;
+- performs heuristic placeholder filtering and basic deduplication;
+- appends affiliate tracking to actor links;
+- contains promotional claims that are not treated as engineering evidence.
+
+Use boundary:
+
+- catalog presence does not prove current capability, reliability, pricing, freshness or compliance;
+- every provider candidate requires authoritative-doc verification and a live sandbox fixture before promotion;
+- public scraped metrics remain a separate evidence class from first-party account analytics;
+- retain run-level provenance for any external dataset.
+
+Detailed source audit: `../../research-corpora/social-media-scraping-apis-2026-09-23/README.md`  
+Distilled quarry: `../quarries/Q-004-social-media-data-acquisition-2026-09-23.md`
