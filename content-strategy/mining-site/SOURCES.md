@@ -178,23 +178,6 @@ Current working hypotheses include:
 
 These are `GENERATED / INFERRED` until longitudinal evidence and opportunity attribution support them.
 
-## Profile / platform isolation boundary
-
-Do not copy a tactic from one profile or platform into another merely because both are “content”.
-
-Examples:
-
-- TikTok watch behavior and LinkedIn profile conversion are different measurement surfaces;
-- Logan symptom-first automotive rules are not Content Seller or LinkedIn rules by default;
-- Prompt Machine product seeding is currently a Content Seller objective;
-- professional inbound opportunity generation is currently the LinkedIn objective.
-
-Shared editorial machinery may be reused, but profile/platform-specific metrics, audiences and business goals remain explicit.
-
-## Copyright / retention boundary
-
-This domain stores **our observations, abstractions, metrics, rules and source identifiers**. It should not mirror large copyrighted source texts. External material remains represented by provenance and concise extracted evidence.
-
 ### CS-SRC-012 — social-media scraping/API catalog
 
 Captured source:
@@ -225,3 +208,20 @@ Use boundary:
 
 Detailed source audit: `../../research-corpora/social-media-scraping-apis-2026-09-23/README.md`  
 Distilled quarry: `../quarries/Q-004-social-media-data-acquisition-2026-09-23.md`
+
+## Profile / platform isolation boundary
+
+Do not copy a tactic from one profile or platform into another merely because both are “content”.
+
+Examples:
+
+- TikTok watch behavior and LinkedIn profile conversion are different measurement surfaces;
+- Logan symptom-first automotive rules are not Content Seller or LinkedIn rules by default;
+- Prompt Machine product seeding is currently a Content Seller objective;
+- professional inbound opportunity generation is currently the LinkedIn objective.
+
+Shared editorial machinery may be reused, but profile/platform-specific metrics, audiences and business goals remain explicit.
+
+## Copyright / retention boundary
+
+This domain stores **our observations, abstractions, metrics, rules and source identifiers**. It should not mirror large copyrighted source texts. External material remains represented by provenance and concise extracted evidence.
