@@ -1,265 +1,388 @@
 # MK0 Playbook — Logan / TikTok
 
 Status: `WORKING CANON WITHIN MK0`  
-Date: `2026-09-11`
+Updated: `2026-09-24`
 
-This playbook promotes the current Logan operating model from Q-002. It remains falsifiable and profile-specific.
+This is the current operational playbook for `mi.logan.pe`. It integrates the 2026-09-11 baseline, the 2026-09-24 analytics review and the latest TikTok-first-party research.
 
-## 1. Objective
+It is deliberately falsifiable.
 
-Grow `mi.logan.pe` from distributed automotive content into a recognizable diagnostic/problem-solving account.
+## 1. North star for this phase
 
-Current funnel:
+Build a growing, relevant automotive audience before any product promotion.
 
 ```text
-VIEW
-→ INTERACTION
-→ PROFILE VISIT
+DISCOVERY
+→ ATTENTION
+→ RETENTION
+→ SHARE / RESPONSE
+→ PROFILE
 → FOLLOW
-→ TRUST
+→ REPEAT AUDIENCE
 ```
 
-The immediate problem is not simply “get more views”. Current evidence shows meaningful `For You` distribution and much weaker downstream actions.
+Do not optimize the public feed for a future product yet.
 
-## 2. Brand promise
+## 2. Current account state
 
-> **Te explico qué podría estar pasando con tu carro antes de que cambies piezas a ciegas.**
-
-The account should prioritize useful diagnostic reasoning over generic “car facts” or lifestyle posting.
-
-## 3. Default content architecture
+Latest observed seven-day window:
 
 ```text
-SYMPTOM
-→ INTRIGUE
-→ PLAUSIBLE CAUSES
-→ HOW TO DIFFERENTIATE
-→ NEXT STEP
-→ ONE CTA
+views                 8.5K
+For You               90.0%
+Search                  7.7%
+profile views             26
+likes                     111
+comments                    0
+shares                      7
+followers shown            21
 ```
 
-Prefer symptom-first hooks over component-first lecture titles.
+Recent posts commonly cluster around approximately `475–600` views.
 
-## 4. Aggressive hook model
+Interpretation:
 
-Aggressive means stronger:
+- TikTok already distributes the account;
+- the next problem is not simply “get any reach”;
+- we need stronger attention, interaction and follow-through;
+- Search is now meaningful enough to operate as a deliberate acquisition channel;
+- comments are a clear weakness;
+- shares are a promising but still small signal.
+
+## 3. Editorial identity
+
+Working promise:
+
+> **Entiende qué pasa con tu carro antes de gastar plata a ciegas.**
+
+The account is not:
+
+- a component dictionary;
+- generic “car facts”;
+- automotive lifestyle reposting;
+- fear-based mechanic content;
+- a hidden product funnel.
+
+## 4. Core content mechanism
 
 ```text
-specificity
-stakes
-contrast
-curiosity
-problem recognition
-visual hierarchy
+RECOGNIZABLE PROBLEM / BELIEF / HABIT
+→ DIRECT HOOK
+→ UNCERTAINTY / CONTRAST
+→ TECHNICAL EXPLANATION
+→ USEFUL DECISION
 ```
 
-It does not mean:
+Write to the driver, not about the component.
 
-```text
-fake danger
-fake certainty
-unrelated shock wording
-catastrophic diagnosis from one symptom
-```
+## 5. Hard no-repeat rule
 
-Rule:
+**Topics do not get reposted by default.**
 
-```text
-attention gained <= value delivered
-```
+Winning structure can repeat.
 
-## 5. Daily batch composition
+Winning topic cannot.
 
-Default current batch size: `4` as an experiment.
-
-```text
-SLOT A — HIGH-REACH SYMPTOM / MISCONCEPTION
-Goal: discovery.
-
-SLOT B — TECHNICAL DIAGNOSTIC EXPLAINER
-Goal: authority / learning.
-
-SLOT C — SAVEABLE DISTINCTION / CHECKLIST
-Goal: utility / saves.
-
-SLOT D — SHAREABLE REACTION / COMPARISON / UNEXPECTED FACT
-Goal: forwarding / relatability.
-```
-
-If cadence reduces novelty or quality, reduce output before lowering the gate.
-
-## 6. Topic engine
-
-Primary backlog sources:
-
-```text
-TikTok search language
-comments / audience questions
-real ownership / maintenance symptoms
-strong diagnostic clusters
-common misdiagnoses
-components reframed around a symptom
-```
-
-Preserve natural problem wording whenever possible.
-
-## 7. No-repeat gate
-
-Compare against recent content on:
+A candidate must be checked across:
 
 ```text
 topic
 symptom
 diagnosis
-hook pattern
+belief
+decision
+hook semantics
+creative structure
 visual metaphor
 carousel progression
-punchline
-CTA structure
+CTA pattern
 ```
 
-Reject semantic duplicates even when wording changes.
-
-Continuation is allowed only when explicitly intentional: variation, Part 2, correction, new evidence or requested depth.
-
-## 8. Visual system
-
-Default canvas: `9:16`.
-
-Quality bar:
-
-- strong phone-size hierarchy;
-- one dominant message per slide;
-- premium automotive imagery / diagrams;
-- readable typography;
-- technical visuals that explain rather than decorate;
-- varied compositions across the batch;
-- separate usable slides for carousels.
-
-## 9. CTA system
-
-One primary objective per post.
+Statuses:
 
 ```text
-comments  → concrete symptom / condition question
-saves     → make the post a reference
-shares    → make forwarding useful or identity-relevant
-follows   → promise a coherent future stream
-profile   → create a real reason to inspect the account
+PUBLISHED
+COOLDOWN
+NEW
 ```
 
-Avoid vague “what do you think?” prompts when a specific diagnostic question is available.
+Only `NEW` is normally publishable.
 
-## 10. Hashtag system
+Historical normalization of all posts remains an MK0 closure task.
 
-Current Logan working rule:
+## 6. Current four-post model
+
+Keep four/day only while quality and novelty pass.
 
 ```text
-2–4 automotive/domain tags
-+ 1–2 topic-specific tags
+A — SEARCH
+Capture exact problem-language demand.
+
+B — HERO
+Strongest broad-reach attempt; try to break the current view cluster.
+
+C — SHARE ENGINE
+Make forwarding intrinsically useful.
+
+D — LAB
+Test one new hook / format / visual / subtopic variable.
 ```
 
-Examples:
+## 7. Hook system
+
+Strong does not mean fake.
+
+Priority families:
 
 ```text
-#MecanicaAutomotriz
-#DiagnosticoAutomotriz
-#Autos
-#Motor
-#PCV / #OBD2 / #Frenos / topic-specific
+RISK                 “If your car does this, don’t ignore it.”
+MONEY                “Before paying for this, check this.”
+DIAGNOSTIC UNCERTAINTY “It looks like X. It is not always X.”
+DECISION CONFLICT    “The shop says X. What would you verify first?”
+MISREAD SIGNAL       “This number/signal does not mean what you think.”
 ```
 
-Do not rely on unrelated tags such as `#money`. Treat generic reach tags as optional metadata, not a growth mechanism.
+Use Spanish natural to the audience.
 
-This rule is Logan-specific and does not overwrite Content Seller conventions.
-
-## 11. Content mix
-
-Current provisional hypothesis:
+Cover target:
 
 ```text
-85–90% diagnostic / technical / problem-solving
-10–15% lifestyle / humor / brand personality
+one idea
+few words
+~1-second comprehension
 ```
 
-This comes from directional evidence only and must remain adjustable.
+## 8. Retention system
 
-## 12. Measurement protocol
-
-Persist when possible:
+### Carousel
 
 ```text
-date
-role / objective
-topic
-symptom
-technical_answer
-hook_pattern
-format
-visual_pattern
-CTA
-views_2h
-views_24h
-views_7d
-watch/completion or slide-through
-likes
-comments
-shares
-saves
-profile_views
-followers_gained
-search_terms
+S1 problem
+S2 clue
+S3 distinction
+S4 payoff / verification
+S5 optional interaction decision
 ```
 
-Unavailable fields remain `UNKNOWN`.
+### Video
 
-## 13. Decision policy
+```text
+0–1s problem
+1–3s contradiction
+3–8s clue
+8–15s explanation
+end payoff
+```
 
-Observation windows:
+Do not force duration.
+
+## 9. Search system
+
+Search posts require:
+
+```text
+one target query
+query-aligned cover
+natural wording in body
+caption opening aligned with query
+few semantic hashtags
+```
+
+Search content begins with the user’s language:
+
+> “¿por qué mi carro…?”
+
+not:
+
+> “hoy veremos el sensor…”.
+
+Creator Search Insights and surfaced account queries are research inputs.
+
+## 10. Interaction system
+
+### Comments
+
+Stop depending on generic CTA.
+
+Use:
+
+- diagnostic A/B;
+- condition-specific questions;
+- workshop disagreement;
+- “what would you verify first?”.
+
+### Shares
+
+Design for natural forwarding:
+
+- prevent a mistake;
+- avoid blind spending;
+- recognizable habit;
+- safety distinction;
+- compact checklist.
+
+## 11. Visual system
+
+Target:
+
+> premium + native.
+
+Rules:
+
+- 9:16;
+- no blur / low quality;
+- no accidental white bands;
+- one dominant idea;
+- real automotive imagery when faster to recognize;
+- annotations / diagrams only when useful;
+- separate carousel assets;
+- visual variation across four daily posts.
+
+Quality is part of distribution strategy because unread content cannot retain.
+
+## 12. Topic reservoirs
+
+Use as reservoirs, not permission to recycle topics:
+
+```text
+symptoms / diagnosis
+maintenance decisions
+safety / keep-driving decisions
+workshop decisions
+money / avoid blind replacement
+tuning / performance: real vs placebo
+driver-assistance systems
+ownership mistakes
+technical humor / POV
+```
+
+## 13. Audience language
+
+Current observed nucleus:
+
+- Peru-heavy;
+- mostly 18–34;
+- mostly male.
+
+Do not make demographic identity the content.
+
+Use natural driver vocabulary:
+
+> carro, taller, mecánico, gasolina, S/, “me quieren cambiar…”, “¿esto es normal?”.
+
+Keep titles understandable across LATAM.
+
+## 14. Measurement
+
+Windows:
 
 ```text
 T+2h
 T+24h
+T+72h
 T+7d
 ```
 
-Working classification:
+Track by role:
 
 ```text
-GREEN   beats rolling median in >=2 objective-relevant metrics
-YELLOW  useful topic, weak/mixed packaging
-RED     3 materially different attempts fail against intended objective
+views
+retention/completion/slide-through when available
+likes
+comments
+shares
+saves
+profile visits
+follows
+Search contribution / queries
 ```
 
-GREEN → test up to three materially different variations within ~72h.
+Unavailable = `UNKNOWN`.
 
-YELLOW → change one or two variables and document why.
+## 15. Experimental view bands
 
-RED → archive the angle and preserve evidence.
+Current internal bands:
 
-## 14. Current evidence-safe conclusions
+```text
+<300       weak
+300–700    ordinary current range
+700–1000   promising
+1000+      candidate breakout
+3000+      investigate deeply
+5000+      high-priority mechanism replication
+```
 
-Supported now:
+These bands move with the account.
 
-- recommendation distribution is meaningful;
-- downstream conversion is a useful optimization target;
-- technical diagnostic content is viable;
-- symptom/problem language is a strong backlog and hook input;
-- generic lifestyle should remain minority-weighted until evidence changes;
-- no-repeat and quality gates are necessary at four posts/day.
+## 16. SCALE / HOLD / KILL
 
-Not supported yet:
+```text
+SCALE → repeat mechanism on a NEW topic
+HOLD  → preserve signal; change one variable on a NEW topic
+KILL  → archive repeatedly weak mechanism
+```
 
-- four posts/day is optimal;
-- symptom-first always wins;
-- any hashtag causes reach;
-- one recent post explains account growth;
-- one content mix should remain permanent.
+Do not use “scale” as permission to repost.
 
-## 15. References
+## 17. 14-day growth cycle
 
-- `quarries/Q-002-logan-tiktok-2026-09-11.md`
-- `design/LOGAN-EDITORIAL-OPERATING-SYSTEM.md`
-- `plan/LOGAN-DAILY-EXPERIMENT-LOOP.md`
-- `test/LOGAN-METRIC-GATES.md`
-- `mining-site/SOURCES.md`
+```text
+Days 1–4   hook families
+Days 5–7   visual comprehension
+Day 7      review
+Days 8–11  retention structures
+Days 12–14 interaction mechanisms
+Day 14     promote / hold / archive mechanisms
+```
+
+All experiments require topic novelty.
+
+## 18. Public product boundary
+
+Current state:
+
+```text
+future product bridge = INTERNAL ONLY
+public mention         = BLOCKED
+teaser                 = BLOCKED
+CTA                    = BLOCKED
+branding               = BLOCKED
+```
+
+The account’s present mission is audience acquisition and trust.
+
+## 19. First-party platform guidance incorporated
+
+`OFFICIAL / captured through research`
+
+TikTok documentation/guidance supports these broad principles:
+
+- recommendations use interaction and content signals;
+- viewing/consumption behavior matters;
+- Search strongly considers content-query relevance;
+- Creator Search Insights can surface frequent searches and content gaps;
+- strong early hooks and native-feeling creative are recommended.
+
+These are inputs to experiments, not guaranteed ranking recipes.
+
+## 20. What we are trying to prove next
+
+Not “can we get views?”
+
+Instead:
+
+1. can Search become a repeatable acquisition stream?
+2. which hook family best improves attention without damaging trust?
+3. which formats improve shares and comments?
+4. can a mechanism repeatedly break the current ~500-view cluster on **different topics**?
+5. can profile/follow conversion improve while maintaining technical quality?
+6. is four/day still efficient after novelty is enforced?
+
+## 21. References
+
+- `../../quarries/Q-002-logan-tiktok-2026-09-11.md`
+- `../../quarries/Q-005-logan-tiktok-growth-2026-09-24.md`
+- `../../design/LOGAN-EDITORIAL-OPERATING-SYSTEM.md`
+- `../../plan/LOGAN-DAILY-EXPERIMENT-LOOP.md`
+- `../../test/LOGAN-METRIC-GATES.md`
+- `../../mining-site/SOURCES.md`

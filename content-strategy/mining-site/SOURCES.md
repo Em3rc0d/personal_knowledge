@@ -1,227 +1,138 @@
-# Content Strategy — Initial Source Registry
+# Content Strategy — Source Registry
 
-Updated: 2026-09-11
+Updated: 2026-09-24
 
 This registry records source identity and provenance. It does not mean every source claim is promoted to canon.
 
 | ID | Source | Type | Provenance | Captured | Use |
 |---|---|---|---|---|---|
-| CS-SRC-001 | TikTok Studio analytics snapshot for `@emerc0d` | Account analytics | OBSERVED | 2026-09-11 | Current growth and engagement baseline |
-| CS-SRC-002 | TikTok Creator Academy guidance embedded in the analytics export | First-party platform guidance | OFFICIAL | 2026-09-11 | Hook, quality, consistency, experimentation and analytics guidance |
-| CS-SRC-003 | Content Seller strategy synthesis: audience, 4-slot model, content universes, Prompt Machine bridge | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Working strategy |
-| CS-SRC-004 | User academic curriculum / course history | User-provided source | OBSERVED | 2026-09-11 | Topic-universe map, not a publishing template |
-| CS-SRC-005 | Existing Content Seller editorial operating system (`02-SISTEMA-EDITORIAL.md`) | Prior generated operating artifact | GENERATED | 2026-09-01 | Cadence, pipeline, QA and measurement loop |
-| CS-SRC-006 | Existing Content Seller backlog (`06-BACKLOG-120.md`) | Prior generated idea corpus | GENERATED | 2026-09-01 | Topic reservoir; must pass novelty and evidence gates before reuse |
-| CS-SRC-007 | prodAgentic / Content Seller architecture notes | Prior product design artifact | GENERATED / INFERRED | 2026-09-04 | Editorial Memory, Batch, role planning, novelty and analytics integration |
-| CS-SRC-008 | TikTok Studio analytics snapshot for `mi.logan.pe` | Account analytics | OBSERVED | 2026-09-11 | Logan reach, engagement, traffic-source and recent-post baseline |
-| CS-SRC-009 | Logan strategy synthesis from metric review and established publishing workflow | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Symptom-first strategy, conversion funnel, aggressive-hook boundary, no-repeat and experiment loop |
-| CS-SRC-010 | LinkedIn Analytics snapshot supplied by user | Account analytics | OBSERVED | 2026-09-11 | Professional-growth baseline, distribution, profile/search and audience signals |
-| CS-SRC-011 | LinkedIn professional-inbound strategy synthesis from analytics discussion | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Reach engine, authority, proof-of-work, opportunity funnel and measurement strategy |
-| CS-SRC-012 | `cporter202/social-media-scraping-apis` at commit `18b787f1f24ad2863b6b75467a981b74c993bbda` | External GitHub catalog / generated Apify index | OBSERVED / COMMERCIAL-INCENTIVE | 2026-09-23 | Discovery source for public social-data collectors; not a provider recommendation |
+| CS-SRC-001 | TikTok Studio analytics snapshot for `@emerc0d` | Account analytics | OBSERVED | 2026-09-11 | Content Seller baseline |
+| CS-SRC-002 | TikTok Creator Academy / first-party guidance captured with initial analytics work | Platform guidance | OFFICIAL | 2026-09-11 | Hook, quality, experimentation |
+| CS-SRC-003 | Content Seller strategy synthesis | Conversation-derived synthesis | GENERATED / INFERRED | 2026-09-11 | Working strategy |
+| CS-SRC-004 | User academic curriculum / course history | User-provided source | OBSERVED | 2026-09-11 | Topic-universe map |
+| CS-SRC-005 | Existing Content Seller editorial operating system | Prior generated artifact | GENERATED | 2026-09-01 | Cadence / QA / measurement |
+| CS-SRC-006 | Existing Content Seller backlog | Prior generated corpus | GENERATED | 2026-09-01 | Topic reservoir |
+| CS-SRC-007 | prodAgentic / Content Seller architecture notes | Prior artifact | GENERATED / INFERRED | 2026-09-04 | Editorial memory / analytics integration |
+| CS-SRC-008 | TikTok Studio analytics snapshot for `mi.logan.pe` | Account analytics | OBSERVED | 2026-09-11 | Initial Logan baseline |
+| CS-SRC-009 | Logan strategy synthesis from initial metric review | Conversation synthesis | GENERATED / INFERRED | 2026-09-11 | Symptom-first / no-repeat / experiment loop |
+| CS-SRC-010 | LinkedIn Analytics snapshot supplied by user | Account analytics | OBSERVED | 2026-09-11 | Professional-growth baseline |
+| CS-SRC-011 | LinkedIn professional-inbound strategy synthesis | Conversation synthesis | GENERATED / INFERRED | 2026-09-11 | Inbound strategy |
+| CS-SRC-012 | `cporter202/social-media-scraping-apis` @ `18b787f...` | External GitHub catalog | OBSERVED / COMMERCIAL-INCENTIVE | 2026-09-23 | Discovery source only |
+| CS-SRC-013 | Latest TikTok Studio analytics review for `mi.logan.pe` | Account analytics | OBSERVED | 2026-09-24 | Current Logan growth/search/interaction baseline |
+| CS-SRC-014 | TikTok first-party recommendation, Creator Search Insights and creative guidance reviewed for Logan | Platform documentation | OFFICIAL | 2026-09-24 | Recommendation/search/hook experiment constraints |
+| CS-SRC-015 | Logan 2026-09-24 growth synthesis | Conversation + research synthesis | GENERATED / INFERRED | 2026-09-24 | Four-role model, retention, hard no-repeat, measurement |
 
-## Source handling rules
-
-### CS-SRC-001 — Content Seller account analytics
-
-Treat values as a dated snapshot, never timeless account truth.
-
-Current captured values:
-
-```text
-account                    @emerc0d
-followers                  312
-likes_total                1.9K
-window                     last 7 days
-video_views                15.3K
-video_views_delta          +11.5K / +304.5%
-profile_views              113
-profile_views_delta        +69 / +156.8%
-likes                      460
-likes_delta                +348 / +310.7%
-comments                   10
-shares                     15
-shares_delta               +14 / +1400.0%
-estimated_rewards          $0.00
-```
-
-These numbers support the claim that the account was in a strong growth window on capture date. They do **not** establish which specific tactic caused the growth.
-
-### CS-SRC-002 — TikTok first-party guidance
-
-Platform guidance observed in the same source emphasizes:
-
-- find a focused niche / mission;
-- consistency with quality over rushed quantity;
-- experiment with styles and formats;
-- create informative or meaningfully engaging content;
-- hook attention in the first ~3 seconds for video;
-- study analytics, especially viewing behavior, and iterate from what viewers actually consume.
-
-This is platform guidance, not a guaranteed ranking formula.
-
-### CS-SRC-003 — Content Seller conversation synthesis
-
-Important working hypotheses:
-
-- broaden positioning from pure programming into Systems/IT learning + real building + AI leverage;
-- use stronger hooks and more visible stakes without generic shock clickbait;
-- plan batches by role before topic;
-- maintain four differentiated daily jobs rather than four similar explainers;
-- seed Prompt Machine via workflow literacy before product promotion;
-- aggressively avoid topic, angle, hook and creative-pattern repetition.
-
-These are `GENERATED / INFERRED` until enough observation supports promotion.
-
-### CS-SRC-004 — academic curriculum
-
-The curriculum provides durable topic supply across:
-
-```text
-programming
-algorithms / data structures
-computer architecture
-operating systems
-compilers
-networks
-web / mobile
-AI
-Big Data / BI / data mining
-distributed systems
-security
-enterprise architecture
-IT projects
-IoT
-parallel programming
-UX / HCI
-research / thesis
-```
-
-Rule: convert subjects into recognizable problems, consequences, misconceptions, projects or bridges to real systems. Do not publish lecture-title content merely because a course exists.
-
-### CS-SRC-008 — Logan account analytics
-
-Treat values as a dated snapshot.
-
-Captured values:
+## CS-SRC-013 — Logan current analytics snapshot
 
 ```text
 account                    mi.logan.pe
 window                     last 7 days
+video_views                8.5K
+profile_views              26
+likes                      111
+comments                   0
+shares                     7
+followers_shown            21
+for_you_traffic            90.0%
+search_traffic             7.7%
+profile_traffic            2.3%
+total_viewers               3.6K
+new_viewers                 2.3K
+```
+
+Audience:
+
+```text
+Peru                        82%
+male                        86%
+age 18–24                   22.4%
+age 25–34                   55.2%
+```
+
+Recent posts commonly appeared in an approximately `475–600` view band.
+
+Observed search queries include natural symptom/problem language around clicking sounds, brake calipers, wheel bearings and speed-related tire/wheel noise.
+
+Use boundary:
+
+- dated snapshot only;
+- no claim that one post or tactic caused account-level performance;
+- demographic data does not define who content is allowed to serve.
+
+## CS-SRC-014 — TikTok first-party guidance
+
+Primary first-party references captured through the 2026-09-24 research:
+
+1. TikTok Support — **How TikTok recommends content**  
+   `https://support.tiktok.com/es/using-tiktok/exploring-videos/how-tiktok-recommends-content`
+
+2. TikTok Newsroom — **Creator Search Insights**  
+   `https://newsroom.tiktok.com/creator-search-insights?lang=en`
+
+3. TikTok for Business — **Creative best-practice / hook guidance**  
+   `https://ads.tiktok.com/business/en/blog/creative-best-practices-top-performing-ads`
+
+Distilled evidence-safe principles:
+
+- recommendation systems use user interactions and content information;
+- viewing/consumption behavior is an important signal;
+- Search strongly considers relevance to the query;
+- Creator Search Insights can surface frequently searched topics and content gaps;
+- first-party creative guidance encourages fast value communication, strong early hooks and platform-native creative.
+
+Do not translate these into guaranteed ranking formulas.
+
+## CS-SRC-015 — Logan growth synthesis
+
+Current generated rules:
+
+- audience acquisition first;
+- four differentiated roles: `SEARCH / HERO / SHARE ENGINE / LAB`;
+- direct user-centric hooks;
+- retention loop per slide/frame;
+- Search built from natural query language;
+- interaction embedded in real decisions, not generic CTA;
+- winning mechanism may repeat, published topic may not;
+- `PUBLISHED / COOLDOWN / NEW` topic gate;
+- measurement `T+2h / T+24h / T+72h / T+7d`;
+- public product mentions/teasers/CTA blocked until a later explicit phase.
+
+These remain working hypotheses until longitudinal evidence promotes them.
+
+## Earlier sources retained
+
+### CS-SRC-008 — Logan 2026-09-11 baseline
+
+```text
 video_views                10.9K
-video_views_change         +561.2%
 profile_views              33
-profile_views_change       +1000%
 likes                      195
 comments                   1
 shares                     3
 followers_shown            14
-publications_shown         51
 for_you_traffic            97.2%
 ```
 
-This supports the claim that recommendation distribution is already meaningful. It does **not** prove that any one hook, topic or format caused the growth.
-
-### CS-SRC-009 — Logan strategy synthesis
-
-Working hypotheses:
-
-- optimize `VIEW → INTERACTION → PROFILE → FOLLOW`, not raw reach alone;
-- lead with the symptom/problem rather than component taxonomy;
-- keep technical diagnostic authority as the core;
-- use aggressive-but-honest first-frame tension;
-- maintain four-post daily experiment throughput only while quality and novelty remain high;
-- treat search queries as editorial research;
-- keep generic lifestyle minority-weighted while current evidence favors diagnostic content;
-- use profile-specific semantic hashtags rather than assuming one hashtag convention fits every account.
-
-These remain `GENERATED / INFERRED` until enough longitudinal data supports promotion.
-
-### CS-SRC-010 — LinkedIn account analytics
-
-Treat values as a dated first-party account snapshot.
-
-Captured values include:
-
-```text
-window                     7 days
-impressions                62,822
-impressions_delta          +1,178%
-unique_reach               30,302
-outside_network_reach      98%
-interactions               852
-reactions                  592
-saves                      246
-comments                   7
-shares                     3
-profile_views              125
-profile_views_delta        +1,075%
-followers                  2,056
-follower_growth            +6%
-search_appearances         51
-search_delta               0%
-posts                      29
-```
-
-Derived ratios such as ~28.9% saves/interactions and ~0.41% reach→profile are `INFERRED`, not directly displayed platform claims.
-
-### CS-SRC-011 — LinkedIn strategy synthesis
-
-Current working hypotheses include:
-
-- SQL is the strongest observed reach family and should operate as acquisition, not total identity;
-- use four differentiated roles: Reach Engine, Engineering Authority, Proof of Work, Opportunity / Business / AI;
-- the current bottleneck has shifted from pure discovery toward profile conversion and conversation;
-- proof-of-work should demonstrate engineering judgment rather than technology checklists;
-- AI/automation content should remain engineering- and business-grounded;
-- monthly success should be measured through professional opportunities, not only engagement;
-- profile + Featured should operate as the conversion surface after content discovery.
-
-These are `GENERATED / INFERRED` until longitudinal evidence and opportunity attribution support them.
+This remains useful as historical comparison, not current truth.
 
 ### CS-SRC-012 — social-media scraping/API catalog
 
-Captured source:
+Use as discovery only. Catalog presence does not establish reliability, freshness, price, legality or provider quality.
 
-```text
-repository            cporter202/social-media-scraping-apis
-commit                18b787f1f24ad2863b6b75467a981b74c993bbda
-captured               2026-09-23
-last_push_observed     2026-01-20
-license                NONE DECLARED
-source_role            DISCOVERY_ONLY
-```
+Detailed audit remains under the research corpus.
 
-Observed repository mechanics:
+## Profile isolation boundary
 
-- fetches Apify Store actors with pagination;
-- generates categorized documentation programmatically;
-- performs heuristic placeholder filtering and basic deduplication;
-- appends affiliate tracking to actor links;
-- contains promotional claims that are not treated as engineering evidence.
+Do not copy a tactic across profiles merely because both are “content”.
 
-Use boundary:
+- Logan automotive Search rules stay Logan-specific until replicated.
+- Content Seller Prompt Machine rules remain separate.
+- LinkedIn professional-inbound metrics remain separate.
 
-- catalog presence does not prove current capability, reliability, pricing, freshness or compliance;
-- every provider candidate requires authoritative-doc verification and a live sandbox fixture before promotion;
-- public scraped metrics remain a separate evidence class from first-party account analytics;
-- retain run-level provenance for any external dataset.
-
-Detailed source audit: `../../research-corpora/social-media-scraping-apis-2026-09-23/README.md`  
-Distilled quarry: `../quarries/Q-004-social-media-data-acquisition-2026-09-23.md`
-
-## Profile / platform isolation boundary
-
-Do not copy a tactic from one profile or platform into another merely because both are “content”.
-
-Examples:
-
-- TikTok watch behavior and LinkedIn profile conversion are different measurement surfaces;
-- Logan symptom-first automotive rules are not Content Seller or LinkedIn rules by default;
-- Prompt Machine product seeding is currently a Content Seller objective;
-- professional inbound opportunity generation is currently the LinkedIn objective.
-
-Shared editorial machinery may be reused, but profile/platform-specific metrics, audiences and business goals remain explicit.
+Shared machinery may be reused; evidence stays profile/platform-specific.
 
 ## Copyright / retention boundary
 
-This domain stores **our observations, abstractions, metrics, rules and source identifiers**. It should not mirror large copyrighted source texts. External material remains represented by provenance and concise extracted evidence.
+Store observations, abstractions, rules, metrics and source identifiers.
+
+Do not mirror large copyrighted source texts.
