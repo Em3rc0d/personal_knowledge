@@ -23,3 +23,8 @@ canonical rule
 ```
 
 Promotion requires provenance, reasoning, compatibility with current architecture and evidence/review proportional to the claim.
+
+## Current quarries
+
+- [`understand-anything-codebase-intelligence.md`](./understand-anything-codebase-intelligence.md) — evidence-engineering lessons from `Egonex-AI/Understand-Anything@6df3065f...`: revision-bound recovery artifacts, freshness, completeness boundaries, incremental reconciliation, proportional recomputation and promotion gates.
+

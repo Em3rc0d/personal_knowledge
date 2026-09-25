@@ -363,3 +363,25 @@ marketing label
 Specialization, applicability and recency matter. Current protocol specifications outrank older tutorial lifecycle assumptions for claims about current protocol behavior.
 
 No single source automatically wins every dispute; scope, methodology and reproducibility still determine what may be promoted.
+
+### S-113 — Understand Anything
+
+- provenance: `OFFICIAL/OBSERVED` for repository-owned code, tests and contracts; `SOURCE CLAIM` for README/design assertions not independently reproduced
+- repository: https://github.com/Egonex-AI/Understand-Anything
+- pinned snapshot: `6df3065f1d8ddc2ce3615314d1d493f36d6b1c80`
+- observed: 2026-09-25
+- license: MIT
+- relevance:
+  - hybrid deterministic + LLM codebase-understanding pipeline;
+  - topology-aware semantic batching;
+  - revision-bound durable knowledge artifacts;
+  - incremental fingerprint/change classification;
+  - freshness as `fresh | stale | unknown`;
+  - source-evidence gate preventing analyzer omission from becoming false deletion;
+  - bounded repair/retry and fail-before-publication;
+  - untrusted-content boundary for knowledge ingestion.
+- detailed receipt: [`S-113-understand-anything.md`](./S-113-understand-anything.md)
+- processed quarry: [`../quarries/understand-anything-code-intelligence.md`](../quarries/understand-anything-code-intelligence.md)
+
+This source is a pattern/evidence input. It is not automatically a framework package or an MK1 schema revision.
+

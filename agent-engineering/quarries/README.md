@@ -84,3 +84,5 @@ MK2 operational contracts/tests
   ↓
 MK5+ certification
 ```
+- [`understand-anything-code-intelligence.md`](./understand-anything-code-intelligence.md) — `Egonex-AI/Understand-Anything@6df3065f...` pressure test for deterministic-vs-semantic responsibility, topology-aware context partitioning, durable graph freshness, incremental reconciliation, bounded retry and fail-closed publication.
+
