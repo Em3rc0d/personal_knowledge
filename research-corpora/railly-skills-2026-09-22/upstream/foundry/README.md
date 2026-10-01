@@ -1,0 +1,68 @@
+# Skill Foundry
+
+The foundry turns real maintenance work into candidate methods, evaluates them, and promotes only changes that earn their context and maintenance cost.
+
+```text
+real work
+→ case
+→ candidate lesson
+→ baseline comparison
+→ human review
+→ promote or reject
+```
+
+## Surfaces
+
+- [NORTH.md](../NORTH.md): selected product direction, non-goals, decision rules, and success signals.
+- [SHAPING.md](SHAPING.md): why the foundry exists and which repository shape was selected.
+- [governance.md](governance.md): evidence ownership, maturity, and promotion rules.
+- [case-template.md](case-template.md): how to record a real issue, method, outcome, and lesson.
+- [eval-protocol.md](eval-protocol.md): how to compare no skill, current skill, and candidate skill.
+- [knowledge/](knowledge): authored patterns and skill provenance with generated index, coverage, and graph projections.
+- [knowledge/impact.jsonl](knowledge/impact.jsonl): append-only accepted, rejected, absorbed, superseded, and no-change proposal outcomes.
+- [candidates/](candidates): aggregated rules, exemplars, eval ideas, and coverage gaps awaiting a round.
+- [rounds/](rounds): immutable promotion decisions and benchmark summaries.
+- [missions/](missions): live canonical Issue Contracts.
+- [runs/](runs): live eval and review ledgers kept outside installable packages.
+
+## Maturity
+
+The repository started as a vibes-driven catalog. Existing skills are not grandfathered into validation. They move through the same lifecycle as new candidates:
+
+```text
+experimental
+→ dogfooded
+→ evaluated
+→ validated
+→ deprecated
+```
+
+Validated requires a repeatable positive effect across holdouts and trials, plus human review. A green benchmark with weak fixtures or zero delta does not qualify.
+
+Current status is tracked in [maturity.json](maturity.json).
+
+## Cases and exemplars
+
+A case belongs in [../cases](../cases) when its evidence is public or safely sanitized. It stays outside the agent runtime surface.
+
+An exemplar belongs under `skills/<name>/references/` only when a promotion round demonstrates that loading it improves behavior. The case remains the evidence record; the exemplar is a smaller teaching artifact derived from it.
+
+## First results
+
+[Round 001](rounds/001-prove-the-test/decision.md) tested a plausible proof-record and exemplar addition for `prove-the-test`. The candidate tied the current skill in two rounds and had a weaker subprocess fallback. The foundry rejected the skill change and promoted only the eval infrastructure.
+
+Before v0.0.1, `guided-contribution`, `repro-an-issue`, and `prove-the-test` were reviewed as public trigger surfaces and absorbed into Unfold. [Round 004](rounds/004-skill-lifecycle-audit/README.md) found the umbrella unused as an operational unit and deprecated it after human approval. Every retired source remains [archived](deprecated).
+
+Rejection and absorption are intended outcomes of this system. A new skill is the most expensive result, not the default one.
+
+## Current candidates
+
+- [Compiled Knowledge Layer](candidates/2026-08-compiled-knowledge-layer/big-picture.md): selected Foundry memory layer with compiler, deterministic projections, 19 provenance pages, 287 reviewed textual matches, a validated case-to-pattern loop, and a dogfooded proposal-impact rejection; fail-closed runtime proof is next.
+- [agent-browser evidence pack](candidates/2026-07-agent-browser-evidence-pack.md): unvalidated reproduction and proof rules awaiting a prospective round.
+- [Issue Contract retrospective pilot](candidates/2026-07-issue-contract-pilot): five reconstructed contracts support the approved phase-neutral artifact; prospective outcome evidence is still required.
+- [trail-decisions](../skills/.experimental/trail-decisions): decision-trail method awaiting focused dogfooding.
+- [signature-repro](../skills/.experimental/signature-repro): structural-signature triage method awaiting a baseline comparison.
+
+## Repository policy
+
+Cases, evals, run reports, decision trails, and Foundry logs follow the [canonical source repository policy](source-of-truth.md).

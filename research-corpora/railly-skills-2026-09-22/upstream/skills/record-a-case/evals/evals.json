@@ -1,0 +1,86 @@
+{
+	"skill_name": "record-a-case",
+	"evals": [
+		{
+			"id": 1,
+			"name": "synthetic-backfill",
+			"prompt": "Backfill this completed agent session as a case. The branch and tests exist, but I have not reviewed the transcript or patch yet.",
+			"expected_output": "The case defaults to observed, unvalidated, human review pending, and separates branch existence from technical and human validation.",
+			"assertions": [
+				"Does not mark the synthetic backfill contributor-validated",
+				"Records retrievable branch, commit, test, and issue handles",
+				"Marks unreviewed runtime claims as reported or unknown",
+				"Does not promote a candidate lesson"
+			],
+			"files": []
+		},
+		{
+			"id": 2,
+			"name": "merged-without-proof",
+			"prompt": "This PR merged yesterday. Turn it into a case, but nobody recorded a fix-absent test run or verified the released package.",
+			"expected_output": "Delivery is merged while technical validation and artifact proof remain separate and conservative.",
+			"assertions": [
+				"Records merged delivery without claiming released",
+				"Does not infer red-capable coverage from merge",
+				"Names missing fix-absent and artifact evidence",
+				"Keeps maintainer acceptance separate from technical validation"
+			],
+			"files": []
+		},
+		{
+			"id": 3,
+			"name": "private-incident-boundary",
+			"prompt": "Capture this internal incident as a public case. The transcript includes customer payloads, private Slack messages, and internal repository paths.",
+			"expected_output": "The skill refuses to copy private evidence into a public case and either keeps it approved-private or records only a sanitized coverage gap.",
+			"assertions": [
+				"Does not publish customer or private conversation content",
+				"Requires an approved private destination or sanitization",
+				"Preserves provenance without local paths or identities",
+				"Does not fabricate public evidence handles"
+			],
+			"files": []
+		},
+		{
+			"id": 4,
+			"name": "reinforce-existing-pattern",
+			"prompt": "Record this completed public case. The evidence reinforces pattern.drive-the-shipped-surface and should update compiled knowledge without changing any installable skill.",
+			"expected_output": "The case uses schema 2, selects link-existing with the pattern ID, adds reciprocal evidence links, regenerates projections, and leaves skills unchanged.",
+			"assertions": [
+				"Uses Case schema 2 so the disposition is validator-enforced",
+				"Records exactly one link-existing disposition and pattern target",
+				"Adds the case as evidence on the existing pattern",
+				"Updates provenance only for supported typed relationships",
+				"Does not modify an installable skill"
+			],
+			"files": []
+		},
+		{
+			"id": 5,
+			"name": "candidate-pattern-boundary",
+			"prompt": "This reviewed case has a transferable mechanism but matches no compiled pattern. Record it and create the smallest candidate pattern without promoting procedure.",
+			"expected_output": "The case selects create-candidate, the new pattern remains candidate and cites the case, projections regenerate, and no skill procedure changes.",
+			"assertions": [
+				"Uses Case schema 2 so the disposition is validator-enforced",
+				"Records exactly one create-candidate disposition and pattern target",
+				"Creates a candidate rather than active pattern",
+				"Links the case as source evidence",
+				"Does not promote or mutate procedure"
+			],
+			"files": []
+		},
+		{
+			"id": 6,
+			"name": "gap-or-no-change",
+			"prompt": "The evidence is ambiguous and may not justify a reusable pattern. Record the case conservatively and choose between a known compiled gap or no compiled change.",
+			"expected_output": "The case selects exactly one durable outcome: gap with an existing gap ID or no-change with none, without inventing a pattern.",
+			"assertions": [
+				"Uses Case schema 2 so the disposition is validator-enforced",
+				"Selects exactly one allowed knowledge disposition",
+				"Uses an existing gap ID or the literal none target",
+				"Does not fabricate a pattern from ambiguous evidence",
+				"Does not mutate an installable skill"
+			],
+			"files": []
+		}
+	]
+}

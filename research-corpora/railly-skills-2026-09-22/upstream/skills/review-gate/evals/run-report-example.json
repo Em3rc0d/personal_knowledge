@@ -1,0 +1,309 @@
+{
+	"schemaVersion": 1,
+	"run": {
+		"date": "2026-07-18",
+		"repo": "example-repo",
+		"base": "main",
+		"head": "abc1234",
+		"profile": "high-risk",
+		"skill_revision": "git:6ee1206",
+		"status": "complete",
+		"verdict": "pass",
+		"gaps": []
+	},
+	"execution": {
+		"mode": "fx_worker",
+		"degraded_from": null,
+		"independence_gap": null,
+		"receipt": "fx-review-example.json",
+		"schema_failures": 0,
+		"operations": [
+			{
+				"operation": "independent review",
+				"attempted_calls": 1,
+				"schema_failures": 0,
+				"identical_retry": false
+			}
+		]
+	},
+	"contract": {
+		"path": "foundry/missions/example-repo/42.md",
+		"spec_status": "pass",
+		"acceptance_reviewed": ["A1", "A2"],
+		"gaps": []
+	},
+	"provenance": {
+		"author_model": "gpt-5.6-codex",
+		"reviewer_model": "zai/glm-5.3-flash",
+		"same_family": false
+	},
+	"risk": {
+		"level": "high",
+		"triggers": ["durable authentication state"],
+		"independent_challenge": {
+			"required": true,
+			"satisfied": true,
+			"method": "cross_family_review",
+			"artifact": "independent-challenge-example.txt",
+			"evidence": "Claude reviewed the frozen tree and the built artifact was driven through failure and retry."
+		}
+	},
+	"security_review": {
+		"status": "pass",
+		"fingerprint": {
+			"repository": "owner/example-repo",
+			"base_sha": "main",
+			"head_sha": "abc1234",
+			"dirty_digest": "clean",
+			"changed_path_digest": "sha256:example",
+			"skill_revision": "security-review@0.0.10"
+		},
+		"observations": [
+			{
+				"id": "SEC-001",
+				"classification": "hardening",
+				"scope": "out_of_scope_hardening",
+				"confidence": "high",
+				"evidence": [
+					"The subprocess already executes with equivalent operating-system authority."
+				]
+			}
+		],
+		"verification": {
+			"gaps": []
+		},
+		"merge_relevance": {
+			"security_blockers": [],
+			"follow_ups": ["Scrub inherited credentials as defense in depth."],
+			"routed_non_security_defects": []
+		},
+		"artifact": "security-review-example.json"
+	},
+	"claim_inventory": [
+		{
+			"source": "contract",
+			"location": "foundry/missions/example-repo/42.md",
+			"status": "reviewed",
+			"properties": ["P1"],
+			"evidence": "Acceptance A2 defines retry-budget preservation."
+		},
+		{
+			"source": "design",
+			"location": "design notes in the issue",
+			"status": "reviewed",
+			"properties": ["P1"],
+			"evidence": "The design assigns retry restoration to the middleware owner."
+		},
+		{
+			"source": "user_facing",
+			"location": "PR body and CLI error text",
+			"status": "reviewed",
+			"properties": ["P1"],
+			"evidence": "The PR promises an immediate retry without losing budget."
+		},
+		{
+			"source": "implementation",
+			"location": "src/auth.ts and src/middleware.ts",
+			"status": "reviewed",
+			"properties": ["P1"],
+			"evidence": "The diff changes ownership and restoration of retry state."
+		}
+	],
+	"properties": [
+		{
+			"id": "P1",
+			"claim": "Expired authentication state preserves the retry budget.",
+			"kind": "lifecycle",
+			"status": "verified",
+			"oracle": {
+				"observes": "the retry budget visible to the next authentication attempt",
+				"layer": "end-to-end caller state",
+				"method": "force expiration, inspect state, then perform the next attempt",
+				"proxy_only": false
+			},
+			"proxy_challenge": {
+				"proxy": "the first request returns the documented error",
+				"counterexample": "return the correct error after silently zeroing the retry budget",
+				"attempted": true,
+				"outcome": "separated",
+				"evidence": "The error text remained correct while the next attempt exposed the zeroed budget."
+			},
+			"substrates": [
+				{
+					"name": "built CLI with local authentication fixture",
+					"status": "exercised",
+					"evidence": "The next attempt retained the original retry budget."
+				}
+			],
+			"evidence": "The forced expired-token flow preserved the budget and completed the retry."
+		}
+	],
+	"stage_receipts": {
+		"test_strength": {
+			"required": true,
+			"status": "pass",
+			"skill_revision": "git:6ee1206",
+			"artifact": "independent-challenge-example.txt",
+			"evidence": "The lifecycle model, independent oracle, real producer, and mutation all agree.",
+			"fingerprint": {
+				"head_sha": "abc1234",
+				"changed_paths_digest": "sha256:changed",
+				"contract_digest": "sha256:contract",
+				"command": "bun test auth",
+				"environment_digest": "sha256:environment",
+				"skill_revision": "git:6ee1206",
+				"relevant_paths": ["src/auth.ts", "src/middleware.ts"],
+				"reusable": false,
+				"reuse_evidence": null
+			},
+			"dimensions": {
+				"values": [
+					"token state: valid, expired",
+					"attempt: initial, immediate retry",
+					"publication: succeeds, fails"
+				],
+				"exclusions": [
+					"revoked-token refresh is outside the contract and follows the existing rejection path"
+				],
+				"evidence": "The table crosses prior token state, request attempt, and publication outcome."
+			},
+			"oracle": {
+				"source": "Issue Contract acceptance A2 and the persisted retry record",
+				"independent": true,
+				"evidence": "Expected retry budgets come from the contract, not middleware output."
+			},
+			"producer": {
+				"name": "built CLI with local authentication fixture",
+				"status": "exercised",
+				"evidence": "The fixture generated an expired token and an immediate real retry."
+			},
+			"falsification": [
+				{
+					"mutation": "remove retry-budget restoration after token expiration",
+					"red_evidence": "The immediate retry observed a zero budget.",
+					"restored_green_evidence": "Restoring the implementation preserved the original budget."
+				}
+			]
+		},
+		"resilience": {
+			"required": true,
+			"status": "pass",
+			"skill_revision": "git:6ee1206",
+			"artifact": "independent-challenge-example.txt",
+			"evidence": "Failures after the authentication-attempt commit were forced and retried.",
+			"fingerprint": {
+				"head_sha": "abc1234",
+				"changed_paths_digest": "sha256:changed",
+				"contract_digest": "sha256:contract",
+				"command": "bun test auth-recovery",
+				"environment_digest": "sha256:environment",
+				"skill_revision": "git:6ee1206",
+				"relevant_paths": ["src/auth.ts", "src/middleware.ts"],
+				"reusable": false,
+				"reuse_evidence": null
+			},
+			"commit_points": [
+				{
+					"id": "C1",
+					"effect": "authentication attempt record",
+					"owner": "middleware handle",
+					"commit_event": "attempt record inserted",
+					"later_fallible_stages": ["token validation", "session publication"],
+					"failure_partitions": [
+						{
+							"ownership_region": "token validator",
+							"covers": ["token validation"],
+							"forced": true,
+							"residual_observed": "attempt record retained with retry budget restored",
+							"cleanup_owner": "middleware error path",
+							"retry": {
+								"attempted": true,
+								"outcome": "success",
+								"evidence": "Immediate retry validated a fresh token."
+							},
+							"evidence": "Forced expired-token validation after the record commit."
+						},
+						{
+							"ownership_region": "session publisher",
+							"covers": ["session publication"],
+							"forced": true,
+							"residual_observed": "attempt record retained without a partial session",
+							"cleanup_owner": "session publisher rollback",
+							"retry": {
+								"attempted": true,
+								"outcome": "success",
+								"evidence": "Immediate retry published one complete session."
+							},
+							"evidence": "Forced session-store refusal after token validation."
+						}
+					]
+				}
+			]
+		}
+	},
+	"assumptions": [
+		{
+			"id": "A1",
+			"source": "Issue Contract",
+			"claim": "The retry state has one owner.",
+			"status": "verified",
+			"evidence": "Caller enumeration found one writer and the failure drive observed that writer restoring state."
+		}
+	],
+	"lenses": [
+		{ "name": "contract-drift", "status": "run", "reason": "" },
+		{
+			"name": "security",
+			"status": "skipped",
+			"reason": "diff touches no input handling, auth, or secrets"
+		}
+	],
+	"deterministic": [
+		{ "check": "style", "outcome": "pass", "reason": "" },
+		{
+			"check": "surfaces",
+			"outcome": "acknowledged",
+			"reason": "README section is a terse flag listing with no behavior prose; read to confirm"
+		},
+		{
+			"check": "callers",
+			"outcome": "finding-fixed",
+			"reason": "call site in src/session.ts mutated state before the now-failable call"
+		}
+	],
+	"findings": [
+		{
+			"id": "F1",
+			"state": "confirmed",
+			"claim": "handle() drops the retry budget when validateToken() returns the new expired outcome",
+			"evidence": "forced the expired outcome in a scratch test; retry budget reset observed",
+			"layer": "caller ordering",
+			"source": "map",
+			"path": "src/auth.ts#validateToken → src/middleware.ts#handle via call",
+			"resolution": "fixed"
+		},
+		{
+			"id": "F2",
+			"state": "refuted",
+			"claim": "browser flow re-prompts login on token refresh",
+			"evidence": "The built browser fixture refreshed the token without rendering the login prompt.",
+			"layer": "end-to-end path",
+			"source": "lens",
+			"path": "",
+			"resolution": "not_applicable"
+		}
+	],
+	"exemptions": [
+		{
+			"claim": "docs/cli.md untouched despite feature keyword match",
+			"evidence": "section is a flag listing with no behavior prose; read in full"
+		}
+	],
+	"issue_candidates": [
+		{
+			"title": "pre-existing: config reload ignores SIGHUP on darwin",
+			"evidence": "observed while forcing F1; reproduced on main",
+			"why_out_of_scope": "predates the diff; separate surface"
+		}
+	]
+}
