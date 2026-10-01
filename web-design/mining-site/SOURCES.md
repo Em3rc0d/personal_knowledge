@@ -56,3 +56,14 @@ RICOUI states that built-in Brand-reference material is derived from:
 and then secondarily parsed by RICOUI for its `DESIGN.md` workflow.
 
 These upstreams must be mined independently before any claim is made about their exact methodology, licensing or authority.
+
+### SRC-TORQUE-STATIC-V2
+
+- **Name:** Torque static componentized commercial landing v2
+- **Type:** internal prototype / worked pressure test
+- **Observed:** 2026-10-01
+- **Role:** tests whether premium component discipline and interactive commercial composition can remain compatible with a static HTML/CSS/JS delivery target.
+- **Provenance:** `OBSERVED` for prototype behavior/structure; `GENERATED` for generalized candidate rules.
+- **Key topics:** authoring-vs-runtime separation, tokens → primitives → domain components → compositions, native browser primitives, static interactive delivery, experiential continuity, commercial-copy boundary.
+- **Receipt:** [`SRC-TORQUE-STATIC-V2.md`](./SRC-TORQUE-STATIC-V2.md)
+- **Boundary:** internal evidence is not an independent external authority and does not satisfy the MK0 additional-primary-source gate by itself.
