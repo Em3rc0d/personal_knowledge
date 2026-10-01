@@ -403,3 +403,29 @@ S-113 is a pattern source, not a universal code-intelligence architecture or cur
 - processed quarry: [`../quarries/reproducible-multimodal-agent-workflows.md`](../quarries/reproducible-multimodal-agent-workflows.md)
 
 S-114 is a worked implementation source, not a general agent standard. Source-specific design choices remain local unless independently pressure-tested.
+
+### S-115 — walkinglabs/learn-harness-engineering
+
+- provenance: `OBSERVED` + upstream `SOURCE CLAIM` + independently checked primary-source contrast;
+- repository: https://github.com/walkinglabs/learn-harness-engineering;
+- pinned snapshot: `38ddcd2bf8d65271f668b94e7c875ca1d629d622`;
+- observed: 2026-10-01;
+- license: MIT;
+- authority: primary for repository artifacts; secondary/synthetic for general harness claims attributed to other systems;
+- relevance:
+  - repository-as-system-of-record and progressive-disclosure mechanics;
+  - root agent instruction file as routing infrastructure;
+  - persistent work state + evidence-gated completion;
+  - clean-state / resumability as a separate lifecycle condition;
+  - review-feedback promotion into executable checks;
+  - agent-oriented diagnostic feedback;
+  - context operations: select/write/compress/isolate;
+  - WIP=1 as a safe baseline subject to explicit concurrency/isolation semantics;
+  - generator/evaluator authority separation;
+  - harness simplification/pruning as models and runtimes improve.
+- material caveat: the source contains two different five-subsystem decompositions; neither is promoted as our canonical taxonomy.
+- detailed receipt: [`S-115-learn-harness-engineering.md`](./S-115-learn-harness-engineering.md)
+- processed quarry: [`../quarries/repository-harness-engineering-refinements.md`](../quarries/repository-harness-engineering-refinements.md)
+
+S-115 refines repository-level harness mechanisms. It does not alter the active MK1 schema or close/reopen any MK1 gate.
+
