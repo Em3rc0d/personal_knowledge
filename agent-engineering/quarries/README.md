@@ -51,6 +51,8 @@ This matters because the original Strands quarry intentionally preserves candida
 
 - [`understand-anything-code-intelligence.md`](./understand-anything-code-intelligence.md) — `Egonex-AI/Understand-Anything@6df3065f...` pressure test for deterministic-vs-semantic responsibility, topology-aware context partitioning, durable graph freshness, incremental reconciliation, bounded retry and fail-closed publication.
 
+- [`repository-harness-engineering-refinements.md`](./repository-harness-engineering-refinements.md) — S-115 synthesis refining repository-level harness mechanics: revision-bound verification, externalized acceptance authority, clean handoff gates, review-feedback promotion, actionable diagnostics, context operations, concurrency admission and harness-pruning pressure tests.
+
 ## Architecture evidence promoted from quarries
 
 The framework-independent threat model lives at [`../architecture/THREAT_MODEL.md`](../architecture/THREAT_MODEL.md). It is an MK0 architecture seed derived from quarry evidence, not a claim that every upstream system implements the listed controls.
