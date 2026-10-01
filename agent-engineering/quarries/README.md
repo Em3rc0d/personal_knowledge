@@ -47,6 +47,8 @@ This matters because the original Strands quarry intentionally preserves candida
 - [`runtime-semantics-strands-langgraph-openai.md`](./runtime-semantics-strands-langgraph-openai.md) — cross-runtime synthesis that validates concurrency semantics, budget-enforcement boundaries and intervention ownership across Strands Agents, LangGraph and OpenAI Agents SDK, promoting them into MK1 schema revision `mk1-draft-2026-09-16.1`.
 - [`strands-mcp-2026-07-28-compatibility.md`](./strands-mcp-2026-07-28-compatibility.md) — revision-aware interoperability receipt for Strands Python against MCP `2026-07-28`, including a modern-only lifecycle fixture, upstream CI execution, MRTR/list-change behavior, trace continuity and explicit auth/cancellation qualifications.
 
+- [`reproducible-multimodal-agent-workflows.md`](./reproducible-multimodal-agent-workflows.md) — S-114 synthesis covering skill/recipe/capability separation, build-time generative dependencies, deterministic artifact normalization, cost-aware retries, provenance manifests, generated-media budgets and graceful degradation.
+
 ## Architecture evidence promoted from quarries
 
 The framework-independent threat model lives at [`../architecture/THREAT_MODEL.md`](../architecture/THREAT_MODEL.md). It is an MK0 architecture seed derived from quarry evidence, not a claim that every upstream system implements the listed controls.
