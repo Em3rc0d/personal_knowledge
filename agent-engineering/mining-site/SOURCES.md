@@ -364,6 +364,26 @@ Specialization, applicability and recency matter. Current protocol specification
 
 No single source automatically wins every dispute; scope, methodology and reproducibility still determine what may be promoted.
 
+### S-113 — Egonex-AI / Understand-Anything
+
+- provenance: `OBSERVED` + upstream `SOURCE CLAIM`;
+- repository: https://github.com/Egonex-AI/Understand-Anything
+- pinned snapshot: `6df3065f1d8ddc2ce3615314d1d493f36d6b1c80`;
+- observed: 2026-09-25;
+- license: MIT;
+- relevance:
+  - deterministic structural evidence separated from semantic model inference;
+  - topology-aware semantic batching and bounded context;
+  - revision-bound durable knowledge artifacts with freshness states;
+  - incremental reconciliation where omission does not imply deletion;
+  - bounded retry and fail-closed publication gates;
+  - explicit untrusted-ingestion boundary;
+  - benchmark claims separated by deterministic vs stochastic stage.
+- detailed receipt: [`S-113-understand-anything.md`](./S-113-understand-anything.md)
+- processed quarry: [`../quarries/understand-anything-code-intelligence.md`](../quarries/understand-anything-code-intelligence.md)
+
+S-113 is a pattern source, not a universal code-intelligence architecture or current MK1 schema revision.
+
 ### S-114 — midudev/mcp-higgsfield-landing
 
 - provenance: `OBSERVED` + upstream `SOURCE CLAIM`;
