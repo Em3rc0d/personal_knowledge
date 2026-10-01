@@ -32,3 +32,18 @@ MK1+ may compare JEM against primary/authoritative material on:
 - agentic software engineering review patterns.
 
 External sources must retain URL, publisher/author, retrieval date, authority level, reason collected and any licensing constraints when relevant.
+
+## External worked source — S-114 / Higgsfield landing workflow
+
+| Field | Value |
+|---|---|
+| Source | `midudev/mcp-higgsfield-landing` |
+| Repository | https://github.com/midudev/mcp-higgsfield-landing |
+| Snapshot | `31b75c6f4aa068ef32c9e92dd30b9910b3118e66` |
+| Observed | 2026-10-01 |
+| Provenance | `OBSERVED` + upstream `SOURCE CLAIM` |
+| Use | artifact lineage, stochastic/deterministic boundaries, evidence-cost and regeneration discipline |
+| Detailed receipt | `../../agent-engineering/mining-site/S-114-midudev-higgsfield-landing.md` |
+| JEM quarry | `../quarries/agent-workflow-artifacts-evidence-cost.md` |
+
+Boundary: this worked source may pressure-test JEM but does not directly modify JEM canon. No root license file was visible in the observed upstream root, so this repository stores synthesis/observations rather than copied implementation code.
