@@ -47,3 +47,18 @@ External sources must retain URL, publisher/author, retrieval date, authority le
 | JEM quarry | `../quarries/agent-workflow-artifacts-evidence-cost.md` |
 
 Boundary: this worked source may pressure-test JEM but does not directly modify JEM canon. No root license file was visible in the observed upstream root, so this repository stores synthesis/observations rather than copied implementation code.
+
+## External source receipt — Understand Anything
+
+| Field | Value |
+|---|---|
+| Source | Egonex-AI / Understand-Anything |
+| URL | https://github.com/Egonex-AI/Understand-Anything |
+| Snapshot | `6df3065f1d8ddc2ce3615314d1d493f36d6b1c80` |
+| Retrieved / observed | 2026-09-25 |
+| License | MIT |
+| Provenance use | `OBSERVED` for source/tests; `INSPIRED` for JEM candidate rules |
+| Reason collected | revision-bound recovery, freshness, incremental evidence reconciliation, completeness-vs-validity distinction, benchmark claim boundaries |
+| Quarry | [`../quarries/understand-anything-codebase-intelligence.md`](../quarries/understand-anything-codebase-intelligence.md) |
+
+Important boundary: the source provides a concrete engineering example. Its product architecture and thresholds are not JEM canon.
