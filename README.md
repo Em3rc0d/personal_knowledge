@@ -15,6 +15,8 @@ El operating model metodológico común está documentado en [`jett-engineering-
 ```text
 problem / recover
         ↓
+source intake / resolve / capture / verify
+        ↓
 mining-site / quarries
         ↓
 brainstorming
@@ -80,6 +82,8 @@ branch cleanup
 - `MK5+`: Certify / Refine — reproducibilidad, fixtures, contraejemplos, resiliencia y refinamiento.
 - `mining-site/`: mapa de investigación y provenance.
 - `quarries/`: extracciones concretas y evidencia procesada desde fuentes; quarry no equivale a canon.
+- `jett-engineering-method/SOURCE-INTAKE-CONTRACT.md`: contrato transversal para separar pointer, identidad de fuente, acceso, captura, verificación y promoción antes de convertir una referencia externa en evidencia.
+- Un short-link, preview o snippet no equivale a contenido inspeccionado. Si la fuente no puede resolverse o revisarse, permanece `BLOCKED` / `POINTER_ONLY` y no soporta claims semánticos de canon.
 - `systems/<system>/`: vista canónica **actual** de un sistema concreto cuando el dominio ya posee evidencia suficiente para sintetizarlo sin perder el chain-of-evidence. No sustituye `quarries/` ni `mining-site/`.
 - `KNOWLEDGE_MAP.md`: cuando existe, explica cómo navegar las capas del dominio.
 - `LLM_CONTEXT.md`: cuando existe, define routing, precedencia y anti-inference rules para lectores agentic/LLM.
@@ -105,6 +109,7 @@ branch cleanup
 - Evidence strength is proportional to risk.
 - Working once is not the same as working reliably.
 - UNKNOWN remains UNKNOWN.
+- Pointer ≠ source identity; source identity ≠ inspected evidence.
 - Preserve reversibility and history.
 - Security and provenance are architecture.
 - Limit work in progress.

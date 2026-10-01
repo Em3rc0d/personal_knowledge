@@ -2,13 +2,15 @@
 
 ## Current MK
 
-`MK0 — Mine & Frame`
+`MK1 — Normalize & Classify`
 
 ## State
 
-`CLOSED — INTERNAL CANON FOUNDATION`
+`IN PROGRESS — SOURCE INTAKE NORMALIZATION`
 
-## Completed
+MK0 remains **CLOSED — INTERNAL CANON FOUNDATION**. MK1 extends that foundation; it does not rewrite the historical MK0 certification boundary.
+
+## MK0 foundation preserved
 
 - Core purpose and scope defined.
 - Problem → Recover → Brainstorm → Design → Architecture → Plan → Build → Test → Prove → Release/Promote → Observe → Learn lifecycle documented.
@@ -16,62 +18,72 @@
 - Permanent and contextual gates defined.
 - Claim discipline and provenance taxonomy documented.
 - Constitutional rules consolidated.
-- Relationship with HESTIA, Knowledge Environment and product/domain knowledge separated.
 - Monorepo branch/promotion rule integrated.
-- Root README updated.
-- Full branch diff reviewed against `main@2bd630048050de3cfd150f886a8d1b7b3381a279`.
-- Scope verified: only root README plus `jett-engineering-method/` changed.
-- No structural contradictions found in MK0 review.
 
-## In progress
+## MK1 — completed in current slice
 
-None for MK0.
+- [x] source pointer, source identity and inspected evidence are separated;
+- [x] access, capture, verification and promotion states are modeled independently;
+- [x] short-link failure behavior is fail-closed;
+- [x] snippets/previews cannot silently substitute for underlying source content;
+- [x] dynamic/mutable sources require an observation boundary;
+- [x] reusable source-intake record template exists;
+- [x] JEM lifecycle and claim discipline route through the source-intake boundary.
 
-## Blocked
+Artifacts:
 
-None.
+- [`SOURCE-INTAKE-CONTRACT.md`](./SOURCE-INTAKE-CONTRACT.md)
+- [`templates/SOURCE-INTAKE-RECORD.md`](./templates/SOURCE-INTAKE-RECORD.md)
+- [`mk/MK1/README.md`](./mk/MK1/README.md)
+- [`mk/MK1/fixtures/FIXTURE-001-BLOCKED-SHORTLINK.md`](./mk/MK1/fixtures/FIXTURE-001-BLOCKED-SHORTLINK.md)
 
-## Open questions
+## Remaining MK1 work for this slice
 
-- Whether HESTIA should become a future sibling domain or remain embedded in commercial/product knowledge until separately mined and framed.
-- Which real project cases should become the first formal `Record a Case` fixtures in MK1+.
-- Which external authoritative SDLC/SRE/security sources should be mined first for comparative MK1 work.
+- [x] exercise the fail-closed path against one real blocked short-link fixture;
+- [ ] exercise the success/partial/drift paths against additional representative real-source fixtures;
+- [ ] compare terminology with domain-specific source registries already present in `personal_knowledge`;
+- [ ] verify that no existing domain treats previews/snippets as canonical evidence;
+- [ ] resolve any contradictions found during that audit;
+- [ ] run an MK1 review before declaring this contract cross-domain certified.
+
+## Blocked / unresolved
+
+No architectural blocker is known.
+
+Individual incoming sources may legitimately remain `BLOCKED`, `UNKNOWN` or `INCONCLUSIVE` when their content cannot be inspected. That state must not block unrelated repository work and must not be converted into inferred source content.
 
 ## Next gate
 
-`MK1 — Normalize & Classify`
+Use real source fixtures to test whether the contract is sufficient across:
 
-Candidate work:
+```text
+stable documentation
+versioned repositories
+PDFs
+dynamic web pages
+social posts
+short-links / redirectors
+screenshots / user-provided captures
+mutable analytics dashboards
+```
 
-- normalize terminology and gate schemas;
-- formalize ADR / Issue Contract / Handoff templates;
-- create initial project case fixtures;
-- compare selected JEM practices against authoritative external sources without assuming equivalence.
+Then review the normalized state vocabulary and either:
 
-## MK0 Gate
+```text
+PASS
+PASS WITH LIMITATIONS
+FAIL
+UNKNOWN
+```
 
-- [x] Problem and purpose framed.
-- [x] Internal provenance explicitly stated.
-- [x] Core vocabulary defined.
-- [x] Lifecycle documented.
-- [x] Gates documented.
-- [x] Claim discipline documented.
-- [x] MK semantics documented.
-- [x] Full diff reviewed against `main`.
-- [x] Root README updated.
-- [x] No structural contradictions found.
+for cross-domain adoption.
 
 ## Certification boundary
 
-`CLOSED — INTERNAL CANON FOUNDATION` means MK0 is coherent enough to be the repository's internal methodological baseline.
+Current MK1 work is **not yet a completed JEM MK1**.
 
-It does **not** mean:
-
-- external certification;
-- equivalence to an industry standard;
-- automated enforcement;
-- complete validation across every project type.
+The new contract is an active normalization candidate until representative fixtures and contradiction review close.
 
 ## Last verified
 
-2026-09-05 — branch `knowledge/jett-method-mk0-foundation`, based on `main@2bd630048050de3cfd150f886a8d1b7b3381a279`.
+2026-09-21 — branch `knowledge/jett-method-mk1-source-intake`.
