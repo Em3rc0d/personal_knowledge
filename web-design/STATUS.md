@@ -1,6 +1,6 @@
 # Web Design — Status
 
-Updated: 2026-09-05
+Updated: 2026-10-01
 
 ## Current gate
 
@@ -14,6 +14,7 @@ SEMANTIC CONTRACT         DRAFTED
 OPERATIONAL RULES         NOT YET CERTIFIED
 VISUAL TESTING            NOT YET IMPLEMENTED
 AUTOMATION                NOT YET STARTED
+INTERNAL PRESSURE TEST     TORQUE STATIC V2 RECORDED
 ```
 
 ## MK progression
@@ -46,3 +47,9 @@ MK0 can close only when:
 - [ ] MK0 review finds no unlabelled source-vs-inference mixing.
 
 Until all boxes close, **MK1 remains blocked**.
+
+## 2026-10-01 internal pressure test
+
+`SRC-TORQUE-STATIC-V2` adds internal evidence that component-system discipline can be separated from delivery-runtime choice and that static delivery can still support stateful, accessible and cinematic interaction.
+
+This does **not** close the additional-primary-source MK0 gate because the prototype is internal evidence, not an independent external authority.
