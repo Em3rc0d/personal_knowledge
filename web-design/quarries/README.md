@@ -24,3 +24,7 @@ source
 ```
 
 Source-specific folders keep lineage explicit. `ricoui/`, for example, means “knowledge extracted while studying RICOUI”, not “rules owned by RICOUI”.
+
+## Internal pressure-test quarries
+
+- [`static-componentized-commercial-landing.md`](./static-componentized-commercial-landing.md) — Torque static v2: framework-independent component contracts, static interactive delivery, native primitives, experiential continuity and runtime-cost discipline.
