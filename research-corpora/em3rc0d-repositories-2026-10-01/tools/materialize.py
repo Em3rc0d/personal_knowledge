@@ -94,12 +94,16 @@ def main() -> None:
     args = parser.parse_args()
 
     sources = load_sources()
-    selected = sources if args.all else [s for s in sources if s["slug"] in set(args.repo)]
+    requested = set(args.repo)
+    selected = sources if args.all else [s for s in sources if s["slug"] in requested]
     if not selected:
         raise SystemExit("no matching repositories")
 
     failures = []
     for source in selected:
+        if args.all and source["policy"] == "POINTER_ONLY":
+            print(f"SKIP {source['slug']}: POINTER_ONLY")
+            continue
         try:
             materialize(source, args.force)
         except Exception as exc:
