@@ -15,7 +15,12 @@ A source is evidence, not canon.
 | ID | Source | Snapshot | Role | State |
 |---|---|---|---|---|
 | S-001 | Railly/skills | 77fdde3e8d7e13b7c27c7660f7c15619839e38af | Foundry architecture, procedures, evidence governance, evals | ACTIVE |
+| S-002 | EM3RC0D repository estate | 2026-10-01 / 15 pinned repositories | Cross-system inventory, reusable-capital discovery, integration hypotheses | ACTIVE / MK0 SOURCE CORPUS |
 
-Detailed receipt: S-001-railly-skills.md
+Detailed receipts:
+
+- `S-001-railly-skills.md`
+- `../../research-corpora/em3rc0d-repositories-2026-10-01/README.md`
+- `../../research-corpora/em3rc0d-repositories-2026-10-01/SOURCES.json`
 
 Future sources should be added only when they answer a distinct Foundry question. Do not create a source list merely to make the bibliography larger.

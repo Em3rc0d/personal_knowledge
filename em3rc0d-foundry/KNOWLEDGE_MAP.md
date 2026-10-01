@@ -8,11 +8,21 @@
 - Machine retrieval contract: LLM_CONTEXT.md
 - MK0 closure: mk/MK0/GATES.md
 
-## Source
+## Sources
 
 - mining-site/SOURCES.md — source registry.
 - mining-site/S-001-railly-skills.md — exact Railly corpus receipt.
-- ../research-corpora/railly-skills-2026-09-22/upstream/ — untouched source snapshot.
+- ../research-corpora/railly-skills-2026-09-22/upstream/ — untouched Railly source snapshot.
+- ../research-corpora/em3rc0d-repositories-2026-10-01/ — pinned EM3RC0D repository-estate corpus and reproducible materialization contract.
+
+## Current system synthesis
+
+- systems/README.md — authority boundary for system cards.
+- systems/SYSTEM-MAP.md — cross-system capability graph and integration hypotheses.
+- systems/SYSTEM-REGISTRY.json — machine-readable system/edge registry.
+- systems/*.md — one current source-derived card per repository/system.
+
+System cards are synthesis, not a substitute for their pinned source receipt.
 
 ## Railly distillation
 
@@ -49,14 +59,15 @@ These are GENERATED/INSPIRED during MK0. They are not yet a runtime specificatio
 
 ## Retrieval rule
 
-Do not load the raw 1,323-file corpus into an ordinary execution context.
+Do not load a raw corpus into an ordinary execution context.
 
 Use progressive disclosure:
 
     current question
       → Knowledge Map
-      → relevant quarry
-      → specific upstream file
+      → system card or relevant quarry
+      → source receipt
+      → specific pinned upstream file
       → raw run/case only when the claim needs it
 
-This is itself one of the portable mechanisms learned from the source: compiled knowledge and active procedure should reduce context, not duplicate the entire evidence corpus.
+Compiled knowledge and active procedure should reduce context, not duplicate the entire evidence corpus.

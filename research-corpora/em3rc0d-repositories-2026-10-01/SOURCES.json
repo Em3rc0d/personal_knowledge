@@ -1,0 +1,177 @@
+{
+  "schema": "em3rc0d.repository-corpus.v1",
+  "snapshot_date": "2026-10-01",
+  "destination_repository": "Em3rc0d/personal_knowledge",
+  "destination_baseline": "99213b599c795ef6d748cfed35218b196248a0c0",
+  "note": "personal_knowledge is the destination and is intentionally not recursively snapshotted into itself.",
+  "sources": [
+    {
+      "id": "R-001",
+      "slug": "build-room",
+      "repo": "Em3rc0d/build-room",
+      "sha": "1b0f0e837f8b589478f13866483cefe16098c597",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "identity-driven digital experience engineering framework",
+      "state": "v0.3 research-provenance/mining baseline"
+    },
+    {
+      "id": "R-002",
+      "slug": "automation",
+      "repo": "Em3rc0d/automation",
+      "sha": "264c53e2fd5b67f19af8851fce1534dd2cc0134c",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "managed SMB automation operations platform and Savings Workflows",
+      "state": "MK1 pre-pilot; zero-cost rehearsal ready; P1 not certified"
+    },
+    {
+      "id": "R-003",
+      "slug": "content-seller",
+      "repo": "Em3rc0d/content-seller",
+      "sha": "f241a6f9efb38a47a5ccde57001a4f54589d51b2",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "content intelligence, evaluation and autonomous editorial engine",
+      "state": "MK1 active"
+    },
+    {
+      "id": "R-004",
+      "slug": "ninfa",
+      "repo": "Em3rc0d/NINFA",
+      "sha": "cdc3fb3e043d338ee716c0cc2545d4ff4fa9ecb3",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "autonomous AI media production and learning engine",
+      "state": "MK1 production validated; distribution/audience-learning phase"
+    },
+    {
+      "id": "R-005",
+      "slug": "m-pago",
+      "repo": "em3rc0dTh/m-pago",
+      "sha": "dfd10d6f55f8a18a51404e6b641833f49218f0b4",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "reusable Mercado Pago payment core with ledger, idempotency and recovery",
+      "state": "reference v0.3.0; real Mercado Pago TEST certification pending"
+    },
+    {
+      "id": "R-006",
+      "slug": "talos",
+      "repo": "em3rc0dTh/Talos",
+      "sha": "c2aca3e42e4784aa8257a20188f0df04515c60b4",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "source-aware process intelligence and durable execution design",
+      "state": "R1-00..R1-10 closed; R1-11 real field trials required"
+    },
+    {
+      "id": "R-007",
+      "slug": "ink-vk",
+      "repo": "em3rc0dTh/ink-vk",
+      "sha": "76eeed2873a7b8393ee9f9e2701da88a740b17df",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "source-to-soul reuse/adaptation engineering framework",
+      "state": "STEP 0 foundation active"
+    },
+    {
+      "id": "R-008",
+      "slug": "open-seo",
+      "repo": "em3rc0dTh/open-seo",
+      "sha": "f56972639f14e7e766498a8a2f6441913eb83c0c",
+      "relationship": "UPSTREAM_FORK",
+      "policy": "FULL_SNAPSHOT_ALLOWED_WITH_LICENSE",
+      "license": "MIT",
+      "upstream": "every-app/open-seo",
+      "role": "SEO workflows, MCP and agent-skill donor corpus",
+      "state": "external donor; not EM3RC0D product IP"
+    },
+    {
+      "id": "R-009",
+      "slug": "skills",
+      "repo": "em3rc0dTh/skills",
+      "sha": "fa0fa64bdc967915dc8399e803be67759e1e62b8",
+      "relationship": "UPSTREAM_FORK",
+      "policy": "POINTER_ONLY",
+      "license": "MIXED_SOURCE_TERMS",
+      "upstream": "anthropics/skills",
+      "role": "Agent Skills patterns and specification donor corpus",
+      "state": "pointer-only until file-level license filtering is defined"
+    },
+    {
+      "id": "R-010",
+      "slug": "barbershop-ia-whatsapp",
+      "repo": "em3rc0dTh/barbershop-ia-whatsapp",
+      "sha": "271b722b1fda3fbbf714181a2475cffb86d764da",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "MIT_REPO_DECLARED",
+      "role": "WhatsApp + AI appointment vertical reference implementation",
+      "state": "reference implementation"
+    },
+    {
+      "id": "R-011",
+      "slug": "frame",
+      "repo": "em3rc0dTh/FRAME",
+      "sha": "4d91912cbddfaaf04d21543b57e291ce7b053b09",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "AI project framing and prompt-oriented pre-build methodology",
+      "state": "framework baseline"
+    },
+    {
+      "id": "R-012",
+      "slug": "infra-monitor",
+      "repo": "em3rc0dTh/infra-monitor",
+      "sha": "72340a51f755b7019ddc8f2a1af9e9f012212e2c",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "IP/domain monitoring, diagnosis and automation webhook primitive",
+      "state": "small operational primitive"
+    },
+    {
+      "id": "R-013",
+      "slug": "temporal-ai-agent",
+      "repo": "em3rc0dTh/temporal-ai-agent",
+      "sha": "215d55570b45c00199959c0ec7635e6edc5f89e5",
+      "relationship": "UPSTREAM_FORK",
+      "policy": "FULL_SNAPSHOT_ALLOWED_WITH_LICENSE",
+      "license": "MIT",
+      "upstream": "temporal-community/temporal-ai-agent",
+      "role": "durable agent-loop and Temporal/MCP donor corpus",
+      "state": "external donor; not EM3RC0D product IP"
+    },
+    {
+      "id": "R-014",
+      "slug": "transcript-voice",
+      "repo": "em3rc0dTh/transcript-voice",
+      "sha": "d3341f808f77453a519bfccd42550ff93b16cb1d",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "local real-time/file speech transcription primitive",
+      "state": "single-module utility"
+    },
+    {
+      "id": "R-015",
+      "slug": "rag",
+      "repo": "em3rc0dTh/rag",
+      "sha": "6a89f685b2c1efdfcc4c24cef1d5023bbf473928",
+      "relationship": "FIRST_PARTY",
+      "policy": "FULL_SNAPSHOT_ALLOWED",
+      "license": "OWNER_CONTROLLED",
+      "role": "multi-tenant private-knowledge RAG reference system",
+      "state": "source documentation claims v4.3 stable; not recertified by current Jett gates"
+    }
+  ]
+}

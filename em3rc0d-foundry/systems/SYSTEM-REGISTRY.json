@@ -1,0 +1,209 @@
+{
+  "schema": "em3rc0d.system-registry.v1",
+  "generated_from": "../../research-corpora/em3rc0d-repositories-2026-10-01/SOURCES.json",
+  "status": "MK0_SYNTHESIS",
+  "systems": [
+    {
+      "id": "R-001",
+      "slug": "build-room",
+      "repository": "Em3rc0d/build-room",
+      "pinned_sha": "1b0f0e837f8b589478f13866483cefe16098c597",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "identity-driven digital experience engineering framework",
+      "source_state": "v0.3 research-provenance/mining baseline"
+    },
+    {
+      "id": "R-002",
+      "slug": "automation",
+      "repository": "Em3rc0d/automation",
+      "pinned_sha": "264c53e2fd5b67f19af8851fce1534dd2cc0134c",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "managed SMB automation operations platform and Savings Workflows",
+      "source_state": "MK1 pre-pilot; zero-cost rehearsal ready; P1 not certified"
+    },
+    {
+      "id": "R-003",
+      "slug": "content-seller",
+      "repository": "Em3rc0d/content-seller",
+      "pinned_sha": "f241a6f9efb38a47a5ccde57001a4f54589d51b2",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "content intelligence, evaluation and autonomous editorial engine",
+      "source_state": "MK1 active"
+    },
+    {
+      "id": "R-004",
+      "slug": "ninfa",
+      "repository": "Em3rc0d/NINFA",
+      "pinned_sha": "cdc3fb3e043d338ee716c0cc2545d4ff4fa9ecb3",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "autonomous AI media production and learning engine",
+      "source_state": "MK1 production validated; distribution/audience-learning phase"
+    },
+    {
+      "id": "R-005",
+      "slug": "m-pago",
+      "repository": "em3rc0dTh/m-pago",
+      "pinned_sha": "dfd10d6f55f8a18a51404e6b641833f49218f0b4",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "reusable Mercado Pago payment core with ledger, idempotency and recovery",
+      "source_state": "reference v0.3.0; real Mercado Pago TEST certification pending"
+    },
+    {
+      "id": "R-006",
+      "slug": "talos",
+      "repository": "em3rc0dTh/Talos",
+      "pinned_sha": "c2aca3e42e4784aa8257a20188f0df04515c60b4",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "source-aware process intelligence and durable execution design",
+      "source_state": "R1-00..R1-10 closed; R1-11 real field trials required"
+    },
+    {
+      "id": "R-007",
+      "slug": "ink-vk",
+      "repository": "em3rc0dTh/ink-vk",
+      "pinned_sha": "76eeed2873a7b8393ee9f9e2701da88a740b17df",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "source-to-soul reuse/adaptation engineering framework",
+      "source_state": "STEP 0 foundation active"
+    },
+    {
+      "id": "R-008",
+      "slug": "open-seo",
+      "repository": "em3rc0dTh/open-seo",
+      "pinned_sha": "f56972639f14e7e766498a8a2f6441913eb83c0c",
+      "classification": "EXTERNAL_DONOR",
+      "role": "SEO workflows, MCP and agent-skill donor corpus",
+      "source_state": "external donor; not EM3RC0D product IP"
+    },
+    {
+      "id": "R-009",
+      "slug": "skills",
+      "repository": "em3rc0dTh/skills",
+      "pinned_sha": "fa0fa64bdc967915dc8399e803be67759e1e62b8",
+      "classification": "EXTERNAL_DONOR",
+      "role": "Agent Skills patterns and specification donor corpus",
+      "source_state": "pointer-only until file-level license filtering is defined"
+    },
+    {
+      "id": "R-010",
+      "slug": "barbershop-ia-whatsapp",
+      "repository": "em3rc0dTh/barbershop-ia-whatsapp",
+      "pinned_sha": "271b722b1fda3fbbf714181a2475cffb86d764da",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "WhatsApp + AI appointment vertical reference implementation",
+      "source_state": "reference implementation"
+    },
+    {
+      "id": "R-011",
+      "slug": "frame",
+      "repository": "em3rc0dTh/FRAME",
+      "pinned_sha": "4d91912cbddfaaf04d21543b57e291ce7b053b09",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "AI project framing and prompt-oriented pre-build methodology",
+      "source_state": "framework baseline"
+    },
+    {
+      "id": "R-012",
+      "slug": "infra-monitor",
+      "repository": "em3rc0dTh/infra-monitor",
+      "pinned_sha": "72340a51f755b7019ddc8f2a1af9e9f012212e2c",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "IP/domain monitoring, diagnosis and automation webhook primitive",
+      "source_state": "small operational primitive"
+    },
+    {
+      "id": "R-013",
+      "slug": "temporal-ai-agent",
+      "repository": "em3rc0dTh/temporal-ai-agent",
+      "pinned_sha": "215d55570b45c00199959c0ec7635e6edc5f89e5",
+      "classification": "EXTERNAL_DONOR",
+      "role": "durable agent-loop and Temporal/MCP donor corpus",
+      "source_state": "external donor; not EM3RC0D product IP"
+    },
+    {
+      "id": "R-014",
+      "slug": "transcript-voice",
+      "repository": "em3rc0dTh/transcript-voice",
+      "pinned_sha": "d3341f808f77453a519bfccd42550ff93b16cb1d",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "local real-time/file speech transcription primitive",
+      "source_state": "single-module utility"
+    },
+    {
+      "id": "R-015",
+      "slug": "rag",
+      "repository": "em3rc0dTh/rag",
+      "pinned_sha": "6a89f685b2c1efdfcc4c24cef1d5023bbf473928",
+      "classification": "INTERNAL_SYSTEM_OR_ASSET",
+      "role": "multi-tenant private-knowledge RAG reference system",
+      "source_state": "source documentation claims v4.3 stable; not recertified by current Jett gates"
+    }
+  ],
+  "edges": [
+    [
+      "build-room",
+      "em3rc0d-foundry",
+      "design/experience method informs product factory"
+    ],
+    [
+      "frame",
+      "em3rc0d-foundry",
+      "project framing input"
+    ],
+    [
+      "ink-vk",
+      "em3rc0d-foundry",
+      "source adaptation method"
+    ],
+    [
+      "talos",
+      "automation",
+      "candidate process-to-execution handoff; not yet certified as one product"
+    ],
+    [
+      "rag",
+      "automation",
+      "candidate private-knowledge/context capability"
+    ],
+    [
+      "transcript-voice",
+      "talos",
+      "candidate speech-to-process intake"
+    ],
+    [
+      "m-pago",
+      "automation",
+      "candidate payment/quote-to-cash capability"
+    ],
+    [
+      "infra-monitor",
+      "automation",
+      "candidate health/incident primitive"
+    ],
+    [
+      "automation",
+      "content-seller",
+      "client evidence can become distribution input after privacy/consent gates"
+    ],
+    [
+      "automation",
+      "ninfa",
+      "client experiments can become long-form evidence after privacy/consent gates"
+    ],
+    [
+      "open-seo",
+      "em3rc0d-foundry",
+      "external donor only"
+    ],
+    [
+      "temporal-ai-agent",
+      "em3rc0d-foundry",
+      "external donor only"
+    ],
+    [
+      "skills",
+      "em3rc0d-foundry",
+      "external mixed-license pointer only"
+    ]
+  ]
+}
