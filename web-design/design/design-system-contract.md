@@ -155,3 +155,35 @@ The contract should identify what can later be tested by:
 - viewport screenshots;
 - visual regression;
 - human design review.
+
+## 15. Implementation and runtime boundary
+
+Status: `MK0 DRAFT / GENERATED`, pressure-tested by `SRC-TORQUE-STATIC-V2`.
+
+The semantic design contract must not silently require a specific frontend runtime unless a product requirement makes that runtime part of the contract.
+
+Distinguish:
+
+    component contract
+    ≠ authoring framework
+    ≠ delivery runtime
+
+Document when relevant:
+
+- whether a component requires client-side state;
+- whether the requirement can use a native browser primitive;
+- whether JavaScript is progressive enhancement or core functionality;
+- authoring-only dependencies versus shipped dependencies;
+- expected behavior when JavaScript is unavailable or reduced;
+- runtime/performance budget attributable to the component;
+- the product requirement that justifies framework/runtime complexity.
+
+Candidate layering:
+
+    tokens
+      → primitives
+      → variants
+      → domain components
+      → compositions
+
+Framework/library components may inform the contract, but the product must own its semantic roles, visual identity and acceptance criteria.
