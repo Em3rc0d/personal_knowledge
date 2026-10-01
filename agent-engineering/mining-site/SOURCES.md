@@ -363,3 +363,23 @@ marketing label
 Specialization, applicability and recency matter. Current protocol specifications outrank older tutorial lifecycle assumptions for claims about current protocol behavior.
 
 No single source automatically wins every dispute; scope, methodology and reproducibility still determine what may be promoted.
+
+### S-114 — midudev/mcp-higgsfield-landing
+
+- provenance: `OBSERVED` + upstream `SOURCE CLAIM`;
+- repository: https://github.com/midudev/mcp-higgsfield-landing
+- pinned snapshot: `31b75c6f4aa068ef32c9e92dd30b9910b3118e66`;
+- observed: 2026-10-01;
+- license signal: no root license file visible in the observed repository root;
+- relevance:
+  - separates reusable skill from task-specific execution recipe;
+  - uses MCP/generative media as a build-time capability rather than a production runtime dependency;
+  - materializes generated outputs before deterministic product integration;
+  - exposes cost preflight and scoped retry patterns;
+  - demonstrates deterministic ffmpeg normalization after stochastic generation;
+  - provides concrete media/performance and degraded-mode tradeoffs;
+  - motivates machine-readable artifact provenance and regeneration gates.
+- detailed receipt: [`S-114-midudev-higgsfield-landing.md`](./S-114-midudev-higgsfield-landing.md)
+- processed quarry: [`../quarries/reproducible-multimodal-agent-workflows.md`](../quarries/reproducible-multimodal-agent-workflows.md)
+
+S-114 is a worked implementation source, not a general agent standard. Source-specific design choices remain local unless independently pressure-tested.
