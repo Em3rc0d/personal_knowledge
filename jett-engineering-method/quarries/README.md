@@ -23,3 +23,7 @@ canonical rule
 ```
 
 Promotion requires provenance, reasoning, compatibility with current architecture and evidence/review proportional to the claim.
+
+## Current external workflow quarries
+
+- [`agent-workflow-artifacts-evidence-cost.md`](./agent-workflow-artifacts-evidence-cost.md) — candidate rules for generated-artifact lineage, deterministic islands around stochastic generation, invalidation before regeneration, cheapest-sufficient evidence and remote CI billing discipline. Source basis: Agent Engineering S-114.
