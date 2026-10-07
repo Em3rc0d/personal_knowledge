@@ -1,6 +1,6 @@
 # Knowledge Foundry — Status
 
-Updated: 2026-10-06  
+Updated: 2026-10-07  
 State: **MK0 — ACTIVE**
 
 ## Current truth
@@ -12,11 +12,21 @@ State: **MK0 — ACTIVE**
 | Separation from EM3RC0D Foundry | PASS / drafted |
 | Source registry | STARTED |
 | S-001 agent-skills receipt | CAPTURED |
-| First quarry | CAPTURED |
+| Repository readiness audit | CAPTURED |
+| Learning-science evidence | S-002 CAPTURED / BOUNDED |
+| Assessment-quality evidence | S-003 CAPTURED |
+| Accessibility/inclusion evidence | S-004 CAPTURED |
+| Rights/provenance evidence | S-005 CAPTURED |
+| Pilot-data jurisdiction note | S-006 CAPTURED |
+| Domain input contract | DRAFT |
 | Knowledge compiler architecture | DRAFT |
 | Product lifecycle | DRAFT |
-| Provenance/licensing gate | DRAFT |
-| Pedagogical evidence gate | DRAFT |
+| Provenance/licensing gate | DRAFT / evidence strengthened |
+| Assessment evidence model | DRAFT |
+| Accessibility/inclusion model | DRAFT |
+| Knowledge dependency manifest | DRAFT |
+| Pilot-data boundary | DRAFT |
+| Pedagogical evidence gate | DRAFT / evidence strengthened |
 | First dogfood course | NOT SELECTED |
 | Course release | BLOCKED |
 | MK0 closure | OPEN |
@@ -29,22 +39,25 @@ State: **MK0 — ACTIVE**
 - Source popularity does not count as pedagogical evidence.
 - External source material is not automatically reusable commercially.
 - A technically correct lesson is not automatically an effective lesson.
+- A positive learning-science effect does not define one universal teaching recipe.
+- Completion, satisfaction and quiz scores do not automatically prove mastery.
 
 ## Active MK0 blockers
 
-1. freeze the compiler artifact set;
-2. define the minimum source/license manifest;
-3. define candidate-selection criteria for first dogfood;
-4. define pilot evidence required before promotion;
-5. close the open questions in `mk/MK0/UNKNOWNS.md`;
-6. produce `mk/MK0/CLOSURE.md` only after all gates pass.
+1. dogfood the Domain Input Contract against one bounded source slice;
+2. validate which proposed compiler artifacts earn their maintenance cost;
+3. define the minimum source/rights manifest from a real product candidate;
+4. define pilot thresholds using the assessment evidence model;
+5. choose a first dogfood candidate only after eligibility review;
+6. close or route the remaining `OPEN_MK0` questions;
+7. produce `mk/MK0/CLOSURE.md` only after all gates pass.
 
 ## Next execution order
 
-1. review `architecture/KNOWLEDGE_COMPILER.md`;
-2. reconcile the S-001 quarry into MK0 rules;
-3. define the first product manifest/schema;
-4. define pilot and assessment contracts;
-5. choose a dogfood candidate;
-6. execute MK0 gates;
+1. run `architecture/DOMAIN_INPUT_CONTRACT.md` against candidate source slices;
+2. reconcile S-002–S-006 quarries into the compiler without universalizing them;
+3. dogfood the proposed product/dependency/rights/assessment artifacts;
+4. specify pilot thresholds and data handling;
+5. choose the first dogfood capability;
+6. execute G0–G4;
 7. close MK0 or keep it open with explicit blockers.

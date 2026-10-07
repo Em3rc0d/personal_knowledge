@@ -19,5 +19,9 @@ Status values:
 | U-008 | What separates VALIDATED pedagogically from RELEASED commercially? | OPEN_MK0 |
 | U-009 | Which first dogfood domain has enough canon maturity and enough audience value to be useful? | OPEN_MK0 |
 | U-010 | Do we need a dedicated educational quality score, or are explicit gates better? | OPEN_MK0 |
+| U-011 | What licensing posture should original Knowledge Foundry products use: all-rights-reserved, CC, dual/selective or product-specific? | OPEN_MK0 |
+| U-012 | How much legacy Source Intake metadata must be backfilled before a bounded slice is eligible? | OPEN_MK0 |
+| U-013 | What pilot-data retention/de-identification policy is sufficient for first dogfood? | OPEN_MK0 |
+| U-014 | Should WCAG 2.2 AA become the default internal target for all first-party web course surfaces after dogfood? | OPEN_MK0 |
 
 Do not invent answers merely to close MK0.

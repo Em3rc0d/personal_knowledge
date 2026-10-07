@@ -12,18 +12,21 @@ The roadmap answers: **what must be true before we are allowed to compile and se
 - prevent duplication of technical canon;
 - define interaction with `em3rc0d-foundry/`;
 - define output/product ownership;
-- define the no-direct-source-to-course rule.
+- define the no-direct-source-to-course rule;
+- define bounded source-domain eligibility through `architecture/DOMAIN_INPUT_CONTRACT.md`.
 
 Exit: G0 passes.
 
-### Workstream B — Source and provenance discipline
+### Workstream B — Source, provenance and rights discipline
 
 - source registry;
 - pinned source identity when possible;
 - provenance class;
 - license status;
 - allowed transformation/use boundary;
-- distinction between inspiration, evidence and reusable material.
+- distinction between inspiration, evidence and reusable material;
+- explicit rights basis for reproduced/adapted material;
+- dependency provenance and staleness triggers.
 
 Exit: G1 passes.
 
@@ -36,8 +39,9 @@ eligible knowledge
 → candidate
 → concept graph
 → learning outcomes
+→ evidence-bounded instructional strategy selection
 → lesson/lab/assessment specs
-→ provenance manifest
+→ provenance + dependency manifest
 → pilot
 → promotion
 ```
@@ -56,8 +60,10 @@ Define the minimum durable artifacts for one product:
 - curriculum;
 - lesson specs;
 - lab specs;
-- assessment spec;
-- source/license manifest;
+- assessment spec with interpretation/validity boundary;
+- accessibility/inclusion profile;
+- source/rights manifest;
+- knowledge dependency manifest;
 - pilot receipt;
 - release receipt.
 
@@ -68,11 +74,14 @@ Exit: G3 passes.
 Define how we falsify a product before release:
 
 - can target learners complete the tasks?
-- do assessments test transfer, not recall only?
+- do assessments test the declared capability rather than recall only?
 - where do learners get stuck?
 - which outcomes were not demonstrated?
 - what changes after feedback?
 - what evidence is sufficient for promotion?
+- is assessment evidence valid for the claim being made?
+- are accessibility barriers construct-irrelevant?
+- what learner data is actually necessary and how is it protected?
 
 Exit: G4 passes.
 
@@ -92,11 +101,14 @@ Candidate surfaces:
 
 - learning outcome taxonomy;
 - prerequisite/dependency model;
+- instructional-strategy applicability;
 - lesson archetypes;
 - lab archetypes;
 - assessment types;
 - misconception patterns;
 - evidence classes;
+- accessibility profiles;
+- rights/dependency metadata;
 - product lifecycle states;
 - update/versioning semantics.
 
@@ -104,6 +116,6 @@ MK1 does **not** activate until MK0 closure.
 
 ## First dogfood
 
-Candidate domains may include `agent-engineering`, `web-design`, `ux-laws` or another sufficiently mature area.
+Candidate domains may include `agent-engineering`, `jett-engineering-method` or another domain with a bounded eligible slice.
 
-Selection is evidence-driven. No candidate is pre-approved merely because it seems marketable.
+Selection is evidence-driven. No entire domain is pre-approved merely because it seems mature or marketable.
