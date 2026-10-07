@@ -35,13 +35,15 @@ DOGFOOD-001 selects Future Wardrobe RC1 and defines the first adaptation experim
 
 ## MK1 — Normalize, Classify & Dogfood
 
-Status: **READY**
+Status: **ACTIVE — DOGFOOD-001**
 
 ### P0 — DOGFOOD-001 B0 recovery baseline
 
+Status: **PASS / CAPTURED 2026-10-07**
+
 Target: `Em3rc0d/Future-Wardrobe`.
 
-Remain read-only.
+Executed read-only.
 
 Measure:
 
@@ -53,7 +55,23 @@ Measure:
 - earliest incomplete/invalidated node;
 - evidence that appears reusable vs stale.
 
+Result:
+
+- repository identities unchanged from admission;
+- product/design/architecture reused without replay;
+- earliest invalid node = `TEST / PROVE`;
+- Supabase staging operational state invalidated (`ACTIVE_HEALTHY → INACTIVE`);
+- Railway worker currently not live and configured behind RC1;
+- exact RC1 Vercel build failure isolated;
+- GitHub Actions pre-execution failure revalidated;
+- B0 artifact count = 43 material source/state surfaces;
+- elapsed recovery time = `UNKNOWN` because it was not instrumented prospectively.
+
+Artifacts: `mk/MK1/DOGFOOD-001-B0-RECOVERY.md`, `DOGFOOD-001-WORK-CONTRACT.md`, `DOGFOOD-001-STATE.json`.
+
 ### P1 — Normalize from real pressure
+
+Status: **IN PROGRESS / MINIMUM STATE MATERIALIZED**
 
 Only normalize schemas required by DOGFOOD-001:
 
@@ -68,6 +86,10 @@ Only normalize schemas required by DOGFOOD-001:
 Do not normalize fields with no observed consumer.
 
 ### P2 — F1 execution
+
+Status: **READY / WAITS ON EXACT MUTATION AUTHORITY**
+
+First slice: **Vercel web deployment reconciliation** from exact RC1 head. Reuse only the proven web-only deployment mechanism from the divergent preview branch; preserve frozen-lockfile discipline and do not widen scope.
 
 Run Future Wardrobe from the recovered current node through the minimum justified workflow.
 
