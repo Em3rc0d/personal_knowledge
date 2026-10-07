@@ -1,6 +1,6 @@
 # EM3RC0D Foundry
 
-Status: **MK0 CLOSED · MK1 DOGFOOD ADMITTED**
+Status: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
 
 EM3RC0D Foundry is the operating system for turning evidence, design intelligence, reusable engineering assets and product work into a compounding product factory.
 
@@ -90,7 +90,7 @@ MK0 closed after:
 
 ## Current next stage
 
-MK1 is admitted for dogfood against `Future-Wardrobe`.
+MK1 is active against `Future-Wardrobe`. B0 read-only recovery is captured; F1 is routed to the first invalid node (`TEST / PROVE`) and has not started source mutation.
 
 The active source of truth for execution state is `STATUS.md` + `ROADMAP.md`. MK1 exists to falsify/refine the generated Foundry model on real work; it does not retroactively validate MK0 architecture candidates.
 
@@ -104,3 +104,4 @@ See:
 - quarries/railly-skills/
 - architecture/
 - mk/MK0/
+- mk/MK1/
