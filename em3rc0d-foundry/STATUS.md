@@ -19,8 +19,14 @@ State: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
 | Earliest invalid node | TEST / PROVE — deployment/environment reproduction |
 | F1 Vercel web slice | PASS / BOUNDED |
 | F1 branch | `foundry/dogfood001-f1-vercel-web@f443743...` |
-| Next F1 boundary | Railway media-worker exact-RC1 reconciliation |
-| Railway mutation authority | PENDING |
+| Railway read-only diagnosis | COMPLETE |
+| Railway executable drift | NONE OBSERVED — README-only since configured SHA |
+| Historical worker build | PASS |
+| Historical worker readiness | FAIL |
+| Current canonical Supabase staging | INACTIVE |
+| Railway Supabase target | UNKNOWN — OAuth-redacted |
+| Next F1 boundary | Reactivate canonical staging + verify Railway target identity |
+| Supabase/Railway mutation authority | PENDING |
 | F2 recovery comparison | BLOCKED BY F1 |
 | MK1 verdict | OPEN |
 
@@ -137,11 +143,20 @@ Receipt: `mk/MK1/DOGFOOD-001-F1-VERCEL.md`.
 
 F1 remains in `TEST / PROVE`.
 
-The next unresolved boundary is:
+The Railway boundary has now been diagnosed read-only.
 
-> **Railway media-worker exact-RC1 reconciliation**
+Key result:
 
-Next slice must first determine the smallest safe Railway action from current provider state and exact RC1 worker contracts. A redeploy is not assumed.
+- configured Railway source SHA is behind RC1 by identity, but no executable worker-code drift was found;
+- historical worker build passed;
+- historical failure occurred at `/ready`;
+- `/ready` deliberately depends on local background removal **and** the Supabase worker loop;
+- canonical staging `mcpygkebzetgzauelgjf` is currently INACTIVE;
+- current Railway `SUPABASE_URL` value cannot be verified because connector access is redacted.
+
+The next unresolved boundary is therefore:
+
+> **Reactivate canonical Supabase staging + verify Railway target identity before redeploy**
 
 No merge, production alias, Railway redeploy, Supabase mutation, mobile release or product redesign is currently implied.
 
@@ -152,6 +167,8 @@ No merge, production alias, Railway redeploy, Supabase mutation, mobile release 
 - `mk/MK1/DOGFOOD-001-B0-RECOVERY.md` — baseline receipt.
 - `mk/MK1/DOGFOOD-001-WORK-CONTRACT.md` — compact re-entry contract.
 - `mk/MK1/DOGFOOD-001-STATE.json` — machine-readable exact state.
+- `mk/MK1/DOGFOOD-001-F1-VERCEL.md` — bounded Vercel execution receipt.
+- `mk/MK1/DOGFOOD-001-F1-RAILWAY-DIAGNOSIS.md` — read-only worker/dependency diagnosis.
 
 ## What is not claimed
 
