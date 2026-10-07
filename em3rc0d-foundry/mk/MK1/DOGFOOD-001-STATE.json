@@ -1,0 +1,76 @@
+{
+  "schema": "dogfood-state-0.1-candidate",
+  "experiment": "DOGFOOD-001",
+  "phase": "B0_CAPTURED",
+  "observed_at": "2026-10-07",
+  "target": {
+    "repository": "Em3rc0d/Future-Wardrobe",
+    "main_sha": "686160ff6ccca52943b6b39ef787a9efb045be87",
+    "rc1_branch": "astra/release-rc1",
+    "rc1_sha": "a80f1aacc4936ce6329f0e71b499d371086be6fa",
+    "preview_branch": "astra/release-rc1-vercel-preview",
+    "preview_sha": "84e0f4291b13ddf05eb6c9697c0127edc7b53560",
+    "pr": 8,
+    "pr_state": "OPEN_DRAFT"
+  },
+  "graph": {
+    "research_frame": "REUSE",
+    "brainstorm": "REUSE",
+    "design": "REUSE",
+    "architecture": "REUSE",
+    "plan_slice": "REUSE",
+    "build": "PARTIAL",
+    "test_prove": "INVALID_CURRENT_BOUNDARY",
+    "independent_review": "NOT_REACHED",
+    "package_evidence": "PARTIAL",
+    "human_promotion": "BLOCKED",
+    "deliver": "BLOCKED"
+  },
+  "current_external_state": {
+    "github_actions": {
+      "verdict": "PRE_EXECUTION_FAILURE",
+      "exact_rc1_jobs_inspected": 28,
+      "executed_steps": 0
+    },
+    "vercel": {
+      "project": "future-wardrobe",
+      "rc1_exact_sha_state": "ERROR",
+      "preview_exact_sha_state": "READY",
+      "production_main_state": "READY",
+      "next_boundary": "WEB_ONLY_BUILD"
+    },
+    "supabase": {
+      "project_ref": "mcpygkebzetgzauelgjf",
+      "historical_state": "ACTIVE_HEALTHY",
+      "current_state": "INACTIVE",
+      "historical_migration_rls_receipts_reusable": true,
+      "current_operational_gate": "INVALIDATED"
+    },
+    "railway": {
+      "project": "future-wardrobe-rc1",
+      "service": "media-worker",
+      "current_live_state": "NO_SUCCESSFUL_CURRENT_DEPLOYMENT",
+      "configured_source_sha": "c7da19173a6f8f7f36f4930f7359e5e61fab7acb",
+      "exact_rc1_sha": "a80f1aacc4936ce6329f0e71b499d371086be6fa",
+      "source_is_stale": true
+    }
+  },
+  "baseline_metrics": {
+    "material_source_surfaces_opened": 43,
+    "recovery_elapsed_time": "UNKNOWN",
+    "future_wardrobe_mutations": 0,
+    "rework_loops": 0
+  },
+  "next_action": {
+    "stage": "TEST_PROVE",
+    "slice": "VERCEL_WEB_DEPLOYMENT_RECONCILIATION",
+    "mutation_authority": "PENDING",
+    "prohibited": [
+      "merge",
+      "production_release",
+      "production_alias_change",
+      "railway_redeploy",
+      "supabase_mutation"
+    ]
+  }
+}
