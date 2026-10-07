@@ -35,13 +35,15 @@ DOGFOOD-001 selects Future Wardrobe RC1 and defines the first adaptation experim
 
 ## MK1 — Normalize, Classify & Dogfood
 
-Status: **READY**
+Status: **ACTIVE — DOGFOOD-001**
 
 ### P0 — DOGFOOD-001 B0 recovery baseline
 
+Status: **PASS / CAPTURED 2026-10-07**
+
 Target: `Em3rc0d/Future-Wardrobe`.
 
-Remain read-only.
+Executed read-only.
 
 Measure:
 
@@ -53,7 +55,23 @@ Measure:
 - earliest incomplete/invalidated node;
 - evidence that appears reusable vs stale.
 
+Result:
+
+- repository identities unchanged from admission;
+- product/design/architecture reused without replay;
+- earliest invalid node = `TEST / PROVE`;
+- Supabase staging operational state invalidated (`ACTIVE_HEALTHY → INACTIVE`);
+- Railway worker currently not live and configured behind RC1;
+- exact RC1 Vercel build failure isolated;
+- GitHub Actions pre-execution failure revalidated;
+- B0 artifact count = 43 material source/state surfaces;
+- elapsed recovery time = `UNKNOWN` because it was not instrumented prospectively.
+
+Artifacts: `mk/MK1/DOGFOOD-001-B0-RECOVERY.md`, `DOGFOOD-001-WORK-CONTRACT.md`, `DOGFOOD-001-STATE.json`.
+
 ### P1 — Normalize from real pressure
+
+Status: **IN PROGRESS / MINIMUM STATE MATERIALIZED**
 
 Only normalize schemas required by DOGFOOD-001:
 
@@ -68,6 +86,33 @@ Only normalize schemas required by DOGFOOD-001:
 Do not normalize fields with no observed consumer.
 
 ### P2 — F1 execution
+
+Status: **ACTIVE**
+
+Slice 1 — **Vercel web deployment reconciliation**: **PASS / BOUNDED**.
+
+Evidence:
+
+- final F1 SHA `f443743eb41226fb799624a146eddf7ceb9aa1f6`;
+- frozen lockfile PASS;
+- web-only build PASS;
+- Vercel preview READY;
+- root + health endpoint HTTP 200.
+
+Slice 2 — **Railway media-worker exact-RC1 reconciliation**: **READ-ONLY DIAGNOSIS COMPLETE**.
+
+Result:
+
+- no executable worker drift observed between configured SHA and RC1;
+- historical build PASS;
+- historical readiness FAIL;
+- Railway healthcheck `/ready` requires Supabase worker-loop success;
+- canonical staging is currently INACTIVE;
+- actual Railway Supabase target is UNKNOWN because connector values are redacted.
+
+Slice 3 candidate — **canonical staging reactivation + Railway target verification**: **NEXT / mutation authority pending**.
+
+Do not redeploy the worker until this precondition is resolved.
 
 Run Future Wardrobe from the recovered current node through the minimum justified workflow.
 

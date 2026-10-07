@@ -6,6 +6,10 @@
 - Execution plan: ROADMAP.md
 - Authority and provenance: REPOSITORY_CONTRACT.md
 - Machine retrieval contract: LLM_CONTEXT.md
+- Active experiment: mk/MK1/README.md
+- Current DOGFOOD-001 work contract: mk/MK1/DOGFOOD-001-WORK-CONTRACT.md
+- Exact re-entry state: mk/MK1/DOGFOOD-001-STATE.json
+- B0 recovery evidence: mk/MK1/DOGFOOD-001-B0-RECOVERY.md
 - MK0 closure: mk/MK0/GATES.md
 
 ## Sources
@@ -56,6 +60,15 @@ These are GENERATED/INSPIRED during MK0. They are not yet a runtime specificatio
 - mk/MK0/GATES.md
 - mk/MK0/UNKNOWNS.md
 - mk/MK0/DISTILLATION_LEDGER.md
+
+## MK1 dogfood
+
+- `mk/MK1/README.md` — current experiment router.
+- `mk/MK1/DOGFOOD-001-STATE.json` — compact exact state; preferred F2 re-entry surface.
+- `mk/MK1/DOGFOOD-001-WORK-CONTRACT.md` — current outcome, boundary, acceptance and authority.
+- `mk/MK1/DOGFOOD-001-B0-RECOVERY.md` — deep B0 evidence; open only when provenance/detail is required.
+- `mk/MK1/DOGFOOD-001-F1-VERCEL.md` — executed Vercel web slice; exact failure/pass evidence.
+- `mk/MK1/DOGFOOD-001-F1-RAILWAY-DIAGNOSIS.md` — current worker readiness/dependency evidence.
 
 ## Retrieval rule
 
