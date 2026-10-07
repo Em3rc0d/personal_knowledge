@@ -11,6 +11,7 @@ No intenta medir actividad total. Registra evidencia suficiente para estudiar si
 | KU-003 | 2026-10-07 | Portfolio production-state sync | Foundry re-entry + exact-state evidence + authority boundaries | HELPED | runtime change avoided; one-file evidence repair; time saved UNKNOWN | [receipt](./2026/KU-003-portfolio-production-state-sync.md) |
 | KU-004 | 2026-10-07 | Portfolio compact re-entry | DOGFOOD-002 exact state + fresh PR/check status | HELPED | deep history/source replay avoided; time saved UNKNOWN | [receipt](./2026/KU-004-portfolio-compact-reentry.md) |
 | KU-005 | 2026-10-07 | Portfolio flagship claim audit | source precedence + claim <= evidence + minimal mutation | HELPED | 2 KEEP / 1 CORRECT; one-file fix; time saved UNKNOWN | [receipt](./2026/KU-005-portfolio-flagship-claim-audit.md) |
+| KU-006 | 2026-10-07 | Portfolio promotion authority feedback | exact-state + live-authority separation | HELPED | self-invalidating current-SHA pattern removed; time saved UNKNOWN | [receipt](./2026/KU-006-portfolio-promotion-authority-feedback.md) |
 
 ## Reading rule
 
