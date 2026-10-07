@@ -1,0 +1,93 @@
+{
+  "schema": "dogfood-state-0.1-candidate",
+  "experiment": "DOGFOOD-002",
+  "target": "Em3rc0d/em3rc0d-portfolio",
+  "observed_at": "2026-10-07",
+  "user_constraint": "DO_NOT_TOUCH_PREEXISTING_LATEST_BRANCH",
+  "mutation_policy": "NEW_BRANCH_FROM_MAIN_ONLY",
+  "baseline": {
+    "main_sha": "514e9acea5ae1692c62ccfd86f0eace7ed886357",
+    "production_deployment": "dpl_4iTZn73nKAQvLKGsqQCgVSMEfQ6S",
+    "production_state": "READY",
+    "production_http": 200,
+    "exact_main_quality_run": 36730970268,
+    "exact_main_quality_result": "SUCCESS"
+  },
+  "finding": {
+    "earliest_invalid_node": "EVIDENCE_CURRENT_STATE_SYNC",
+    "stale_document": "PROJECT_STATE.md",
+    "stale_authority_sha": "bed2449a4829be5f44dabed2c6a6b8dbaf0638a4",
+    "commits_between_historical_and_current": 46,
+    "runtime_defect_observed": false
+  },
+  "f1": {
+    "branch": "foundry/dogfood002-project-state-sync",
+    "base": "main",
+    "head_sha": "f7deb278377ba7e57eb23bd425e787262ad44ccb",
+    "changed_files": [
+      "PROJECT_STATE.md"
+    ],
+    "pr": 39,
+    "pr_state": "OPEN_READY_FOR_REVIEW",
+    "hosted_gates": {
+      "portfolio_ci": {
+        "run": 37697919701,
+        "result": "PASS"
+      },
+      "v2_experience_quality": {
+        "run": 37697919696,
+        "result": "PASS"
+      }
+    },
+    "merge_authority": "NOT_AUTHORIZED",
+    "mergeable": true,
+    "scope": [
+      "sync current production authority",
+      "sync current runtime flagship routing"
+    ]
+  },
+  "f2": {
+    "mode": "ARTIFACT_SUFFICIENCY_CHECK",
+    "verdict": "PASS_BOUNDED",
+    "deep_product_history_reopened": false,
+    "runtime_source_reopened": false,
+    "next_action": "HUMAN_REVIEW_PR_39",
+    "merge_authority": "NOT_AUTHORIZED",
+    "note": "Initial compact re-entry was performed before the second PROJECT_STATE.md synchronization commit. The final PR head was revalidated on exact SHA f7deb278... and both hosted gates passed; deep product/runtime history still did not need reopening."
+  },
+  "f3": {
+    "mode": "PUBLIC_CLAIM_AUDIT",
+    "audited_flagships": [
+      "PlacaClara",
+      "AutoPulse",
+      "ECHO"
+    ],
+    "dispositions": {
+      "PlacaClara": "KEEP",
+      "AutoPulse": "KEEP",
+      "ECHO": "CORRECT"
+    },
+    "echo_fix": {
+      "branch": "foundry/dogfood002-echo-claim-sync",
+      "head_sha": "071c3d600a38ebbd746dc840f9feff85269524b7",
+      "changed_files": [
+        "src/content/systems/echo.ts"
+      ],
+      "pr": 40,
+      "pr_state": "OPEN_READY_FOR_REVIEW",
+      "hosted_gates": {
+        "portfolio_ci": {
+          "run": 37698068421,
+          "result": "PASS"
+        },
+        "v2_experience_quality": {
+          "run": 37698068433,
+          "result": "PASS"
+        }
+      },
+      "mergeable": true
+    },
+    "merge_authority": "NOT_AUTHORIZED",
+    "next_action": "HUMAN_REVIEW_PR_40"
+  }
+}

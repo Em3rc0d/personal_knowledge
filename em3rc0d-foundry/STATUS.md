@@ -1,7 +1,7 @@
 # EM3RC0D Foundry — Status
 
 Updated: 2026-10-07
-State: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
+State: **MK0 CLOSED · MK1 ACTIVE / MULTI-DOGFOOD**
 
 ## Current truth
 
@@ -28,6 +28,19 @@ State: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
 | Next F1 boundary | Reactivate canonical staging + verify Railway target identity |
 | Supabase/Railway mutation authority | PENDING |
 | F2 recovery comparison | BLOCKED BY F1 |
+| DOGFOOD-001 execution | HOLD — Supabase/Railway over quota / staging inactive |
+| DOGFOOD-002 target | em3rc0d-portfolio |
+| DOGFOOD-002 B0 | PASS |
+| DOGFOOD-002 earliest invalid node | EVIDENCE / CURRENT-STATE SYNCHRONIZATION |
+| DOGFOOD-002 safe branch | `foundry/dogfood002-project-state-sync` |
+| DOGFOOD-002 runtime mutation | NONE |
+| DOGFOOD-002 hosted gates | Portfolio CI PASS · V2 Experience Quality PASS |
+| DOGFOOD-002 PR #39 | OPEN · READY FOR REVIEW · MERGEABLE |
+| DOGFOOD-002 F2 compact re-entry | PASS / BOUNDED |
+| DOGFOOD-002 F3 claim audit | PASS / 2 KEEP · 1 CORRECT |
+| Portfolio PR #39 | READY FOR REVIEW · exact-head gates PASS |
+| Portfolio PR #40 | READY FOR REVIEW · exact-head gates PASS |
+| DOGFOOD-002 next boundary | HUMAN REVIEW / PROMOTION |
 | MK1 verdict | OPEN |
 
 ## DOGFOOD-001 exact source state
@@ -178,3 +191,100 @@ No merge, production alias, Railway redeploy, Supabase mutation, mobile release 
 - The Product Graph and Artifact Model are still candidates under pressure.
 - F1 Vercel source mutation is bounded and verified; this does not promote full RC1 readiness.
 - F2 is the first direct recovery-burden comparison against the new artifacts.
+
+
+## DOGFOOD-002 — em3rc0d Portfolio
+
+User constraint: do not touch the latest/pre-existing portfolio branch.
+
+Implemented authority boundary:
+
+- no existing portfolio branch mutated;
+- baseline read from stable `main@514e9acea5ae1692c62ccfd86f0eace7ed886357`;
+- current Vercel production is READY on the same SHA;
+- exact-main V2 Experience Quality run `36730970268` is SUCCESS;
+- production origin re-observed HTTP 200.
+
+B0 found no runtime defect. The first invalid node was stale current-state evidence: `PROJECT_STATE.md` still pointed at the original V2 release identity `bed2449...` as current production authority.
+
+A new isolated branch `foundry/dogfood002-project-state-sync` changes only `PROJECT_STATE.md`. Draft PR #39 is open; merge and production remain unauthorized.
+
+This experiment specifically tests whether Foundry can choose **evidence repair instead of code change** when runtime truth is already healthy.
+
+
+## DOGFOOD-002 F2 — compact re-entry
+
+F2 was executed as an **artifact sufficiency check**, not as a fabricated independent-session timing benchmark.
+
+Using the compact DOGFOOD-002 state plus current PR/check status was sufficient to recover:
+
+- exact baseline/main identity;
+- safe isolated branch;
+- one-file mutation surface;
+- both hosted gates PASS;
+- PR #39 READY FOR REVIEW / MERGEABLE;
+- runtime unchanged;
+- merge authority still absent.
+
+No product/design/runtime history needed to be reopened to determine the next safe action.
+
+Current boundary:
+
+> **Human review / promotion of PR #39**
+
+This is a valid stop condition. Foundry must not invent another implementation task simply because a bounded slice is green.
+
+
+## DOGFOOD-002 F3 — public flagship claim audit
+
+The current runtime flagships were checked against current source/project truth.
+
+### PlacaClara
+
+`KEEP`
+
+Fresh Vercel evidence shows production `READY` on exact current `main@9f6797c...`, so an older operational document saying SEO/funnel promotion was pending is stale and does not justify downgrading the current public claim.
+
+### AutoPulse
+
+`KEEP`
+
+The portfolio's bounded field-tested/R&D language remains below the current AutoPulse evidence ceiling. Public v1 is still explicitly uncertified.
+
+### ECHO
+
+`CORRECT`
+
+Portfolio wording overstated current execution by calling the MVP/replay runtime active.
+
+Canonical ECHO state currently has corpus readiness fail-closed, `modeling_allowed=false`, Benchmark A/B/C locked, and replay/real-camera progression blocked until corpus certification.
+
+Portfolio PR #40 corrects only `src/content/systems/echo.ts`.
+
+Exact head:
+
+`071c3d600a38ebbd746dc840f9feff85269524b7`
+
+Hosted gates:
+
+- Portfolio CI `37698068421` — PASS;
+- V2 Experience Quality `37698068433` — PASS.
+
+PR #40 is OPEN / READY FOR REVIEW / MERGEABLE.
+
+## DOGFOOD-002 stop condition
+
+No additional implementation slice is currently justified.
+
+The useful outputs are already bounded and independently reviewable:
+
+1. PR #39 — current production + flagship authority sync.
+2. PR #40 — ECHO public-claim correction.
+
+Both are exact-head green and neither is merged.
+
+Current boundary:
+
+> **HUMAN REVIEW / PROMOTION**
+
+Foundry should stop here unless review evidence or a new scoped requirement opens another node.
