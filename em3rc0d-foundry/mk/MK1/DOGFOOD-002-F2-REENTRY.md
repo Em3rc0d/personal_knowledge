@@ -135,3 +135,14 @@ The F2 conclusion remains boundedly unchanged:
 - the slice still changes only `PROJECT_STATE.md`;
 - the next action remains human review/promotion;
 - merge authority remains absent.
+
+
+## Promotion outcome
+
+The human-promotion boundary was later crossed under explicit user authority.
+
+PR #39 merged as `d573bf449e077c417ead25a5a80ec35bd036063e`.
+
+This validates that the bounded re-entry path can terminate in an authorized promotion. It does not convert F2 into an independently timed recovery benchmark.
+
+Promotion then exposed a separate authority-model defect: a static exact SHA labeled “current production” can self-invalidate when its own documentation merge changes `main`. That feedback was corrected in PR #41 rather than hidden inside the F2 result.
