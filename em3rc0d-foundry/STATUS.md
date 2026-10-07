@@ -1,7 +1,7 @@
 # EM3RC0D Foundry — Status
 
-Updated: 2026-09-22
-State: **MK0 CLOSED · MK1 DOGFOOD ADMITTED**
+Updated: 2026-10-07
+State: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
 
 ## Current truth
 
@@ -9,68 +9,141 @@ State: **MK0 CLOSED · MK1 DOGFOOD ADMITTED**
 |---|---|
 | Railly/skills raw snapshot | PASS — exact upstream tree preserved |
 | Upstream provenance and MIT license | PASS |
-| Repository structural inventory | PASS |
 | Core Foundry governance | DISTILLED |
-| 20 registered skill contracts | DISTILLED by functional family |
-| Eval/trigger contracts | DISTILLED |
-| Promotion rounds and lifecycle history | DISTILLED |
-| Compiled knowledge layer | DISTILLED |
-| Work-item manifest / exact-state machinery | DISTILLED |
-| Review gate catalog | DISTILLED at architecture/rule-family level |
-| Cases corpus | INVENTORIED + representative lessons traced |
-| Run corpus | INVENTORIED by run family; not every historical run re-narrated |
-| Railly-specific runtime dependencies | SEPARATED from portable mechanisms |
-| Initial EM3RC0D Foundry model | GENERATED / not validated |
-| First real EM3RC0D dogfood | FUTURE WARDROBE RC1 selected |
+| Initial EM3RC0D Foundry model | GENERATED / under dogfood |
 | MK0 closure | PASS |
-| MK1 execution | READY TO START |
+| DOGFOOD-001 target | Future Wardrobe RC1 |
+| B0 read-only recovery | PASS / CAPTURED |
+| B0 Work Contract | CAPTURED |
+| B0 machine state | CAPTURED / candidate schema |
+| Earliest invalid node | TEST / PROVE — deployment/environment reproduction |
+| F1 first slice | Vercel web deployment reconciliation |
+| F1 Future Wardrobe mutation | NOT STARTED / exact action authority pending |
+| F2 recovery comparison | BLOCKED BY F1 |
+| MK1 verdict | OPEN |
 
-## Corpus identity
+## DOGFOOD-001 exact source state
 
-Source: Railly/skills
-Commit: 77fdde3e8d7e13b7c27c7660f7c15619839e38af
-Root tree: 701944bade5f718381446a7cd9224ed01ea1f952
-Raw snapshot: ../research-corpora/railly-skills-2026-09-22/upstream/
+Observed 2026-10-07:
 
-## DOGFOOD-001
+- Future Wardrobe `main`: `686160ff6ccca52943b6b39ef787a9efb045be87`
+- RC1: `astra/release-rc1@a80f1aacc4936ce6329f0e71b499d371086be6fa`
+- preview: `astra/release-rc1-vercel-preview@84e0f4291b13ddf05eb6c9697c0127edc7b53560`
+- PR #8 remains OPEN / DRAFT;
+- `ENGINEERING_READY=NO`;
+- `RELEASE_READY=NO`.
 
-Target: `Em3rc0d/Future-Wardrobe`.
+These repository identities are unchanged from DOGFOOD admission.
 
-Observed GitHub state at admission:
+## B0 current-state findings
 
-- `main`: `686160ff6ccca52943b6b39ef787a9efb045be87`
-- `astra/release-rc1`: `a80f1aacc4936ce6329f0e71b499d371086be6fa`
-- `astra/release-rc1-vercel-preview`: `84e0f4291b13ddf05eb6c9697c0127edc7b53560`
-- draft PR #8 remains open;
-- PR body explicitly says `ENGINEERING_READY=NO` and `RELEASE_READY=NO`.
+### Reused without replay
 
-The selection does not grant mutation or release authority. First phase is read-only recovery and B0 baseline capture.
+No current evidence invalidated the frozen product definition, durable domain invariants, RC1 scope or production architecture.
 
-Dogfood contract: `mk/MK0/DOGFOOD-001-FUTURE-WARDROBE.md`.
+Therefore:
 
-## Why Future Wardrobe first
+```text
+RESEARCH / FRAME   REUSE
+BRAINSTORM         REUSE
+DESIGN             REUSE
+ARCHITECTURE       REUSE
+PLAN / RC1 SCOPE   REUSE
+BUILD              PARTIAL
+TEST / PROVE       FIRST INVALID NODE
+```
 
-The first test should stress the claims that distinguish a Foundry from a template generator:
+### GitHub Actions
 
-- recover a complex existing project;
-- distinguish historical prose from current state;
-- resume at the earliest valid node;
-- reuse or invalidate exact-state evidence;
-- route conditional risk/design gates;
-- preserve human promotion boundaries.
+Exact RC1 head was rechecked.
 
-PocketFinances remains useful as a later greenfield comparison after the recovery-oriented mechanisms survive DOGFOOD-001.
+Latest push and PR quality runs each expose 14 failed jobs with no executed workflow steps.
+
+Current interpretation:
+
+`PRE_EXECUTION_CI_FAILURE`
+
+This is not application-test failure and is not a PASS.
+
+### Vercel
+
+Current evidence:
+
+- `main@686160f...` production deployment: READY;
+- exact `RC1@a80f1aa...`: ERROR;
+- exact preview branch `84e0f42...`: READY.
+
+The exact RC1 Vercel build reaches package installation/build and fails when the root Turbo build invokes Expo mobile web export without `react-native-web`.
+
+The READY preview branch contains a useful web-only Vercel build boundary, but the branch is materially divergent and must not be merged wholesale.
+
+### Supabase
+
+Historical staging receipt observed `ACTIVE_HEALTHY`.
+
+Current connector state for `future-wardrobe-rc1-staging` / `mcpygkebzetgzauelgjf` is:
+
+`INACTIVE`
+
+Historical migration/RLS evidence remains historical exact-state evidence; current staging-operational readiness is invalidated.
+
+### Railway
+
+Current project/service exist, but:
+
+- no successful current worker deployment is live;
+- latest live-status deployment is FAILED;
+- later deployments are REMOVED;
+- service config references `c7da191...`, behind exact RC1 `a80f1aa...`.
+
+Current interpretation:
+
+`WORKER_DEPLOYMENT_READY=NO`
+
+## Baseline coordination evidence
+
+B0 required reconciliation across **43 material source/state surfaces**.
+
+```yaml
+material_source_surfaces_opened: 43
+recovery_elapsed_time: UNKNOWN
+future_wardrobe_mutations: 0
+rework_loops: 0
+human_decisions_during_b0: 0
+```
+
+Elapsed recovery time was not instrumented from the beginning and will not be invented retroactively.
+
+## Exact next action
+
+F1 begins at:
+
+> **TEST / PROVE — Vercel web deployment reconciliation**
+
+Candidate slice:
+
+1. branch from exact RC1 head;
+2. adapt only the proven web-only Vercel deployment boundary;
+3. preserve frozen-lockfile discipline;
+4. do not merge the divergent preview branch wholesale;
+5. verify a preview from the exact new source identity;
+6. record what that preview proves and does not prove.
+
+No merge, production alias, Railway redeploy, Supabase mutation, mobile release or product redesign is implied.
+
+## Active artifacts
+
+- `mk/MK0/DOGFOOD-001-FUTURE-WARDROBE.md` — experiment contract.
+- `mk/MK1/README.md` — active MK1 experiment router.
+- `mk/MK1/DOGFOOD-001-B0-RECOVERY.md` — baseline receipt.
+- `mk/MK1/DOGFOOD-001-WORK-CONTRACT.md` — compact re-entry contract.
+- `mk/MK1/DOGFOOD-001-STATE.json` — machine-readable exact state.
 
 ## What is not claimed
 
-MK0 closure means the research/frame package is sufficient to run an experiment.
-
-It does **not** mean:
-
-- the Foundry architecture is validated;
-- the Product Graph is final;
-- all proposed artifacts are worth their cost;
-- Future Wardrobe is engineering- or release-ready;
-- Railly maturity transfers to EM3RC0D.
-
-MK1 exists to falsify those assumptions on real work.
+- Foundry compounding is not yet demonstrated.
+- B0 does not prove faster recovery.
+- Future Wardrobe is not engineering-ready or release-ready.
+- The Product Graph and Artifact Model are still candidates under pressure.
+- F1 source mutation has not started.
+- F2 is the first direct recovery-burden comparison against the new artifacts.
