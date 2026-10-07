@@ -13,10 +13,11 @@ The first pressure test is Future Wardrobe RC1.
 Current phase:
 
 ```text
-B0 recovery baseline  ✅ captured
-F1 Foundry run        🔒 next exact mutation not yet promoted
-F2 recovery test      🔒 waits on F1
-MK1 verdict           🔒 waits on evidence
+B0 recovery baseline      ✅ captured
+F1 / Vercel web slice     ✅ PASS / bounded
+F1 / Railway boundary     🔒 next exact action pending
+F2 recovery test          🔒 waits on F1
+MK1 verdict               🔒 waits on evidence
 ```
 
 ## Active artifacts
@@ -24,6 +25,7 @@ MK1 verdict           🔒 waits on evidence
 - `DOGFOOD-001-B0-RECOVERY.md` — observed recovery baseline.
 - `DOGFOOD-001-WORK-CONTRACT.md` — compact current-state contract and exact next action.
 - `DOGFOOD-001-STATE.json` — machine-readable state for later re-entry.
+- `DOGFOOD-001-F1-VERCEL.md` — executed first F1 slice and bounded proof.
 
 ## Constraint
 
