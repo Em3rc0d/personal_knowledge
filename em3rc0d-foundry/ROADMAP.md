@@ -99,9 +99,20 @@ Evidence:
 - Vercel preview READY;
 - root + health endpoint HTTP 200.
 
-Slice 2 candidate — **Railway media-worker exact-RC1 reconciliation**: **NEXT / mutation authority pending**.
+Slice 2 — **Railway media-worker exact-RC1 reconciliation**: **READ-ONLY DIAGNOSIS COMPLETE**.
 
-Do not assume redeploy is the correct action; first isolate the exact current worker failure boundary.
+Result:
+
+- no executable worker drift observed between configured SHA and RC1;
+- historical build PASS;
+- historical readiness FAIL;
+- Railway healthcheck `/ready` requires Supabase worker-loop success;
+- canonical staging is currently INACTIVE;
+- actual Railway Supabase target is UNKNOWN because connector values are redacted.
+
+Slice 3 candidate — **canonical staging reactivation + Railway target verification**: **NEXT / mutation authority pending**.
+
+Do not redeploy the worker until this precondition is resolved.
 
 Run Future Wardrobe from the recovered current node through the minimum justified workflow.
 
