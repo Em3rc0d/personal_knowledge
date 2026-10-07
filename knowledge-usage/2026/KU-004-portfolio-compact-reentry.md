@@ -79,3 +79,10 @@ It does not yet prove quantitative compounding.
 - `KEEP` — revalidate drift-prone external surfaces rather than all history.
 - `KEEP` — human promotion as valid terminal boundary.
 - `NO_CHANGE` — no new schema required from this case.
+
+
+## Promotion addendum
+
+The human-promotion boundary was later crossed. This confirms that the compact routing path can terminate in an authorized merge, but it does not convert this receipt into a timed recovery benchmark.
+
+A later promotion feedback loop found the static-current-SHA problem and corrected it separately; KU-004 remains scoped to context recovery and routing.
