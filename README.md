@@ -42,6 +42,28 @@ next MK / iterate / hold / kill
 
 Este flujo expresa madurez epistemológica y de ingeniería; no exige crear burocracia o archivos vacíos cuando una fase no aporta valor.
 
+## Hipótesis operativa
+
+`personal_knowledge` está construido para probar una hipótesis:
+
+> **El conocimiento versionado, trazable y reutilizable puede reducir la reconstrucción, rediscovery y repetición de decisiones en trabajo futuro, y eventualmente convertirse en capital intelectual productizable.**
+
+No se considera demostrada por la cantidad de archivos ni por la calidad de la documentación.
+
+La evidencia debe aparecer cuando conocimiento previo sea **consumido por trabajo posterior**:
+
+```text
+knowledge created
+      ↓
+knowledge reused
+      ↓
+less rediscovery / repeated decisions / rework
+      ↓
+new evidence or knowledge returns to the repo
+```
+
+La capa transversal [`knowledge-usage/`](./knowledge-usage/) registra esos casos de forma ligera. No es un nuevo dominio ni un nuevo MK.
+
 ## Regla de `main`
 
 Todo conocimiento nuevo se trabaja en una branch efímera:
@@ -82,6 +104,7 @@ branch cleanup
 - `MK5+`: Certify / Refine — reproducibilidad, fixtures, contraejemplos, resiliencia y refinamiento.
 - `mining-site/`: mapa de investigación y provenance.
 - `quarries/`: extracciones concretas y evidencia procesada desde fuentes; quarry no equivale a canon.
+- `knowledge-usage/`: ledger transversal y ligero de reutilización real; registra cuándo conocimiento previo afectó trabajo posterior, qué evitó repetir, qué estaba stale y qué volvió al repositorio.
 - `jett-engineering-method/SOURCE-INTAKE-CONTRACT.md`: contrato transversal para separar pointer, identidad de fuente, acceso, captura, verificación y promoción antes de convertir una referencia externa en evidencia.
 - Un short-link, preview o snippet no equivale a contenido inspeccionado. Si la fuente no puede resolverse o revisarse, permanece `BLOCKED` / `POINTER_ONLY` y no soporta claims semánticos de canon.
 - `systems/<system>/`: vista canónica **actual** de un sistema concreto cuando el dominio ya posee evidencia suficiente para sintetizarlo sin perder el chain-of-evidence. No sustituye `quarries/` ni `mining-site/`.
