@@ -1,0 +1,132 @@
+{
+  "schema": "dogfood-state-0.1-candidate",
+  "experiment": "DOGFOOD-002",
+  "target": "Em3rc0d/em3rc0d-portfolio",
+  "observed_at": "2026-10-07",
+  "user_constraint": "DO_NOT_TOUCH_PREEXISTING_LATEST_BRANCH",
+  "mutation_policy": "NEW_BRANCH_FROM_MAIN_ONLY",
+  "baseline": {
+    "main_sha": "514e9acea5ae1692c62ccfd86f0eace7ed886357",
+    "production_deployment": "dpl_4iTZn73nKAQvLKGsqQCgVSMEfQ6S",
+    "production_state": "READY",
+    "production_http": 200,
+    "exact_main_quality_run": 36730970268,
+    "exact_main_quality_result": "SUCCESS"
+  },
+  "finding": {
+    "earliest_invalid_node": "EVIDENCE_CURRENT_STATE_SYNC",
+    "stale_document": "PROJECT_STATE.md",
+    "stale_authority_sha": "bed2449a4829be5f44dabed2c6a6b8dbaf0638a4",
+    "commits_between_historical_and_current": 46,
+    "runtime_defect_observed": false
+  },
+  "f1": {
+    "branch": "foundry/dogfood002-project-state-sync",
+    "base": "main",
+    "head_sha": "f7deb278377ba7e57eb23bd425e787262ad44ccb",
+    "changed_files": [
+      "PROJECT_STATE.md"
+    ],
+    "pr": 39,
+    "pr_state": "MERGED",
+    "hosted_gates": {
+      "portfolio_ci": {
+        "run": 37697919701,
+        "result": "PASS"
+      },
+      "v2_experience_quality": {
+        "run": 37697919696,
+        "result": "PASS"
+      }
+    },
+    "merge_authority": "USED_EXPLICIT_USER_AUTHORITY",
+    "mergeable": true,
+    "scope": [
+      "sync current production authority",
+      "sync current runtime flagship routing"
+    ],
+    "merge_commit": "d573bf449e077c417ead25a5a80ec35bd036063e"
+  },
+  "f2": {
+    "mode": "ARTIFACT_SUFFICIENCY_CHECK",
+    "verdict": "PASS_BOUNDED",
+    "deep_product_history_reopened": false,
+    "runtime_source_reopened": false,
+    "next_action": "PROMOTED",
+    "merge_authority": "USED_EXPLICIT_USER_AUTHORITY",
+    "note": "Initial compact re-entry was performed before the second PROJECT_STATE.md synchronization commit. The final PR head was revalidated on exact SHA f7deb278... and both hosted gates passed; deep product/runtime history still did not need reopening."
+  },
+  "f3": {
+    "mode": "PUBLIC_CLAIM_AUDIT",
+    "audited_flagships": [
+      "PlacaClara",
+      "AutoPulse",
+      "ECHO"
+    ],
+    "dispositions": {
+      "PlacaClara": "KEEP",
+      "AutoPulse": "KEEP",
+      "ECHO": "CORRECT"
+    },
+    "echo_fix": {
+      "branch": "foundry/dogfood002-echo-claim-sync",
+      "head_sha": "82d52ae1a5eaead9f80cfb739bd7164ac1131bef",
+      "changed_files": [
+        "src/content/systems/echo.ts"
+      ],
+      "pr": 40,
+      "pr_state": "MERGED",
+      "hosted_gates": {
+        "portfolio_ci": {
+          "run": 37700040054,
+          "result": "PASS"
+        },
+        "v2_experience_quality": {
+          "run": 37700040031,
+          "result": "PASS"
+        }
+      },
+      "mergeable": true,
+      "merge_commit": "5a0da2dd633d47530e8d88150428e717584480d6"
+    },
+    "merge_authority": "USED_EXPLICIT_USER_AUTHORITY",
+    "next_action": "PROMOTED"
+  },
+  "experiment_status": "PROMOTED_BOUNDED",
+  "f4": {
+    "mode": "PRODUCTION_AUTHORITY_MODEL_FEEDBACK",
+    "finding": "STATIC_CURRENT_SHA_SELF_INVALIDATES_WHEN_DOC_MERGE_CHANGES_MAIN",
+    "branch": "foundry/dogfood002-production-authority-model",
+    "head_sha": "210d0937a5b3190bd7092f9dec5b812fc247ad09",
+    "pr": 41,
+    "pr_state": "MERGED",
+    "changed_files": [
+      "PROJECT_STATE.md"
+    ],
+    "hosted_gates": {
+      "portfolio_ci": {
+        "run": 37700520889,
+        "result": "PASS"
+      },
+      "v2_experience_quality": {
+        "run": 37700520851,
+        "result": "PASS"
+      }
+    },
+    "merge_commit": "c898d743817d0fc6b8d9548444b166810c76ce83",
+    "correction": "Resolve mutable current authority live; keep exact identities as bounded observations."
+  },
+  "promotion": {
+    "status": "PROMOTED_BOUNDED",
+    "portfolio_main_sha": "c898d743817d0fc6b8d9548444b166810c76ce83",
+    "production_deployment": "dpl_4r3uvZA3nMbJFfiTXbFzha5pHX3G",
+    "production_state": "READY",
+    "production_git_sha": "c898d743817d0fc6b8d9548444b166810c76ce83",
+    "prs": [
+      39,
+      40,
+      41
+    ],
+    "next_action": "NONE_UNTIL_NEW_EVIDENCE_OR_FRESH_TIMED_RECOVERY"
+  }
+}

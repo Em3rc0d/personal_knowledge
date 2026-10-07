@@ -1,10 +1,13 @@
 # EM3RC0D Foundry — MK1
 
-Status: **ACTIVE — DOGFOOD-001 / B0 CAPTURED**
+Status: **ACTIVE — MULTI-DOGFOOD**
 
 MK1 exists to test the generated Foundry model against real work.
 
-The first pressure test is Future Wardrobe RC1.
+Pressure tests:
+
+1. `DOGFOOD-001` — Future Wardrobe RC1; currently HOLD on over-quota/inactive external infrastructure after bounded Vercel PASS.
+2. `DOGFOOD-002` — em3rc0d Portfolio; B0/F1/F2/F3 plus promotion feedback completed. PRs #39/#40/#41 were exact-head green and promoted; final observed production is `main@c898d743...` / Vercel READY.
 
 ## Current experiment
 
@@ -28,9 +31,20 @@ MK1 verdict               🔒 waits on evidence
 - `DOGFOOD-001-STATE.json` — machine-readable state for later re-entry.
 - `DOGFOOD-001-F1-VERCEL.md` — executed first F1 slice and bounded proof.
 - `DOGFOOD-001-F1-RAILWAY-DIAGNOSIS.md` — read-only diagnosis of worker readiness/dependency boundary.
+- `DOGFOOD-002-PORTFOLIO-B0.md` — portfolio baseline and one-file evidence-sync slice.
+- `DOGFOOD-002-STATE.json` — compact exact-state record for DOGFOOD-002.
+- `DOGFOOD-002-F2-REENTRY.md` — bounded compact re-entry sufficiency check.
+- `DOGFOOD-002-F3-CLAIM-AUDIT.md` — public flagship claim audit with KEEP/CORRECT dispositions.
 
 ## Constraint
 
 Do not expand MK1 schemas speculatively.
 
 Only add a field/artifact when DOGFOOD-001 demonstrates a consumer for it.
+
+
+## DOGFOOD-002 terminal state
+
+`PROMOTED_BOUNDED`
+
+The experiment reached a valid stop condition. It does not prove quantitative time savings. A future fresh-session recovery should be timed prospectively rather than reconstructed.

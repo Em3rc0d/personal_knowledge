@@ -1,7 +1,7 @@
 # EM3RC0D Foundry — Status
 
 Updated: 2026-10-07
-State: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
+State: **MK0 CLOSED · MK1 ACTIVE / MULTI-DOGFOOD**
 
 ## Current truth
 
@@ -28,6 +28,22 @@ State: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
 | Next F1 boundary | Reactivate canonical staging + verify Railway target identity |
 | Supabase/Railway mutation authority | PENDING |
 | F2 recovery comparison | BLOCKED BY F1 |
+| DOGFOOD-001 execution | HOLD — Supabase/Railway over quota / staging inactive |
+| DOGFOOD-002 target | em3rc0d-portfolio |
+| DOGFOOD-002 B0 | PASS |
+| DOGFOOD-002 earliest invalid node | EVIDENCE / CURRENT-STATE SYNCHRONIZATION |
+| DOGFOOD-002 safe branch | `foundry/dogfood002-project-state-sync` |
+| DOGFOOD-002 runtime mutation | NONE |
+| DOGFOOD-002 hosted gates | Portfolio CI PASS · V2 Experience Quality PASS |
+| DOGFOOD-002 PR #39 | MERGED → `d573bf449...` |
+| DOGFOOD-002 F2 compact re-entry | PASS / BOUNDED |
+| DOGFOOD-002 F3 claim audit | PASS / 2 KEEP · 1 CORRECT |
+| Portfolio PR #39 | MERGED · exact-head gates PASS |
+| Portfolio PR #40 | MERGED → `5a0da2dd...` · rebased exact-head gates PASS |
+| Portfolio PR #41 | MERGED → `c898d743...` · snapshot-safe authority model |
+| DOGFOOD-002 production | `main@c898d743...` · Vercel `dpl_4r3uv...` READY |
+| DOGFOOD-002 state | PROMOTED / BOUNDED COMPLETE |
+| DOGFOOD-002 next boundary | NONE until new evidence or fresh timed recovery |
 | MK1 verdict | OPEN |
 
 ## DOGFOOD-001 exact source state
@@ -178,3 +194,110 @@ No merge, production alias, Railway redeploy, Supabase mutation, mobile release 
 - The Product Graph and Artifact Model are still candidates under pressure.
 - F1 Vercel source mutation is bounded and verified; this does not promote full RC1 readiness.
 - F2 is the first direct recovery-burden comparison against the new artifacts.
+
+
+## DOGFOOD-002 — em3rc0d Portfolio
+
+User constraint: do not touch the latest/pre-existing portfolio branch.
+
+Implemented authority boundary:
+
+- no existing portfolio branch mutated;
+- baseline read from stable `main@514e9acea5ae1692c62ccfd86f0eace7ed886357`;
+- current Vercel production is READY on the same SHA;
+- exact-main V2 Experience Quality run `36730970268` is SUCCESS;
+- production origin re-observed HTTP 200.
+
+B0 found no runtime defect. The first invalid node was stale current-state evidence: `PROJECT_STATE.md` still pointed at the original V2 release identity `bed2449...` as current production authority.
+
+An isolated branch `foundry/dogfood002-project-state-sync` changed only `PROJECT_STATE.md`. PR #39 passed exact-head gates and was promoted as squash commit `d573bf449e077c417ead25a5a80ec35bd036063e`.
+
+This experiment specifically tests whether Foundry can choose **evidence repair instead of code change** when runtime truth is already healthy.
+
+
+## DOGFOOD-002 F2 — compact re-entry
+
+F2 was executed as an **artifact sufficiency check**, not as a fabricated independent-session timing benchmark.
+
+Using the compact DOGFOOD-002 state plus current PR/check status was sufficient to recover:
+
+- exact baseline/main identity;
+- safe isolated branch;
+- one-file mutation surface;
+- both hosted gates PASS;
+- PR #39 READY FOR REVIEW / MERGEABLE;
+- runtime unchanged;
+- merge authority still absent.
+
+No product/design/runtime history needed to be reopened to determine the next safe action.
+
+Current boundary:
+
+> **Human review / promotion of PR #39**
+
+This is a valid stop condition. Foundry must not invent another implementation task simply because a bounded slice is green.
+
+
+## DOGFOOD-002 F3 — public flagship claim audit
+
+The current runtime flagships were checked against current source/project truth.
+
+### PlacaClara
+
+`KEEP`
+
+Fresh Vercel evidence shows production `READY` on exact current `main@9f6797c...`, so an older operational document saying SEO/funnel promotion was pending is stale and does not justify downgrading the current public claim.
+
+### AutoPulse
+
+`KEEP`
+
+The portfolio's bounded field-tested/R&D language remains below the current AutoPulse evidence ceiling. Public v1 is still explicitly uncertified.
+
+### ECHO
+
+`CORRECT`
+
+Portfolio wording overstated current execution by calling the MVP/replay runtime active.
+
+Canonical ECHO state currently has corpus readiness fail-closed, `modeling_allowed=false`, Benchmark A/B/C locked, and replay/real-camera progression blocked until corpus certification.
+
+Portfolio PR #40 corrected only `src/content/systems/echo.ts`.
+
+After PR #39, it was rebased rather than inheriting old green status.
+
+Final exact head:
+
+`82d52ae1a5eaead9f80cfb739bd7164ac1131bef`
+
+Fresh hosted gates:
+
+- Portfolio CI `37700040054` — PASS;
+- V2 Experience Quality `37700040031` — PASS.
+
+It was promoted as squash commit `5a0da2dd633d47530e8d88150428e717584480d6`.
+
+## DOGFOOD-002 promotion feedback
+
+Promotion exposed one additional evidence defect: an exact SHA labeled permanent **current production authority** inside `PROJECT_STATE.md` invalidated itself when the documentation merge changed `main` and Vercel deployed the new head.
+
+PR #41 corrected the authority model:
+
+- current source authority = actual GitHub `main`;
+- current deployment authority = latest Vercel `target=production` deployment from `main`;
+- embedded SHAs/deployment IDs = bounded observations, not perpetual aliases.
+
+PR #41 exact head `210d0937a5b3190bd7092f9dec5b812fc247ad09` passed Portfolio CI `37700520889` and V2 Experience Quality `37700520851`, then merged as `c898d743817d0fc6b8d9548444b166810c76ce83`.
+
+Final observed production after DOGFOOD-002 promotion:
+
+- portfolio `main@c898d743817d0fc6b8d9548444b166810c76ce83`;
+- Vercel production `dpl_4r3uvZA3nMbJFfiTXbFzha5pHX3G`;
+- state `READY`;
+- deployment Git SHA exactly `c898d743...`.
+
+## DOGFOOD-002 stop condition
+
+DOGFOOD-002 is **PROMOTED / BOUNDED COMPLETE**.
+
+No additional implementation slice is currently justified. The next meaningful test is a genuinely fresh, prospectively timed recovery. Until then Foundry should stop rather than manufacture more work.
