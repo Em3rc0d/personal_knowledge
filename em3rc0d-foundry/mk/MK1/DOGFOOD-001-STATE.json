@@ -52,15 +52,23 @@
       "historical_state": "ACTIVE_HEALTHY",
       "current_state": "INACTIVE",
       "historical_migration_rls_receipts_reusable": true,
-      "current_operational_gate": "INVALIDATED"
+      "current_operational_gate": "INVALIDATED",
+      "next_requirement": "RESTORE_OR_REACTIVATE_OFFICIAL_STAGING_BEFORE_WORKER_READINESS_PROOF"
     },
     "railway": {
       "project": "future-wardrobe-rc1",
       "service": "media-worker",
-      "current_live_state": "NO_SUCCESSFUL_CURRENT_DEPLOYMENT",
+      "environment_state": "OFFLINE",
       "configured_source_sha": "c7da19173a6f8f7f36f4930f7359e5e61fab7acb",
       "exact_rc1_sha": "a80f1aacc4936ce6329f0e71b499d371086be6fa",
-      "source_is_stale": true
+      "source_identity_behind_rc1": true,
+      "executable_worker_drift_observed": false,
+      "dependency_cone_change": "README_ONLY",
+      "historical_build": "PASS",
+      "historical_readiness": "FAIL",
+      "railway_healthcheck": "/ready",
+      "current_supabase_target": "UNKNOWN_OAUTH_REDACTED",
+      "redeploy_now": "NOT_DIAGNOSTIC"
     }
   },
   "baseline_metrics": {
@@ -71,20 +79,22 @@
   },
   "next_action": {
     "stage": "TEST_PROVE",
-    "slice": "RAILWAY_MEDIA_WORKER_EXACT_RC1_RECONCILIATION",
+    "slice": "SUPABASE_STAGING_REACTIVATION_AND_RAILWAY_TARGET_VERIFICATION",
     "mutation_authority": "PENDING",
+    "exact_target": "mcpygkebzetgzauelgjf",
     "prohibited": [
       "merge",
       "production_release",
       "production_alias_change",
       "railway_redeploy",
-      "supabase_mutation"
+      "supabase_mutation_without_authority"
     ]
   },
   "f1": {
     "started": true,
     "completed_slices": [
-      "VERCEL_WEB_DEPLOYMENT_RECONCILIATION"
+      "VERCEL_WEB_DEPLOYMENT_RECONCILIATION",
+      "RAILWAY_READ_ONLY_DIAGNOSIS"
     ],
     "attempts": [
       {
