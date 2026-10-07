@@ -172,3 +172,20 @@ current-state drift
 ```
 
 If they fail, investigate the exact failing gate without widening the slice.
+
+
+## Promotion addendum
+
+The B0 diagnosis was subsequently promoted through bounded slices:
+
+- PR #39 → `d573bf449e077c417ead25a5a80ec35bd036063e`;
+- PR #40 → `5a0da2dd633d47530e8d88150428e717584480d6`;
+- PR #41 → `c898d743817d0fc6b8d9548444b166810c76ce83`.
+
+Final observed production after the promotion sequence:
+
+- `main@c898d743817d0fc6b8d9548444b166810c76ce83`;
+- Vercel `dpl_4r3uvZA3nMbJFfiTXbFzha5pHX3G`;
+- state `READY`.
+
+The original B0 baseline remains historical evidence and is not rewritten as though these later promotions had already happened.
