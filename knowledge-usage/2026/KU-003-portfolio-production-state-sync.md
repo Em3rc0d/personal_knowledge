@@ -85,3 +85,12 @@ It does not yet prove faster recovery quantitatively.
 - `KEEP` — branch ownership/authority boundary.
 - `KEEP` — minimal mutation rule.
 - `NO_CHANGE` — no new framework or automation.
+
+
+## Promotion addendum
+
+The final PR #39 head was `f7deb278377ba7e57eb23bd425e787262ad44ccb`, with Portfolio CI `37697919701` PASS and V2 Experience Quality `37697919696` PASS.
+
+It was promoted as squash commit `d573bf449e077c417ead25a5a80ec35bd036063e`.
+
+Promotion did not require runtime source changes.
