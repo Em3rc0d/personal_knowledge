@@ -1,6 +1,6 @@
 # EM3RC0D Foundry
 
-Status: **MK0 — Mine & Frame / active**
+Status: **MK0 CLOSED · MK1 DOGFOOD ADMITTED**
 
 EM3RC0D Foundry is the operating system for turning evidence, design intelligence, reusable engineering assets and product work into a compounding product factory.
 
@@ -77,18 +77,22 @@ A completed product must improve either the market evidence or the factory. Pref
 - A reusable asset is promoted only when the evidence justifies its maintenance cost.
 - The smallest durable reusable outcome wins; a new skill or abstraction is not the default.
 
-## Current MK0 mission
+## MK0 closure scope
 
-MK0 is not building a production Foundry runtime yet.
-
-It is:
+MK0 closed after:
 
 1. preserving the source corpus exactly;
 2. decomposing Railly/skills by functional surface;
 3. extracting mechanisms, boundaries, failure lessons and executable invariants;
 4. separating portable principles from Railly/Vercel-specific implementation choices;
 5. defining the first EM3RC0D Foundry architecture as GENERATED/INSPIRED knowledge;
-6. leaving operational promotion blocked until real EM3RC0D dogfood evidence exists.
+6. admitting a first real EM3RC0D dogfood experiment without treating the generated architecture as validated.
+
+## Current next stage
+
+MK1 is admitted for dogfood against `Future-Wardrobe`.
+
+The active source of truth for execution state is `STATUS.md` + `ROADMAP.md`. MK1 exists to falsify/refine the generated Foundry model on real work; it does not retroactively validate MK0 architecture candidates.
 
 See:
 

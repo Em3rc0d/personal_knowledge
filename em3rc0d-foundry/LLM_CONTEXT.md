@@ -1,22 +1,26 @@
 # EM3RC0D Foundry — LLM Context
 
 system_identity: EM3RC0D Foundry
-current_mk: MK0
+current_mk: MK1_DOGFOOD_ADMITTED
 status_file: STATUS.md
 source_of_truth: REPOSITORY_CONTRACT.md
 
 ## Safe facts
 
+- MK0 is **CLOSED**.
+- MK1 dogfood is **ADMITTED / READY**, not completed.
+- Future Wardrobe RC1 is the first admitted dogfood target.
 - The first Foundry source corpus is Railly/skills pinned at commit 77fdde3e8d7e13b7c27c7660f7c15619839e38af.
 - Its copied upstream subtree exactly matches upstream tree 701944bade5f718381446a7cd9224ed01ea1f952.
 - The pinned maturity registry contains 20 skills.
 - Railly’s system separates evidence, cases, compiled knowledge, executable procedures, evaluation and human promotion.
 - Its complete factory router is experimental at the pinned commit; do not describe the entire loop as validated.
-- EM3RC0D architecture files in MK0 are proposals, not proven procedures.
+- EM3RC0D architecture files created in MK0 remain generated candidates until dogfood evidence promotes, revises, absorbs, rejects or defers them.
 
 ## Prohibited inferences
 
 - dogfooded != validated
+- admitted != completed
 - evaluated != validated
 - stable channel != validated maturity
 - usage count != causal benefit
@@ -36,12 +40,15 @@ Question about upstream mechanism:
   read quarries/railly-skills/<topic>.md
   then inspect the linked upstream path if precision matters.
 
-Question about EM3RC0D future architecture:
-  read architecture/ plus mk/MK0/UNKNOWNS.md.
+Question about EM3RC0D candidate architecture:
+  read architecture/ plus current dogfood contract/state.
   label conclusions GENERATED or INSPIRED unless promoted later.
 
 Question about current project status:
-  read STATUS.md before historical notes.
+  read STATUS.md before README or historical MK0 notes.
+
+Question about current execution order:
+  read ROADMAP.md.
 
 Question about whether a rule is canon:
   read active MK package and REPOSITORY_CONTRACT.md.
