@@ -151,3 +151,23 @@ PR #40 must pass existing portfolio gates.
 If green, human review/promotion is the next boundary.
 
 No merge is authorized by this receipt.
+
+
+## Promotion addendum
+
+PR #40 was rebased after PR #39 rather than inheriting its earlier green result.
+
+Final exact head:
+
+`82d52ae1a5eaead9f80cfb739bd7164ac1131bef`
+
+Fresh verification:
+
+- Portfolio CI `37700040054` — PASS;
+- V2 Experience Quality `37700040031` — PASS.
+
+PR #40 then merged as:
+
+`5a0da2dd633d47530e8d88150428e717584480d6`
+
+ECHO source itself remained untouched.
