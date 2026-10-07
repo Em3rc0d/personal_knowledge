@@ -17,8 +17,10 @@ State: **MK0 CLOSED · MK1 ACTIVE / DOGFOOD-001**
 | B0 Work Contract | CAPTURED |
 | B0 machine state | CAPTURED / candidate schema |
 | Earliest invalid node | TEST / PROVE — deployment/environment reproduction |
-| F1 first slice | Vercel web deployment reconciliation |
-| F1 Future Wardrobe mutation | NOT STARTED / exact action authority pending |
+| F1 Vercel web slice | PASS / BOUNDED |
+| F1 branch | `foundry/dogfood001-f1-vercel-web@f443743...` |
+| Next F1 boundary | Railway media-worker exact-RC1 reconciliation |
+| Railway mutation authority | PENDING |
 | F2 recovery comparison | BLOCKED BY F1 |
 | MK1 verdict | OPEN |
 
@@ -114,22 +116,34 @@ human_decisions_during_b0: 0
 
 Elapsed recovery time was not instrumented from the beginning and will not be invented retroactively.
 
+## F1 Vercel slice result
+
+The first F1 slice passed on exact state:
+
+- branch: `foundry/dogfood001-f1-vercel-web`;
+- SHA: `f443743eb41226fb799624a146eddf7ceb9aa1f6`;
+- Vercel deployment: `dpl_HQ4CNiL9d9kg5guGesUg2Pta7DJY`;
+- final state: `READY`;
+- `pnpm install --frozen-lockfile`: PASS;
+- build scope: `@wardrobe/web` only;
+- root HTTP: 200;
+- `/api/health`: 200 / configured=true.
+
+Two intermediate failures were preserved as evidence: missing root Next identity, then a deliberate frozen-lockfile rejection after package metadata changed without its lock importer.
+
+Receipt: `mk/MK1/DOGFOOD-001-F1-VERCEL.md`.
+
 ## Exact next action
 
-F1 begins at:
+F1 remains in `TEST / PROVE`.
 
-> **TEST / PROVE — Vercel web deployment reconciliation**
+The next unresolved boundary is:
 
-Candidate slice:
+> **Railway media-worker exact-RC1 reconciliation**
 
-1. branch from exact RC1 head;
-2. adapt only the proven web-only Vercel deployment boundary;
-3. preserve frozen-lockfile discipline;
-4. do not merge the divergent preview branch wholesale;
-5. verify a preview from the exact new source identity;
-6. record what that preview proves and does not prove.
+Next slice must first determine the smallest safe Railway action from current provider state and exact RC1 worker contracts. A redeploy is not assumed.
 
-No merge, production alias, Railway redeploy, Supabase mutation, mobile release or product redesign is implied.
+No merge, production alias, Railway redeploy, Supabase mutation, mobile release or product redesign is currently implied.
 
 ## Active artifacts
 
@@ -145,5 +159,5 @@ No merge, production alias, Railway redeploy, Supabase mutation, mobile release 
 - B0 does not prove faster recovery.
 - Future Wardrobe is not engineering-ready or release-ready.
 - The Product Graph and Artifact Model are still candidates under pressure.
-- F1 source mutation has not started.
+- F1 Vercel source mutation is bounded and verified; this does not promote full RC1 readiness.
 - F2 is the first direct recovery-burden comparison against the new artifacts.
