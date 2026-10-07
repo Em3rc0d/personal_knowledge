@@ -11,6 +11,8 @@ No es el dueño del conocimiento técnico de origen. Tampoco es un repositorio d
 ```text
 domain canon in personal_knowledge
         ↓
+bounded eligibility
+        ↓
 Knowledge Foundry
         ↓
 educational compilation
@@ -33,29 +35,34 @@ El conocimiento no se monetiza de forma durable copiando notas o fuentes. Se con
 2. qué debe poder hacer al salir;
 3. de qué conocimiento y evidencia depende cada claim;
 4. qué secuencia reduce prerequisitos y carga cognitiva;
-5. qué ejercicio demuestra transferencia;
-6. qué assessment diferencia comprensión de repetición;
-7. qué licencia/provenance permite publicar el material;
-8. qué evidencia de pilotaje soporta que el producto enseña algo útil.
+5. qué estrategia instruccional está justificada para ese outcome/audiencia;
+6. qué ejercicio demuestra transferencia;
+7. qué assessment soporta qué interpretación;
+8. qué accessibility/inclusion boundary aplica;
+9. qué rights/provenance permite publicar el material;
+10. qué evidencia de pilotaje soporta que el producto enseña algo útil;
+11. qué cambio del conocimiento fuente invalidaría o exigiría actualizar el producto.
 
 ## Compiler model
 
 ```text
-CANONICAL KNOWLEDGE
+ELIGIBLE KNOWLEDGE SLICE
       ↓
 candidate extraction
       ↓
-teachability audit
+learner + prerequisite contract
       ↓
 concept dependency graph
       ↓
 learning outcomes
       ↓
-curriculum / lesson specs
+instructional-strategy selection
       ↓
-labs + assessments
+lessons + labs
       ↓
-source + license manifest
+assessment + accessibility
+      ↓
+source/rights + dependency manifest
       ↓
 pilot
       ↓
@@ -81,13 +88,25 @@ Una no implica automáticamente las otras.
 
 ## Inputs
 
-Por defecto, un producto educativo consume **canon promovido** desde otros dominios.
+Por defecto, un producto educativo consume **bounded knowledge slices** que pasan `architecture/DOMAIN_INPUT_CONTRACT.md`.
 
 Puede inspeccionar quarries o fuentes externas para investigación, pero:
 
 > quarry/source evidence no se convierte directamente en una afirmación de curso.
 
-Debe resolverse provenance, licencia, contradicciones y autoridad del dominio correspondiente.
+Debe resolverse authority, maturity, provenance, freshness, rights, contradicciones y dependency revision del slice correspondiente.
+
+## Evidence expansion — 2026-10-07
+
+El audit del repositorio añadió evidence packages específicos para:
+
+- learning science: retrieval practice, worked examples, spacing y formative assessment;
+- assessment validity/reliability/fairness;
+- accessibility con WCAG 2.2 e inclusive learning con UDL 3.0;
+- rights/licensing/provenance con GitHub, Creative Commons, SPDX y W3C PROV;
+- learner-pilot data boundary para el contexto peruano.
+
+Estas fuentes son inputs MK0. **No se convierten en una receta educativa universal sin dogfood.**
 
 ## Outputs
 
@@ -113,13 +132,13 @@ MK0 no intenta vender ni publicar un curso todavía.
 Su misión es:
 
 1. fijar los boundaries del workspace;
-2. estudiar mecanismos reutilizables de empaquetado/evaluación de conocimiento;
-3. definir el primer knowledge compiler;
-4. definir provenance/licensing boundaries para material comercial;
-5. definir el lifecycle de un producto educativo;
-6. seleccionar, sin comprometer todavía, un primer candidato de dogfood.
-
-Primer quarry externo: `agent-skills`, usado como fuente de mecanismos sobre skill anatomy, progressive disclosure, routing, evals y pressure testing; no como contenido para copiar.
+2. definir qué conocimiento puede entrar al compiler;
+3. estudiar mecanismos reutilizables de aprendizaje/evaluación;
+4. definir el primer knowledge compiler;
+5. definir rights/provenance/licensing boundaries para material comercial;
+6. definir accessibility, assessment y pilot-data boundaries;
+7. definir el lifecycle de un producto educativo;
+8. seleccionar, sin comprometer todavía, un primer candidato de dogfood.
 
 ## Navigation
 
@@ -129,6 +148,12 @@ Primer quarry externo: `agent-skills`, usado como fuente de mecanismos sobre ski
 - `KNOWLEDGE_MAP.md` — mapa del workspace.
 - `LLM_CONTEXT.md` — routing para lectores agentic.
 - `architecture/KNOWLEDGE_COMPILER.md` — arquitectura inicial del compiler.
+- `architecture/DOMAIN_INPUT_CONTRACT.md` — decide qué slices de conocimiento pueden compilarse.
+- `architecture/ASSESSMENT_EVIDENCE_MODEL.md` — limita qué podemos inferir de assessments.
+- `architecture/ACCESSIBILITY_AND_INCLUSION.md` — separa conformance e inclusive learning.
+- `architecture/RIGHTS_AND_LICENSING.md` — rights/commercial reuse boundary.
+- `architecture/KNOWLEDGE_DEPENDENCY_MANIFEST.md` — revisions, derivation and staleness.
+- `architecture/PILOT_DATA_BOUNDARY.md` — learner-data fail-closed boundary.
 - `mining-site/` — fuentes inspeccionadas.
 - `quarries/` — destilaciones no canónicas.
 - `mk/MK0/` — gates, unknowns y ledger del MK activo.
