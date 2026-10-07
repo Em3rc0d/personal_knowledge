@@ -7,7 +7,7 @@ MK1 exists to test the generated Foundry model against real work.
 Pressure tests:
 
 1. `DOGFOOD-001` — Future Wardrobe RC1; currently HOLD on over-quota/inactive external infrastructure after bounded Vercel PASS.
-2. `DOGFOOD-002` — em3rc0d Portfolio; B0/F1/F2/F3 reached HUMAN REVIEW with two exact-head green, unmerged portfolio PRs.
+2. `DOGFOOD-002` — em3rc0d Portfolio; B0/F1/F2/F3 plus promotion feedback completed. PRs #39/#40/#41 were exact-head green and promoted; final observed production is `main@c898d743...` / Vercel READY.
 
 ## Current experiment
 
@@ -41,3 +41,10 @@ MK1 verdict               🔒 waits on evidence
 Do not expand MK1 schemas speculatively.
 
 Only add a field/artifact when DOGFOOD-001 demonstrates a consumer for it.
+
+
+## DOGFOOD-002 terminal state
+
+`PROMOTED_BOUNDED`
+
+The experiment reached a valid stop condition. It does not prove quantitative time savings. A future fresh-session recovery should be timed prospectively rather than reconstructed.
