@@ -67,6 +67,7 @@ These are GENERATED/INSPIRED during MK0. They are not yet a runtime specificatio
 - `mk/MK1/DOGFOOD-001-STATE.json` — compact exact state; preferred F2 re-entry surface.
 - `mk/MK1/DOGFOOD-001-WORK-CONTRACT.md` — current outcome, boundary, acceptance and authority.
 - `mk/MK1/DOGFOOD-001-B0-RECOVERY.md` — deep B0 evidence; open only when provenance/detail is required.
+- `mk/MK1/DOGFOOD-001-F1-VERCEL.md` — executed Vercel web slice; exact failure/pass evidence.
 
 ## Retrieval rule
 
