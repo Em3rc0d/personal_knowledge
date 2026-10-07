@@ -1,15 +1,18 @@
 # EM3RC0D Foundry — LLM Context
 
 system_identity: EM3RC0D Foundry
-current_mk: MK1_DOGFOOD_ADMITTED
+current_mk: MK1_DOGFOOD_ACTIVE
 status_file: STATUS.md
 source_of_truth: REPOSITORY_CONTRACT.md
 
 ## Safe facts
 
 - MK0 is **CLOSED**.
-- MK1 dogfood is **ADMITTED / READY**, not completed.
-- Future Wardrobe RC1 is the first admitted dogfood target.
+- MK1 dogfood is **ACTIVE**, not completed.
+- Future Wardrobe RC1 is the first dogfood target.
+- DOGFOOD-001 B0 read-only recovery is captured.
+- The current earliest invalid node is `TEST / PROVE — deployment/environment reproduction`.
+- F1 source mutation has not started; its first candidate slice is Vercel web deployment reconciliation.
 - The first Foundry source corpus is Railly/skills pinned at commit 77fdde3e8d7e13b7c27c7660f7c15619839e38af.
 - Its copied upstream subtree exactly matches upstream tree 701944bade5f718381446a7cd9224ed01ea1f952.
 - The pinned maturity registry contains 20 skills.
@@ -48,7 +51,10 @@ Question about current project status:
   read STATUS.md before README or historical MK0 notes.
 
 Question about current execution order:
-  read ROADMAP.md.
+  read ROADMAP.md, then mk/MK1/DOGFOOD-001-WORK-CONTRACT.md.
+
+Question about exact dogfood re-entry state:
+  read mk/MK1/DOGFOOD-001-STATE.json first; descend into B0 receipt only when the claim needs provenance.
 
 Question about whether a rule is canon:
   read active MK package and REPOSITORY_CONTRACT.md.
