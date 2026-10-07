@@ -1,7 +1,7 @@
 {
   "schema": "dogfood-state-0.1-candidate",
   "experiment": "DOGFOOD-001",
-  "phase": "B0_CAPTURED",
+  "phase": "F1_ACTIVE",
   "observed_at": "2026-10-07",
   "target": {
     "repository": "Em3rc0d/Future-Wardrobe",
@@ -20,7 +20,7 @@
     "architecture": "REUSE",
     "plan_slice": "REUSE",
     "build": "PARTIAL",
-    "test_prove": "INVALID_CURRENT_BOUNDARY",
+    "test_prove": "PARTIAL_PROGRESS",
     "independent_review": "NOT_REACHED",
     "package_evidence": "PARTIAL",
     "human_promotion": "BLOCKED",
@@ -35,9 +35,17 @@
     "vercel": {
       "project": "future-wardrobe",
       "rc1_exact_sha_state": "ERROR",
-      "preview_exact_sha_state": "READY",
-      "production_main_state": "READY",
-      "next_boundary": "WEB_ONLY_BUILD"
+      "historical_preview_sha_state": "READY",
+      "f1_branch": "foundry/dogfood001-f1-vercel-web",
+      "f1_sha": "f443743eb41226fb799624a146eddf7ceb9aa1f6",
+      "f1_deployment_id": "dpl_HQ4CNiL9d9kg5guGesUg2Pta7DJY",
+      "f1_preview_state": "READY",
+      "f1_root_http": 200,
+      "f1_health_http": 200,
+      "f1_health_configured": true,
+      "frozen_lockfile": "PASS",
+      "build_scope": "@wardrobe/web",
+      "gate": "PASS_BOUNDED"
     },
     "supabase": {
       "project_ref": "mcpygkebzetgzauelgjf",
@@ -63,7 +71,7 @@
   },
   "next_action": {
     "stage": "TEST_PROVE",
-    "slice": "VERCEL_WEB_DEPLOYMENT_RECONCILIATION",
+    "slice": "RAILWAY_MEDIA_WORKER_EXACT_RC1_RECONCILIATION",
     "mutation_authority": "PENDING",
     "prohibited": [
       "merge",
@@ -71,6 +79,29 @@
       "production_alias_change",
       "railway_redeploy",
       "supabase_mutation"
+    ]
+  },
+  "f1": {
+    "started": true,
+    "completed_slices": [
+      "VERCEL_WEB_DEPLOYMENT_RECONCILIATION"
+    ],
+    "attempts": [
+      {
+        "sha": "ecc6323302e89e14ca12e56fc0f4e255df42e471",
+        "verdict": "ERROR",
+        "finding": "ROOT_NEXT_FRAMEWORK_IDENTITY_MISSING"
+      },
+      {
+        "sha": "6116b8480b550f95326b6b3c8948ee0a3f6351b3",
+        "verdict": "ERROR_EXPECTED_FAIL_CLOSED",
+        "finding": "FROZEN_LOCKFILE_REJECTED_OUTDATED_IMPORTER"
+      },
+      {
+        "sha": "f443743eb41226fb799624a146eddf7ceb9aa1f6",
+        "verdict": "READY",
+        "finding": "WEB_ONLY_VERCEL_BOUNDARY_VERIFIED"
+      }
     ]
   }
 }
