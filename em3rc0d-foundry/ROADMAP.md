@@ -87,9 +87,21 @@ Do not normalize fields with no observed consumer.
 
 ### P2 — F1 execution
 
-Status: **READY / WAITS ON EXACT MUTATION AUTHORITY**
+Status: **ACTIVE**
 
-First slice: **Vercel web deployment reconciliation** from exact RC1 head. Reuse only the proven web-only deployment mechanism from the divergent preview branch; preserve frozen-lockfile discipline and do not widen scope.
+Slice 1 — **Vercel web deployment reconciliation**: **PASS / BOUNDED**.
+
+Evidence:
+
+- final F1 SHA `f443743eb41226fb799624a146eddf7ceb9aa1f6`;
+- frozen lockfile PASS;
+- web-only build PASS;
+- Vercel preview READY;
+- root + health endpoint HTTP 200.
+
+Slice 2 candidate — **Railway media-worker exact-RC1 reconciliation**: **NEXT / mutation authority pending**.
+
+Do not assume redeploy is the correct action; first isolate the exact current worker failure boundary.
 
 Run Future Wardrobe from the recovered current node through the minimum justified workflow.
 
