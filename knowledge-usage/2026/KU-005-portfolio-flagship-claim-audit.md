@@ -109,3 +109,10 @@ It does not independently certify the underlying products.
 - `KEEP` — no-change as a valid audit outcome.
 - `KEEP` — minimal correction surface.
 - `NO_CHANGE` — no automation yet.
+
+
+## Promotion addendum
+
+PR #40 was rebased to exact head `82d52ae1a5eaead9f80cfb739bd7164ac1131bef`, revalidated (Portfolio CI `37700040054` PASS; V2 Experience Quality `37700040031` PASS), and merged as `5a0da2dd633d47530e8d88150428e717584480d6`.
+
+The ECHO repository remained unchanged; only the portfolio claim was corrected.
