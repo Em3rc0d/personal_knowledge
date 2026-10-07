@@ -78,30 +78,39 @@ Receipt:
 
 `DOGFOOD-001-F1-VERCEL.md`
 
+## Railway read-only diagnosis
+
+Receipt:
+
+`DOGFOOD-001-F1-RAILWAY-DIAGNOSIS.md`
+
+Observed:
+
+- Railway service is currently OFFLINE;
+- configured source identity `c7da191...` is behind RC1;
+- dependency-cone comparison shows no executable worker drift to RC1 — only `services/media-worker/README.md` changed;
+- historical worker Docker/package build passed;
+- historical deployment failed at `/ready`, not build;
+- exact RC1 `/ready` requires both local background-removal readiness and a successful Supabase worker loop;
+- canonical Supabase staging `mcpygkebzetgzauelgjf` is currently INACTIVE;
+- Railway confirms `SUPABASE_URL` exists but OAuth redaction prevents verifying its value.
+
+Therefore a blind Railway redeploy would not isolate the failure.
+
 ## Current earliest unresolved execution boundary
 
-> **Railway media-worker exact-RC1 reconciliation**
-
-Known from B0:
-
-- Railway project `future-wardrobe-rc1` exists;
-- service `media-worker` exists;
-- no current successful live deployment;
-- configured source SHA `c7da191...` is behind RC1 `a80f1aa...`;
-- historical failed/removed deployments exist.
+> **Official staging availability + Railway target identity**
 
 ## Next slice goal
 
-Determine the **smallest safe Railway action** required to prove or reject worker deployability for exact RC1 state.
+Before any Railway redeploy:
 
-Before mutation:
+1. restore/reactivate canonical staging `mcpygkebzetgzauelgjf`;
+2. verify Railway targets that exact staging project without exposing credentials;
+3. then redeploy from a pinned source identity;
+4. capture `/health`, `/ready` and runtime evidence.
 
-1. re-read current Railway service config and latest deployment state;
-2. inspect exact RC1 worker Docker/start/health contracts only as needed;
-3. identify whether source/config/environment drift, build failure or healthcheck failure is the earliest worker boundary;
-4. produce one exact proposed action.
-
-Do not redeploy merely because the service is stale.
+Supabase restoration and Railway configuration/redeploy are external mutations and remain authority-gated.
 
 ## Current authority
 
@@ -113,8 +122,9 @@ Authorized and completed:
 
 Not currently authorized:
 
+- Supabase restoration/reactivation;
+- Railway variable/config mutation;
 - Railway redeploy;
-- Supabase mutation/restoration;
 - production alias/promotion;
 - PR #8 merge;
 - production release;
