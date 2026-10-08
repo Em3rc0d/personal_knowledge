@@ -3,7 +3,7 @@
 Status: **QUARRY / NON-CANONICAL**  
 Source: [S-116](../mining-site/S-116-collaborator.md)  
 Observed: 2026-10-08  
-Evidence boundary: pinned upstream \`main@476b8efc942ee5f430a9b8bf832b8560a8cf76c2\`, \`dev@516ce5ddb9f58a29b64ffc2f86c1e7ffd52cd8bc\`; code inspection only.
+Evidence boundary: pinned upstream `main@476b8efc942ee5f430a9b8bf832b8560a8cf76c2`, `dev@516ce5ddb9f58a29b64ffc2f86c1e7ffd52cd8bc`; code inspection only.
 
 ## Research question
 
@@ -11,14 +11,14 @@ What can an agent-controllable desktop canvas teach us about state, tool afforda
 
 ## Main distinction
 
-\`\`\`text
+```text
 visual workspace / canvas     = presentation and interaction surface
 terminal / PTY / sidecar       = persistent local execution surface
 filesystem                    = mutable user-owned source of truth
 canvas/CLI/JSON-RPC           = tool control plane
 LLM/agent                     = optional decision actor
 policy / review / acceptance  = separate authority, not proven by the UI
-\`\`\`
+```
 
 This source illustrates an **agent-controllable development environment**. It does not demonstrate a complete multi-agent scheduler or governance system.
 
@@ -38,7 +38,7 @@ Canvas tiles represent terminal sessions/files/browser surfaces. Sessions and ca
 
 **Provenance:** OBSERVED → INSPIRED
 
-The \`collab-canvas\` CLI and JSON-RPC expose distinct actions: inspect canvas, create/move/focus tiles, send input/read terminal output, interact with a browser. This is a useful ACI pattern, but tool availability is not consent or authorization.
+The `collab-canvas` CLI and JSON-RPC expose distinct actions: inspect canvas, create/move/focus tiles, send input/read terminal output, interact with a browser. This is a useful ACI pattern, but tool availability is not consent or authorization.
 
 **Candidate test:** catalog tools with read-only vs mutating vs externally consequential classes; reject unauthorized calls and record input, actor, target, revision/time and result. Terminal input and browser JS evaluation are high-consequence even when invoked from an attractive canvas.
 
@@ -52,7 +52,7 @@ Filesystem IPC handlers and local socket services are authorization boundaries. 
 
 **Candidate tests:** path-traversal and symlink escape; sender identity by IPC channel; cross-workspace read/write attempt; socket access from another local process/user; token/capability check per sensitive sidecar operation; bounded message size and backpressure.
 
-**Failure mode:** unchecked \`path\` / \`sessionId\` / \`webContentsId\` arguments become ambient host authority. Exact exploitability is UNKNOWN pending controlled testing.
+**Failure mode:** unchecked `path` / `sessionId` / `webContentsId` arguments become ambient host authority. Exact exploitability is UNKNOWN pending controlled testing.
 
 ### CW-04 — Persistent terminal, saved layout and remembered context are different
 
@@ -88,7 +88,7 @@ The dev source contains bypass-approval switches and an ACP permission callback 
 
 **Provenance:** OBSERVED + COMMUNITY REPORT → INSPIRED
 
-Electron packaging describes macOS, Windows and Linux targets, while actual report surface includes packaging/platform regressions. \`dev\` improves dependency locking but this alone cannot prove reliability.
+Electron packaging describes macOS, Windows and Linux targets, while actual report surface includes packaging/platform regressions. `dev` improves dependency locking but this alone cannot prove reliability.
 
 **Candidate matrix:** macOS ARM/x64, Windows x64/ARM and WSL, Linux x64; install/update/uninstall, PTY attach/reconnect, paths, editor integrity, window focus, browser auth, background process termination and offline behavior. Distinguish source configuration, CI pass, artifact existence, actual install and user report.
 
@@ -114,9 +114,9 @@ Persistent telemetry identifiers, remote feature flags and outreach metadata coe
 
 ## Where it may be reused
 
-- \`agent-engineering\`: ACI/tool topology; UI vs execution vs policy; HITL; state/persistence; host authority and side effects.
-- \`jett-engineering-method\`: potential cross-check for source-integrity gates and evidence-based claims, **not a methodology change**.
-- \`web-design\`: only a possible INSPIRED reference for spatial interaction, with usability tests required; not a canonical design system.
+- `agent-engineering`: ACI/tool topology; UI vs execution vs policy; HITL; state/persistence; host authority and side effects.
+- `jett-engineering-method`: potential cross-check for source-integrity gates and evidence-based claims, **not a methodology change**.
+- `web-design`: only a possible INSPIRED reference for spatial interaction, with usability tests required; not a canonical design system.
 
 ## Evidence / promotion gate
 
