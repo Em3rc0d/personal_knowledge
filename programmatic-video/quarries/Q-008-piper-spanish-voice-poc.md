@@ -1,7 +1,7 @@
 # Q-008 — PV-POC-003: TTS neuronal Piper en español
 
 Fecha local de ejecución: 2026-10-07 (Lima; logs UTC: 2026-10-08 04:32).
-Estado: **ACTUAL GITHUB CI PASS / ORIGINAL VISUAL REMUX PASS / HUMAN NATURALNESS PENDING / PRODUCT INTEGRATION NOT DONE**.
+Estado: **TECHNICAL PASS / OWNER NATURALNESS NOT ACCEPTED / VOICE REJECTED FOR PRODUCTION / PRODUCT INTEGRATION NOT DONE**. Follow-up after owner listened: Piper `es_MX-claude-high` **did not fully satisfy** voice naturalness expectations. No claim that Piper as a family is universally inadequate; this specific voice fails this account's quality gate.
 
 ## Need and blocker discovery
 
@@ -31,7 +31,7 @@ Instead of treating unavailable TTS as pass, an isolated [NINFA draft PR #3](htt
 | Playable verified 1080×1920, 300 frames H264/AAC and external WAV | **PASS** |
 | Original animation reused for delivered local video | **PASS** |
 | No paid voice API | **PASS**; GitHub Actions hosted minutes subject to account terms |
-| Neural speech sounds human/natural | **NOT EVALUATED**; requires owner listening; VITS != certification |
+| Neural speech sounds human/natural | **NOT ACCEPTED by owner** for publication; technically synthesized ≠ editorial quality accepted |
 | Accent/treatment of technology words in Peru | **NOT EVALUATED** |
 | TikTok platform safe zone certified | **NOT CERTIFIED** (experimental conservative layout only) |
 | Security for untrusted code/OS-level no-egress | **NOT CERTIFIED** |
@@ -40,10 +40,11 @@ Instead of treating unavailable TTS as pass, an isolated [NINFA draft PR #3](htt
 
 ## Boundaries and next gate
 
-1. Ask owner to A/B listen against prior eSpeak baseline, especially accent, pausas, `render`, y entonación del cierre. Do not declare professional naturalness without listening.
+1. The owner reviewed the pilot and reported that the voice was still not satisfactory. **Do not promote this Piper voice to production.** Revisit only with a different evaluated voice path, explicitly budgeted and independently quality-gated.
 2. If approved, evaluate voice choice versus 1–2 different **authorized** model voices, evaluate pronunciation substitutions for abbreviations and editorial pacing; do not necessarily adopt one voice for all brands.
 3. Keep `piper-tts` GPL-3-or-later package and voice dataset/model licensing separately reviewed before redistribution; this test only runs in a transient CI worker and does not commit model binaries.
 4. Preserve current PNG render contract. After owner approval and release authority, create additive `VideoRenderPortV0` with allowed audio sources, timings, receipt and temporal QA.
 5. No new application, provider subscriptions or social scheduling implied.
+6. **Resource policy amendment:** GitHub Actions served as a *one-time experimental runner*, **not a TTS backend or ongoing production worker**. The NINFA experimental workflow was modified to `workflow_dispatch` only (no `push` or `pull_request` automatic triggers) in branch `experiment/pv-poc-003-piper-voice`. Even where public standard runners have free minutes, do not design the business around CI artifacts/retention, shared compute, abuse limits or account quota assumptions.
 
 Related [Q-007](Q-007-pv-poc-001-local-proof.md) and [NINFA PR #3](https://github.com/Em3rc0d/NINFA/pull/3).
