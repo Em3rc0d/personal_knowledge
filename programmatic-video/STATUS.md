@@ -8,7 +8,7 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 | Superficie | Estado |
 |---|---|
 | MK0 Mine & Frame | CLOSED WITH LIMITATIONS: seed catalog = discovery, not verified benchmark |
-| MK1 Normalize & Classify | ELIGIBLE TO BEGIN / NOT STARTED |
+| MK1 Normalize & Classify | IN PROGRESS / FIRST 8 FIXTURES MAPPED |
 | MK2 Operationalize | BLOCKED BY MK1 |
 | MK3 Integrate | BLOCKED |
 | MK4 Automate | BLOCKED |
@@ -35,11 +35,13 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 
 El cierre MK0 **no** resuelve el bloqueo de X ni valida atributos del video original: esos claims quedan fuera del conocimiento promovido.
 
-## Handoff a MK1 (inicialmente abierto)
+## Handoff a MK1 (IN PROGRESS, cierre pendiente)
 
-- [ ] Normalizar taxonomy y provenance sobre registros controlados.
-- [ ] Determinar criterios de deduplicación semántica sin borrar lineage.
-- [ ] Definir registro de evidencia por técnica y niveles de derechos.
+- [x] Definir taxonomía/contrato inicial de provenance (ver `mk/MK1/TAXONOMY.md`).
+- [x] Distinguir ID de registro, clustering textual y familia semántica; dedup semántica real aún pendiente.
+- [x] Definir campos de técnica y derechos, defaults `UNKNOWN`; 8 fixtures trazados (ver `mk/MK1/NORMALIZATION-RECEIPT.md`).
+- [ ] Evaluar 24+ registros y casos negativos, sin importar prompts completos.
+- [ ] Validar reglas del contrato en los 513 registros y revisión independiente.
 - [ ] Completar revisión MK1 antes de contratos operativos MK2.
 
 ## Preflight de cualquier ejecución (permanece BLOCKED)
