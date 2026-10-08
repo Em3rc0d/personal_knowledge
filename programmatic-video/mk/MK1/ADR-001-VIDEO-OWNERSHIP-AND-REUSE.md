@@ -58,6 +58,10 @@ Output: MP4 `video/mp4`, ffprobe codec/resolution/frame count (300 expected), SH
 
 Before build: resolve host environment, verified rights for font/assets, executable versions, sandbox no-egress/secrets, worker ownership, temp storage policy, and whether fixed 1080x1920 frame render is tractable on the observed machine.
 
+## Cross-repository work item
+
+- [prodAgentic issue #71 — VideoRenderPortV0 RFC](https://github.com/Em3rc0d/prodAgentic/issues/71): tracks product-side approval/preflight without modifying frozen R4 authorities.
+
 ## Promotion rules
 
 **This ADR is not an accepted prodAgentic ADR**; adopting it requires review in prodAgentic's own governance after R4 branch/release authority is checked, a real test and rollback plan. No code or production authority changes have been made.
