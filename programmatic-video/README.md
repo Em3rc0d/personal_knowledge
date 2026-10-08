@@ -49,6 +49,8 @@ Las iteraciones MK describen **madurez del conocimiento**, no sprints ni funcion
 - [Fuentes](mining-site/SOURCES.md)
 - [Auditoría del catálogo](quarries/Q-001-opus55-catalog-audit.md)
 - [Investigación de renderers](quarries/Q-002-renderer-landscape.md)
+- [Muestra de posts bloqueados](quarries/Q-003-original-post-access-audit.md)
+- [Riesgos de seguridad y derechos](quarries/Q-004-security-rights-threat-model.md)
 - [Contrato experimental](mk/MK0/EXPERIMENT-CONTRACT.md)
 
 ## Invariantes
