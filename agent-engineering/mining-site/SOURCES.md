@@ -429,3 +429,23 @@ S-114 is a worked implementation source, not a general agent standard. Source-sp
 
 S-115 refines repository-level harness mechanisms. It does not alter the active MK1 schema or close/reopen any MK1 gate.
 
+### S-116 — collabs-inc/collab-public (Collaborator)
+
+- provenance: `OBSERVED` + upstream `SOURCE CLAIM` + unverified community issue reports;
+- received pointer (fork): https://github.com/Em3rc0d/collab-public;
+- resolved upstream: https://github.com/collabs-inc/collab-public;
+- observed: 2026-10-08;
+- pinned upstream `main`: `476b8efc942ee5f430a9b8bf832b8560a8cf76c2` (`0.8.4`);
+- pinned upstream `dev`: `516ce5ddb9f58a29b64ffc2f86c1e7ffd52cd8bc` (`0.9.0` package version, not release verified);
+- license: FSL-1.1-ALv2 (restricts competing uses until time-delayed Apache 2.0 grant);
+- relevance:
+  - spatial canvas as UI projection rather than durable execution owner;
+  - persistent PTY sidecar, local JSON-RPC, IPC, canvas CLI and agent-facing skill;
+  - explicit distinction between tools/agent execution and policy/approval authority;
+  - filesystem/terminal/browser trust boundaries and local telemetry surface;
+  - source-file integrity and cross-platform verification gates motivated by unverified reports.
+- scope: static code and repository inspection only; runtime safety, security exploitation and end-to-end reliability not tested;
+- detailed receipt: [`S-116-collaborator.md`](./S-116-collaborator.md);
+- processed quarry: [`../quarries/collaborator-agentic-desktop-workspace.md`](../quarries/collaborator-agentic-desktop-workspace.md).
+
+S-116 is **QUARRY_ONLY**. It does not alter the MK1 schema, satisfy REC-012 or authorize a Collaborator fork/product roadmap.
