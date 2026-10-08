@@ -1,50 +1,53 @@
 # Programmatic Video — Status
 
 Updated: 2026-10-07 (America/Lima)
+Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bounded discovery ONLY.
 
-## Estado actual
+## Estado canónico
 
 | Superficie | Estado |
 |---|---|
-| Dominio | MK0 — IN PROGRESS |
-| Fuente seed | INSPECTED / BOUNDED; fijada por SHA |
-| Auditoría estructural dataset | CAPTURED en quarry |
-| Documentación inicial de renderers | CAPTURED / documentación, NO runtime |
-| Clasificación de prompts completos vs parciales | OBSERVED / pendiente verificar cobertura real |
-| Derechos de videos, audio, imágenes y marcas | UNKNOWN para obras individuales |
-| Motor de render elegido | NO DECIDIDO |
-| Prototipo MP4 | NOT BUILT |
-| Reproducibilidad real | UNTESTED |
-| Coste local de CPU/GPU/tiempo | UNMEASURED |
-| Integración Content Seller / Ninfa | BLOCKED |
+| MK0 Mine & Frame | CLOSED WITH LIMITATIONS: seed catalog = discovery, not verified benchmark |
+| MK1 Normalize & Classify | ELIGIBLE TO BEGIN / NOT STARTED |
+| MK2 Operationalize | BLOCKED BY MK1 |
+| MK3 Integrate | BLOCKED |
+| MK4 Automate | BLOCKED |
+| MK5+ Certify | BLOCKED |
+| Fuente seed | SHA pinneado, JSON inspeccionado, atribución de originales UNVERIFIED |
+| Originales X | 8 intentados / 0 inspeccionados, BLOCKED |
+| Runtime renderer | CANDIDATES ONLY; HyperFrames y Remotion, sin instalación |
+| Sandbox ejecutable | NOT TESTED |
+| Prototipo / MP4 | NOT BUILT / NOT GENERATED |
+| Coste y calidad audiovisual | UNMEASURED |
+| Content Seller / Ninfa | UNCHANGED; integration BLOCKED |
 
-## Gates de cierre MK0
+## MK0 — GATES
 
-- [x] Definir responsabilidad de dominio y exclusiones.
-- [x] Identificar y fijar fuente seed al commit.
-- [x] Auditar estructura, distribución y límites de calidad del dataset.
-- [x] Registrar fuentes primarias de renderizadores y diferencias de licencia.
-- [x] Separar hipótesis de observaciones y marketing.
-- [x] Especificar tres pruebas y sus métricas **antes** de implementarlas.
-- [ ] Validar una muestra estratificada de prompts contra publicaciones originales y registrar evidencia de acceso/post/contexto.
-- [ ] Verificar derechos de los recursos concretos que entrarían en los 3 experimentos, o sustituirlos por assets originales.
-- [ ] Revisar riesgos de ejecución de HTML/JS generado por agentes en sandbox local, dependencias y acceso a red.
-- [ ] Definir baseline de máquina, memoria y stack para medir coste/performance.
-- [ ] Verificar en estándares/documentación de implementación el contrato de seekable timelines (no asumirlo sólo desde marketing de renderizadores).
-- [ ] Ejecutar review de trazabilidad claims -> fuente -> limitaciones y producir acta de cierre MK0.
+- [x] Responsabilidad y exclusiones de dominio.
+- [x] Identidad y commit de fuente fijados.
+- [x] Auditoría del dataset, sesgos, duplicados y límites.
+- [x] Intento de corroboración estratificada: fuente original **BLOCKED**, sin elevar claims de autoría.
+- [x] Excluir medios/prompts de terceros de reproducción hasta verificar derechos.
+- [x] Security threat model y condiciones fail-closed definidas.
+- [x] Fuentes primarias de render, licensing y frame/seek semántica documentadas.
+- [x] Contratos de experimento definidos ANTES de crear código.
+- [x] Review claims→evidence; cierre formal con límites explícitos.
 
-**MK0 permanece abierto** hasta superar los gates. Un documento de experimento no constituye evidencia de render o exportación.
+El cierre MK0 **no** resuelve el bloqueo de X ni valida atributos del video original: esos claims quedan fuera del conocimiento promovido.
 
-## Gates posteriores
+## Handoff a MK1 (inicialmente abierto)
 
-| MK | Objetivo | Estado |
-|---|---|---|
-| MK1 | Normalizar técnica/formato/dependencia/derechos/evidencia/fracaso | BLOCKED BY MK0 |
-| MK2 | Diseñar contratos de composición, render, pruebas y reusable patterns | BLOCKED |
-| MK3 | Definir interfaces con Content Operations, sin publicar | BLOCKED |
-| MK4 | Automatizar con aislamiento, permisos, validación y límites de costo | BLOCKED |
-| MK5+ | Certificar reproducibilidad, calidad y regresión real | BLOCKED |
+- [ ] Normalizar taxonomy y provenance sobre registros controlados.
+- [ ] Determinar criterios de deduplicación semántica sin borrar lineage.
+- [ ] Definir registro de evidencia por técnica y niveles de derechos.
+- [ ] Completar revisión MK1 antes de contratos operativos MK2.
 
-## Próximo paso
+## Preflight de cualquier ejecución (permanece BLOCKED)
 
-Hacer auditoría manual pequeña y diversa (no seleccionar sólo virales), completar intake de licencias/seguridad y resolver un stack candidato **sin crear plataforma**. Dejar cada bloqueo en `UNKNOWN` hasta que exista evidencia.
+- [ ] Resolver stack/versiones, CPU/GPU/RAM/OS del equipo ejecutor.
+- [ ] Confirmar sandbox OS-level, no egress/no secrets, timeout/restricciones verificadas.
+- [ ] Validar licencias de dependencias, fonts y assets concretos.
+- [ ] Validar seek por frame y export con pruebas negativas.
+- [ ] Registrar costo y benchmark en equipo real.
+
+**No coding/rendering until the engineering graph for the chosen experiment is closed.**
