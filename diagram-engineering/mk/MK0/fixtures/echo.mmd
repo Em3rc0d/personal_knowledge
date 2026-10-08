@@ -1,0 +1,10 @@
+flowchart LR
+  sources["Replay / RTSP / Mic"] --> supervisor["SourceSupervisor"]
+  supervisor["SourceSupervisor"] --> normalize["Decode + normalize"]
+  normalize["Decode + normalize"] --> buffer["Bounded AudioBuffer"]
+  buffer["Bounded AudioBuffer"] --> scheduler["Windows + scheduler"]
+  scheduler["Windows + scheduler"] --> model["ModelRunner"]
+  model["ModelRunner"] --> engine["EventEngine"]
+  engine["EventEngine"] --> confirmed["ConfirmedEvent"]
+  confirmed["ConfirmedEvent"] --> mqtt["MQTT"]
+  confirmed["ConfirmedEvent"] --> store["Event / result store"]

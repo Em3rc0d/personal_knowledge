@@ -1,0 +1,7 @@
+flowchart LR
+  research["Research + script"] --> manifest["Scene manifest"]
+  manifest["Scene manifest"] --> assets["Media assets"]
+  assets["Media assets"] --> render["FFmpeg + SRT"]
+  render["FFmpeg + SRT"] --> qa["Human QA gate"]
+  qa["Human QA gate"] --> publish["YouTube delivery"]
+  publish["YouTube delivery"] --> analytics["Analytics / learn"]
