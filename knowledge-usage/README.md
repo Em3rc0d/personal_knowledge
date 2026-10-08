@@ -95,6 +95,12 @@ Sin crear todavía dashboards ni scores, el ledger podrá revelar:
 - qué piezas deberían simplificarse, fusionarse, archivarse o eliminarse;
 - qué conocimiento tiene evidencia suficiente para convertirse en reusable capital, playbook, workflow o producto educativo.
 
+## Experimento de recuperación selectiva y coste de contexto
+
+El [piloto Context Retrieval v0](./experiments/context-retrieval-v0/README.md) compara cuatro tareas reales utilizando rutas amplias y rutas mínimas de documentación, con fuentes fijadas por SHA y un verificador offline. El [recibo estático](./experiments/context-retrieval-v0/static-receipt-2026-10-08.json) mide **reducción de bytes de entrada** (no tokens facturados). Las rutas fueron seleccionadas manualmente; la calidad de respuestas, el coste de routing, los tokens reales y el ahorro temporal siguen `UNKNOWN` / `NOT_EVALUATED`.
+
+Este piloto no añade automatización continua, vector DB, servicios de inferencia ni un MK nuevo. Solo habilita una medición localizada y reversible; cualquier optimización general requiere gates de calidad y evidencia adicional.
+
 ## No automation yet
 
 No se crea schema, CI, database, graph runtime ni dashboard para esta capa en su primera versión.
