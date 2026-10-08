@@ -1,5 +1,7 @@
 # personal_knowledge
 
+> **Para agentes:** entrada de bajo contexto en [AGENTS.md](./AGENTS.md) y [CONTEXT_ROUTER.md](./CONTEXT_ROUTER.md). Abrir solo el documento o sección requerida; la recuperación selectiva es opt-in y nunca sustituye evidencia verificable.
+
 Monorepo personal de conocimiento técnico, de producto y diseño.
 
 ## Filosofía
