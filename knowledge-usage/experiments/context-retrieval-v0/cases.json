@@ -1,0 +1,159 @@
+{
+  "schema": "context-retrieval-measurement/v1",
+  "observed_at": "2026-10-08",
+  "repo": "Em3rc0d/personal_knowledge",
+  "reference_commit": "4e7b7dff5ffdb8eaa4a8232423a037b21d55f065",
+  "scope": "fixed-context-footprint; no agent execution or billed-token measurement",
+  "source_blobs": {
+    "agent-engineering/README.md": "19115471466facc1764c438b8b39d6ef694eda04",
+    "agent-engineering/KNOWLEDGE_MAP.md": "32b217cacb23999f514c850fbb4261a69c28966d",
+    "agent-engineering/LLM_CONTEXT.md": "02e5c72411e57d208db6ed179269cf61de7c29c2",
+    "agent-engineering/STATUS.md": "9f1274ac23ca4d87fe586a812ad00dc8757fa4ab",
+    "agent-engineering/ROADMAP.md": "b90512597a7df80858a33a00d86f602bee02d3ff",
+    "agent-engineering/mk/MK1/README.md": "b96e0070bb31fe926724440b4aad88e4d96550a2",
+    "agent-engineering/mk/MK1/GATES.md": "a6314a5b93dac11494cafd919d473177290654b9",
+    "agent-engineering/mk/MK1/CLOSURE_PLAN.md": "7da6c9d80b55d9a1b62688fa6b5a6ea2fcddba74",
+    "agent-engineering/mining-site/SOURCES.md": "2929da8c2f4d68e7815e2a326ab9a6389a366478",
+    "agent-engineering/mining-site/S-116-collaborator.md": "2195b5caf9267f1ea3f04e33f663d8b1e1a56baf",
+    "agent-engineering/quarries/collaborator-agentic-desktop-workspace.md": "ebe807321681f88ce1502979e16f6af2357c3dcc",
+    "agent-engineering/systems/strands/LLM_CONTEXT.md": "e7a448684f781ef9826f8234b4281a129bbae5db",
+    "agent-engineering/systems/strands/PROTOCOLS.md": "806914ffdcc4b6946c80caddc39a1e0042c3d73f",
+    "agent-engineering/systems/strands/EVIDENCE.md": "d172c1ea1a98f9b61d346a86719ecbbd6ad149da",
+    "knowledge-usage/README.md": "0505fca82568739f2a26a76433ad07d988da6ed0",
+    "knowledge-usage/LEDGER.md": "738032de231e5045eef7502d16d1fad999d86726",
+    "knowledge-usage/2026/KU-004-portfolio-compact-reentry.md": "1015238daf8e4af14909b00f884ec3d68126c3ce",
+    "em3rc0d-foundry/README.md": "c476f3e455b683d040c64f3d9440b8d22de65592",
+    "em3rc0d-foundry/STATUS.md": "b6bd69ef781bd1d7900281ded490ce2143709312",
+    "em3rc0d-foundry/LLM_CONTEXT.md": "0fd164699ef3518c756f87e0731d9701bcf8964f",
+    "em3rc0d-foundry/mk/MK1/DOGFOOD-002-STATE.json": "aa5944a25d10cdce0929f9a51dde8eb9228f9079",
+    "em3rc0d-foundry/mk/MK1/DOGFOOD-002-F2-REENTRY.md": "235d3d07f522a98634acfd54b832782b2e80d844"
+  },
+  "cases": [
+    {
+      "id": "MK1-BLOCKERS",
+      "question": "¿Qué bloquea el cierre actual del MK1 de agent-engineering y qué sigue?",
+      "baseline": [
+        "agent-engineering/README.md",
+        "agent-engineering/KNOWLEDGE_MAP.md",
+        "agent-engineering/LLM_CONTEXT.md",
+        "agent-engineering/STATUS.md",
+        "agent-engineering/ROADMAP.md",
+        "agent-engineering/mk/MK1/README.md",
+        "agent-engineering/mk/MK1/GATES.md",
+        "agent-engineering/mk/MK1/CLOSURE_PLAN.md"
+      ],
+      "selective": [
+        "agent-engineering/LLM_CONTEXT.md",
+        "agent-engineering/STATUS.md",
+        "agent-engineering/mk/MK1/CLOSURE_PLAN.md"
+      ],
+      "required_evidence": [
+        "agent-engineering/STATUS.md",
+        "agent-engineering/mk/MK1/CLOSURE_PLAN.md"
+      ],
+      "anchors": [
+        {
+          "path": "agent-engineering/STATUS.md",
+          "text": "REC-012"
+        },
+        {
+          "path": "agent-engineering/mk/MK1/CLOSURE_PLAN.md",
+          "text": "REC-012"
+        }
+      ]
+    },
+    {
+      "id": "COLLABORATOR-SOURCE",
+      "question": "¿Qué sabemos y qué NO sabemos de Collaborator, incluyendo licencia y seguridad?",
+      "baseline": [
+        "agent-engineering/README.md",
+        "agent-engineering/KNOWLEDGE_MAP.md",
+        "agent-engineering/LLM_CONTEXT.md",
+        "agent-engineering/mining-site/SOURCES.md",
+        "agent-engineering/mining-site/S-116-collaborator.md",
+        "agent-engineering/quarries/collaborator-agentic-desktop-workspace.md"
+      ],
+      "selective": [
+        "agent-engineering/LLM_CONTEXT.md",
+        "agent-engineering/mining-site/S-116-collaborator.md",
+        "agent-engineering/quarries/collaborator-agentic-desktop-workspace.md"
+      ],
+      "required_evidence": [
+        "agent-engineering/mining-site/S-116-collaborator.md",
+        "agent-engineering/quarries/collaborator-agentic-desktop-workspace.md"
+      ],
+      "anchors": [
+        {
+          "path": "agent-engineering/mining-site/S-116-collaborator.md",
+          "text": "FSL-1.1-ALv2"
+        },
+        {
+          "path": "agent-engineering/quarries/collaborator-agentic-desktop-workspace.md",
+          "text": "CW-06"
+        }
+      ]
+    },
+    {
+      "id": "STRANDS-A2A",
+      "question": "¿Está demostrada la compatibilidad Strands con A2A 1.0 y por qué?",
+      "baseline": [
+        "agent-engineering/README.md",
+        "agent-engineering/KNOWLEDGE_MAP.md",
+        "agent-engineering/LLM_CONTEXT.md",
+        "agent-engineering/systems/strands/LLM_CONTEXT.md",
+        "agent-engineering/systems/strands/PROTOCOLS.md",
+        "agent-engineering/systems/strands/EVIDENCE.md",
+        "agent-engineering/mk/MK1/README.md",
+        "agent-engineering/mining-site/SOURCES.md"
+      ],
+      "selective": [
+        "agent-engineering/LLM_CONTEXT.md",
+        "agent-engineering/systems/strands/PROTOCOLS.md"
+      ],
+      "required_evidence": [
+        "agent-engineering/systems/strands/PROTOCOLS.md"
+      ],
+      "anchors": [
+        {
+          "path": "agent-engineering/systems/strands/PROTOCOLS.md",
+          "text": "a2a-sdk >=0.3.0,<0.4.0"
+        },
+        {
+          "path": "agent-engineering/systems/strands/PROTOCOLS.md",
+          "text": "A2A 1.0 compatibility"
+        }
+      ]
+    },
+    {
+      "id": "PORTFOLIO-REENTRY",
+      "question": "¿Qué trabajo evitó el re-entry compacto del portafolio y qué ahorro se midió?",
+      "baseline": [
+        "knowledge-usage/README.md",
+        "knowledge-usage/LEDGER.md",
+        "knowledge-usage/2026/KU-004-portfolio-compact-reentry.md",
+        "em3rc0d-foundry/README.md",
+        "em3rc0d-foundry/STATUS.md",
+        "em3rc0d-foundry/LLM_CONTEXT.md",
+        "em3rc0d-foundry/mk/MK1/DOGFOOD-002-STATE.json",
+        "em3rc0d-foundry/mk/MK1/DOGFOOD-002-F2-REENTRY.md"
+      ],
+      "selective": [
+        "knowledge-usage/LEDGER.md",
+        "knowledge-usage/2026/KU-004-portfolio-compact-reentry.md"
+      ],
+      "required_evidence": [
+        "knowledge-usage/2026/KU-004-portfolio-compact-reentry.md"
+      ],
+      "anchors": [
+        {
+          "path": "knowledge-usage/2026/KU-004-portfolio-compact-reentry.md",
+          "text": "time_saved: UNKNOWN"
+        },
+        {
+          "path": "knowledge-usage/2026/KU-004-portfolio-compact-reentry.md",
+          "text": "history_replay_avoided"
+        }
+      ]
+    }
+  ]
+}

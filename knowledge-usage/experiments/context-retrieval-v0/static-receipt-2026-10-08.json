@@ -1,0 +1,81 @@
+{
+  "schema": "context-retrieval-static-receipt/v1",
+  "observed_at": "2026-10-08",
+  "repo": "Em3rc0d/personal_knowledge",
+  "reference_commit": "4e7b7dff5ffdb8eaa4a8232423a037b21d55f065",
+  "status": "PRELIMINARY_CONTEXT_FOOTPRINT_ONLY",
+  "measurement_method": "GitHub pinned tree blob byte size; source blob readback for required textual anchors",
+  "baseline_type": "MANUALLY_SCOPED_BROAD_DOCUMENT_SET",
+  "selective_type": "MANUALLY_CURATED_ORACLE_NOT_AUTOMATED_RETRIEVAL",
+  "source_integrity": "PASS",
+  "evidence_presence": "PASS",
+  "source_count": 22,
+  "cases": [
+    {
+      "case_id": "MK1-BLOCKERS",
+      "baseline_documents": 8,
+      "selective_documents": 3,
+      "baseline_utf8_bytes": 67196,
+      "selective_utf8_bytes": 24554,
+      "bytes_reduction_pct": 63.46,
+      "pinned_blobs": "PASS",
+      "required_evidence_presence": "PASS",
+      "answer_quality": "NOT_EVALUATED",
+      "tokenizer_tokens_saved": null,
+      "billed_tokens_saved": null,
+      "time_saved": null
+    },
+    {
+      "case_id": "COLLABORATOR-SOURCE",
+      "baseline_documents": 6,
+      "selective_documents": 3,
+      "baseline_utf8_bytes": 66337,
+      "selective_utf8_bytes": 26729,
+      "bytes_reduction_pct": 59.71,
+      "pinned_blobs": "PASS",
+      "required_evidence_presence": "PASS",
+      "answer_quality": "NOT_EVALUATED",
+      "tokenizer_tokens_saved": null,
+      "billed_tokens_saved": null,
+      "time_saved": null
+    },
+    {
+      "case_id": "STRANDS-A2A",
+      "baseline_documents": 8,
+      "selective_documents": 2,
+      "baseline_utf8_bytes": 89242,
+      "selective_utf8_bytes": 22175,
+      "bytes_reduction_pct": 75.15,
+      "pinned_blobs": "PASS",
+      "required_evidence_presence": "PASS",
+      "answer_quality": "NOT_EVALUATED",
+      "tokenizer_tokens_saved": null,
+      "billed_tokens_saved": null,
+      "time_saved": null
+    },
+    {
+      "case_id": "PORTFOLIO-REENTRY",
+      "baseline_documents": 8,
+      "selective_documents": 2,
+      "baseline_utf8_bytes": 34918,
+      "selective_utf8_bytes": 4321,
+      "bytes_reduction_pct": 87.63,
+      "pinned_blobs": "PASS",
+      "required_evidence_presence": "PASS",
+      "answer_quality": "NOT_EVALUATED",
+      "tokenizer_tokens_saved": null,
+      "billed_tokens_saved": null,
+      "time_saved": null
+    }
+  ],
+  "token_counts": null,
+  "billed_token_counts": null,
+  "answer_quality": "NOT_EVALUATED",
+  "real_retrieval_or_routing_cost": "NOT_MEASURED",
+  "limitations": [
+    "Bytes are not tokenizer units; byte reductions are not billed-token savings.",
+    "Evidence anchor presence is a necessary but insufficient condition for answer correctness.",
+    "Both paths are manually curated, not naturally sampled agent behavior; selection overhead is excluded.",
+    "Cache behavior, tool outputs, prompts, context assembly and retries are excluded."
+  ]
+}
