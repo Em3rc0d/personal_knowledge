@@ -95,6 +95,10 @@ Sin crear todavía dashboards ni scores, el ledger podrá revelar:
 - qué piezas deberían simplificarse, fusionarse, archivarse o eliminarse;
 - qué conocimiento tiene evidencia suficiente para convertirse en reusable capital, playbook, workflow o producto educativo.
 
+## Recuperación selectiva local (opt-in)
+
+[`retrieval/`](./retrieval/README.md) implementa búsqueda determinista por **secciones completas** de Markdown con un límite de caracteres, ubicaciones precisas y escalamiento cuando la evidencia no cabe. Se recomienda **solo si la ruta exacta todavía no se conoce**. No sustituye revisión de autoridad, calidad ni evidencia y no hace llamadas a modelos, RAG ni servicios pagos. El objetivo es disminuir información enviada al contexto, no forzar un recorte de calidad.
+
 ## Experimento de recuperación selectiva y coste de contexto
 
 El [piloto Context Retrieval v0](./experiments/context-retrieval-v0/README.md) compara cuatro tareas reales utilizando rutas amplias y rutas mínimas de documentación, con fuentes fijadas por SHA y un verificador offline. El [recibo estático](./experiments/context-retrieval-v0/static-receipt-2026-10-08.json) mide **reducción de bytes de entrada** (no tokens facturados). Las rutas fueron seleccionadas manualmente; la calidad de respuestas, el coste de routing, los tokens reales y el ahorro temporal siguen `UNKNOWN` / `NOT_EVALUATED`.
