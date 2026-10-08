@@ -29,7 +29,7 @@ autonomy/quality gates           approval/export/QA              local video pro
                                               (NOT INTEGRATED)
 ```
 
-**Do not make NINFA the owner of all content identities.** Its Does It Automate? brand, 16:9 long-form voice/shorts decisions and media-company analytics are not generic production policy. For multi-profile production, `prodAgentic` owns runtime authority and routing; NINFA provides **candidate implementation patterns** or, only if tested, a reusable *local render adapter* extracted behind a stable interface.
+**Q-006 code-level correction:** [the direct NINFA code audit](Q-006-ninfa-code-reuse-audit.md) verified Chatterbox TTS/WAV source and manifest examples, but did **not** locate a versioned general scene-to-MP4 renderer. The published/readme production claims are not evidence of a reusable renderer API. A GPU-only startup dependency and unscoped Gradio/Compose network exposure were also found. **Do not make NINFA the owner of all content identities.** Its Does It Automate? brand, 16:9 long-form voice/shorts decisions and media-company analytics are not generic production policy. For multi-profile production, `prodAgentic` owns runtime authority and routing; NINFA provides **candidate implementation patterns** or, only if tested, a reusable *local render adapter* extracted behind a stable interface.
 
 A renderer is not a scheduler. Neither `NINFA` nor Programmatic Video owns TikTok browser sessions, external scheduling credentials, idempotent posting or provider reconciliation.
 
@@ -83,7 +83,7 @@ content-seller metrics and learnings
 
 ## Required next evidence
 
-- Source-level read-only inventory of NINFA scene composition/FFmpeg entrypoints, versions, tests, external assumptions and actual licensing.
+- NINFA source-level check completed on known implementation and commit-derived paths: no reusable scene-to-MP4 CLI/API verified. **Further recovery required** of any off-repository scripts/assembly workflow before importing video code; TTS is not a video renderer.
 - Exact prodAgentic render lifecycle audit for video extension seams; ensure S5 PNG result and existing API remain compatible.
 - Workstation preflight (WSL2/Docker, Chrome, FFmpeg, CPU/GPU) in an **authorized** environment.
 - One fictional, no-publishing 9:16 Content Seller explainer experiment with original shapes/text/optional silent audio.
