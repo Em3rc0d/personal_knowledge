@@ -14,15 +14,17 @@ HTML, Canvas, SVG y Three.js crean escenas o animaciones. Para declarar `video p
 |---|---|---|---|---|
 | HTML/CSS/JS + captura DIY | Web APIs (Canvas captureStream); encoder por integrar | mínima dependencia de framework | tiempo real ≠ frame-seek determinista, audio/mux/browser | CANDIDATE, NO BENCHMARK |
 | HyperFrames | HTML + seekable animations + Chrome/FFmpeg + CLI | encaja con conocimientos frontend y autoría agentic | madurez/versiones, sandbox, headless GPU, APIs cambiantes | CANDIDATE, NO BENCHMARK |
-| Remotion | composiciones React/JS + CLI render | timeline/frame composition y props parametrizables | runtime React y licencia condicionada al tipo/tamaño de entidad | CANDIDATE, NO BENCHMARK |
+| Remotion | composiciones React/JS + CLI render | timeline/frame composition y props parametrizables | runtime React y licencia condicionada al tipo/tamaño de entidad (Free hasta 3 empleados para for-profit) | CANDIDATE, NO BENCHMARK |
 
 ## Fuentes primarias inspeccionadas
 
 - [HyperFrames README, HeyGen](https://github.com/heygen-com/hyperframes): proyecto declara composición HTML/CSS/JS, seekable animations, browser capture, FFmpeg y licencia Apache-2.0. `OFFICIAL` sobre documentación; **determinismo real no medido**.
-- [Remotion CLI render](https://www.remotiondocs.com/docs/cli/render): especifica `npx remotion render` y parámetros de dimensión, duración, FPS y props. `OFFICIAL`; salida real no probada.
+- [Remotion CLI render](https://www.remotion.dev/docs/cli/render): especifica `npx remotion render` y parámetros de dimensión, duración, FPS y props. `OFFICIAL`; salida real no probada.
 - [Remotion LICENSE.md](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md): licencia dual con elegibilidad para Free y Company License; no asumir que "open source" implica libre reutilización irrestricta para empresa/servicio.
 - [MDN canvas captureStream](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/captureStream): captura en tiempo real mediante `MediaStream`; no resolver por sí solo determinismo, mix de audio ni MP4.
 - [FFmpeg filters](https://ffmpeg.org/ffmpeg-filters.html): documenta filtrado/escala; disponibilidad de H.264, versiones de FFmpeg y duración de proceso deben verificarse en el entorno.
+- [Remotion fundamentals](https://www.remotion.dev/docs/the-fundamentals): `useCurrentFrame()` y `durationInFrames` modelan explícitamente el frame; [Remotion flickering](https://www.remotion.dev/docs/flickering) advierte sobre animaciones no sincronizadas, fuentes y concurrencia. Son evidencia documental de necesidad de seek/frame, no benchmark propio.
+- [HyperFrames README](https://github.com/heygen-com/hyperframes): ejemplo con `data-start`, `data-duration`, GSAP pausado y `window.__timelines`; requiere Node.js 22+ y FFmpeg según README. Declara seek por frame pero sin prueba en nuestro entorno.
 
 ## Hipótesis de selección (INFERRED)
 
