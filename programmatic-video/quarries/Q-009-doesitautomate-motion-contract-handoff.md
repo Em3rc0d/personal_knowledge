@@ -1,7 +1,7 @@
 # Q-009 — Does It Automate? PV-POC-006 motion-direction contract handoff
 
 Date: **2026-10-08 America/Lima**.
-Source of truth: [NINFA draft PR #4](https://github.com/Em3rc0d/NINFA/pull/4), proposed [Shorts motion contract v1.0.0](https://github.com/Em3rc0d/NINFA/blob/contract/does-it-automate-shorts-motion-v1-20261008/docs/contracts/DOES_IT_AUTOMATE_SHORTS_MOTION_V1.md).
+Source of truth: [NINFA merged PR #4](https://github.com/Em3rc0d/NINFA/pull/4), canonical [Shorts motion contract v1.0.0 on main](https://github.com/Em3rc0d/NINFA/blob/main/docs/contracts/DOES_IT_AUTOMATE_SHORTS_MOTION_V1.md), squash commit `c8ee078ee65b8c06e94317edbe4f70f088e87e8e` (2026-10-08).
 
 ## Decision and evidence
 
@@ -34,8 +34,8 @@ Document registration must keep the distinction:
 ## Status
 
 - Direction: **OWNER-ACCEPTED AS REFERENCE**.
-- Contract: **WRITTEN / SCHEMA PROVIDED / NINFA DRAFT PR #4 OPEN**.
-- Validator: **14 in-process semantic cases exercised before strict unknown-field hardening; 19 offline regression cases versioned, fresh checkout run pending**.
+- Contract: **MERGED IN NINFA MAIN / VERSION 1.0.0 ACTIVE AS CREATIVE-DIRECTION POLICY**; this does **not** authorize actual video production, publication, or cross-account integration.
+- Validator: **19/19 current semantic regression cases PASS** executed from GitHub's committed validator and fixture in an isolated V8 JS environment without GitHub Actions; Node CLI from a fresh checkout **not yet executed**. Unknown root/nested props were included in the evaluated rejection cases.
 - Motion engine productization: **NOT APPROVED**.
 - Social publishing/scheduling: **NOT PERFORMED**.
 - Owner voice and reference audio: **NOT UPLOADED TO GITHUB**.
