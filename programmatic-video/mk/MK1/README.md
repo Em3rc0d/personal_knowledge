@@ -12,6 +12,8 @@ Normalize research observations into stable, queryable concepts without importin
 
 - [Taxonomy and contracts](TAXONOMY.md): record identity, provenance, rights, clocks/renderers and deduplication.
 - [Fixture review](NORMALIZATION-RECEIPT.md): 8 records sampled and mapped to canonical statuses, with falsifiers and exceptions.
+- [Cross-system audit](../../quarries/Q-005-content-ops-ninfa-integration-audit.md): Ninfa's documented video pipeline vs prodAgentic's existing PNG renderer; no migration certified.
+- [Video handoff candidate](VIDEO-HANDOFF-CANDIDATE.md): typed request/result proposal, **not** an approved implementation or MK3 integration contract.
 - Source data remains pinned to SHA `756290289742535eb0ac3817548f152e9759cc70`; do not mirror 513 prompts here.
 - Any full-catalog machine normalization requires a follow-on proof and a decision about the maintenance burden.
 
