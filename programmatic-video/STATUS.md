@@ -17,9 +17,9 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 | Originales X | 8 intentados / 0 inspeccionados, BLOCKED |
 | Runtime renderer | CANDIDATES ONLY; HyperFrames y Remotion, sin instalación |
 | Sandbox ejecutable | NOT TESTED |
-| Prototipo / MP4 | NOT BUILT / NOT GENERATED |
+| Prototipo / MP4 | PV-POC-001 PASS_OUTPUT_ONLY in external sandbox (two byte-identical MP4s); NOT INTEGRATED, source archive to Git pending |
 | Auditoría de integración NINFA/prodAgentic | Q-005 + Q-006 CAPTURED / video renderer not verified, TTS source inspected |
-| Video handoff proposal | MK1 candidate + ADR-001 / NOT APPROVED FOR BUILD |
+| Video handoff proposal | MK1 candidate + ADR-001 / product build NOT AUTHORIZED; [Q-007](quarries/Q-007-pv-poc-001-local-proof.md) is evidence of narrow local export only |
 | Coste y calidad audiovisual | UNMEASURED |
 | Content Seller / Ninfa | UNCHANGED; integration BLOCKED |
 
@@ -46,7 +46,7 @@ El cierre MK0 **no** resuelve el bloqueo de X ni valida atributos del video orig
 - [ ] Validar reglas del contrato en los 513 registros y revisión independiente.
 - [ ] Completar revisión MK1 antes de contratos operativos MK2.
 
-## Preflight de cualquier ejecución (permanece BLOCKED)
+## Preflight de producto e integración (permanece BLOCKED; sandbox synthetic POC separately passed output only)
 
 - [ ] Resolver stack/versiones, CPU/GPU/RAM/OS del equipo ejecutor.
 - [ ] Confirmar sandbox OS-level, no egress/no secrets, timeout/restricciones verificadas.
