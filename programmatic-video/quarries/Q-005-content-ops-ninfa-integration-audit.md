@@ -89,3 +89,7 @@ content-seller metrics and learnings
 - One fictional, no-publishing 9:16 Content Seller explainer experiment with original shapes/text/optional silent audio.
 - Negative tests: network denied, font/asset missing, renderer timeout, invalid output, anti-duplicate editorial gate, wrong brand profile.
 - Human evaluation and measured resource cost before integrating with release candidate.
+
+## Release authority freshness note
+
+`prodAgentic` [PR #69](https://github.com/Em3rc0d/prodAgentic/pull/69) was **merged** (commit `93be1c98c87f2544c96a700afaefb0ec41562258`, observed from GitHub). The repository's README/`mk1/STATUS.md` still describes R4.1 as pending, so that prose is stale with respect to merge state. **Merge is not independent proof** that all real-provider UAT, exact-main post-certification and rollout gates passed. Before new code, retrieve an exact-current-main release receipt and branch authority; treat certification as **UNKNOWN**, not as either certified or necessarily unmerged.
