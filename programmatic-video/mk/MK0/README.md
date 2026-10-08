@@ -20,6 +20,8 @@ Status: `IN PROGRESS` — 2026-10-07.
 - [Fuente registrada](../../mining-site/SOURCES.md).
 - [Auditoría del catálogo](../../quarries/Q-001-opus55-catalog-audit.md).
 - [Investigación de herramientas](../../quarries/Q-002-renderer-landscape.md).
+- [Validación de posts originales y bloqueos](../../quarries/Q-003-original-post-access-audit.md).
+- [Threat model y assets](../../quarries/Q-004-security-rights-threat-model.md).
 - [Contrato de experimentos propuestos](EXPERIMENT-CONTRACT.md).
 - [Gates vivos](../../STATUS.md).
 
