@@ -1,6 +1,6 @@
 # MK1 Candidate — Video production handoff (NOT an implementation)
 
-Status: **CANDIDATE / NOT CANON / NOT APPROVED FOR BUILD**.
+Status: **CANDIDATE / NOT CANON / NOT APPROVED FOR PRODUCT BUILD**. An independently authored local synthetic `PV-POC-001` has now rendered and repeated successfully; see [Q-007](../../quarries/Q-007-pv-poc-001-local-proof.md). That proof does **not** establish prodAgentic adapter integration or arbitrary-code sandbox safety.
 Dependency: [Q-005 cross-repo audit](../../quarries/Q-005-content-ops-ninfa-integration-audit.md), [Q-006 code-level audit](../../quarries/Q-006-ninfa-code-reuse-audit.md), [ADR-001 proposed ownership](ADR-001-VIDEO-OWNERSHIP-AND-REUSE.md).
 This contract is for a reviewable boundary. Final operational schemas belong to MK2/MK3, not MK1.
 
@@ -78,7 +78,7 @@ Expected sequence:
 
 ## Unresolved decisions (must close before BUILD)
 
-- Source recovery: no general video renderer module/CLI verified in current NINFA repository; if unavailable, decide on a new **minimal** prototype, not a claim of code reuse.
+- Source recovery: no general video renderer module/CLI verified in current NINFA repository. A new **minimal independent sandbox prototype** now exists and passed narrow output tests; source is delivered to owner as reproducibility ZIP but not yet archived in Git. This does not change legacy NINFA renderer claims or authorize prodAgentic runtime implementation.
 - Choice between adapting its assembly or using HyperFrames/Remotion (measured comparison only if justified).
 - Host placement (local WSL2 worker), input/output exchange, artifact storage and size limits.
 - Sandboxing on available OS and FFmpeg/Chromium versions; avoid coupling untrusted renderer to Chatterbox service (GPU startup compulsory on current scripts, broad port binding).
