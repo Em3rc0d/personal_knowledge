@@ -30,7 +30,7 @@ Updated: 2026-10-07 (America/Lima)
 - [ ] Verificar derechos de los recursos concretos que entrarían en los 3 experimentos, o sustituirlos por assets originales.
 - [ ] Revisar riesgos de ejecución de HTML/JS generado por agentes en sandbox local, dependencias y acceso a red.
 - [ ] Definir baseline de máquina, memoria y stack para medir coste/performance.
-- [ ] Completar segunda fuente independiente de principios técnicos (no otra simple galería).
+- [ ] Verificar en estándares/documentación de implementación el contrato de seekable timelines (no asumirlo sólo desde marketing de renderizadores).
 - [ ] Ejecutar review de trazabilidad claims -> fuente -> limitaciones y producir acta de cierre MK0.
 
 **MK0 permanece abierto** hasta superar los gates. Un documento de experimento no constituye evidencia de render o exportación.
