@@ -1,7 +1,7 @@
 # MK1 Candidate — Video production handoff (NOT an implementation)
 
 Status: **CANDIDATE / NOT CANON / NOT APPROVED FOR BUILD**.
-Dependency: [Q-005 cross-repo audit](../../quarries/Q-005-content-ops-ninfa-integration-audit.md).
+Dependency: [Q-005 cross-repo audit](../../quarries/Q-005-content-ops-ninfa-integration-audit.md), [Q-006 code-level audit](../../quarries/Q-006-ninfa-code-reuse-audit.md), [ADR-001 proposed ownership](ADR-001-VIDEO-OWNERSHIP-AND-REUSE.md).
 This contract is for a reviewable boundary. Final operational schemas belong to MK2/MK3, not MK1.
 
 ## Separation of responsibilities
@@ -9,7 +9,7 @@ This contract is for a reviewable boundary. Final operational schemas belong to 
 1. `content-seller` — produces policy/evidence/novelty decisions, not final pixels.
 2. `prodAgentic` — owns ProfileVersion-bound runtime, validation, adapter invocation, artifact custody, approval and handoff.
 3. Local AV adapter — renders time-indexed scenes and encodes video (NINFA code is candidate, NOT yet extracted).
-4. `NINFA` — continues to own its own channel/editorial identity; no permission to import voice/assets/brand automatically.
+4. `NINFA` — continues to own its own channel/editorial identity; **its versioned shared repository has no general video renderer API verified in the inspected sources**. Reuse manifests and only optional audio/TTS after explicit hardening; no permission to import voice/assets/brand automatically.
 5. `personal_knowledge` — method/evidence, not production runtime.
 
 ## New conceptual types (do NOT mutate current static models)
@@ -66,7 +66,7 @@ ApprovedContentSpec + ProfileVersionDigest
 
 Expected sequence:
 
-1. Record NINFA renderer entrypoint and local FFmpeg availability.
+1. Attempt to recover NINFA's local/off-repo video assembly entrypoint; if not recoverable, mark `NOT_AVAILABLE` and evaluate a minimal original deterministic local FFmpeg composition path. Record FFmpeg availability and exact versions before any run.
 2. Test sandbox can reject external network/file/timeout issues.
 3. Build one original storyboard from fixture (not from catalog source prompt).
 4. Render MP4 twice, inspect ffprobe, keyframe crops and visually compare renders.
@@ -78,10 +78,10 @@ Expected sequence:
 
 ## Unresolved decisions (must close before BUILD)
 
-- Exact existing NINFA video renderer module/CLI, portability, license and test evidence.
+- Source recovery: no general video renderer module/CLI verified in current NINFA repository; if unavailable, decide on a new **minimal** prototype, not a claim of code reuse.
 - Choice between adapting its assembly or using HyperFrames/Remotion (measured comparison only if justified).
 - Host placement (local WSL2 worker), input/output exchange, artifact storage and size limits.
-- Sandboxing on available OS and FFmpeg/Chromium versions.
+- Sandboxing on available OS and FFmpeg/Chromium versions; avoid coupling untrusted renderer to Chatterbox service (GPU startup compulsory on current scripts, broad port binding).
 - Timing of prodAgentic R4 certification and branch authority for an additive video slice.
 - Real safe-zone specification, accessibility and proof/review workflow per platform.
 - Who authorizes any eventual TikTok Studio scheduling operation; no auto-scheduling in this POC.
