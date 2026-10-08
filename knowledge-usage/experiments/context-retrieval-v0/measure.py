@@ -138,7 +138,7 @@ def main() -> int:
         try:
             import tiktoken
             encoder = tiktoken.get_encoding(args.encoding)
-        except (ImportError, Exception) as exc:
+        except Exception as exc:
             parser.error(f"tokenizer unavailable ({exc}); no token claim was produced")
     try:
         spec = json.loads(args.manifest.read_text(encoding="utf-8"))
