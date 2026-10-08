@@ -1,39 +1,27 @@
 # MK0 — Mine & Frame
 
-Status: `IN PROGRESS` — 2026-10-07.
+Status: **CLOSED WITH LIMITATIONS** (2026-10-07).
+Evidence and review: [CLOSURE.md](CLOSURE.md).
 
-## Pregunta principal
+## Pregunta
 
-¿Existe evidencia suficiente para convertir patrones visuales extraídos de demostraciones de agentes en un pipeline audiovisual **local, reproducible y legalmente reutilizable**, sin desarrollar de inmediato un nuevo producto?
+¿Podemos formar una base confiable para investigar videos generados por código sin asumir que una colección viral prueba capacidades, licencias, resultados o reproducibilidad?
 
-## Foco
-
-- Resolver identidad, acceso y fecha de fuentes.
-- Medir amplitud real del catálogo, distinguir entradas de instrucciones únicas.
-- Separar prompt publicado, supuesta recreación y reproducción independiente.
-- Documentar límites de asset, marca, audio, licencia y contexto ausente.
-- Distinguir HTML/Canvas/SVG/WebGL de renderizado MP4.
-- Definir experimentos falsables antes del código.
+**Resultado:** SÍ para un scope restringido a descubrimiento y preparación de validación. NO para claims sobre video original ni runtime.
 
 ## Artefactos
 
-- [Fuente registrada](../../mining-site/SOURCES.md).
-- [Auditoría del catálogo](../../quarries/Q-001-opus55-catalog-audit.md).
-- [Investigación de herramientas](../../quarries/Q-002-renderer-landscape.md).
-- [Validación de posts originales y bloqueos](../../quarries/Q-003-original-post-access-audit.md).
-- [Threat model y assets](../../quarries/Q-004-security-rights-threat-model.md).
-- [Contrato de experimentos propuestos](EXPERIMENT-CONTRACT.md).
-- [Gates vivos](../../STATUS.md).
+- [Origen y límites de fuentes](../../mining-site/SOURCES.md)
+- [Auditoría del catálogo](../../quarries/Q-001-opus55-catalog-audit.md)
+- [Renderers y documentación](../../quarries/Q-002-renderer-landscape.md)
+- [Muestra X bloqueada](../../quarries/Q-003-original-post-access-audit.md)
+- [Security/rights threat model](../../quarries/Q-004-security-rights-threat-model.md)
+- [Experimentos propuestos](EXPERIMENT-CONTRACT.md)
+- [Acta de cierre](CLOSURE.md)
+- [Gates vivos](../../STATUS.md)
 
-## Reglas
+## Limits
 
-1. Capturar source boundaries conforme a `jett-engineering-method/SOURCE-INTAKE-CONTRACT.md`.
-2. No promover etiquetas de tecnología como evidencia de implementación original.
-3. No copiar prompts completos, imágenes, audio ni videos de terceros sin revisar su licencia concreta.
-4. No describir un `README` comercial como benchmark independiente.
-5. No llamar `MP4 ready` a un demo HTML.
-6. No declarar MK0 cerrado ni MK1 habilitado sin review y evidencia.
+No se reprodujeron videos, no se ejecutó HTML/JS ni se probó el renderer, no se validaron originales de X, no se conceden derechos implícitos sobre terceros, no se implementa Video Factory.
 
-## No-objetivos
-
-No construir editor, backend, servicio de render cloud, integraciones sociales, autopublicación, ni motor de campañas.
+MK1 puede iniciar **normalización documental**; MK2/implementación requieren sus propios gates.
