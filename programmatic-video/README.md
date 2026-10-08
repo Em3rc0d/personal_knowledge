@@ -1,6 +1,6 @@
 # Programmatic Video — dominio de conocimiento
 
-Status: **MK0 — Mine & Frame / IN PROGRESS** (2026-10-07, America/Lima).
+Status: **MK0 — CLOSED WITH LIMITATIONS; MK1 ELIGIBLE / NOT STARTED** (2026-10-07, America/Lima).
 
 ## Hipótesis
 
@@ -45,7 +45,7 @@ Las iteraciones MK describen **madurez del conocimiento**, no sprints ni funcion
 
 - [Estado y gates](STATUS.md)
 - [Ruta de trabajo](ROADMAP.md)
-- [MK0](mk/MK0/README.md)
+- [MK0 y acta de cierre](mk/MK0/README.md)
 - [Fuentes](mining-site/SOURCES.md)
 - [Auditoría del catálogo](quarries/Q-001-opus55-catalog-audit.md)
 - [Investigación de renderers](quarries/Q-002-renderer-landscape.md)
