@@ -18,6 +18,8 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 | Runtime renderer | CANDIDATES ONLY; HyperFrames y Remotion, sin instalación |
 | Sandbox ejecutable | NOT TESTED |
 | Prototipo / MP4 | NOT BUILT / NOT GENERATED |
+| Auditoría de integración NINFA/prodAgentic | Q-005 CAPTURED / CODE REUSE NOT YET VERIFIED |
+| Video handoff proposal | MK1 candidate / NOT APPROVED FOR BUILD |
 | Coste y calidad audiovisual | UNMEASURED |
 | Content Seller / Ninfa | UNCHANGED; integration BLOCKED |
 
