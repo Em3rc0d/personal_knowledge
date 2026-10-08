@@ -65,3 +65,7 @@ Before build: resolve host environment, verified rights for font/assets, executa
 ## Promotion rules
 
 **This ADR is not an accepted prodAgentic ADR**; adopting it requires review in prodAgentic's own governance after R4 branch/release authority is checked, a real test and rollback plan. No code or production authority changes have been made.
+
+## Branch and release authority refresh
+
+GitHub reports [prodAgentic PR #69](https://github.com/Em3rc0d/prodAgentic/pull/69) **merged** at `93be1c98c87f2544c96a700afaefb0ec41562258`; older repo status documentation still says pre-UAT/pending. No fresh exact-main release receipt or production rollout proof was inspected. **Do not claim R4 is certified or unmerged.** Verify exact runtime authority on current main before proposing where a video PR branches; this design remains an isolated research proposal.
