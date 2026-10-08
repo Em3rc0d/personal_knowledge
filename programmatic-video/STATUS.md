@@ -20,8 +20,8 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 | Prototipo / MP4 | PV-POC-001 deterministic silent baseline; PV-POC-003 GH Actions neural WAV+MP4 success; original animation remux H264/AAC PASS; prodAgentic integration NOT DONE |
 | Auditoría de integración NINFA/prodAgentic | Q-005 + Q-006 CAPTURED / video renderer not verified, TTS source inspected |
 | Video handoff proposal | MK1 candidate + ADR-001 / product build NOT AUTHORIZED; [Q-007](quarries/Q-007-pv-poc-001-local-proof.md) is evidence of narrow local export only |
-| Coste y calidad audiovisual | PV-POC-002 eSpeak robotic rejected for target quality; PV-POC-003 Piper CI audio/video PASS (no paid TTS API), human naturalness NOT EVALUATED; see [Q-008](quarries/Q-008-piper-spanish-voice-poc.md) |
-| Content Seller / Ninfa | UNCHANGED; integration BLOCKED |
+| Coste y calidad audiovisual | PV-POC-002 eSpeak robotic rejected for target quality; PV-POC-003 Piper CI audio/video TECHNICAL PASS (no paid TTS API), owner naturalness NOT ACCEPTED / production voice REJECTED; see [Q-008](quarries/Q-008-piper-spanish-voice-poc.md) |
+| Content Seller / Ninfa | UNCHANGED; integration BLOCKED. NINFA Piper experiment auto-triggers disabled, manual-only archived proof; do not use Actions as production TTS backend |
 
 ## MK0 — GATES
 
