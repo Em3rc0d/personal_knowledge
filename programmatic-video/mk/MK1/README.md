@@ -14,6 +14,7 @@ Normalize research observations into stable, queryable concepts without importin
 - [Fixture review](NORMALIZATION-RECEIPT.md): 8 records sampled and mapped to canonical statuses, with falsifiers and exceptions.
 - [Cross-system audit](../../quarries/Q-005-content-ops-ninfa-integration-audit.md): Ninfa's documented video pipeline vs prodAgentic's existing PNG renderer; no migration certified.
 - [NINFA code-level audit](../../quarries/Q-006-ninfa-code-reuse-audit.md): WAV/TTS module exists, general scene→MP4 executable not verified.
+- [PV-POC-001 external sandbox proof](../../quarries/Q-007-pv-poc-001-local-proof.md): trusted authored Pillow/FFmpeg video exported twice with identical SHA; not a product or MK1 certificate.
 - [ADR-001 proposed ownership](ADR-001-VIDEO-OWNERSHIP-AND-REUSE.md): additive video port in prodAgentic; not accepted by prodAgentic's release authority.
 - [Video handoff candidate](VIDEO-HANDOFF-CANDIDATE.md): typed request/result proposal, **not** an approved implementation or MK3 integration contract.
 - Source data remains pinned to SHA `756290289742535eb0ac3817548f152e9759cc70`; do not mirror 513 prompts here.
