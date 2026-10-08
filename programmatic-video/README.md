@@ -56,6 +56,7 @@ Las iteraciones MK describen **madurez del conocimiento**, no sprints ni funcion
 - [Auditoría de código realmente reutilizable de NINFA](quarries/Q-006-ninfa-code-reuse-audit.md)
 - [PV-POC-001: prueba observada de MP4 local](quarries/Q-007-pv-poc-001-local-proof.md)
 - [PV-POC-003: prueba ejecutada de voz neuronal Piper](quarries/Q-008-piper-spanish-voice-poc.md)
+- [PV-POC-006: contrato audiovisual aceptado como dirección para Does It Automate?](quarries/Q-009-doesitautomate-motion-contract-handoff.md)
 - [Contrato experimental](mk/MK0/EXPERIMENT-CONTRACT.md)
 
 ## Invariantes
