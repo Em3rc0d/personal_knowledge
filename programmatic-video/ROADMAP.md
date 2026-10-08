@@ -1,6 +1,6 @@
 # Programmatic Video — Roadmap
 
-## MK0 — Mine & Frame (activo)
+## MK0 — Mine & Frame (cerrado con límites; ver [CLOSURE](mk/MK0/CLOSURE.md))
 
 1. **Intake:** congelar URL/SHA/fecha del catálogo, confirmar identidad upstream y límites del contenido republicado.
 2. **Quarry:** caracterizar duplicados, prompts parciales, categorías, tecnologías, sesgo de selección y dependencias externas.
@@ -9,9 +9,9 @@
 5. **Contrato de prueba:** especificar 3 microexperimentos sintéticos, sin copiar assets ni publicar contenido.
 6. **Review:** evaluar si los claims presentes tienen soporte, documentar huecos y cerrar MK0 **sólo** con evidence gate.
 
-Output de cierre eventual: `mk/MK0/CLOSURE.md` (no existe hasta superar gates).
+Output de cierre: `mk/MK0/CLOSURE.md` — `PASS WITH LIMITATIONS`: sólo alcance discovery, sin verificación de posts originales ni runtime.
 
-## MK1 — Normalize & Classify (bloqueado)
+## MK1 — Normalize & Classify (habilitado; aún sin ejecutar)
 
 Taxonomía mínima: `technique`, `composition_type`, `source_provenance`, `prompt_coverage`, `rights_state`, `external_dependency`, `render_backend`, `determinism_scope`, `quality_issue`, `verification_status`. Dedupe por prompt normalizado y similitud semántica con trazabilidad de variantes.
 
