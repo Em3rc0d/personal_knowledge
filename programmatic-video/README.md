@@ -54,6 +54,7 @@ Las iteraciones MK describen **madurez del conocimiento**, no sprints ni funcion
 - [Riesgos de seguridad y derechos](quarries/Q-004-security-rights-threat-model.md)
 - [Auditoría Content Ops + NINFA + prodAgentic](quarries/Q-005-content-ops-ninfa-integration-audit.md)
 - [Auditoría de código realmente reutilizable de NINFA](quarries/Q-006-ninfa-code-reuse-audit.md)
+- [PV-POC-001: prueba observada de MP4 local](quarries/Q-007-pv-poc-001-local-proof.md)
 - [Contrato experimental](mk/MK0/EXPERIMENT-CONTRACT.md)
 
 ## Invariantes
