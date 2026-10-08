@@ -29,24 +29,24 @@ Policy: `jett-engineering-method/SOURCE-INTAKE-CONTRACT.md`. Each record separat
 
 - Owner/publisher: HeyGen, `heygen-com/hyperframes`.
 - Identity: https://github.com/heygen-com/hyperframes
-- Documentation: https://hyperframes.heygen.com/introduction
+- Documentation: https://hyperframes.heygen.com/introduction ; https://github.com/heygen-com/hyperframes/blob/main/README.md
 - Source type: first-party code/docs.
 - Access: ACCESSIBLE; capture: PARTIAL (README/documentation sections).
 - Verification: VERIFIED for vendor's stated CLI/local seekable HTML-to-MP4 pipeline; runtime determinism UNVERIFIED.
 - Promotion: QUARRY_ONLY. Provenance: OFFICIAL (project claims) / not independently tested.
 - Claimed mechanics: HTML/CSS/JS compositions, browser frame capture, FFmpeg encoding, local CLI, agent-oriented authoring.
-- License reported by repository: Apache-2.0; **verify exact dependency/license versions at implementation time**.
+- LICENSE inspeccionada por GitHub: Apache-2.0; README indica Node.js 22+ y FFmpeg; SECURITY.md documenta el proceso de divulgación, **no un sandbox de render verificado**. Verificar dependencias y licencia del release fijado en el preflight.
 - Risks: evolving interfaces, headless Chromium/GPU, FFmpeg CPU cost, browser asset fetching, security of generated JS.
 
 ## SRC-PV-003 — Remotion (candidate renderer)
 
 - Publisher: Remotion.
-- Identity: https://www.remotion.dev/docs ; render CLI: https://www.remotiondocs.com/docs/cli/render
+- Identity: https://www.remotion.dev/docs ; render CLI: https://www.remotion.dev/docs/cli/render ; frame API: https://www.remotion.dev/docs/the-fundamentals
 - First-party license: https://github.com/remotion-dev/remotion/blob/main/LICENSE.md
 - Access: ACCESSIBLE; capture: PARTIAL.
 - Verification: VERIFIED for documented React/composition-to-video CLI and differentiated licensing, not for runtime behavior.
 - Promotion: QUARRY_ONLY. Provenance: OFFICIAL.
-- Important: license is **not universally free/unrestricted**: individuals and certain small organizations may qualify; ineligible businesses require Company License. Criteria/version must be rechecked before commercial integration.
+- Important: licencia inspeccionada `remotion-dev/remotion/LICENSE.md`: Free License disponible para individuos, organizaciones sin fines de lucro y empresas con fines de lucro de **hasta 3 empleados** (entre otros casos de evaluación). Empresas no elegibles requieren Company License. Se prohíbe sublicenciar derivaciones de Remotion conforme a sus términos; revisar licencia y tamaño real de entidad antes de comercializar.
 - Risks: React/runtime coupling, browser encode load, license/telemetry policy changes, agent-generated dependencies.
 
 ## SRC-PV-004 — MDN Canvas captureStream
@@ -79,3 +79,5 @@ Policy: `jett-engineering-method/SOURCE-INTAKE-CONTRACT.md`. Each record separat
 - Inspect and record a stratified set of original X posts and any exact instructions/context visible (some access may be blocked).
 - Recheck licensing before introducing a runtime into a commercial product.
 - Pin candidate renderer, browser binary and FFmpeg versions before reproducibility tests.
+- `SRC-PV-006` documentación Playwright sobre interceptación y Service Workers: https://playwright.dev/docs/api/class-browsercontext ; network interception **no equivale a aislamiento del SO**.
+- Remotion determinism/flicker guidance: https://www.remotion.dev/docs/flickering (no usar animación sólo de reloj ni asumir que concurrencia=1 corrige).
