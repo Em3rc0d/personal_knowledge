@@ -16,11 +16,11 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 | Fuente seed | SHA pinneado, JSON inspeccionado, atribución de originales UNVERIFIED |
 | Originales X | 8 intentados / 0 inspeccionados, BLOCKED |
 | Runtime renderer | CANDIDATES ONLY; HyperFrames y Remotion, sin instalación |
-| Sandbox ejecutable | NOT TESTED |
-| Prototipo / MP4 | PV-POC-001 PASS_OUTPUT_ONLY in external sandbox (two byte-identical MP4s); NOT INTEGRATED, source archive to Git pending |
+| Sandbox ejecutable | Limited trusted-data execution tested; OS no-egress/secret isolation NOT CERTIFIED |
+| Prototipo / MP4 | PV-POC-001 deterministic silent baseline; PV-POC-003 GH Actions neural WAV+MP4 success; original animation remux H264/AAC PASS; prodAgentic integration NOT DONE |
 | Auditoría de integración NINFA/prodAgentic | Q-005 + Q-006 CAPTURED / video renderer not verified, TTS source inspected |
 | Video handoff proposal | MK1 candidate + ADR-001 / product build NOT AUTHORIZED; [Q-007](quarries/Q-007-pv-poc-001-local-proof.md) is evidence of narrow local export only |
-| Coste y calidad audiovisual | UNMEASURED |
+| Coste y calidad audiovisual | PV-POC-002 eSpeak robotic rejected for target quality; PV-POC-003 Piper CI audio/video PASS (no paid TTS API), human naturalness NOT EVALUATED; see [Q-008](quarries/Q-008-piper-spanish-voice-poc.md) |
 | Content Seller / Ninfa | UNCHANGED; integration BLOCKED |
 
 ## MK0 — GATES
