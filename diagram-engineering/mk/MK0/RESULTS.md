@@ -30,7 +30,7 @@ Files shipped: `outputs/*.html`, `layout_spec_v2.json`, `graph_contract.json`, `
 - Browser checks are local, not third-party accessibility certification, nor a complete WCAG/print audit.
 - No blind reader A/B, actual total token usage, or author/review-time reduction has been measured.
 
-**Gate: HOLD.** Do not merge this branch into `main` or use generated overviews as canonical architecture diagrams until human review and independent evidence are available.
+**Gate: HOLD for certification/default adoption.** At the owner's explicit request, the research materials may be merged into `main` as a clearly labelled experiment, not as canonical architecture diagrams. Human semantic review and independent evidence are still required before adopting the technique.
 
 ## Rectificación de alcance / evidencia del PR
 

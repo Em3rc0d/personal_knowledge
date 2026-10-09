@@ -40,4 +40,4 @@ Elegir una modificación **real y versionada** de uno de los documentos fuente, 
 - **KILL:** fallos no remediables, pérdida semántica o costo superior a lectura estructurada.
 - **HOLD:** falta cualquier evidencia indispensable. Es el estado **actual**.
 
-No promover el PR #33 hasta cerrar este contrato, y no escribir `COMPLETE` en nombre de un validador autocontenido.
+La incorporación documental del PR #33 a `main` fue autorizada expresamente por el usuario y no cierra este contrato. No promover diagramas a fuentes arquitectónicas de autoridad ni declarar MK0 `COMPLETE` hasta cumplir los criterios anteriores.

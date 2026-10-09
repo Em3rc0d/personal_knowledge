@@ -48,3 +48,9 @@ La navegación válida para este piloto es:
 **Precedencia:** fuente canónica en el proyecto original → invariantes y `graph_contract.json` del piloto → `layout_spec_v2.json` (geometría declarada) → HTML/SVG como artefacto de presentación. El contrato interno ayuda a detectar deriva, pero no puede legitimar una relación que contradice el documento fuente.
 
 Los tres HTML están versionados y pueden consultarse directamente, pero **todavía no hay builder portable y versionado para regenerarlos desde el layout**. No convertir una captura o un PASS estructural en prueba de equivalencia semántica, ahorro de tokens o preparación para producción.
+
+## Promotion boundary — integration of a documented experiment
+
+At the owner's explicit instruction on 2026-10-08, the complete MK0 pilot may be merged into `main` **as an archived, reproducible research workspace**. This is **not** an engineering-rule certification, a production diagram recommendation, or an MK0 closure. The project still requires independent semantic review, blind comprehension A/B, change rehearsal, and cost measurements before default adoption.
+
+`main` can preserve openly labelled, source-pinned exploratory evidence without silently converting it into authoritative guidance. The downstream ECHO and NINFA repos and the Diagram Design fork are unaffected.
