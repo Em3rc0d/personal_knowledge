@@ -64,3 +64,10 @@ Document registration must keep the distinction:
 - **26/26 offline Python tests PASS**. GitHub blob hashes matched exactly with locally exercised scene engine, unit tests, integration runner, integration test and two manifests; two successive runs confirmed cached visual and finished MP4 reuse without new FFmpeg render. Zero API spend / media Actions / posting.
 - This is **NARROW END-TO-END ENGINEERING PROOF**, not generic new-story visualization, word-level auto sync, cross-tenant publishing, real benchmark replication, Windows/WSL2 certification, OS-level security proof or owner UAT acceptance of this new visual.
 - NINFA content approval and provider publication remain **BLOCKED**. prodAgentic VideoRenderPort RFC and programmatic-video MK1 normalization remain OPEN.
+
+## Motion v1.5 — evidence-first producer thread (2026-10-09)
+
+- [NINFA PR #9](https://github.com/Em3rc0d/NINFA/pull/9) **MERGED to main**, squash SHA `8b2fc0ec02a4b04fcc32110df1395e9ddd6dc319`.
+- A [new bounded replay producer](https://github.com/Em3rc0d/NINFA/tree/main/tools/motion-v15) implements **actual local SQLite sequential delivery twice**: no unique event key → 2 stored actions; with a unique key → 1 stored action. Receipt SHA `8dc48cde916fc45617a8d0022dccddca98c2886ef38e5e48971edf22c3e516b7` is derived from the synthetic local run, not a provider webhook or concurrency result.
+- Exactly versioned code/story/evidence/test blobs matched the **25/25 tested local** Python source checkout. Full source evidence → 24.0s/720-frame 1080×1920 H.264 **silent** MP4, SHA `edf5c15c27df821f95d6cc7b4a7149bfbb8f352e95b6983606dba133df12843f`; same-host rerender identical; v1.3 visual preflight accepts it.
+- **Ownership**: new English story requiring its **own owner narration**. Caption timings are drafts only. No TTS, paid API, media Actions or MP4/user voice assets in Git. Human voice sync/UAT/mobile overlays, actual third-party rights and publication remain **BLOCKED**. Not a universal arbitrary-story renderer or a cross-tenant prodAgentic integration.
