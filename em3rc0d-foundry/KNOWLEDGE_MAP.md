@@ -84,3 +84,8 @@ Use progressive disclosure:
       → raw run/case only when the claim needs it
 
 Compiled knowledge and active procedure should reduce context, not duplicate the entire evidence corpus.
+
+## UI design contract research (candidate)
+
+- [M3E Canvas evidence study](../web-design/mining-site/m3e-canvas.md) — upstream research, not canon.
+- [Design Contract → Foundry](architecture/DESIGN_CONTRACT_TO_FOUNDRY.md) — GENERATED/INSPIRED architecture candidate; no runtime promotion.
