@@ -35,3 +35,16 @@ See [source registry](mining-site/SOURCES.md), [quarry](quarries/Q-001.md), [con
 The three figures were redrawn with distinct semantic grammars and strengthened graph, accessible-text, and geometry verification. See [v2 local results](mk/MK0/RESULTS.md). The generated SVGs remain non-authoritative; the MK0 gate is **HOLD**, not a production GO.
 
 Offline commands: `python3 diagram-engineering/mk/MK0/verify_pilot.py` and `python3 diagram-engineering/mk/MK0/test_adversarial.py`.
+
+## Reentrada y autoridad (actualización documental)
+
+La navegación válida para este piloto es:
+
+1. [Trazabilidad](mk/MK0/TRACEABILITY.md) — cada relación y su límite frente al documento fijado.
+2. [Reproducción local](mk/MK0/REPRODUCE.md) — commands, entrada, artefactos y límites reales.
+3. [Recibo de evidencia](mk/MK0/EVIDENCE-RECEIPT-2026-10-08.md) — distingue HTML auditado en GitHub y material local no idéntico.
+4. [Revisión y A/B](mk/MK0/REVIEW-GATE.md) — criterios GO/PIVOT/KILL/HOLD y preguntas al lector.
+
+**Precedencia:** fuente canónica en el proyecto original → invariantes y `graph_contract.json` del piloto → `layout_spec_v2.json` (geometría declarada) → HTML/SVG como artefacto de presentación. El contrato interno ayuda a detectar deriva, pero no puede legitimar una relación que contradice el documento fuente.
+
+Los tres HTML están versionados y pueden consultarse directamente, pero **todavía no hay builder portable y versionado para regenerarlos desde el layout**. No convertir una captura o un PASS estructural en prueba de equivalencia semántica, ahorro de tokens o preparación para producción.

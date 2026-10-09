@@ -19,3 +19,13 @@ Output settings: HTML source + inline SVG; slide-16x9 / 1280×720; no motion; mi
 6. **Change rehearsal**: replay one actual source revision into visual; review extra work and provenance update.
 
 GO only for selective use if all three semantic, visual and comprehension gates pass and cost is acceptable; otherwise PIVOT to hand-curated figures or KILL automatic use. This is a pilot, no downstream project mutation, no default adoption. Human promotion required.
+
+## Contrato de evidencia v2 — corrección de límites
+
+No confundir `graph_contract.json` con autoridad científica, de producto o de ingeniería del sistema original. Verificación de relaciones **dentro del propio gráfico** y revisión de relaciones **respecto a la fuente** son gates distintos. Un test autoconsistente puede seguir siendo semánticamente incorrecto.
+
+El paquete de evidencia local v2 difiere del commit remoto en bytes; para elevarlo a evidencia reproducible del repositorio es obligatorio ejecutar los comandos de [REPRODUCE.md](REPRODUCE.md) sobre checkout exacto y capturar versión, commit, salida, navegador, dimensiones y comparación de archivos.
+
+Los tests adversariales actuales abarcan 12 mutaciones en el caso ECHO, no 12 por caso ni una prueba de seguridad exhaustiva. Los controles de contraste están acotados a tokens y superficies conocidas; no hay prueba de WCAG integral.
+
+Antes del GO: revisar la [matriz de trazabilidad](TRACEABILITY.md), completar la evaluación del lector [REVIEW-GATE.md](REVIEW-GATE.md), registrar un rehearsal con revisión de fuente y evaluar mantenimiento sin prometer ahorro. No ejecutar CI, API pagada ni nuevas automatizaciones por defecto.

@@ -31,3 +31,13 @@ Files shipped: `outputs/*.html`, `layout_spec_v2.json`, `graph_contract.json`, `
 - No blind reader A/B, actual total token usage, or author/review-time reduction has been measured.
 
 **Gate: HOLD.** Do not merge this branch into `main` or use generated overviews as canonical architecture diagrams until human review and independent evidence are available.
+
+## Rectificación de alcance / evidencia del PR
+
+Las cifras de tests y capturas de arriba corresponden a una **ejecución local sobre un paquete de la iteración v2**. El material local inspeccionado tiene hashes de blob distintos a los HTML/scripts actualmente en GitHub. Por tanto:
+
+- **PASS en GitHub:** únicamente inspección estática de nodo/arista/pin y ciertas marcas a11y/móvil/seguridad vs `graph_contract.json` de la rama; ver [recibo](EVIDENCE-RECEIPT-2026-10-08.md).
+- **PASS local:** 3/3, 12/12 y seis métricas Chromium, con alcance de la versión local, **no certificado como reproducción exacta del commit**.
+- **No certificado:** fuente→grafo por revisor independiente; accesibilidad integral; browser desde checkout del SHA publicado; A/B; costo total; drift test.
+
+La versión **no** se califica todavía como certificada o lista para promocionar. Ver la [matriz semántica](TRACEABILITY.md), el [runbook](REPRODUCE.md) y el [gate de revisión](REVIEW-GATE.md).
