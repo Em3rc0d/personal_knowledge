@@ -6,7 +6,7 @@
 
 - ECHO: SourceRegistry + Supervisor, WindowProducer, InferenceScheduler, ModelRunner and explicit `RAW_INFERENCE` return; separate MQTT and result-store branches.
 - NINFA: fact-check separated from drafting, narration and visual evidence shown in parallel, human approval required, analytics feedback loop.
-- personal_knowledge: three governance zones, failed source check → HOLD/BLOCKED; verified sources through mining/quarries and staged development → MK gate → main; material-use condition for receipts.
+- personal_knowledge: three governance zones, failed source check → HOLD/BLOCKED; verified sources through mining/quarries and staged development → MK gate → main; material-use condition for receipts; explicit MK gate HOLD/KILL nonpromotion outcome.
 - Each HTML includes pinned source SHA, visual connection annotations, a keyboard-focusable scroll region, a mobile scroll hint, an explicit textual description of every directed edge, notes on omissions and local-only CSS/fonts.
 
 ## Local executed evidence (not a GitHub CI run)
@@ -15,7 +15,7 @@
 |---|---:|---:|---|---|
 | ECHO | 11 | 11 | PASS | PASS / PASS |
 | NINFA | 9 | 10 | PASS | PASS / PASS |
-| personal_knowledge | 11 | 10 | PASS | PASS / PASS |
+| personal_knowledge | 12 | 11 | PASS | PASS / PASS |
 
 12 deliberate negative mutations were rejected: inline executable handler, remote CSS import, empty path, changed SHA, blank SVG title, removed inference return, invalid endpoint, diagonal path, remote hyperlink, removed textual alternative, weak contrast and missing textual edge.
 

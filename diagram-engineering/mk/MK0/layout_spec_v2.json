@@ -579,6 +579,16 @@
         "title": "Usage receipt",
         "sub": "Solo si uso material",
         "kind": "default"
+      },
+      {
+        "id": "gate_hold",
+        "x": 1150,
+        "y": 185,
+        "w": 112,
+        "h": 60,
+        "title": "HOLD / KILL",
+        "sub": "No promociona",
+        "kind": "negative"
       }
     ],
     "edges": [
@@ -661,6 +671,14 @@
         "d": "M1001 469 V505",
         "label": "IF MATERIAL",
         "kind": "conditional"
+      },
+      {
+        "id": "k11",
+        "from": "gate",
+        "to": "gate_hold",
+        "d": "M1121 212 H1150",
+        "label": "NOT PROMOTED",
+        "kind": "blocked"
       }
     ],
     "zones": [

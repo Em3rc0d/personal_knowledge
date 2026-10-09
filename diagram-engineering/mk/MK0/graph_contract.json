@@ -200,7 +200,8 @@
       "gate",
       "canon",
       "reuse",
-      "receipt"
+      "receipt",
+      "gate_hold"
     ],
     "required_edges": [
       {
@@ -262,6 +263,12 @@
         "from": "reuse",
         "to": "receipt",
         "kind": "conditional"
+      },
+      {
+        "id": "k11",
+        "from": "gate",
+        "to": "gate_hold",
+        "kind": "blocked"
       }
     ],
     "invariant_edges": [
@@ -270,7 +277,8 @@
       "k6",
       "k7",
       "k8",
-      "k10"
+      "k10",
+      "k11"
     ],
     "notes": [
       "Un pointer no es evidencia; la captura/identidad/verificación puede terminar en HOLD o BLOCKED.",
