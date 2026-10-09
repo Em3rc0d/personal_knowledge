@@ -1,20 +1,33 @@
-# Preliminary results — 2026-10-08
+# Diagram Engineering — MK0 v2 results
 
-| Case | Nodes | Edges | Output state |
-|---|---:|---:|---|
-| echo | 10 | 9 | HTML/SVG authored, visually unverified |
-| ninfa | 7 | 6 | HTML/SVG authored, visually unverified |
-| knowledge | 9 | 8 | HTML/SVG authored, visually unverified |
+**2026-10-08 · controlled local iteration · no external certification**
 
-## Fidelity ledger
-- **ECHO:** groups WindowProducer+InferenceScheduler, omits SourceRegistry as a distinct node, raw-inference return edge, overload/failure, broker retry and health telemetry. MQTT and event store stay separate. Original ASCII flow is **more precise about the return loop**.
-- **NINFA:** groups independently acquired voice + evidence/graphics into Media assets. Omits detailed research/distribution stages. This is **not** an automatic publication claim; the source operating model is more complete.
-- **personal_knowledge:** condenses brainstorming, design, architecture, plan, build, test and prove into synthesis/review. The diagram is a conceptual dependency view, **not** the exhaustive MK workflow and not evidence that every reuse has a receipt.
+## Fixed from previous visual/semantic review
 
-## Validation boundary
-JS pre-commit assertions check every node/edge reference, stable case+source revision, unique HTML IDs, accessible SVG label+description markers and absence of external fonts/scripts. This is **a limited structural assertion, not a browser/geometry test**.
+- ECHO: SourceRegistry + Supervisor, WindowProducer, InferenceScheduler, ModelRunner and explicit `RAW_INFERENCE` return; separate MQTT and result-store branches.
+- NINFA: fact-check separated from drafting, narration and visual evidence shown in parallel, human approval required, analytics feedback loop.
+- personal_knowledge: three governance zones, failed source check → HOLD/BLOCKED; verified sources through mining/quarries and staged development → MK gate → main; material-use condition for receipts.
+- Each HTML includes pinned source SHA, visual connection annotations, a keyboard-focusable scroll region, a mobile scroll hint, an explicit textual description of every directed edge, notes on omissions and local-only CSS/fonts.
 
-Unexecuted: actual Chromium visual inspection, upstream self_check/lint-render, mobile/print screenshots, contrast sampling, blind comprehension A/B, true usage-token accounting, actual elapsed effort, change replay.
+## Local executed evidence (not a GitHub CI run)
 
-### Gate
-**HOLD / EXPERIMENT ONLY.** No verified visual superiority, source equivalence, productivity benefit or token saving is claimed.
+| Case | Nodes | Edges | Static verifier | Desktop/mobile |
+|---|---:|---:|---|---|
+| ECHO | 11 | 11 | PASS | PASS / PASS |
+| NINFA | 9 | 10 | PASS | PASS / PASS |
+| personal_knowledge | 11 | 10 | PASS | PASS / PASS |
+
+12 deliberate negative mutations were rejected: inline executable handler, remote CSS import, empty path, changed SHA, blank SVG title, removed inference return, invalid endpoint, diagonal path, remote hyperlink, removed textual alternative, weak contrast and missing textual edge.
+
+Local Chromium inspection used 1440px desktop and 390px mobile. No page errors, no overflowing node labels or whole-page horizontal overflow; scrolling was observable and cue visible on mobile.
+
+Files shipped: `outputs/*.html`, `layout_spec_v2.json`, `graph_contract.json`, `verify_pilot.py`, `test_adversarial.py`.
+
+## What tests DO NOT prove
+
+- These checks are syntactic/structural; they do not prove that the SVG interpretation is semantically equivalent to its canonical source.
+- We have not run the upstream Diagram Design `self_check` or `lint-render` on these generated HTMLs.
+- Browser checks are local, not third-party accessibility certification, nor a complete WCAG/print audit.
+- No blind reader A/B, actual total token usage, or author/review-time reduction has been measured.
+
+**Gate: HOLD.** Do not merge this branch into `main` or use generated overviews as canonical architecture diagrams until human review and independent evidence are available.

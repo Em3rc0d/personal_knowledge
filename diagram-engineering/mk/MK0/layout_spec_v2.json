@@ -1,0 +1,704 @@
+{
+  "echo": {
+    "title": "ECHO · Acoustic inference & event delivery",
+    "tag": "01 / DATA FLOW + INFERENCE RETURN",
+    "summary": "El resultado bruto regresa al scheduler antes de ingresar a la lógica temporal del evento.",
+    "source": "ECHO/MK1/arch/ARCHITECTURE.md + DATAFLOW.md",
+    "pin": "0c8ac4b9ed277737ac98d1db10992acb157940ab",
+    "nodes": [
+      {
+        "id": "source",
+        "x": 44,
+        "y": 160,
+        "w": 220,
+        "h": 76,
+        "title": "Replay / RTSP / Mic",
+        "sub": "Fuentes lógicas",
+        "kind": "default"
+      },
+      {
+        "id": "supervisor",
+        "x": 328,
+        "y": 160,
+        "w": 220,
+        "h": 76,
+        "title": "Registry + Supervisor",
+        "sub": "Sesiones y fuentes",
+        "kind": "default"
+      },
+      {
+        "id": "decode",
+        "x": 612,
+        "y": 160,
+        "w": 220,
+        "h": 76,
+        "title": "Decode / Normalize",
+        "sub": "Audio + metadatos",
+        "kind": "default"
+      },
+      {
+        "id": "buffer",
+        "x": 896,
+        "y": 160,
+        "w": 220,
+        "h": 76,
+        "title": "Bounded AudioBuffer",
+        "sub": "Capacidad por fuente",
+        "kind": "highlight"
+      },
+      {
+        "id": "window",
+        "x": 896,
+        "y": 300,
+        "w": 220,
+        "h": 76,
+        "title": "WindowProducer",
+        "sub": "Ventanas / IDs",
+        "kind": "default"
+      },
+      {
+        "id": "scheduler",
+        "x": 612,
+        "y": 300,
+        "w": 220,
+        "h": 76,
+        "title": "InferenceScheduler",
+        "sub": "Scheduling / orden",
+        "kind": "highlight"
+      },
+      {
+        "id": "model",
+        "x": 328,
+        "y": 300,
+        "w": 220,
+        "h": 76,
+        "title": "ModelRunner",
+        "sub": "Scores + identidad",
+        "kind": "default"
+      },
+      {
+        "id": "engine",
+        "x": 896,
+        "y": 505,
+        "w": 220,
+        "h": 76,
+        "title": "EventEngine",
+        "sub": "Estado temporal",
+        "kind": "default"
+      },
+      {
+        "id": "confirmed",
+        "x": 612,
+        "y": 505,
+        "w": 220,
+        "h": 76,
+        "title": "ConfirmedEvent",
+        "sub": "ID lógico estable",
+        "kind": "highlight"
+      },
+      {
+        "id": "mqtt",
+        "x": 302,
+        "y": 616,
+        "w": 220,
+        "h": 69,
+        "title": "MQTT",
+        "sub": "Publicación / QoS",
+        "kind": "default"
+      },
+      {
+        "id": "store",
+        "x": 611,
+        "y": 616,
+        "w": 220,
+        "h": 69,
+        "title": "Event / Result Store",
+        "sub": "Persistencia configurada",
+        "kind": "default"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "source",
+        "to": "supervisor",
+        "d": "M264 198 H328",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "e2",
+        "from": "supervisor",
+        "to": "decode",
+        "d": "M548 198 H612",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "e3",
+        "from": "decode",
+        "to": "buffer",
+        "d": "M832 198 H896",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "e4",
+        "from": "buffer",
+        "to": "window",
+        "d": "M1006 236 V300",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "e5",
+        "from": "window",
+        "to": "scheduler",
+        "d": "M896 338 H832",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "e6",
+        "from": "scheduler",
+        "to": "model",
+        "d": "M612 338 H548",
+        "label": "INFERENCE REQUEST",
+        "kind": "data"
+      },
+      {
+        "id": "e7",
+        "from": "model",
+        "to": "scheduler",
+        "d": "M439 376 V428 H670 V376",
+        "label": "RAW_INFERENCE",
+        "kind": "return"
+      },
+      {
+        "id": "e8",
+        "from": "scheduler",
+        "to": "engine",
+        "d": "M770 376 V464 H1006 V505",
+        "label": "ORDERED RESULT",
+        "kind": "data"
+      },
+      {
+        "id": "e9",
+        "from": "engine",
+        "to": "confirmed",
+        "d": "M896 543 H832",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "e10",
+        "from": "confirmed",
+        "to": "mqtt",
+        "d": "M667 581 V601 H412 V616",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "e11",
+        "from": "confirmed",
+        "to": "store",
+        "d": "M776 581 V601 H721 V616",
+        "label": "",
+        "kind": "data"
+      }
+    ],
+    "zones": [
+      {
+        "x": 32,
+        "y": 126,
+        "w": 1138,
+        "h": 126,
+        "label": "01  INGESTA"
+      },
+      {
+        "x": 290,
+        "y": 268,
+        "w": 880,
+        "h": 198,
+        "label": "02  VENTANAS + INFERENCIA"
+      },
+      {
+        "x": 270,
+        "y": 478,
+        "w": 900,
+        "h": 214,
+        "label": "03  EVENTO + ENTREGA"
+      }
+    ],
+    "notes": [
+      "SourceRegistry y SourceSupervisor se mantienen identificables.",
+      "RAW_INFERENCE vuelve al scheduler; el orden y las reglas temporales son responsabilidades distintas.",
+      "MQTT no es la verdad del evento. La persistencia y publicación son salidas diferentes.",
+      "No se representan health side-channels, fallos, retries ni despliegue: consultar los contratos fuente."
+    ],
+    "invariant": [
+      "e6",
+      "e7",
+      "e8",
+      "e10",
+      "e11"
+    ]
+  },
+  "ninfa": {
+    "title": "NINFA · Local production with human approval",
+    "tag": "02 / CONVERGING MEDIA + FEEDBACK LOOP",
+    "summary": "Narración y evidencia se generan por rutas independientes y convergen en el render; la aprobación precede la distribución.",
+    "source": "NINFA/docs/OPERATING_MODEL.md + MK1_BOOTSTRAP_VIDEO_FACTORY.md",
+    "pin": "c8ee078ee65b8c06e94317edbe4f70f088e87e8e",
+    "nodes": [
+      {
+        "id": "research",
+        "x": 60,
+        "y": 153,
+        "w": 210,
+        "h": 80,
+        "title": "Research + script",
+        "sub": "Tema, prueba y guion",
+        "kind": "default"
+      },
+      {
+        "id": "factcheck",
+        "x": 334,
+        "y": 153,
+        "w": 210,
+        "h": 80,
+        "title": "Fact-check",
+        "sub": "Afirmaciones revisadas",
+        "kind": "highlight"
+      },
+      {
+        "id": "manifest",
+        "x": 608,
+        "y": 153,
+        "w": 210,
+        "h": 80,
+        "title": "Scene manifest",
+        "sub": "Shots estructurados",
+        "kind": "default"
+      },
+      {
+        "id": "voice",
+        "x": 454,
+        "y": 314,
+        "w": 210,
+        "h": 80,
+        "title": "Narration",
+        "sub": "Human / local TTS",
+        "kind": "default"
+      },
+      {
+        "id": "evidence",
+        "x": 764,
+        "y": 314,
+        "w": 210,
+        "h": 80,
+        "title": "Evidence + graphics",
+        "sub": "Capturas reales",
+        "kind": "default"
+      },
+      {
+        "id": "render",
+        "x": 608,
+        "y": 449,
+        "w": 210,
+        "h": 80,
+        "title": "FFmpeg + SRT",
+        "sub": "Composición local",
+        "kind": "default"
+      },
+      {
+        "id": "approval",
+        "x": 902,
+        "y": 449,
+        "w": 210,
+        "h": 80,
+        "title": "Human approval",
+        "sub": "QA / revisión editorial",
+        "kind": "highlight"
+      },
+      {
+        "id": "publish",
+        "x": 902,
+        "y": 601,
+        "w": 210,
+        "h": 72,
+        "title": "YouTube",
+        "sub": "Entrega aprobada",
+        "kind": "default"
+      },
+      {
+        "id": "analytics",
+        "x": 608,
+        "y": 601,
+        "w": 210,
+        "h": 72,
+        "title": "Analytics / learn",
+        "sub": "Feedback editorial",
+        "kind": "default"
+      }
+    ],
+    "edges": [
+      {
+        "id": "n1",
+        "from": "research",
+        "to": "factcheck",
+        "d": "M270 193 H334",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "n2",
+        "from": "factcheck",
+        "to": "manifest",
+        "d": "M544 193 H608",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "n3",
+        "from": "manifest",
+        "to": "voice",
+        "d": "M664 233 V266 H559 V314",
+        "label": "VOICE",
+        "kind": "data"
+      },
+      {
+        "id": "n4",
+        "from": "manifest",
+        "to": "evidence",
+        "d": "M762 233 V278 H869 V314",
+        "label": "VISUAL EVIDENCE",
+        "kind": "data"
+      },
+      {
+        "id": "n5",
+        "from": "voice",
+        "to": "render",
+        "d": "M559 394 V419 H665 V449",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "n6",
+        "from": "evidence",
+        "to": "render",
+        "d": "M869 394 V427 H762 V449",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "n7",
+        "from": "render",
+        "to": "approval",
+        "d": "M818 489 H902",
+        "label": "REVIEW",
+        "kind": "data"
+      },
+      {
+        "id": "n8",
+        "from": "approval",
+        "to": "publish",
+        "d": "M1007 529 V601",
+        "label": "APPROVED",
+        "kind": "data"
+      },
+      {
+        "id": "n9",
+        "from": "publish",
+        "to": "analytics",
+        "d": "M902 637 H818",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "n10",
+        "from": "analytics",
+        "to": "research",
+        "d": "M608 637 H32 V193 H60",
+        "label": "NEXT CYCLE",
+        "kind": "feedback"
+      }
+    ],
+    "zones": [
+      {
+        "x": 45,
+        "y": 116,
+        "w": 790,
+        "h": 135,
+        "label": "01  EDITORIAL"
+      },
+      {
+        "x": 434,
+        "y": 286,
+        "w": 560,
+        "h": 121,
+        "label": "02  MEDIA PARALELA"
+      },
+      {
+        "x": 586,
+        "y": 423,
+        "w": 550,
+        "h": 264,
+        "label": "03  PRODUCCIÓN + APROBACIÓN"
+      }
+    ],
+    "notes": [
+      "Las entradas de narración y evidencia no son una cadena obligatoria entre sí.",
+      "La ruta humana de aprobación es un gate previo a distribución; un render correcto no implica publicación.",
+      "El resultado de analytics retroalimenta investigación del siguiente episodio.",
+      "Este overview omite packaging, backlog, storage y derivados: ver operating model."
+    ],
+    "invariant": [
+      "n2",
+      "n3",
+      "n4",
+      "n5",
+      "n6",
+      "n8",
+      "n10"
+    ]
+  },
+  "knowledge": {
+    "title": "personal_knowledge · Evidence, promotion & reuse",
+    "tag": "03 / GUARDED KNOWLEDGE PROMOTION",
+    "summary": "Una fuente no verificada no se promociona; la reutilización material puede producir un receipt, no automáticamente.",
+    "source": "personal_knowledge/README.md + jett-engineering-method/README.md + knowledge-usage/README.md",
+    "pin": "1ad55d76726823b0f82d1fea10763b329d048ddf",
+    "nodes": [
+      {
+        "id": "pointer",
+        "x": 58,
+        "y": 175,
+        "w": 205,
+        "h": 74,
+        "title": "Source pointer",
+        "sub": "URL / repositorio",
+        "kind": "default"
+      },
+      {
+        "id": "verify",
+        "x": 58,
+        "y": 285,
+        "w": 205,
+        "h": 74,
+        "title": "Resolve + verify",
+        "sub": "Fuente inspeccionada",
+        "kind": "highlight"
+      },
+      {
+        "id": "blocked",
+        "x": 58,
+        "y": 494,
+        "w": 205,
+        "h": 74,
+        "title": "HOLD / BLOCKED",
+        "sub": "Fuente no verificable",
+        "kind": "negative"
+      },
+      {
+        "id": "mining",
+        "x": 445,
+        "y": 175,
+        "w": 236,
+        "h": 74,
+        "title": "Mining-site",
+        "sub": "Fuentes / provenance",
+        "kind": "default"
+      },
+      {
+        "id": "quarry",
+        "x": 445,
+        "y": 285,
+        "w": 236,
+        "h": 74,
+        "title": "Quarries",
+        "sub": "Extracciones limitadas",
+        "kind": "default"
+      },
+      {
+        "id": "synthesis",
+        "x": 445,
+        "y": 395,
+        "w": 236,
+        "h": 74,
+        "title": "Brainstorm → Architecture",
+        "sub": "Diseño y decisiones",
+        "kind": "default"
+      },
+      {
+        "id": "prove",
+        "x": 445,
+        "y": 505,
+        "w": 236,
+        "h": 74,
+        "title": "Plan → Build → Test → Prove",
+        "sub": "Requisitos de evidencia",
+        "kind": "default"
+      },
+      {
+        "id": "gate",
+        "x": 881,
+        "y": 175,
+        "w": 240,
+        "h": 74,
+        "title": "MK gate / review",
+        "sub": "PASS · HOLD · KILL",
+        "kind": "highlight"
+      },
+      {
+        "id": "canon",
+        "x": 881,
+        "y": 285,
+        "w": 240,
+        "h": 74,
+        "title": "Main / canon",
+        "sub": "Solo aprobado",
+        "kind": "default"
+      },
+      {
+        "id": "reuse",
+        "x": 881,
+        "y": 395,
+        "w": 240,
+        "h": 74,
+        "title": "Knowledge reused",
+        "sub": "Consumo posterior",
+        "kind": "default"
+      },
+      {
+        "id": "receipt",
+        "x": 881,
+        "y": 505,
+        "w": 240,
+        "h": 74,
+        "title": "Usage receipt",
+        "sub": "Solo si uso material",
+        "kind": "default"
+      }
+    ],
+    "edges": [
+      {
+        "id": "k1",
+        "from": "pointer",
+        "to": "verify",
+        "d": "M160 249 V285",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "k2",
+        "from": "verify",
+        "to": "blocked",
+        "d": "M127 359 V494",
+        "label": "UNKNOWN / FAIL",
+        "kind": "blocked"
+      },
+      {
+        "id": "k3",
+        "from": "verify",
+        "to": "mining",
+        "d": "M263 321 H370 V212 H445",
+        "label": "VERIFIED",
+        "kind": "data"
+      },
+      {
+        "id": "k4",
+        "from": "mining",
+        "to": "quarry",
+        "d": "M563 249 V285",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "k5",
+        "from": "quarry",
+        "to": "synthesis",
+        "d": "M563 359 V395",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "k6",
+        "from": "synthesis",
+        "to": "prove",
+        "d": "M563 469 V505",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "k7",
+        "from": "prove",
+        "to": "gate",
+        "d": "M681 542 H775 V212 H881",
+        "label": "PROVE",
+        "kind": "data"
+      },
+      {
+        "id": "k8",
+        "from": "gate",
+        "to": "canon",
+        "d": "M1001 249 V285",
+        "label": "PASS",
+        "kind": "data"
+      },
+      {
+        "id": "k9",
+        "from": "canon",
+        "to": "reuse",
+        "d": "M1001 359 V395",
+        "label": "",
+        "kind": "data"
+      },
+      {
+        "id": "k10",
+        "from": "reuse",
+        "to": "receipt",
+        "d": "M1001 469 V505",
+        "label": "IF MATERIAL",
+        "kind": "conditional"
+      }
+    ],
+    "zones": [
+      {
+        "x": 38,
+        "y": 123,
+        "w": 256,
+        "h": 481,
+        "label": "01  SOURCE TRUST"
+      },
+      {
+        "x": 423,
+        "y": 123,
+        "w": 284,
+        "h": 481,
+        "label": "02  KNOWLEDGE DEVELOPMENT"
+      },
+      {
+        "x": 856,
+        "y": 123,
+        "w": 293,
+        "h": 481,
+        "label": "03  GOVERNANCE + USE"
+      }
+    ],
+    "notes": [
+      "Un pointer no es evidencia; la captura/identidad/verificación puede terminar en HOLD o BLOCKED.",
+      "Prove representa evidencia posterior a plan, build y test, no una certificación automática.",
+      "MK gate no significa PASS automático. HOLD/KILL son resultados válidos y no llevan a main.",
+      "El uso material posterior es condición para un knowledge-usage receipt; no se emite en toda lectura."
+    ],
+    "invariant": [
+      "k2",
+      "k3",
+      "k6",
+      "k7",
+      "k8",
+      "k10"
+    ]
+  }
+}
