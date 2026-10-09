@@ -113,3 +113,7 @@ MK5+ Certify, compare, regress and empirically refine
 ```
 
 MK numbers represent maturity, not arbitrary releases.
+
+## Additional research references
+
+- [M3E Canvas — structured UI documents and derived prompts](mining-site/m3e-canvas.md) (2026-10-09; external research, not a dependency).
