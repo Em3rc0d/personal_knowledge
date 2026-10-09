@@ -39,3 +39,12 @@ Document registration must keep the distinction:
 - Motion engine productization: **NOT APPROVED**.
 - Social publishing/scheduling: **NOT PERFORMED**.
 - Owner voice and reference audio: **NOT UPLOADED TO GITHUB**.
+
+
+## Motion v1.3 reproducibility update — merged 2026-10-08
+
+- [NINFA PR #6](https://github.com/Em3rc0d/NINFA/pull/6) was **merged into main**, squash SHA `5d09d76c673c1141067ad228cc103373539290fc`.
+- [Versioned local finishing module](https://github.com/Em3rc0d/NINFA/tree/main/tools/motion-v13) and [UAT engineering proof](https://github.com/Em3rc0d/NINFA/blob/main/docs/contracts/decisions/MOTION_V1_3_LOCAL_FINISHING_2026-10-08.md) now exist. Unlike prior source-recovery uncertainty, this **newly authored** finishing code is actually versioned, and exact tested source/fixtures/test SHA matched GitHub blobs.
+- The existing clean video can be reused for local audio/caption revision, avoiding re-rendering hundreds of original frames. FFmpeg finishing produced `dia01` 17.5 seconds / 525 frames in 4.65s and `dia02` 23.6 seconds / 708 frames in 5.93s in the assistant Linux environment. Full dia01 repeats were byte-identical SHA `2bb1af34c5da6e4291597ba0a53762f5bd206c6a67fdc8dcbeeed6dc6c86e752`. Hash-gated cached review was measured at 1.15s vs 4.80s fresh on that host. **16/16 local Python tests passed.**
+- **Critical boundary:** It is an **AV finisher**, NOT a generic scene-to-video renderer, full NINFA production factory, Windows/WSL2 certification, prodAgentic adapter, or publishing service. Only English, `ILLUSTRATIVE_POC` and `release=BLOCKED`; neither EMERCOD voice assets nor owner audio files are committed. No cloud rendering, GitHub Actions or paid APIs.
+- Does not close the parent programmatic-video MK1 source-normalization or integrated VideoRenderPort gates. This is **observed narrow engineering evidence**, not a universal video standard certification.
