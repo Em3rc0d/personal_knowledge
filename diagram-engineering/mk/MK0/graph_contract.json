@@ -1,0 +1,290 @@
+{
+  "echo": {
+    "source_sha": "0c8ac4b9ed277737ac98d1db10992acb157940ab",
+    "required_nodes": [
+      "source",
+      "supervisor",
+      "decode",
+      "buffer",
+      "window",
+      "scheduler",
+      "model",
+      "engine",
+      "confirmed",
+      "mqtt",
+      "store"
+    ],
+    "required_edges": [
+      {
+        "id": "e1",
+        "from": "source",
+        "to": "supervisor",
+        "kind": "data"
+      },
+      {
+        "id": "e2",
+        "from": "supervisor",
+        "to": "decode",
+        "kind": "data"
+      },
+      {
+        "id": "e3",
+        "from": "decode",
+        "to": "buffer",
+        "kind": "data"
+      },
+      {
+        "id": "e4",
+        "from": "buffer",
+        "to": "window",
+        "kind": "data"
+      },
+      {
+        "id": "e5",
+        "from": "window",
+        "to": "scheduler",
+        "kind": "data"
+      },
+      {
+        "id": "e6",
+        "from": "scheduler",
+        "to": "model",
+        "kind": "data"
+      },
+      {
+        "id": "e7",
+        "from": "model",
+        "to": "scheduler",
+        "kind": "return"
+      },
+      {
+        "id": "e8",
+        "from": "scheduler",
+        "to": "engine",
+        "kind": "data"
+      },
+      {
+        "id": "e9",
+        "from": "engine",
+        "to": "confirmed",
+        "kind": "data"
+      },
+      {
+        "id": "e10",
+        "from": "confirmed",
+        "to": "mqtt",
+        "kind": "data"
+      },
+      {
+        "id": "e11",
+        "from": "confirmed",
+        "to": "store",
+        "kind": "data"
+      }
+    ],
+    "invariant_edges": [
+      "e6",
+      "e7",
+      "e8",
+      "e10",
+      "e11"
+    ],
+    "notes": [
+      "SourceRegistry y SourceSupervisor se mantienen identificables.",
+      "RAW_INFERENCE vuelve al scheduler; el orden y las reglas temporales son responsabilidades distintas.",
+      "MQTT no es la verdad del evento. La persistencia y publicación son salidas diferentes.",
+      "No se representan health side-channels, fallos, retries ni despliegue: consultar los contratos fuente."
+    ]
+  },
+  "ninfa": {
+    "source_sha": "c8ee078ee65b8c06e94317edbe4f70f088e87e8e",
+    "required_nodes": [
+      "research",
+      "factcheck",
+      "manifest",
+      "voice",
+      "evidence",
+      "render",
+      "approval",
+      "publish",
+      "analytics"
+    ],
+    "required_edges": [
+      {
+        "id": "n1",
+        "from": "research",
+        "to": "factcheck",
+        "kind": "data"
+      },
+      {
+        "id": "n2",
+        "from": "factcheck",
+        "to": "manifest",
+        "kind": "data"
+      },
+      {
+        "id": "n3",
+        "from": "manifest",
+        "to": "voice",
+        "kind": "data"
+      },
+      {
+        "id": "n4",
+        "from": "manifest",
+        "to": "evidence",
+        "kind": "data"
+      },
+      {
+        "id": "n5",
+        "from": "voice",
+        "to": "render",
+        "kind": "data"
+      },
+      {
+        "id": "n6",
+        "from": "evidence",
+        "to": "render",
+        "kind": "data"
+      },
+      {
+        "id": "n7",
+        "from": "render",
+        "to": "approval",
+        "kind": "data"
+      },
+      {
+        "id": "n8",
+        "from": "approval",
+        "to": "publish",
+        "kind": "data"
+      },
+      {
+        "id": "n9",
+        "from": "publish",
+        "to": "analytics",
+        "kind": "data"
+      },
+      {
+        "id": "n10",
+        "from": "analytics",
+        "to": "research",
+        "kind": "feedback"
+      }
+    ],
+    "invariant_edges": [
+      "n2",
+      "n3",
+      "n4",
+      "n5",
+      "n6",
+      "n8",
+      "n10"
+    ],
+    "notes": [
+      "Las entradas de narración y evidencia no son una cadena obligatoria entre sí.",
+      "La ruta humana de aprobación es un gate previo a distribución; un render correcto no implica publicación.",
+      "El resultado de analytics retroalimenta investigación del siguiente episodio.",
+      "Este overview omite packaging, backlog, storage y derivados: ver operating model."
+    ]
+  },
+  "knowledge": {
+    "source_sha": "1ad55d76726823b0f82d1fea10763b329d048ddf",
+    "required_nodes": [
+      "pointer",
+      "verify",
+      "blocked",
+      "mining",
+      "quarry",
+      "synthesis",
+      "prove",
+      "gate",
+      "canon",
+      "reuse",
+      "receipt",
+      "gate_hold"
+    ],
+    "required_edges": [
+      {
+        "id": "k1",
+        "from": "pointer",
+        "to": "verify",
+        "kind": "data"
+      },
+      {
+        "id": "k2",
+        "from": "verify",
+        "to": "blocked",
+        "kind": "blocked"
+      },
+      {
+        "id": "k3",
+        "from": "verify",
+        "to": "mining",
+        "kind": "data"
+      },
+      {
+        "id": "k4",
+        "from": "mining",
+        "to": "quarry",
+        "kind": "data"
+      },
+      {
+        "id": "k5",
+        "from": "quarry",
+        "to": "synthesis",
+        "kind": "data"
+      },
+      {
+        "id": "k6",
+        "from": "synthesis",
+        "to": "prove",
+        "kind": "data"
+      },
+      {
+        "id": "k7",
+        "from": "prove",
+        "to": "gate",
+        "kind": "data"
+      },
+      {
+        "id": "k8",
+        "from": "gate",
+        "to": "canon",
+        "kind": "data"
+      },
+      {
+        "id": "k9",
+        "from": "canon",
+        "to": "reuse",
+        "kind": "data"
+      },
+      {
+        "id": "k10",
+        "from": "reuse",
+        "to": "receipt",
+        "kind": "conditional"
+      },
+      {
+        "id": "k11",
+        "from": "gate",
+        "to": "gate_hold",
+        "kind": "blocked"
+      }
+    ],
+    "invariant_edges": [
+      "k2",
+      "k3",
+      "k6",
+      "k7",
+      "k8",
+      "k10",
+      "k11"
+    ],
+    "notes": [
+      "Un pointer no es evidencia; la captura/identidad/verificación puede terminar en HOLD o BLOCKED.",
+      "Prove representa evidencia posterior a plan, build y test, no una certificación automática.",
+      "MK gate no significa PASS automático. HOLD/KILL son resultados válidos y no llevan a main.",
+      "El uso material posterior es condición para un knowledge-usage receipt; no se emite en toda lectura."
+    ]
+  }
+}

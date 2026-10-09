@@ -1,0 +1,9 @@
+flowchart LR
+  pointer["Source pointer"] --> verify["Resolve + verify"]
+  verify["Resolve + verify"] --> mining["Mining-site"]
+  mining["Mining-site"] --> quarries["Quarries"]
+  quarries["Quarries"] --> synthesis["Domain synthesis"]
+  synthesis["Domain synthesis"] --> gate["MK gate + review"]
+  gate["MK gate + review"] --> main["Main / canon"]
+  main["Main / canon"] --> reuse["Knowledge reuse"]
+  reuse["Knowledge reuse"] --> receipt["Usage receipt"]
