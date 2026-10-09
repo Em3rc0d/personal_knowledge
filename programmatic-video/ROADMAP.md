@@ -11,7 +11,7 @@
 
 Output de cierre: `mk/MK0/CLOSURE.md` — `PASS WITH LIMITATIONS`: sólo alcance discovery, sin verificación de posts originales ni runtime.
 
-## MK1 — Normalize & Classify (habilitado; aún sin ejecutar)
+## MK1 — Normalize & Classify (IN PROGRESS; solo primer slice documentado)
 
 Taxonomía mínima: `technique`, `composition_type`, `source_provenance`, `prompt_coverage`, `rights_state`, `external_dependency`, `render_backend`, `determinism_scope`, `quality_issue`, `verification_status`. Dedupe por prompt normalizado y similitud semántica con trazabilidad de variantes.
 

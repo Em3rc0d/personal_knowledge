@@ -1,6 +1,6 @@
 # Programmatic Video — dominio de conocimiento
 
-Status: **MK0 — CLOSED WITH LIMITATIONS; MK1 ELIGIBLE / NOT STARTED** (2026-10-07, America/Lima).
+Status: **MK0 — CLOSED WITH LIMITATIONS; MK1 IN PROGRESS** (2026-10-07, America/Lima).
 
 ## Hipótesis
 
@@ -46,11 +46,17 @@ Las iteraciones MK describen **madurez del conocimiento**, no sprints ni funcion
 - [Estado y gates](STATUS.md)
 - [Ruta de trabajo](ROADMAP.md)
 - [MK0 y acta de cierre](mk/MK0/README.md)
+- [MK1 taxonomía y fixtures](mk/MK1/README.md)
 - [Fuentes](mining-site/SOURCES.md)
 - [Auditoría del catálogo](quarries/Q-001-opus55-catalog-audit.md)
 - [Investigación de renderers](quarries/Q-002-renderer-landscape.md)
 - [Muestra de posts bloqueados](quarries/Q-003-original-post-access-audit.md)
 - [Riesgos de seguridad y derechos](quarries/Q-004-security-rights-threat-model.md)
+- [Auditoría Content Ops + NINFA + prodAgentic](quarries/Q-005-content-ops-ninfa-integration-audit.md)
+- [Auditoría de código realmente reutilizable de NINFA](quarries/Q-006-ninfa-code-reuse-audit.md)
+- [PV-POC-001: prueba observada de MP4 local](quarries/Q-007-pv-poc-001-local-proof.md)
+- [PV-POC-003: prueba ejecutada de voz neuronal Piper](quarries/Q-008-piper-spanish-voice-poc.md)
+- [PV-POC-006: contrato audiovisual aceptado como dirección para Does It Automate?](quarries/Q-009-doesitautomate-motion-contract-handoff.md)
 - [Contrato experimental](mk/MK0/EXPERIMENT-CONTRACT.md)
 
 ## Invariantes

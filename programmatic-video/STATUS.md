@@ -8,7 +8,7 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 | Superficie | Estado |
 |---|---|
 | MK0 Mine & Frame | CLOSED WITH LIMITATIONS: seed catalog = discovery, not verified benchmark |
-| MK1 Normalize & Classify | ELIGIBLE TO BEGIN / NOT STARTED |
+| MK1 Normalize & Classify | IN PROGRESS / FIRST 8 FIXTURES MAPPED |
 | MK2 Operationalize | BLOCKED BY MK1 |
 | MK3 Integrate | BLOCKED |
 | MK4 Automate | BLOCKED |
@@ -16,10 +16,12 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 | Fuente seed | SHA pinneado, JSON inspeccionado, atribución de originales UNVERIFIED |
 | Originales X | 8 intentados / 0 inspeccionados, BLOCKED |
 | Runtime renderer | CANDIDATES ONLY; HyperFrames y Remotion, sin instalación |
-| Sandbox ejecutable | NOT TESTED |
-| Prototipo / MP4 | NOT BUILT / NOT GENERATED |
-| Coste y calidad audiovisual | UNMEASURED |
-| Content Seller / Ninfa | UNCHANGED; integration BLOCKED |
+| Sandbox ejecutable | Limited trusted-data execution tested; OS no-egress/secret isolation NOT CERTIFIED |
+| Prototipo / MP4 | PV-POC-001 deterministic silent baseline; PV-POC-003 GH Actions neural WAV+MP4 success; original animation remux H264/AAC PASS; prodAgentic integration NOT DONE |
+| Auditoría de integración NINFA/prodAgentic | Q-005 + Q-006 CAPTURED / video renderer not verified, TTS source inspected |
+| Video handoff proposal | MK1 candidate + ADR-001 / product build NOT AUTHORIZED; [Q-007](quarries/Q-007-pv-poc-001-local-proof.md) is evidence of narrow local export only |
+| Coste y calidad audiovisual | PV-POC-002 eSpeak robotic rejected for target quality; PV-POC-003 Piper CI audio/video TECHNICAL PASS (no paid TTS API), owner naturalness NOT ACCEPTED / production voice REJECTED; see [Q-008](quarries/Q-008-piper-spanish-voice-poc.md) |
+| Content Seller / Ninfa | UNCHANGED; integration BLOCKED. NINFA Piper experiment auto-triggers disabled, manual-only archived proof; do not use Actions as production TTS backend |
 
 ## MK0 — GATES
 
@@ -35,14 +37,16 @@ Review: [MK0 closure](mk/MK0/CLOSURE.md) — **PASS WITH LIMITATIONS** for bound
 
 El cierre MK0 **no** resuelve el bloqueo de X ni valida atributos del video original: esos claims quedan fuera del conocimiento promovido.
 
-## Handoff a MK1 (inicialmente abierto)
+## Handoff a MK1 (IN PROGRESS, cierre pendiente)
 
-- [ ] Normalizar taxonomy y provenance sobre registros controlados.
-- [ ] Determinar criterios de deduplicación semántica sin borrar lineage.
-- [ ] Definir registro de evidencia por técnica y niveles de derechos.
+- [x] Definir taxonomía/contrato inicial de provenance (ver `mk/MK1/TAXONOMY.md`).
+- [x] Distinguir ID de registro, clustering textual y familia semántica; dedup semántica real aún pendiente.
+- [x] Definir campos de técnica y derechos, defaults `UNKNOWN`; 8 fixtures trazados (ver `mk/MK1/NORMALIZATION-RECEIPT.md`).
+- [ ] Evaluar 24+ registros y casos negativos, sin importar prompts completos.
+- [ ] Validar reglas del contrato en los 513 registros y revisión independiente.
 - [ ] Completar revisión MK1 antes de contratos operativos MK2.
 
-## Preflight de cualquier ejecución (permanece BLOCKED)
+## Preflight de producto e integración (permanece BLOCKED; sandbox synthetic POC separately passed output only)
 
 - [ ] Resolver stack/versiones, CPU/GPU/RAM/OS del equipo ejecutor.
 - [ ] Confirmar sandbox OS-level, no egress/no secrets, timeout/restricciones verificadas.
