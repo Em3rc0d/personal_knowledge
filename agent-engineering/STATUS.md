@@ -42,12 +42,12 @@ MK2 HANDOFF CONTRACT       mk/MK2/HANDOFF_CONTRACT.md
 | intervention owner/boundary | ✅ PROMOTED | schema `human_control` qualifiers |
 | Strands × MCP `2026-07-28` | ✅ SUPPORTED / QUALIFIED | [`systems/strands/PROTOCOLS.md`](./systems/strands/PROTOCOLS.md) |
 | normalized record infrastructure | ✅ READY | [`mk/MK1/records/`](./mk/MK1/records/) |
-| representative record set | ✅ NEAR-COMPLETE | 11 materialized/qualified + 2 `COVERED_BY`; REC-012 open |
+| representative record set | ✅ ALL FAMILIES MATERIALIZED / FINAL AUDIT PENDING | 12 materialized/qualified (including [REC-012](./mk/MK1/records/REC-012-external-agent-scaling.md)) + 2 `COVERED_BY` |
 | A2A classification-shape gate | ✅ PASS / QUALIFIED | [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-version-drift.md) |
 | Strands A2A `1.0` compatibility | ⚠️ NOT ESTABLISHED / ROUTED DEBT | system freshness/interoperability debt, not hidden as PASS |
-| multi-agent baseline | 🟡 OPEN / ENVIRONMENT-BLOCKED for LLM; deterministic topology receipt exists | [`experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md`](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) · real-model comparison NOT RUN |
-| UNKNOWN reconciliation | 🟡 FINAL PASS PENDING | [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md) |
-| schema freeze audit | 🔒 WAITS ON MULTI-AGENT + FINAL AUDIT; static pre-audit complete | [`mk/MK1/PREFREEZE_AUDIT_2026-10-12.md`](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) · no schema version change |
+| multi-agent baseline | ✅ G7 PASS / QUALIFIED_UPSTREAM | [real LLM studies and checked outcome CSV](./quarries/multiagent-external-scaling-evidence.md) · own model inference NOT RUN |
+| UNKNOWN reconciliation | 🟡 U-MK1-001 QUALIFIED; U-002/U-003 still OPEN | [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md) |
+| schema freeze audit | 🟡 READY / AWAITING FINAL RECORD + DIMENSION AUDITS | [`mk/MK1/PREFREEZE_AUDIT_2026-10-12.md`](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) · no schema version change |
 | MK1 closure receipt | 🔒 NOT YET | future `mk/MK1/CLOSURE.md` |
 | MK2 activation | 🔒 BLOCKED | [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md) |
 
@@ -71,8 +71,8 @@ COVERED_BY
 REC-005  covered by REC-004 + REC-003
 REC-006  covered by REC-002 + REC-007
 
-OPEN / BLOCKING
-REC-012  representative multi-agent baseline/admission evidence
+QUALIFIED / SOURCE-REPORTED
+REC-012  representative multi-agent baseline/admission evidence; external S-118 + S-119; local LLM NOT RUN
 ```
 
 Canonical registry: [`mk/MK1/records/README.md`](./mk/MK1/records/README.md).
@@ -119,9 +119,9 @@ Receipt: [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-versio
 ## Active MK1 blockers
 
 ```text
-B1 REC-012 multi-agent baseline/admission evidence
-B2 final cross-dimension / overlap audit
-B3 final UNKNOWN routing
+B1 final representative set / COVERED_BY verification
+B2 full cross-dimension / PA-01 + PA-06 decisions
+B3 final UNKNOWN routing (U-MK1-002/U-MK1-003)
 B4 schema freeze decision
 B5 MK1 CLOSURE.md
 ```
@@ -149,12 +149,12 @@ Contract: [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md).
 ## Next execution order
 
 ```text
-1. execute multi-agent baseline / materialize REC-012
+1. audit final record set + COVERED_BY equivalence (REC-012 source evidence accepted)
 2. reconcile remaining OPEN_MK1 questions
-3. run cross-dimension + schema freeze audit
-4. decide freeze vs new explicit draft revision
-5. create MK1 CLOSURE.md
-6. activate MK2 handoff only after PASS
+3. run cross-dimension + schema freeze audit; decide PA-01/PA-06
+4. decide freeze vs explicit new draft revision
+5. create MK1 CLOSURE.md only on PASS
+6. activate MK2 handoff only after closure
 ```
 
 ## Promotion state
@@ -165,10 +165,10 @@ MK1 NORMALIZATION            🟡 IN PROGRESS
 STRANDS SYSTEM PACKAGE       ✅ SOLIDIFIED
 RUNTIME SEMANTICS CROSSCHECK ✅ COMPLETE
 STRANDS MCP 2026-07-28       ✅ SUPPORTED / QUALIFIED
-RECORD SET                   ✅ NEAR-COMPLETE
+RECORD SET                   ✅ REPRESENTED / FINAL AUDIT PENDING
 A2A CLASSIFICATION SHAPE     ✅ PASS / QUALIFIED
 A2A 1.0 COMPATIBILITY        ⚠️ NOT ESTABLISHED
-MULTI-AGENT BASELINE         🟡 OPEN / BLOCKING
+MULTI-AGENT BASELINE         ✅ PASS / QUALIFIED_UPSTREAM
 SCHEMA FREEZE                🔒 NOT YET
 MK2                          🔒 BLOCKED
 CANON OPERATIONAL RULES      🔒 BLOCKED BY MK2+
