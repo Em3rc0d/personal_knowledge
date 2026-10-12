@@ -114,17 +114,17 @@ mk1:
   state: IN_PROGRESS
   schema: mk1-draft-2026-09-16.1
   record_coverage:
-    materialized_or_qualified: 11
+    materialized_or_qualified: 12
     covered_by: 2
     open_blocking:
-      - REC-012 multi-agent baseline/admission evidence
+      - U-MK1-002 / U-MK1-003 final freeze + UNKNOWN reconciliation
   protocols:
     mcp_2026_07_28: SUPPORTED_QUALIFIED
     a2a_classification_shape: PASS_QUALIFIED
     strands_a2a_0_3: SUPPORTED_QUALIFIED
     strands_a2a_1_0_compatibility: NOT_ESTABLISHED
   blockers:
-    - REC-012 multi-agent baseline/admission evidence
+    - final representative-set / COVERED_BY verification
     - final UNKNOWN reconciliation
     - cross-dimension/overlap audit
     - schema freeze decision
@@ -164,7 +164,7 @@ REC-006 COVERED_BY REC-002 + REC-007
 Open:
 
 ```text
-REC-012 multi-agent baseline/admission evidence
+REC-012 multi-agent baseline/admission evidence (QUALIFIED_UPSTREAM, no local LLM)
 ```
 
 Authoritative registry: `mk/MK1/records/README.md`.
