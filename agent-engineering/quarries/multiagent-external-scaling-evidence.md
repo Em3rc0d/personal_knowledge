@@ -1,6 +1,6 @@
 # REC-012 — Real-model external controlled comparison (revised 2026 study)
 
-**Evidence:** `S-118` primary paper + released code/data; source-reported real LLM runs; summary CSV independently re-aggregated; **no local LLM rerun**.  
+**Evidence:** `S-118` tool-using primary benchmark + `S-119` independently published tool-less rover decision benchmark; both source-reported real LLM runs; S-118 summary CSV independently re-aggregated; **no local LLM rerun**.  
 **Scope:** multi-agent *admission evidence* for MK1 only; not an operational benchmark certificate or universal ranking.  
 **Date/versions:** 2026-10-12 observation; paper [arXiv v3](https://arxiv.org/html/2512.08296v3); code [`v2.2.2@072276fd`](https://github.com/ybkim95/agent-scaling/tree/072276fd3ae71cf095587f1232e8eefc17a21898). Source receipt: [S-118](../mining-site/S-118-agent-scaling-research.md).
 
@@ -45,6 +45,17 @@ The checked release's `data/Source_Data_Fig1_Fig2.csv` contains **260 rows**, ea
 
 **Consequence:** evidence points in opposite directions depending on task; do not collapse to a single best topology.
 
+## Independent complementary latency comparison — S-119 (do not pool)
+
+A different [Frontiers peer-reviewed study, S-119](../mining-site/S-119-mars-rover-agent-benchmark.md), compares one LLM call with prompt-defined specialist model calls plus an orchestrator on **100 synthetic, tool-less rover scenarios × five repeats**. Reported figures:
+
+| Condition | Accuracy single vs orchestrated | Latency seconds single vs orchestrated | Tokens single vs orchestrated |
+|---|---|---|---|
+| GPT-4o | 0.810 vs 0.734 | 2.32 vs 11.83 | 458 vs 2,273 |
+| GPT-5.5 | 0.974 vs 0.934 | 6.06 vs 35.59 | 548 vs 3,160 |
+
+Quality differences were generally **not significant after multiple-comparison correction**; efficiency differences were. The study has synthetic rather than operational labels, tool-less short-context decision tasks, and architecture-defined extra calls. **Do not use these latencies as estimates for S-118's tool-using tasks or our products.**
+
 ## Trace-level cost/failure signals — reported, not locally reconstructed
 
 The manuscript reports approximate inter-agent overhead `+58%` independent, `+285%` centralized, `+263%` decentralized and `+515%` hybrid relative to single-agent under the paper's own definition. Its trace-level error amplification metric is reported as **17.2 for independent**, **4.4 for centralized**; these are *not* probabilities of an incorrect user result. Its discussion states latency/token cost grows with more agents, but the inspected per-configuration public CSV lacks per-run wall-time, so **our latency comparison remains DIRECTIONAL / NOT INDEPENDENTLY MEASURED**.
@@ -61,6 +72,6 @@ The paper discusses `~45%` single-agent capability saturation and `87%` within-d
 
 This is a **real-model, empirical, source-reported multi-agent-vs-single comparison with a public 260-row outcome dataset**, sufficient to classify architecture topology separately from observed benefit in a **QUALIFIED** MK1 record without any local model install. It also exposes meaningful limits and failures, but does **not** independently certify latency, reliability, paper rerun, future model families or real-product advantage.
 
-**Candidate G7 resolution:** `PASS / QUALIFIED_UPSTREAM` under the original MK1 admission spec, provided final registry/gate crosscheck accepts source-reported execution and explicitly records unverified latency. **This is not the full C5/C6 freeze audit.**
+**G7 decision:** `PASS / QUALIFIED_UPSTREAM_EVIDENCE` for MK1 classification, using S-118 model-driven baseline, published dataset outcome re-aggregation, error/termination receipts, and separate S-119 latency/token comparison. The studies are **not pooled**. Independent provider rerun, S-118 wall-time distribution and production properties remain unestablished. **C5/C6 are still pending, no schema freeze.**
 
 Exact next work: final representative/COVERED_BY review, UNKNOWN routing, PA-01 comparison-contract disposition, cross-dimension schema audit. No software adoption.
