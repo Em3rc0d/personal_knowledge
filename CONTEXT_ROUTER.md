@@ -9,6 +9,7 @@ Purpose: find the **smallest authoritative evidence** for the current question; 
 | Engineering process, provenance, gates | `jett-engineering-method/README.md` | `SOURCE-INTAKE-CONTRACT.md`, relevant phase |
 | System design / capacity / resilience / idempotency / observability | `system-design/README.md` | exact MK1 pattern, source receipt or gate; candidates only |
 | Agent systems / current state | `agent-engineering/STATUS.md` | `LLM_CONTEXT.md`, specific system/MK, then quarry/source |
+| Multi-agent vs single-agent evidence / REC-012 | `agent-engineering/mk/MK1/records/REC-012-external-agent-scaling.md` | `quarries/multiagent-external-scaling-evidence.md` → source receipts S-118/S-119; G7 qualified, MK1 still open |
 | Product and repository foundry | `em3rc0d-foundry/LLM_CONTEXT.md` | `STATUS.md`, exact dogfood state |
 | Education / knowledge compilation | `knowledge-foundry/LLM_CONTEXT.md` | `STATUS.md`, MK or architecture |
 | Web design / UX | `web-design/README.md` / `ux-laws/README.md` | relevant design or test contract |

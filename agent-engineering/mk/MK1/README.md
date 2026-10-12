@@ -50,7 +50,7 @@ MK1 does **not** define the full operational policy a production system must sat
 | [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md) | executable dependency plan |
 | [`UNKNOWNS.md`](./UNKNOWNS.md) | uncertainty register/routing |
 | [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.md) | reusable A2A evidence contract; current gate PASS/QUALIFIED |
-| [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md) | remaining primary evidence gate |
+| [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md) | baseline comparison contract; G7 passed with source-qualified evidence |
 
 ## Current system synthesis
 
@@ -112,8 +112,8 @@ COVERED_BY
 REC-005  REC-004 + REC-003
 REC-006  REC-002 + REC-007
 
-OPEN / BLOCKING
-REC-012  multi-agent baseline/admission evidence
+QUALIFIED / MATERIALIZED
+REC-012  [source-reported real-model baseline](./records/REC-012-external-agent-scaling.md) (no local rerun)
 ```
 
 Registry: [`records/README.md`](./records/README.md).
@@ -164,8 +164,8 @@ The taxonomy can represent this version drift without `A2A=true`; therefore curr
 ## Remaining closure blockers
 
 ```text
-REC-012 multi-agent baseline/admission evidence    OPEN / BLOCKING
-final UNKNOWN reconciliation                       PENDING REC-012
+REC-012 multi-agent baseline/admission evidence    PASS / QUALIFIED_UPSTREAM
+final UNKNOWN reconciliation                       READY / PENDING FULL AUDIT
 cross-dimension + overlap audit                     PENDING
 schema freeze decision                              NOT YET
 MK1 CLOSURE.md                                     NOT YET
@@ -216,7 +216,7 @@ A2A CLASSIFICATION SHAPE      PASS / QUALIFIED
 A2A 1.0 COMPATIBILITY         NOT ESTABLISHED
 STRANDS SYSTEM PACKAGE        SOLIDIFIED
 REPRESENTATIVE RECORD SET     NEAR-COMPLETE
-MULTI-AGENT BASELINE          OPEN / BLOCKING
+MULTI-AGENT BASELINE          PASS / QUALIFIED_UPSTREAM
 SCHEMA FREEZE                 NOT YET
 MK2                           BLOCKED / DESIGN SEEDED
 ```

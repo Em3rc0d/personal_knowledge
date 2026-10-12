@@ -53,9 +53,10 @@ This matters because the original Strands quarry intentionally preserves candida
 
 - [`repository-harness-engineering-refinements.md`](./repository-harness-engineering-refinements.md) — S-115 synthesis refining repository-level harness mechanics: revision-bound verification, externalized acceptance authority, clean handoff gates, review-feedback promotion, actionable diagnostics, context operations, concurrency admission and harness-pruning pressure tests.
 
-## REC-012 — ejecutado, evidencia parcial
+## REC-012 — evidencia separada por procedencia (G7 PASS / QUALIFIED_UPSTREAM)
 
-- [`rec-012-offline-topology-baseline.md`](./rec-012-offline-topology-baseline.md) — comparación **ejecutada** entre actores deterministas: calidad, latencia, handoffs, fallos y cancelación; no modelos LLM. REC-012 sigue OPEN_MK1.
+- [`rec-012-offline-topology-baseline.md`](./rec-012-offline-topology-baseline.md) — experimento **ejecutado localmente** con actores deterministas, no LLM; conserva su decisión histórica OPEN de ese momento.
+- [`multiagent-external-scaling-evidence.md`](./multiagent-external-scaling-evidence.md) — investigaciones S-118/S-119 con LLM reales, estudio 260-cell outcome CSV re-aggregated y comparación de latencia por estudio separado; [REC-012](../mk/MK1/records/REC-012-external-agent-scaling.md) `MATERIALIZED / QUALIFIED_UPSTREAM`, sin modelo local.
 - [Código reproducible y resultados](../experiments/rec-012/README.md); [draft no materializado](../mk/MK1/records/REC-012-deterministic-topology-draft.md).
 
 ## Architecture evidence promoted from quarries

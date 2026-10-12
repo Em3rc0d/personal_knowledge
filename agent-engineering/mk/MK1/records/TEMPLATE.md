@@ -210,6 +210,29 @@ It does not certify this system as production-ready, secure, reliable or superio
 
 If separate production evidence exists, link it and state its exact scope.
 
+## Architecture-comparison evidence appendix (when applicable)
+
+For an evidence-based multi-agent comparison, attach a **versioned external receipt** (or a local execution receipt) distinct from the normalized YAML. Until PA-01 is resolved and a new schema revision is approved, do **not** silently add `baseline`, `measured_benefit`, `coordination_cost` as canonical fields. The appendix should include:
+
+```yaml
+comparison_receipt:
+  baseline:
+  candidate_topology:
+  admission_hypothesis:
+  task_parity:
+  outcomes:
+  observed_latency:
+  tokens_or_cost:
+  failure_termination:
+  model_and_data_revisions:
+  reported_by_source:
+  independently_reaggregated:
+  independently_rerun:
+  limitations:
+```
+
+This is **evidence metadata**, not the frozen classification schema. Keep the same-study comparisons separate; never invent missing benchmarks or equate uploaded summary data with reproduced original runs. Reference: [REC-012](./REC-012-external-agent-scaling.md).
+
 ## Schema pressure result
 
 ```yaml

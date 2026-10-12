@@ -17,10 +17,10 @@ MK1                              🟡 ACTIVE
  ├─ budget enforcement semantics ✅ PROMOTED
  ├─ intervention ownership       ✅ PROMOTED
  ├─ MCP 2026-07-28 / Strands     ✅ SUPPORTED / QUALIFIED
- ├─ representative records       ✅ 11 MATERIALIZED + 2 COVERED_BY
+ ├─ representative records       ✅ 12 MATERIALIZED + 2 COVERED_BY; audit pending
  ├─ A2A classification shape     ✅ PASS / QUALIFIED
  │   └─ A2A 1.0 compatibility    ⚠️ NOT ESTABLISHED / ROUTED DEBT
- ├─ multi-agent baseline         🟡 OPEN / BLOCKING
+ ├─ multi-agent baseline         ✅ G7 PASS / QUALIFIED_UPSTREAM
  ├─ final UNKNOWN reconciliation 🟡 PENDING
  └─ schema freeze audit          🔒 WAITS ON ABOVE
 
@@ -30,7 +30,7 @@ MK2                              🔒 BLOCKED / DESIGN SEEDED
 ## Closure dependency graph
 
 ```text
-multi-agent baseline / REC-012
+REC-012 qualified upstream evidence (DONE)
           ↓
 final representative-set review
           ↓
@@ -58,9 +58,9 @@ State: **NEAR-COMPLETE**
 Registry: [`mk/MK1/records/README.md`](./mk/MK1/records/README.md).
 
 ```text
-11 MATERIALIZED / QUALIFIED
+12 MATERIALIZED / QUALIFIED (REC-012 source-based)
 2  COVERED_BY
-1  OPEN / BLOCKING → REC-012 multi-agent
+0  OPEN required record families; final audit pending
 ```
 
 Required families already represented:
@@ -110,9 +110,9 @@ A2A `1.0` migration/interoperability remains explicit system freshness debt and 
 
 ## Workstream C — Multi-agent baseline
 
-State: **OPEN / PRIMARY BLOCKER; deterministic topology experiment EXECUTED/PARTIAL; local real-model runner BLOCKED_ENVIRONMENT (2026-10-12)**
+State: **PASS / QUALIFIED_UPSTREAM_EVIDENCE**
 
-Contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md). [Measured offline receipt](./quarries/rec-012-offline-topology-baseline.md) and [runnable fixtures](./experiments/rec-012/README.md) are available. A **real-model** single-agent vs manager-specialists controlled run remains required. [Local feasibility evidence](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) finds no model assets, runnable inference engine or working download path in this ChatGPT container. Reassess only when a permitted local model/runner becomes available; do not add paid APIs or simulate an LLM run.
+Contract: [MK1 baseline spec](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md). [S-118 + S-119 external LLM evidence](./quarries/multiagent-external-scaling-evidence.md) supports qualified [REC-012](./mk/MK1/records/REC-012-external-agent-scaling.md); the 260-row public quality CSV was independently re-aggregated, but no original LLM run/latency trace rerun was performed. The old [deterministic fixture](./experiments/rec-012/README.md) remains separately executed and the [local inference preflight](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) remains historically blocked. **Do not install an LLM or use paid APIs just to repeat an already source-covered classification gate.**
 
 One representative topology must be compared against a simpler baseline under the same task/evaluation contract.
 
@@ -131,7 +131,7 @@ A showcase run without a baseline does not pass.
 
 ## Workstream D — Final UNKNOWN reconciliation
 
-State: **BLOCKED UNTIL REC-012 EXISTS**
+State: **READY_FOR_FINAL_RECONCILIATION**
 
 Every remaining material UNKNOWN must become exactly one of:
 
@@ -159,7 +159,7 @@ Inputs:
 - current schema/dimensions/rules;
 - full representative record set;
 - A2A receipt;
-- multi-agent baseline/REC-012;
+- G7 multi-agent qualified source receipt or materially reopened failure;
 - GATES;
 - UNKNOWN register;
 - schema history.
@@ -204,7 +204,7 @@ Raw quarries do not become operational policy directly.
 ## Priority order
 
 ```text
-P0  execute multi-agent baseline / materialize REC-012
+P0  final representative-set / COVERED_BY audit
 P0  final UNKNOWN reconciliation
 P0  cross-dimension + schema freeze audit
 P1  issue new draft only if freeze audit requires it
@@ -218,7 +218,7 @@ P2  add additional system packages only when they add distinct evidence value
 
 Do not open MK2 while any of these remain true:
 
-- REC-012 lacks actual baseline evidence;
+- a material REC-012 source/representativeness contradiction invalidates qualified G7 evidence;
 - material `OPEN_MK1` UNKNOWNs remain;
 - schema overlap questions are unresolved;
 - the schema still needs ordinary framework-specific exceptions;

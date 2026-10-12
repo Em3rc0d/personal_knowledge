@@ -463,3 +463,24 @@ S-116 is **QUARRY_ONLY**. It does not alter the MK1 schema, satisfy REC-012 or a
 - processed quarries: [five tracks](../quarries/langflow-workflow-engineering.md) and [adoption decisions](../quarries/langflow-adoption-transfer.md).
 
 S-117 is **QUARRY_ONLY**. It does not advance MK1, close REC-012, or authorize adding Langflow dependencies.
+
+
+### S-118 — agent-scaling: real-model single vs multi study
+
+- primary study: *Capable language models can outgrow the benefits of collaboration*, Nature Machine Intelligence 2026; DOI `10.1038/s42256-026-01268-y`;
+- arXiv [v3](https://arxiv.org/html/2512.08296v3), revised 2026-04-08 (260 configurations / six benchmarks; **not** the v1 180/four study);
+- source code: [ybkim95/agent-scaling](https://github.com/ybkim95/agent-scaling), pinned `v2.2.2@072276fd3ae71cf095587f1232e8eefc17a21898`, MIT;
+- verified published `Source_Data_Fig1_Fig2.csv` contains **260 records**; simple outcome means independently re-aggregated through GitHub connector, but **no LLM calls or full regression reproduced**;
+- important source drift: original `v2.1.3` regression scripts could count 270 (ten out-of-sample rows); `v2.2.x` fixes it; separate latency distribution not reconstructed;
+- [source receipt](./S-118-agent-scaling-research.md), [quarry](../quarries/multiagent-external-scaling-evidence.md), [normalized REC-012](../mk/MK1/records/REC-012-external-agent-scaling.md).
+
+S-118 is **QUALIFIED_UPSTREAM** model-execution evidence for MK1 taxonomy, not independent replicated agent benchmark or universal product rule.
+
+### S-119 — Sanabria 2026 synthetic rover decision benchmark
+
+- primary article: [Frontiers in Robotics and AI](https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2026.1877762/full), published 2026-07-06; DOI `10.3389/frobt.2026.1877762`;
+- compares tool-less short-context single LLM vs prompt-orchestrated specialist calls on 100 synthetic scenarios, repeated five times per scenario/architecture for GPT-4o and GPT-5.5;
+- reports quality, latency, tokens and error modes; **not the same task/architecture regime as S-118**, no pooled statistics;
+- [source receipt](./S-119-mars-rover-agent-benchmark.md), [combined quarry](../quarries/multiagent-external-scaling-evidence.md).
+
+S-119 supplies independent **source-reported** quantitative latency/token contrast. Synthetic labels are not operational rover ground truth; no local rerun/certification.

@@ -12,9 +12,9 @@ This queue owns **remaining evidence/classification priority**. The authoritativ
 The original pressure set remains identified as REC-001 through REC-014. Current disposition:
 
 ```text
-11 MATERIALIZED / QUALIFIED
+12 MATERIALIZED / QUALIFIED (includes external-evidence REC-012)
 2  COVERED_BY
-1  OPEN / BLOCKING → REC-012 multi-agent
+0  OPEN representative-family records
 ```
 
 Registry: [`records/README.md`](./records/README.md).
@@ -22,11 +22,10 @@ Registry: [`records/README.md`](./records/README.md).
 ## Current priority
 
 ```text
-P0  REC-012 multi-agent baseline/admission evidence
-P1  final representative-set / COVERED_BY review
-P1  resolve freeze questions surfaced by existing records
-P1  UNKNOWN reconciliation
-P1  schema freeze audit
+P0  final representative-set / COVERED_BY review
+P0  UNKNOWN routing and PA-01/PA-06 schema-boundary decisions
+P0  cross-dimension + schema freeze audit
+P1  new research only if a material counterexample reopens a record
 ```
 
 No other existing queue entry should be rematerialized unless new evidence exposes distinct schema pressure.
@@ -78,9 +77,9 @@ Reusable contract: [`A2A_EVIDENCE_REQUIREMENTS.md`](./A2A_EVIDENCE_REQUIREMENTS.
 
 A2A `1.0` migration remains system freshness/interoperability debt, not an ordinary MK1 record-writing task.
 
-## Remaining primary evidence target — REC-012
+## REC-012 — external evidence now materialized (qualification retained)
 
-REC-012 must be created from an actual comparison, not topology description alone.
+REC-012 has been materialized from [source-reported real-model comparisons](./records/REC-012-external-agent-scaling.md), with verified pinned [S-118 data/code](../../mining-site/S-118-agent-scaling-research.md) and independent [S-119 latency/token contrast](../../mining-site/S-119-mars-rover-agent-benchmark.md). The deterministic local fixture remains non-LLM. No local inference and no combined-study statistical conclusions are claimed.
 
 Required input contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).
 
@@ -97,7 +96,7 @@ It must preserve independently:
 - termination behavior;
 - evidence confidence.
 
-A neutral or negative result is valid. The gate is about **classification quality**, not proving multi-agent superiority.
+A neutral or negative result is valid. G7 is **PASS / QUALIFIED_UPSTREAM_EVIDENCE** for classification, not proof that a topology is superior. Final C5/C6 freeze and PA-01 source-vs-schema location remain open.
 
 ## Classification workflow
 

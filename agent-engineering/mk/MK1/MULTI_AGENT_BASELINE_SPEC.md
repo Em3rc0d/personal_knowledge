@@ -1,6 +1,8 @@
 # MK1 — Multi-Agent Baseline Specification
 
-Status: **OPEN GATE SPECIFICATION**
+Status: **EVIDENCE CONTRACT / G7 PASS QUALIFIED_UPSTREAM ON 2026-10-12**
+
+Current evidence: [REC-012 normalized external comparison](./records/REC-012-external-agent-scaling.md), [S-118/S-119 research quarry](../../quarries/multiagent-external-scaling-evidence.md). The [local deterministic control](../../experiments/rec-012/README.md) is separate and is **not** LLM evidence. All remaining MK1 closure/freeze gates stay open.
 
 ## Purpose
 
@@ -277,6 +279,20 @@ parallel/dependency Graph
 ```
 
 The exact fixture remains open until task/eval design is pinned.
+
+## Evidence modality and claim-strength rule
+
+For **MK1 classification**, a primary, source-reported controlled experiment **may** satisfy the representative baseline requirement when source identity/revision, same-task baseline/topology, external outcome data, measured cost/latency where available, failure/termination behavior, explicit limitations and traceability are adequate. Record:
+
+- `AUTHORS_REPORTED_EXECUTION` separately from `INDEPENDENT_REAGGREGATION` (published CSV arithmetic), `INDEPENDENT_RERUN` and `PRODUCTION_CERTIFIED`;
+- if separate papers supply complementary dimensions, retain **each study's own tasks, models, outcomes and budgets**—never join their measurements as one controlled experiment;
+- `NOT_MEASURED` rather than numbers invented for latency, tokens, judge quality, cancellation or cost;
+- which conclusions are restricted to studied benchmarks, model versions and experiment regimes;
+- unresolved dataset/script version inconsistencies and publication-corrected releases.
+
+This contract requires **evidence of real-model comparisons**, but does **not** require us to install or run our own LLM when qualified, traceable upstream evidence suffices for this MK gate. Stronger independent reproduction is a later certification question, not an implicit condition for G7. A benchmark performed with actors whose decisions are entirely rule-coded must **not** be represented as LLM autonomy.
+
+A source record may be `PASS / QUALIFIED_UPSTREAM_EVIDENCE` **for topology-vs-measured-benefit classification only**. It cannot grant application adoption, security, general superiority or MK1 schema-freeze PASS.
 
 ## MK1 pass condition
 

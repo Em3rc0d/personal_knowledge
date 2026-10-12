@@ -1,6 +1,6 @@
 # MK1 — Normalized Record Registry
 
-Status: **ACTIVE / REPRESENTATIVE COVERAGE NEAR-COMPLETE**  
+Status: **ACTIVE / REPRESENTATIVE FAMILIES MATERIALIZED — FINAL AUDIT PENDING**  
 Schema: `mk1-draft-2026-09-16.1`
 
 ## Purpose
@@ -41,7 +41,7 @@ SUPERSEDED       historical record replaced by a newer schema/revision
 | REC-009 | DataScribe/database authority | effective DB credential authority, lower-level dispatcher UNKNOWNs | **MATERIALIZED / QUALIFIED** | [`REC-009-database-authority.md`](./REC-009-database-authority.md) |
 | REC-010 | reflection/self-improvement example | reflection/adaptation vs persistent improvement evidence | **MATERIALIZED / QUALIFIED** | [`REC-010-reflection-adaptation.md`](./REC-010-reflection-adaptation.md) |
 | REC-011 | memory lifecycle | state/checkpoint/persistence vs memory vs knowledge | **MATERIALIZED / QUALIFIED CONTRAST** | [`REC-011-memory-lifecycle-contrast.md`](./REC-011-memory-lifecycle-contrast.md) |
-| REC-012 | representative multi-agent system | topology, admission hypothesis, baseline/benefit | **IN_PROGRESS / PARTIAL EVIDENCE / OPEN_MK1** | [deterministic topology draft](./REC-012-deterministic-topology-draft.md) + [executed receipt](../../../quarries/rec-012-offline-topology-baseline.md); real-model multi-agent comparison still missing per [spec](../MULTI_AGENT_BASELINE_SPEC.md) |
+| REC-012 | representative multi-agent system | topology, admission hypothesis, baseline/benefit | **MATERIALIZED / QUALIFIED_UPSTREAM** | [real-model external comparison](./REC-012-external-agent-scaling.md): [S-118](../../../mining-site/S-118-agent-scaling-research.md) + [S-119](../../../mining-site/S-119-mars-rover-agent-benchmark.md). [Prior deterministic fixture](./REC-012-deterministic-topology-draft.md) retained as separate evidence |
 | REC-013 | legacy/current MCP integration | protocol revision, lifecycle drift, auth boundary | **MATERIALIZED / QUALIFIED** | [`REC-013-mcp-revision-drift.md`](./REC-013-mcp-revision-drift.md) |
 | REC-014 | Strands Agents SDK | modern runtime, mixed topology, concurrency/budgets/intervention/protocols | **MATERIALIZED / QUALIFIED** | [`../../../systems/strands/CLASSIFICATION.md`](../../../systems/strands/CLASSIFICATION.md) |
 
@@ -83,9 +83,10 @@ REC-010  reflection/adaptation vs learning claim
 REC-011  persistence/state vs memory lifecycle contrast
 REC-013  protocol revision/lifecycle drift
 REC-014  modern mixed-control runtime / Strands
+REC-012  model-directed single-vs-multi comparison, source-reported outcomes and cost/failure evidence
 ```
 
-REC-012 is the only required record family still **open due to missing representative real-model evidence**. An offline deterministic topology comparison has been executed, but is not a completed multi-agent LLM baseline.
+All 12 materialized families now have explicit normalized evidence, including qualified REC-012 from **authors' real-model experiments**. This changes representative evidence coverage but **not** the final `COVERED_BY`/cross-dimension audit or any production certification. Local LLM inference remains NOT RUN.
 
 ## Family coverage view
 
@@ -99,7 +100,7 @@ REC-012 is the only required record family still **open due to missing represent
 | database authority | REC-009 | **COVERED / QUALIFIED** |
 | state / memory lifecycle | REC-011 / REC-014 | **COVERED / QUALIFIED** |
 | evaluation / critic / epistemic claims | REC-003 / REC-010 | **COVERED** |
-| multi-agent | REC-012 / REC-014 topology surfaces | **OPEN — baseline/benefit evidence missing** |
+| multi-agent | REC-012 / REC-014 topology surfaces | **COVERED / QUALIFIED_UPSTREAM — final audit pending** |
 | protocol / interoperability | REC-013 / REC-014 + protocol receipts | **COVERED / QUALIFIED for MCP and A2A classification shape** |
 | modern runtime/framework | REC-014 | **COVERED** |
 
@@ -130,7 +131,7 @@ They are not silently ignored and do not trigger schema mutation from one record
 
 Representative-record coverage fully passes only when:
 
-1. REC-012 multi-agent gate has measured baseline/admission evidence;
+1. REC-012 multi-agent gate has qualified source-reported real-model baseline/admission evidence (no local rerun);
 2. final review confirms `COVERED_BY` decisions hide no material distinction;
 3. freeze audit resolves the cross-dimension questions surfaced by the complete set;
 4. every material record remains interpretable under the frozen schema;
@@ -187,10 +188,4 @@ Do not re-mine upstream when pinned evidence is sufficient. Re-open source when 
 
 ## Next record action
 
-```text
-REC-012 multi-agent
-```
-
-now has a reproducible deterministic actor-topology receipt, but **must still wait for a real-model equivalent-task single-vs-multi comparison** before materialization/gate PASS.
-
-Spec: [`../MULTI_AGENT_BASELINE_SPEC.md`](../MULTI_AGENT_BASELINE_SPEC.md).
+**No new representative record is currently required.** [REC-012](./REC-012-external-agent-scaling.md) was materialized from qualified source-reported real-model evidence; the older deterministic experiment remains a separate historical control. Next: final `REC-005/REC-006 COVERED_BY` audit, residual UNKNOWN routing and cross-dimension schema freeze pressure test. See [baseline specification](../MULTI_AGENT_BASELINE_SPEC.md).
