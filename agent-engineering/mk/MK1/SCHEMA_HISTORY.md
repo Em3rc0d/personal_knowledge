@@ -118,12 +118,12 @@ Protocol pressure:
 
 ## 2026-10-12 pre-audit note — no schema revision
 
-A [static prefreeze audit](./PREFREEZE_AUDIT_2026-10-12.md) found that the `DIMENSIONS.md` multi-agent comparison vocabulary (`baseline`, `measured_benefit`, `coordination_cost`) is not explicitly present in `CLASSIFICATION_SCHEMA.md` or `records/TEMPLATE.md`. This is an **OPEN contract decision**, not an approved new field set. The real-model REC-012 comparison is [environment blocked](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md); no schema promotion or freeze is authorized from this static pass.
+A [static prefreeze audit](./PREFREEZE_AUDIT_2026-10-12.md) found that the `DIMENSIONS.md` multi-agent comparison vocabulary (`baseline`, `measured_benefit`, `coordination_cost`) is not explicitly present in `CLASSIFICATION_SCHEMA.md` or `records/TEMPLATE.md`. This is an **OPEN contract decision**, not an approved new field set. The original local-model route was [environment-blocked](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md), but REC-012 now has a [qualified external real-model evidence record](./records/REC-012-external-agent-scaling.md). PA-01 remains an unresolved question: keep comparison evidence as a linked, versioned receipt versus promote named fields into a new draft. **No automatic schema revision or freeze** follows from G7.
 
 ## Still required before freeze
 
 ```text
-1. materialize REC-012 from actual multi-agent baseline/admission evidence
+1. REC-012 external evidence materialized/qualified (DONE)
 2. run final representative-set / COVERED_BY review
 3. reconcile every material OPEN_MK1 unknown
 4. decide cross-dimension questions surfaced by REC-008/REC-011 and other records
