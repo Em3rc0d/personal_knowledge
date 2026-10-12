@@ -37,6 +37,12 @@ External real-model comparisons [S-118](../../mining-site/S-118-agent-scaling-re
 Contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).  
 Registry: [`records/README.md`](./records/README.md).
 
+### U-MK1-004 — Normalized scalar enum conformance
+
+State: **QUALIFIED / CLOSED_FOR_STATIC_LEXICAL_SCOPE**
+
+The [initial 87-candidate conformance audit](./audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md) led to atomic normalization of ten records. [Post-correction recheck](./audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md): **12/12 principal classification blocks, 394 scalar enum occurrences, 0 mismatches** under 34 enumerated draft dimensions. Original alternatives remain in each record's normalization receipt; family variants are explicit in high-risk cases. This does **not** close PA-06, guarantee fully parsed YAML, prove runtime behavior, or freeze MK1.
+
 ## Remaining closure-blocking OPEN_MK1
 
 ### U-MK1-002 — Final schema overlap/freeze audit
@@ -54,7 +60,7 @@ Questions still to resolve at closure:
 - whether memory update-conflict/forgetting/evaluation belongs in MK1 or MK2;
 - whether the active schema can freeze without a breaking revision.
 
-Procedure: [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) + [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md). [2026-10-12 static pre-audit](./PREFREEZE_AUDIT_2026-10-12.md) identified PA-01 (comparison evidence fields absent from current schema/template) and PA-06 (nested authority/tool-specific containment) as explicit unresolved decisions; this does not pass the final gate.
+Procedure: [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) + [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md). [Full review](./audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md) resolved PA-01 as an evidence appendix, retained **PA-06 (per-child effective authority) OPEN**, and triggered record scalar normalization; the [recheck](./audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md) closes only the lexical mismatch, not the semantic freeze gate.
 
 ### U-MK1-003 — Final UNKNOWN routing
 
