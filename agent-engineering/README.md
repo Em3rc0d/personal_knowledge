@@ -10,6 +10,10 @@ MK1  Normalize & Classify  🟡 IN PROGRESS
 MK2  Operationalize        🔒 BLOCKED / DESIGN SEEDED
 ```
 
+## REC-012 — ejecución parcial (2026-10-12)
+
+[Experimentación offline reproducible](./experiments/rec-012/README.md) y [receipt medido](./quarries/rec-012-offline-topology-baseline.md): 16 fixtures × 30 repeticiones por topología, 6 tests, 6 fallos inyectados, sin LLM ni servicios de pago. **La comparación LLM real sigue pendiente; G7/MK1 permanecen abiertos.**
+
 ## Empieza aquí
 
 | Necesidad | Archivo |
