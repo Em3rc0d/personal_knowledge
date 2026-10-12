@@ -110,9 +110,9 @@ A2A `1.0` migration/interoperability remains explicit system freshness debt and 
 
 ## Workstream C — Multi-agent baseline
 
-State: **OPEN / PRIMARY BLOCKER; 2026-10-12 deterministic topology experiment EXECUTED/PARTIAL**
+State: **OPEN / PRIMARY BLOCKER; deterministic topology experiment EXECUTED/PARTIAL; local real-model runner BLOCKED_ENVIRONMENT (2026-10-12)**
 
-Contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md). [Measured offline receipt](./quarries/rec-012-offline-topology-baseline.md) and [runnable fixtures](./experiments/rec-012/README.md) are available. A **real-model** single-agent vs manager-specialists controlled run remains required.
+Contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md). [Measured offline receipt](./quarries/rec-012-offline-topology-baseline.md) and [runnable fixtures](./experiments/rec-012/README.md) are available. A **real-model** single-agent vs manager-specialists controlled run remains required. [Local feasibility evidence](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) finds no model assets, runnable inference engine or working download path in this ChatGPT container. Reassess only when a permitted local model/runner becomes available; do not add paid APIs or simulate an LLM run.
 
 One representative topology must be compared against a simpler baseline under the same task/evaluation contract.
 
@@ -150,7 +150,9 @@ Owner: [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md).
 
 ## Workstream E — Schema freeze audit
 
-State: **BLOCKED UNTIL C + D**
+State: **BLOCKED UNTIL C + D; static pre-audit completed 2026-10-12**
+
+[Pre-audit evidence](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) inventories schema/record mismatches and overlapping dimensions, including candidate comparison-contract gap PA-01, but does not satisfy the final C5/C6 freeze gate.
 
 Inputs:
 
