@@ -110,9 +110,9 @@ A2A `1.0` migration/interoperability remains explicit system freshness debt and 
 
 ## Workstream C — Multi-agent baseline
 
-State: **OPEN / PRIMARY BLOCKER**
+State: **OPEN / PRIMARY BLOCKER; 2026-10-12 deterministic topology experiment EXECUTED/PARTIAL**
 
-Contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md).
+Contract: [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md). [Measured offline receipt](./quarries/rec-012-offline-topology-baseline.md) and [runnable fixtures](./experiments/rec-012/README.md) are available. A **real-model** single-agent vs manager-specialists controlled run remains required.
 
 One representative topology must be compared against a simpler baseline under the same task/evaluation contract.
 
