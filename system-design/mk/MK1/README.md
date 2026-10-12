@@ -12,4 +12,4 @@
 
 **Order:** retrieve just the relevant card → gather system measurements/contracts → compare alternatives → controlled test → decision recorded in **project** repository → review and possible promotion.
 
-See [pilot design](./PILOT-001-payment-idempotency.md) and [MK1 review gate](./REVIEW-GATE.md). No blanket software implementation or technology recommendation is implied.
+See [pilot design](./PILOT-001-payment-idempotency.md), [PILOT-001 executed receipt](./experiments/PILOT-001/RESULTS-2026-10-12.md) and [MK1 review gate](./REVIEW-GATE.md). No blanket software implementation or technology recommendation is implied.

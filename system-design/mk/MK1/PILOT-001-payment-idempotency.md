@@ -1,6 +1,6 @@
 # PILOT-001 — Payment-event replay without production exposure
 
-**Status: DESIGN ONLY / NOT EXECUTED.** Synthetic evaluation of SD-004; **not** an integration with PlacaClara and not evidence that PlacaClara currently has or lacks these protections.
+**Status: LOCAL SYNTHETIC PILOT EXECUTED — PASS WITH LIMITATIONS (2026-10-12).** Synthetic evaluation of SD-004; **not** an integration with PlacaClara and not evidence that PlacaClara currently has or lacks these protections.
 
 ## Purpose and scope
 Can a minimal SQLite local transaction + durable uniqueness boundary avoid multiple entitlement grants when a payment-related event is delivered repeatedly or concurrently? This only evaluates a proposed **local-effect** contract. It does **not** verify PSP billing, webhook authenticity, payment settlement or live business implementation.
@@ -25,6 +25,10 @@ Before coding: close order identity, entitlement uniqueness invariant, source of
 | P06 forgery | Unverified event | zero grants |
 | P07 partial failure | Crash/rollback during insert | no partial grant; retry resumes safely |
 | P08 unresolved settlement | Ambiguous external state | no new grant without independent validation |
+
+## Executed evidence
+
+See [local reproducibility package](./experiments/PILOT-001/README.md) and [execution receipt](./experiments/PILOT-001/RESULTS-2026-10-12.md). Six local suite executions passed 14 tests per run (84 total test executions); P01–P08 and N01–N06. **The signed events and the reconciliation authority are synthetic fixtures, not actual PSP guarantees.** This closes the bounded local pilot only; it does not certify SD-004 or any real application.
 
 ## Evidence required to mark PASS
 Runnable lab fixture committed at exact SHA; isolated database with deterministic setup; P01-P08 outputs plus negative controls; local command, runtime version, artifacts and known limitations. Independent review of the **business** key vs transport key distinction.
