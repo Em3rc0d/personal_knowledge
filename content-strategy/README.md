@@ -235,3 +235,7 @@ Folders are materialized only when useful.
 - [Q-006: transferencia selectiva a Content Seller y NINFA](quarries/Q-006-social-media-skills-transfer-2026-10-12.md)
 
 Esta extracción no constituye una certificación de mejora de alcance, ventas o autonomía. La autoridad operativa sigue en los repositorios de ejecución.
+
+## Caso PlacaClara — creatividad y conversión
+
+- [Q-007: diferencia entre dirección premium aprobada, arte verificable y conversión medida](quarries/Q-007-placaclara-premium-posts-creative-conversion-2026-10-12.md). Documenta el piloto visual y sus blockers sin copiar el contrato comercial de `plate`.
