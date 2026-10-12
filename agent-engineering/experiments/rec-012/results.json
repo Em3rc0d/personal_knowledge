@@ -1,0 +1,156 @@
+{
+  "experiment": "REC-012-offline-rule-based-topology-v1",
+  "evidence_class": "EXECUTED_LOCAL_DETERMINISTIC_FIXTURE_NOT_LLM_BENCHMARK",
+  "date_utc": "2026-10-12T05:54:21Z",
+  "environment": {
+    "python": "3.13.5",
+    "os": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "cpu_count": "NOT_RECORDED"
+  },
+  "task_count": 16,
+  "repeats_per_task": 30,
+  "fixture_sha256": "1242efb8b852de7a3e18dcb6f1018e97120766409da622ac42122cd614241b5b",
+  "predeclared_hypothesis": "Manager+specialists may parallelize independent observations, but orchestration overhead can dominate trivial CPU-fast tasks.",
+  "parity": {
+    "same_input": true,
+    "same_two_tools": true,
+    "same_synthesis": true,
+    "same_expected_labels": true,
+    "same_timeout_seconds": 0.01,
+    "same_model": "NONE (deterministic policy actors)"
+  },
+  "topology": {
+    "single": "one policy actor; sequential tool observation",
+    "multi": "one manager plus two independent specialist policy actors; parallel observations via 2 threads, typed handoffs; manager owns termination"
+  },
+  "nominal": {
+    "single": {
+      "n": 480,
+      "outcome_correct": 480,
+      "outcome_incorrect": 0,
+      "median_ms": 0.005468,
+      "p95_ms": 0.008613,
+      "total_wall_ms": 2.815343,
+      "total_tool_calls": 960,
+      "total_handoffs": 0,
+      "model_calls": 0,
+      "model_tokens": "NOT_APPLICABLE",
+      "model_cost_usd": "NOT_APPLICABLE",
+      "external_api_calls": 0
+    },
+    "multi": {
+      "n": 480,
+      "outcome_correct": 480,
+      "outcome_incorrect": 0,
+      "median_ms": 0.148609,
+      "p95_ms": 0.339741,
+      "total_wall_ms": 93.794777,
+      "total_tool_calls": 960,
+      "total_handoffs": 960,
+      "model_calls": 0,
+      "model_tokens": "NOT_APPLICABLE",
+      "model_cost_usd": "NOT_APPLICABLE",
+      "external_api_calls": 0
+    }
+  },
+  "failures": [
+    {
+      "fault": "logs:raise",
+      "single": {
+        "status": "failed",
+        "error": "injected-log-tool-failure",
+        "handoffs": 0,
+        "elapsed_ms": 0.007111
+      },
+      "multi": {
+        "status": "failed",
+        "error": "injected-log-tool-failure",
+        "handoffs": 0,
+        "elapsed_ms": 0.220051
+      }
+    },
+    {
+      "fault": "impact:raise",
+      "single": {
+        "status": "failed",
+        "error": "injected-impact-tool-failure",
+        "handoffs": 0,
+        "elapsed_ms": 0.007611
+      },
+      "multi": {
+        "status": "failed",
+        "error": "injected-impact-tool-failure",
+        "handoffs": 1,
+        "elapsed_ms": 0.202495
+      }
+    },
+    {
+      "fault": "logs:malformed",
+      "single": {
+        "status": "failed",
+        "error": "invalid-handoff-fields",
+        "handoffs": 0,
+        "elapsed_ms": 0.009204
+      },
+      "multi": {
+        "status": "failed",
+        "error": "invalid-handoff-fields",
+        "handoffs": 2,
+        "elapsed_ms": 0.154182
+      }
+    },
+    {
+      "fault": "impact:malformed",
+      "single": {
+        "status": "failed",
+        "error": "invalid-impact-handoff",
+        "handoffs": 0,
+        "elapsed_ms": 0.009024
+      },
+      "multi": {
+        "status": "failed",
+        "error": "invalid-impact-handoff",
+        "handoffs": 2,
+        "elapsed_ms": 0.144367
+      }
+    },
+    {
+      "fault": "logs:stall",
+      "single": {
+        "status": "failed",
+        "error": "time-budget-exceeded",
+        "handoffs": 0,
+        "elapsed_ms": 25.123968
+      },
+      "multi": {
+        "status": "failed",
+        "error": "time-budget-exceeded",
+        "handoffs": 0,
+        "elapsed_ms": 25.442618
+      }
+    },
+    {
+      "fault": "impact:stall",
+      "single": {
+        "status": "failed",
+        "error": "time-budget-exceeded",
+        "handoffs": 0,
+        "elapsed_ms": 25.147674
+      },
+      "multi": {
+        "status": "failed",
+        "error": "time-budget-exceeded",
+        "handoffs": 1,
+        "elapsed_ms": 26.166259
+      }
+    }
+  ],
+  "limitations": [
+    "Synthetic task fixtures; hand-labelled expected results",
+    "No LLM, API or stochastic planning; cannot establish LLM multi-agent benefit",
+    "Short no-network tools; measured latency is specific to local Python thread startup and scheduler",
+    "In-flight threads cannot be forcibly cancelled; deadline may be exceeded before cleanup",
+    "No independent task quality assessment outside fixture expectation",
+    "Only one host and one benchmark workload; no production certification"
+  ]
+}
