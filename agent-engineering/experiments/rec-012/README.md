@@ -1,6 +1,8 @@
 # REC-012 — Offline topology baseline
 
-**Status: EXECUTED / PARTIAL EVIDENCE / NON-CERTIFYING**  
+**Status: EXECUTED / DETERMINISTIC ONLY / NON-CERTIFYING**
+
+**Current gate routing:** [G7](../../mk/MK1/GATES.md) is now PASS / QUALIFIED_UPSTREAM based on [external real-model evidence](../../mk/MK1/records/REC-012-external-agent-scaling.md). This *local fixture* remains non-LLM and is **not** the basis of that G7 pass.  
 **Scope: one deterministic policy actor versus a manager plus two policy specialists. No LLM was used.**
 
 ## Hypothesis and task
@@ -61,4 +63,4 @@ python benchmark.py --trials 30 --timeout-ms 10 --output results.json
 
 ## Gate
 
-**REC-012 remains OPEN_MK1 / PARTIAL EVIDENCE.** A deterministic actor-topology stress test exercises coordination and termination, **not** model-driven agent autonomy. A real model-based same-task single-vs-manager+specialists comparison is still needed to satisfy the representative gate. No MK1 freeze, MK2 activation or production certification follows from these results.
+**Historical result of this local experiment:** the deterministic actor-topology fixture alone did not satisfy the multiagent LLM gate. It measures coordination and termination, not model-driven autonomy. Later [S-118/S-119 external study evidence](../../quarries/multiagent-external-scaling-evidence.md) resolves G7 **only in a qualified upstream-research sense**. No MK1 freeze, MK2 activation or product production certification follows from this fixture or the external studies.
