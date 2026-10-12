@@ -32,3 +32,7 @@ The two uniqueness boundaries are distinct: `(provider,event_id)` identifies a t
 Before any project use: discover actual payment processor, signature, amounts/currency, partial/refunded payments, event versions, order ownership, entitlement taxonomy, persistence/transaction boundaries, provider reconciliation and data-retention rules. **DO NOT COPY THIS LAB INTO PRODUCTION.**
 
 Execution evidence: [RESULTS-2026-10-12.md](./RESULTS-2026-10-12.md) and [results.json](./results.json).
+
+### Bounded downstream reference study
+
+[PLATE read-only P01–P08 crosswalk (2026-10-12)](./PLATE-READONLY-CROSSWALK-2026-10-12.md) maps the synthetic lab to a pinned existing real-world codebase. It is a **static evidence comparison only**: no production tests, no Plate code changes, no inference that its payment flow is certified or requires modification. Real product architecture is not the lab schema.
