@@ -47,7 +47,7 @@ MK2 HANDOFF CONTRACT       mk/MK2/HANDOFF_CONTRACT.md
 | Strands A2A `1.0` compatibility | ⚠️ NOT ESTABLISHED / ROUTED DEBT | system freshness/interoperability debt, not hidden as PASS |
 | multi-agent baseline | ✅ G7 PASS / QUALIFIED_UPSTREAM | [real LLM studies and checked outcome CSV](./quarries/multiagent-external-scaling-evidence.md) · own model inference NOT RUN |
 | UNKNOWN reconciliation | 🟡 U-MK1-001 QUALIFIED; U-002/U-003 still OPEN | [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md) |
-| schema freeze audit | 🟡 READY / AWAITING FINAL RECORD + DIMENSION AUDITS | [`mk/MK1/PREFREEZE_AUDIT_2026-10-12.md`](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) · no schema version change |
+| schema freeze audit | 🟡 ENUM FORMAT RECHECK PASS / FULL FREEZE HOLD | [0/394 scalar mismatches](./mk/MK1/audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md); [PA-06 authority / remaining C5–C6 review](./mk/MK1/audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md) |
 | MK1 closure receipt | 🔒 NOT YET | future `mk/MK1/CLOSURE.md` |
 | MK2 activation | 🔒 BLOCKED | [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md) |
 
@@ -119,10 +119,10 @@ Receipt: [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-versio
 ## Active MK1 blockers
 
 ```text
-B1 final representative set / COVERED_BY verification
-B2 full cross-dimension / PA-01 + PA-06 decisions
-B3 final UNKNOWN routing (U-MK1-002/U-MK1-003)
-B4 schema freeze decision
+B1 full record enum lexical normalization ✅ 0/394 mismatches, 12 blocks checked
+B2 PA-06 nested actor effective authority / semantic evidence still OPEN
+B3 remaining U-MK1-002/U-MK1-003 UNKNOWN routing
+B4 cross-dimension / C5–C6 re-audit and schema freeze decision
 B5 MK1 CLOSURE.md
 ```
 
@@ -149,9 +149,9 @@ Contract: [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md).
 ## Next execution order
 
 ```text
-1. audit final record set + COVERED_BY equivalence (REC-012 source evidence accepted)
+1. audit per-child authority (PA-06), using variant-aware normalized records (scalar check PASS)
 2. reconcile remaining OPEN_MK1 questions
-3. run cross-dimension + schema freeze audit; decide PA-01/PA-06
+3. rerun cross-dimension + schema freeze audit; PA-01 appendix decision recorded, PA-06 remains OPEN
 4. decide freeze vs explicit new draft revision
 5. create MK1 CLOSURE.md only on PASS
 6. activate MK2 handoff only after closure
