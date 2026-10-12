@@ -23,6 +23,7 @@ Executed against the **current GitHub branch document bodies** with a local Java
 | Typed enum scalar occurrences checked | **394** |
 | Mismatched enum scalars | **0** |
 | Source-claimed performance or security tests run | **0** |
+| Negative control: deliberately reintroduce compound `database` scalar in an in-memory REC-009 copy | **REJECTED (1 finding)** |
 
 For future local checkout checks, an equivalent **Python standard-library checker** is provided at [`check_enum_conformance.py`](./check_enum_conformance.py), to be run as:
 
