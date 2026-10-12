@@ -56,4 +56,5 @@ The authors report, *within these test configurations*:
 
 - [Processed quarry](../quarries/multiagent-external-scaling-evidence.md)
 - [Normalized REC-012](../mk/MK1/records/REC-012-external-agent-scaling.md)
+- [Complementary S-119 latency/token contrast](./S-119-mars-rover-agent-benchmark.md) — separate study, no data pooling.
 - [Evidence gate](../mk/MK1/MULTI_AGENT_BASELINE_SPEC.md)
