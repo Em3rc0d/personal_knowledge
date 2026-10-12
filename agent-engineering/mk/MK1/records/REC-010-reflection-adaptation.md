@@ -34,9 +34,9 @@ identity:
   evidence_state: QUALIFIED
 
 control:
-  primary_authority: model_directed | mixed
+  primary_authority: mixed
   horizon: bounded_multistep
-  topology: single_model | mixed
+  topology: single_model
   model_count: implementation-dependent
 
 capabilities:
@@ -49,7 +49,7 @@ capabilities:
   generated_code_execution: false
   shell: false
   browser: none
-  database: none | unknown
+  database: unknown
   communication: none
   publication: none
   file_egress: false
@@ -57,7 +57,7 @@ capabilities:
     - model critique + retained feedback/context + subsequent revision
 
 side_effects:
-  class: S0 | S1
+  class: unknown
   reversible: yes
   external_mutation: false
   data_egress: none
@@ -76,8 +76,8 @@ state:
 memory:
   semantic_role:
     - reflection_insight | adaptation_context depending implementation
-  scope: session | cross_session | unknown
-  persistence: process | unknown
+  scope: unknown
+  persistence: unknown
   retrieval_policy: prior reflection/history incorporated into later response path
   write_policy: model/system-generated reflection insight
   isolation_key: unknown
@@ -85,16 +85,16 @@ memory:
   provenance: reflection is model-generated feedback unless external verifier evidence is supplied
 
 human_control:
-  level: H0 | unknown
-  mode: none | unknown
+  level: unknown
+  mode: unknown
   dispatcher_enforcement: no
-  enforcement_owner: model_judge | mixed
+  enforcement_owner: mixed
   enforcement_boundary: reflection/revision influences generated output; no hard external authorization boundary is implied
   approval_binding: not applicable
 
 errors_and_retries:
-  error_model: mixed | unknown
-  retry_owner: model/runtime
+  error_model: mixed
+  retry_owner: mixed
   retry_budget: bounded by workflow/application where present
   idempotency: not material to non-mutating reflection path
   unknown_outcome_handling: not material/unknown
@@ -134,8 +134,8 @@ security:
     - model-generated reflection
     - retained reflection/memory if persisted
     - external verifier/human signal when present
-  least_privilege: yes | not material
-  sandbox: none | not applicable
+  least_privilege: unknown
+  sandbox: unknown
   data_classification: reflection may retain user/task information if persisted
   receipts: []
 
@@ -191,6 +191,26 @@ A model producing a better second answer in one run is not enough.
 ## Production-certification boundary
 
 This record does not certify reflection reliability, durable learning, memory quality, or general capability improvement.
+
+## Scalar normalization receipt — 2026-10-12
+
+These edits choose **one scoped enum value** or preserve uncertainty as `unknown`. The original classifications are reproduced below for traceability and remain evidence of variations, **not confirmed settings of a single deployed system**.
+
+- `control.primary_authority`: `model_directed | mixed` → `mixed`
+- `control.topology`: `single_model | mixed` → `single_model`
+- `capabilities.database`: `none | unknown` → `unknown`
+- `side_effects.class`: `S0 | S1` → `unknown`
+- `memory.scope`: `session | cross_session | unknown` → `unknown`
+- `memory.persistence`: `process | unknown` → `unknown`
+- `human_control.level`: `H0 | unknown` → `unknown`
+- `human_control.mode`: `none | unknown` → `unknown`
+- `human_control.enforcement_owner`: `model_judge | mixed` → `mixed`
+- `errors_and_retries.error_model`: `mixed | unknown` → `mixed`
+- `errors_and_retries.retry_owner`: `model/runtime` → `mixed`
+- `security.least_privilege`: `yes | not material` → `unknown`
+- `security.sandbox`: `none | not applicable` → `unknown`
+
+**Variant separation:** this record covers a model-driven reflection/revision path plus possibly retained insights. `single_model` describes the inspected single-agent self-review topology; `mixed` `primary_authority` describes model output plus runtime revision/termination, **not** an independent collaborating-agent hierarchy. Local response revision can be S0, while retaining insight or writing a durable record may have a different effect classification. No durable store or persistent performance improvement is established. `memory.scope`, `memory.persistence` and side-effect class stay `unknown` for the wider contrast.
 
 ## Schema pressure result
 

@@ -118,7 +118,15 @@ Protocol pressure:
 
 ## 2026-10-12 pre-audit note — no schema revision
 
-A [static prefreeze audit](./PREFREEZE_AUDIT_2026-10-12.md) found that the `DIMENSIONS.md` multi-agent comparison vocabulary (`baseline`, `measured_benefit`, `coordination_cost`) is not explicitly present in `CLASSIFICATION_SCHEMA.md` or `records/TEMPLATE.md`. This is an **OPEN contract decision**, not an approved new field set. The original local-model route was [environment-blocked](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md), but REC-012 now has a [qualified external real-model evidence record](./records/REC-012-external-agent-scaling.md). PA-01 remains an unresolved question: keep comparison evidence as a linked, versioned receipt versus promote named fields into a new draft. **No automatic schema revision or freeze** follows from G7.
+A [static prefreeze audit](./PREFREEZE_AUDIT_2026-10-12.md) found that the `DIMENSIONS.md` multi-agent comparison vocabulary (`baseline`, `measured_benefit`, `coordination_cost`) is not explicitly present in `CLASSIFICATION_SCHEMA.md` or `records/TEMPLATE.md`. This is an **OPEN contract decision**, not an approved new field set. The original local-model route was [environment-blocked](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md), but REC-012 now has a [qualified external real-model evidence record](./records/REC-012-external-agent-scaling.md). PA-01 was subsequently resolved for MK1 by retaining comparisons as a linked evidence appendix in [REC-012](./records/REC-012-external-agent-scaling.md); PA-06 child authority remains unresolved. **No schema freeze** follows from G7.
+
+## 2026-10-12 — CLARIFYING alignment and record normalization (active draft only)
+
+- Synchronized the draft schema's enumerated `unknown`/boolean values with [TEMPLATE.md](./records/TEMPLATE.md) and pre-existing rule 2 (no invented values for missing material evidence).
+- Normalized **90 scalar edits/omissions** across ten representative records while preserving original literal alternatives in per-record normalization receipts.
+- [Independent connector-backed bounded scan](./audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md) counted **0 enum mismatches / 394 scalar occurrences / 12 classification blocks** after normalization; source snapshot limitations remain.
+- **Change type: CLARIFYING IN ACTIVE DRAFT** — the normalized unknown/evidence meaning is documented, not a new permission or a production guarantee. No `mk1-v1` version is declared.
+- PA-06 nested agent/worker effective authority remains OPEN_MK1; full C5/C6/UNKNOWN routing and MK2 derivability are not yet PASS.
 
 ## Still required before freeze
 

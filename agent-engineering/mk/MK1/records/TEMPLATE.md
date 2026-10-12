@@ -23,6 +23,9 @@ production_certification: false
 
 ## Classification
 
+Choose **one** permitted scalar value per enumerated field (including explicit `unknown` where the evidence is insufficient). Compound alternatives such as `read_only | write_capable` are **template vocabulary, not valid instantiated record values**. For family comparisons, preserve distinct variants in the explanatory evidence appendix. If a dimension does not apply to a harness or protocol contrast, omit its key rather than assigning an invented agent topology.
+
+
 ```yaml
 identity:
   name:
@@ -39,8 +42,8 @@ control:
 capabilities:
   reads: []
   writes: []
-  generated_code_execution: false
-  shell: false
+  generated_code_execution: false | true | unknown
+  shell: false | true | unknown
   browser: none | read_only | transactional | general | unknown
   database: none | read_only | write_capable | unknown
   communication: none | draft | external_send | unknown

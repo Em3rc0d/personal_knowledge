@@ -14,6 +14,8 @@ MK2  Operationalize        🔒 BLOCKED / DESIGN SEEDED
 
 Dos capas distintas: [experimento determinista local](./experiments/rec-012/README.md) con 960 intentos (no LLM) y [estudios LLM reales externos](./quarries/multiagent-external-scaling-evidence.md) con código/datos públicos, sin rerun independiente. [REC-012](./mk/MK1/records/REC-012-external-agent-scaling.md) y G7: **PASS / QUALIFIED_UPSTREAM** para clasificación; **MK1 sigue abierto** por auditoría del schema y UNKNOWNs. El [preflight sin pesos](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) conserva su estado histórico; no es un requisito para cerrar G7. [Auditoría preliminar](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) sin congelación.
 
+**2026-10-12 MK1 correction:** ten normalized records have been corrected to atomic enum scalars with original alternatives preserved. The [bounded recheck](./mk/MK1/audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md) covers 12 records and 394 enum scalar values with **zero violations**, including an adversarial negative-control check. The schema remains a draft because [PA-06 per-child authority](./mk/MK1/audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md) and remaining UNKNOWN routing are not closed. No new LLMs, product runtimes or paid calls.
+
 ## Empieza aquí
 
 | Necesidad | Archivo |

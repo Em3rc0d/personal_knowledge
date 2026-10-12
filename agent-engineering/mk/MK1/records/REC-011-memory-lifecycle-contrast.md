@@ -124,7 +124,6 @@ identity:
 
 control:
   primary_authority: mixed
-  horizon: bounded_multistep | unknown
   topology: mixed
   model_count: implementation-dependent
 
@@ -138,8 +137,8 @@ capabilities:
     - memory entries depending write policy
   generated_code_execution: false
   shell: false
-  browser: none | unknown
-  database: read_only | write_capable | unknown
+  browser: unknown
+  database: unknown
   communication: none
   publication: none
   file_egress: unknown
@@ -147,17 +146,17 @@ capabilities:
     - memory write + cross-session retrieval can influence future model behavior
 
 side_effects:
-  class: S1 | S2 | unknown
-  reversible: partial | unknown
-  external_mutation: implementation-dependent
+  class: unknown
+  reversible: unknown
+  external_mutation: unknown
   data_egress: unknown
   verification: memory quality/correctness requires separate evaluation; persistence alone is not correctness
 
 state:
   runtime_state: structured
-  checkpointing: framework/technique-dependent
+  checkpointing: unknown
   persistence_backend: implementation-dependent
-  replay_semantics: implementation-dependent
+  replay_semantics: unknown
   invocation_concurrency: unknown
   writer_model: unknown
   concurrency_conflict_semantics: memory/update conflict policy is technique/application-dependent
@@ -166,8 +165,8 @@ state:
 memory:
   semantic_role:
     - lifecycle-dependent
-  scope: session | cross_session | user | project | shared | unknown
-  persistence: none | process | local_durable | remote_durable | unknown
+  scope: unknown
+  persistence: unknown
   retrieval_policy: explicit lifecycle dimension
   write_policy: explicit lifecycle dimension
   isolation_key: explicit lifecycle dimension
@@ -178,13 +177,13 @@ human_control:
   level: unknown
   mode: unknown
   dispatcher_enforcement: unknown
-  enforcement_owner: application/runtime
+  enforcement_owner: unknown
   enforcement_boundary: memory write/read policy is implementation-specific
   approval_binding: not generally established
 
 errors_and_retries:
-  error_model: implementation-dependent
-  retry_owner: implementation-dependent
+  error_model: unknown
+  retry_owner: unknown
   retry_budget: implementation-dependent
   idempotency: memory-write dependent
   unknown_outcome_handling: memory-store dependent
@@ -226,7 +225,7 @@ security:
     - memory/checkpoint store
     - user/tenant isolation boundary
     - retriever/external knowledge source
-  least_privilege: application-required
+  least_privilege: unknown
   sandbox: unknown
   data_classification: memory contents may be sensitive and require application-specific classification
   receipts: []
@@ -286,6 +285,36 @@ Without these, `memory=true` is not useful architecture evidence.
 This contrast fixture does not certify any memory framework/store as private, isolated, accurate, poison-resistant or production-ready.
 
 Those properties require concrete implementation/deployment evidence.
+
+## Scalar normalization receipt — 2026-10-12
+
+These edits choose **one scoped enum value** or preserve uncertainty as `unknown`. The original classifications are reproduced below for traceability and remain evidence of variations, **not confirmed settings of a single deployed system**.
+
+- `control.horizon`: `bounded_multistep | unknown` → `(not applicable; omitted)`
+- `capabilities.browser`: `none | unknown` → `unknown`
+- `capabilities.database`: `read_only | write_capable | unknown` → `unknown`
+- `side_effects.class`: `S1 | S2 | unknown` → `unknown`
+- `side_effects.reversible`: `partial | unknown` → `unknown`
+- `side_effects.external_mutation`: `implementation-dependent` → `unknown`
+- `state.checkpointing`: `framework/technique-dependent` → `unknown`
+- `state.replay_semantics`: `implementation-dependent` → `unknown`
+- `memory.scope`: `session | cross_session | user | project | shared | unknown` → `unknown`
+- `memory.persistence`: `none | process | local_durable | remote_durable | unknown` → `unknown`
+- `human_control.enforcement_owner`: `application/runtime` → `unknown`
+- `errors_and_retries.error_model`: `implementation-dependent` → `unknown`
+- `errors_and_retries.retry_owner`: `implementation-dependent` → `unknown`
+- `security.least_privilege`: `application-required` → `unknown`
+
+**Family/contrast matrix (not assertions that one concrete runtime implements every cell):**
+
+| Analyzed family | State/checkpoint evidence shape | Memory scope or persistence (conditional, not universal) | Distinction retained |
+|---|---|---|---|
+| Ephemeral conversational context | transient execution state | session / process only if implemented | Context window is not automatically durable semantic memory |
+| Durable checkpoint / session replay | potentially durable execution state | no semantic-memory persistence necessarily | Checkpoint recovery is not evidence of cross-session retrieval |
+| Cross-session memory store | optional memory writes and retrieval | cross_session, user or project; local_durable or remote_durable **depending store** | Write/read/tenant isolation, quality and deletion enforcement must be evaluated separately |
+| External knowledge retrieval | read from corpus or service | no agent-owned persistent memory necessarily | Retriever data is not automatically agent memory |
+
+No single `horizon`, `database`, memory store or risk class can honestly be selected across these families without narrowing the classification scope. The record retains `unknown` for unsupported summary scalars and the contrasts above as evidence, while keeping state/checkpoint/knowledge independent.
 
 ## Schema pressure result
 

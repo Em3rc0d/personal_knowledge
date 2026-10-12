@@ -34,7 +34,6 @@ identity:
 control:
   primary_authority: deterministic
   horizon: bounded_multistep
-  topology: single_model | mixed
   model_count: evaluated-system dependent
 
 capabilities:
@@ -64,9 +63,9 @@ side_effects:
 
 state:
   runtime_state: structured
-  checkpointing: none | unknown
+  checkpointing: unknown
   persistence_backend: not material to inspected evaluator
-  replay_semantics: known for deterministic fixture inputs; evaluated-agent replay remains external to harness
+  replay_semantics: partial
   invocation_concurrency: unknown
   writer_model: unknown
   concurrency_conflict_semantics: not material to core evaluator semantics
@@ -91,8 +90,8 @@ human_control:
   approval_binding: not applicable
 
 errors_and_retries:
-  error_model: structured | mixed
-  retry_owner: none | harness/application dependent
+  error_model: mixed
+  retry_owner: unknown
   retry_budget: not central to evaluator
   idempotency: evaluation over same deterministic trace should be repeatable at harness level
   unknown_outcome_handling: execution exceptions are represented as failed traces rather than aborting the entire suite
@@ -143,8 +142,8 @@ security:
     - trace capture
     - deterministic evaluator
     - suite aggregation/gate
-  least_privilege: yes | not material
-  sandbox: none | not applicable
+  least_privilege: unknown
+  sandbox: unknown
   data_classification: trace contents may require application-specific handling
   receipts:
     - exceptions become failed traces without aborting the suite
@@ -232,6 +231,18 @@ is intentional rather than contradictory.
 ## Production-certification boundary
 
 A green deterministic evaluation suite does not certify the evaluated agent as production-ready. Production evidence still requires representative outcome evals, stochastic/repeated trials where relevant, operational telemetry, security and deployment-specific controls.
+
+## Scalar normalization receipt — 2026-10-12
+
+**Schema remains a draft.** Each atomic value below replaces an ambiguous compound/prose value in the normalized YAML; original upstream classification nuance is **preserved here**, not silently interpreted as a tested configuration. `unknown` means the inspected evidence does not justify selecting a stronger singular value. A removed key is not applicable to the classified harness rather than a missing secretly assumed property.
+
+- `control.topology`: `single_model | mixed` → `(field omitted)`
+- `state.checkpointing`: `none | unknown` → `unknown`
+- `state.replay_semantics`: `known for deterministic fixture inputs; evaluated-agent replay remains external to harness` → `partial`
+- `errors_and_retries.error_model`: `structured | mixed` → `mixed`
+- `errors_and_retries.retry_owner`: `none | harness/application dependent` → `unknown`
+- `security.least_privilege`: `yes | not material` → `unknown`
+- `security.sandbox`: `none | not applicable` → `unknown`
 
 ## Schema pressure result
 

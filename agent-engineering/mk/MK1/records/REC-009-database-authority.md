@@ -32,9 +32,8 @@ identity:
   evidence_state: QUALIFIED
 
 control:
-  primary_authority: model_directed | mixed
-  horizon: bounded_multistep | unknown
-  topology: mixed | unknown
+  primary_authority: mixed
+  topology: mixed
   model_count: implementation-dependent
 
 capabilities:
@@ -45,7 +44,7 @@ capabilities:
   generated_code_execution: false
   shell: false
   browser: none
-  database: write_capable | read_only depending actual database principal
+  database: unknown
   communication: none
   publication: none
   file_egress: unknown
@@ -53,21 +52,21 @@ capabilities:
     - model-generated/query-directed database access + credential-level DB authority
 
 side_effects:
-  class: S0 | S3 | S4 depending effective DB principal and reachable statements
+  class: unknown
   reversible: unknown
   external_mutation: unknown
-  data_egress: content | unknown
+  data_egress: unknown
   verification: exact mutation dispatcher/filter path remains UNKNOWN in inspected evidence
 
 state:
-  runtime_state: structured | unknown
+  runtime_state: unknown
   checkpointing: unknown
   persistence_backend: database is business/environment data, not automatically agent checkpointing
   replay_semantics: unknown
   invocation_concurrency: unknown
   writer_model: unknown
   concurrency_conflict_semantics: database transaction/concurrency semantics depend on concrete backend/path
-  locking: database/application-defined
+  locking: unknown
 
 memory:
   semantic_role: []
@@ -83,13 +82,13 @@ human_control:
   level: unknown
   mode: unknown
   dispatcher_enforcement: unknown
-  enforcement_owner: infrastructure | database principal is the strongest established boundary in current evidence
+  enforcement_owner: infrastructure
   enforcement_boundary: source itself recommends a READONLY database user; exact application-level query filtering is not proven
   approval_binding: unknown
 
 errors_and_retries:
   error_model: unknown
-  retry_owner: application/model/runtime dependent
+  retry_owner: unknown
   retry_budget: unknown
   idempotency: query/transaction dependent
   unknown_outcome_handling: critical if write-capable path exists; not established
@@ -129,8 +128,8 @@ security:
     - database credentials/principal
     - database engine
     - target schema/data
-  least_privilege: application_required
-  sandbox: none | not applicable
+  least_privilege: unknown
+  sandbox: unknown
   data_classification: database/application-specific
   receipts:
     - upstream notebook explicitly warns it has no safety rails and may attempt INSERT/UPDATE/DELETE
@@ -189,6 +188,33 @@ It records that the tutorial itself warns the path may attempt DML and that leas
 ## Production-certification boundary
 
 This record does not certify read-only enforcement, database isolation, safe retries, transaction rollback or production suitability. Those require the concrete database principal/dispatcher/runtime receipt.
+
+## Scalar normalization receipt — 2026-10-12
+
+These edits choose **one scoped enum value** or preserve uncertainty as `unknown`. The original classifications are reproduced below for traceability and remain evidence of variations, **not confirmed settings of a single deployed system**.
+
+- `control.primary_authority`: `model_directed | mixed` → `mixed`
+- `control.horizon`: `bounded_multistep | unknown` → `(not applicable; omitted)`
+- `control.topology`: `mixed | unknown` → `mixed`
+- `capabilities.database`: `write_capable | read_only depending actual database principal` → `unknown`
+- `side_effects.class`: `S0 | S3 | S4 depending effective DB principal and reachable statements` → `unknown`
+- `side_effects.data_egress`: `content | unknown` → `unknown`
+- `state.runtime_state`: `structured | unknown` → `unknown`
+- `state.locking`: `database/application-defined` → `unknown`
+- `human_control.enforcement_owner`: `infrastructure | database principal is the strongest established boundary in current evidence` → `infrastructure`
+- `errors_and_retries.retry_owner`: `application/model/runtime dependent` → `unknown`
+- `security.least_privilege`: `application_required` → `unknown`
+- `security.sandbox`: `none | not applicable` → `unknown`
+
+**Material capability variants (illustrative configuration conditions, not verified current deployment):**
+
+| Principal/dispatcher state | Normalized `capabilities.database` | Impact qualification |
+|---|---|---|
+| Authenticated read-only DB principal, SELECT-only path | `read_only` | Reading data does **not** establish `data_egress: none`; external disclosure is a separate boundary |
+| DML/DDL-capable principal with actually reachable write dispatcher | `write_capable` | Consequential update or destructive action may be S3/S4 depending affected data and verification |
+| Inspected source with neither concrete credential nor reachable dispatcher verified | `unknown` **(this record)** | Never call the system least-privilege, read-only or safe from the README's recommendation |
+
+The actual source **warns** about write-capable SQL paths and recommends read-only credentials. This is not evidence that a real deployment implemented either protection. The normalized scalar remains `unknown` until a principal/dispatcher receipt identifies the runtime; the alternatives are retained explicitly here.
 
 ## Schema pressure result
 

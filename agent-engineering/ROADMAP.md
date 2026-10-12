@@ -22,7 +22,7 @@ MK1                              🟡 ACTIVE
  │   └─ A2A 1.0 compatibility    ⚠️ NOT ESTABLISHED / ROUTED DEBT
  ├─ multi-agent baseline         ✅ G7 PASS / QUALIFIED_UPSTREAM
  ├─ final UNKNOWN reconciliation 🟡 PENDING
- └─ schema freeze audit          🔒 WAITS ON ABOVE
+ └─ schema freeze audit          🟡 ENUM FORMAT PASS / SEMANTIC HOLD
 
 MK2                              🔒 BLOCKED / DESIGN SEEDED
 ```
@@ -152,7 +152,7 @@ Owner: [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md).
 
 State: **BLOCKED UNTIL C + D; static pre-audit completed 2026-10-12**
 
-[Pre-audit evidence](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) inventories schema/record mismatches and overlapping dimensions, including candidate comparison-contract gap PA-01, but does not satisfy the final C5/C6 freeze gate.
+[Full audit](./mk/MK1/audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md) found 87 candidate enum mismatches and a nested-authority issue; [correction receipt](./mk/MK1/audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md) now demonstrates **0/394 scalar mismatches across 12 records** under bounded lexical validation. PA-01 was resolved as a comparison-evidence appendix; **PA-06 remains open**, so C5/C6 freeze is still HOLD.
 
 Inputs:
 
@@ -204,8 +204,8 @@ Raw quarries do not become operational policy directly.
 ## Priority order
 
 ```text
-P0  final representative-set / COVERED_BY audit
-P0  final UNKNOWN reconciliation
+P0  resolve PA-06 child-agent authority from pinned implementation evidence
+P0  final UNKNOWN reconciliation (enum scalar conformance done)
 P0  cross-dimension + schema freeze audit
 P1  issue new draft only if freeze audit requires it
 P1  write MK1 CLOSURE.md

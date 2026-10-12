@@ -39,15 +39,15 @@ control:
   primary_authority: model_directed
   horizon: bounded_multistep
   topology: mixed  # independent, manager_workers, peers, mixed; single_model is baseline
-  model_count: 1 baseline | 3 workers or 3 workers + lead depending topology
+  model_count: varies_by_topology
 
 capabilities:
   reads: [benchmark_task_context, tool_observations]
   writes: [benchmark_environment_actions_when_enabled]
-  generated_code_execution: unknown_by_benchmark
-  shell: unknown_by_benchmark
-  browser: unknown_by_benchmark
-  database: unknown_by_benchmark
+  generated_code_execution: unknown
+  shell: unknown
+  browser: unknown
+  database: unknown
   communication: none
   publication: none
   file_egress: unknown
@@ -90,7 +90,7 @@ human_control:
 
 errors_and_retries:
   error_model: mixed
-  retry_owner: runtime_or_model_dependent
+  retry_owner: mixed
   retry_budget: bounded_iterations_not_universal_tool_retries
   idempotency: unknown
   unknown_outcome_handling: unknown
@@ -160,6 +160,29 @@ interpretation: MULTI_AGENT_BENEFIT_IS_TASK_DEPENDENT; no_general_winner
 ```
 
 The current MK1 YAML schema encodes topology and evaluation but **does not yet contain the named comparison-evidence fields above**. This appendix is evidence metadata **outside** the frozen schema. PA-01 remains open until the final freeze audit chooses an explicit contract reference or a versioned field change.
+
+## Scalar normalization receipt — 2026-10-12
+
+These edits choose **one scoped enum value** or preserve uncertainty as `unknown`. The original classifications are reproduced below for traceability and remain evidence of variations, **not confirmed settings of a single deployed system**.
+
+- `control.model_count`: `1 baseline | 3 workers or 3 workers + lead depending topology` → `varies_by_topology`
+- `capabilities.generated_code_execution`: `unknown_by_benchmark` → `unknown`
+- `capabilities.shell`: `unknown_by_benchmark` → `unknown`
+- `capabilities.browser`: `unknown_by_benchmark` → `unknown`
+- `capabilities.database`: `unknown_by_benchmark` → `unknown`
+- `errors_and_retries.retry_owner`: `runtime_or_model_dependent` → `mixed`
+
+**Per-topology model-count comparison (authors' experiment):**
+
+| Variant | `control.topology` (specific instance) | Model-role count |
+|---|---|---|
+| Single baseline | `single_model` | one model-directed agent |
+| Independent parallel | `peers` / independent role group | three agents in examined architecture |
+| Centralized | `manager_workers` | lead plus three workers in reported configuration |
+| Decentralized | `peers` | three agent peers |
+| Hybrid | `mixed` | topology-specific worker and coordinator configuration |
+
+`model_count` in the family-level record is a scoped descriptor (`varies_by_topology`), **not** an exact invariant or a computed cost claim. Browser/shell/generated-code capabilities were not established for every benchmark, so `unknown` must not be silently converted into `false`.
 
 ## Pass limits
 

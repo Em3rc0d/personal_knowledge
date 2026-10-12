@@ -40,7 +40,6 @@ identity:
 control:
   primary_authority: deterministic
   horizon: bounded_multistep
-  topology: single_model | mixed
   model_count: application-dependent
 
 capabilities:
@@ -61,7 +60,7 @@ capabilities:
 side_effects:
   class: unknown
   reversible: unknown
-  external_mutation: application/server-dependent
+  external_mutation: unknown
   data_egress: unknown
   verification: protocol response does not by itself prove external business outcome for consequential tools
 
@@ -69,16 +68,16 @@ state:
   runtime_state: structured
   checkpointing: unknown
   persistence_backend: protocol does not define application persistence
-  replay_semantics: application-defined
-  invocation_concurrency: protocol/application-defined
+  replay_semantics: unknown
+  invocation_concurrency: unknown
   writer_model: unknown
   concurrency_conflict_semantics: application/server-defined
   locking: unknown
 
 memory:
   semantic_role: []
-  scope: none | unknown
-  persistence: none | unknown
+  scope: unknown
+  persistence: unknown
   retrieval_policy: protocol resources are not automatically semantic memory
   write_policy: not defined by protocol
   isolation_key: application/auth scope dependent
@@ -89,13 +88,13 @@ human_control:
   level: unknown
   mode: unknown
   dispatcher_enforcement: unknown
-  enforcement_owner: application/infrastructure/server policy dependent
+  enforcement_owner: unknown
   enforcement_boundary: MCP interoperability does not define whether a user/model is authorized to invoke a consequential capability
   approval_binding: application-defined
 
 errors_and_retries:
-  error_model: structured | protocol-defined + application-specific
-  retry_owner: runtime | client | server | mixed
+  error_model: mixed
+  retry_owner: mixed
   retry_budget: application-defined
   idempotency: tool/server-defined
   unknown_outcome_handling: application/server-defined; protocol support does not imply safe retry
@@ -158,7 +157,7 @@ security:
     - remote/local MCP server
     - authentication/authorization layer
     - exposed tool/resource/prompt implementation
-  least_privilege: application-required
+  least_privilege: unknown
   sandbox: unknown
   data_classification: application/server-specific
   receipts:
@@ -232,6 +231,23 @@ That receipt verifies a current implementation path against MCP `2026-07-28` usi
 ## Production-certification boundary
 
 This record does not certify any MCP server/client as secure, authorized, universally interoperable, idempotent or production-ready.
+
+## Scalar normalization receipt — 2026-10-12
+
+These edits choose **one scoped enum value** or preserve uncertainty as `unknown`. The original classifications are reproduced below for traceability and remain evidence of variations, **not confirmed settings of a single deployed system**.
+
+- `control.topology`: `single_model | mixed` → `(not applicable; omitted)`
+- `side_effects.external_mutation`: `application/server-dependent` → `unknown`
+- `state.replay_semantics`: `application-defined` → `unknown`
+- `state.invocation_concurrency`: `protocol/application-defined` → `unknown`
+- `memory.scope`: `none | unknown` → `unknown`
+- `memory.persistence`: `none | unknown` → `unknown`
+- `human_control.enforcement_owner`: `application/infrastructure/server policy dependent` → `unknown`
+- `errors_and_retries.error_model`: `structured | protocol-defined + application-specific` → `mixed`
+- `errors_and_retries.retry_owner`: `runtime | client | server | mixed` → `mixed`
+- `security.least_privilege`: `application-required` → `unknown`
+
+**Protocol contrast scope:** this record compares **protocol lifecycle semantics**, not one deployable agent with a fixed topology. Therefore `control.topology` is omitted; the actual invoking agent may use a single model, a manager or deterministic dispatch. Server-side authorization, side effects, retry ownership, application checkpointing, memory and concurrency are **not established by protocol conformance**. The normalized `unknown` values preserve this separation rather than asserting an MCP runtime configuration.
 
 ## Schema pressure result
 

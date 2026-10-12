@@ -212,7 +212,7 @@ Before changing this document's status from design/blocked to active handoff:
 - [ ] `MK1/GATES.md` closure checklist passes;
 - [ ] `MK1/records/README.md` shows required family coverage;
 - [x] A2A protocol debt is represented and current-version compatibility debt is explicitly routed without becoming a false PASS;
-- [ ] multi-agent baseline gate passes;
+- [x] multi-agent baseline gate passes for **MK1 classification with qualified upstream evidence**, not as independent provider reproduction or production certification;
 - [ ] MK1 UNKNOWNs are fully routed;
 - [ ] `STATUS.md` changes MK2 from BLOCKED to ACTIVE.
 
@@ -220,10 +220,12 @@ Before changing this document's status from design/blocked to active handoff:
 
 ```text
 MK1 schema                  mk1-draft-2026-09-16.1 / ACTIVE DRAFT
-representative records      11 MATERIALIZED/QUALIFIED + 2 COVERED_BY + REC-012 OPEN
+representative records      12 MATERIALIZED/QUALIFIED + 2 COVERED_BY
 A2A classification shape    PASS / QUALIFIED
 A2A 1.0 compatibility       NOT ESTABLISHED / ROUTED DEBT
-multi-agent baseline        OPEN / BLOCKING
+multi-agent baseline        PASS / QUALIFIED_UPSTREAM_EVIDENCE
+record enum scalar check    PASS / 0 of 394 (scoped static lexical check)
+PA-06 child actor authority OPEN / BLOCKING FREEZE
 MK1 closure                 NOT YET
 MK2 handoff                 NOT ACTIVE
 MK2 status                  BLOCKED / DESIGN SEEDED

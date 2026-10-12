@@ -57,7 +57,7 @@ capabilities:
 
 side_effects:
   class: S2
-  reversible: partial | unknown
+  reversible: unknown
   external_mutation: true
   data_egress: file_bytes
   verification: converted bytes are retrieved; retention/deletion and remote processing guarantees are not established
@@ -66,7 +66,7 @@ state:
   runtime_state: structured
   checkpointing: unknown
   persistence_backend: workflow/framework-dependent; not established as material durable storage in this record
-  replay_semantics: partial | unknown
+  replay_semantics: unknown
   invocation_concurrency: unknown
   writer_model: unknown
   concurrency_conflict_semantics: remote job/idempotency semantics are only partially established
@@ -75,7 +75,7 @@ state:
 memory:
   semantic_role: []
   scope: none
-  persistence: none | unknown
+  persistence: unknown
   retrieval_policy: converted document becomes grounded-answer input; this is document context/knowledge, not automatically long-term memory
   write_policy: none established
   isolation_key: none established
@@ -83,16 +83,16 @@ memory:
   provenance: local source document → remote conversion result; returned-byte provenance depends on service receipt
 
 human_control:
-  level: H0 | unknown
-  mode: none | unknown
+  level: unknown
+  mode: unknown
   dispatcher_enforcement: unknown
-  enforcement_owner: runtime/application
+  enforcement_owner: runtime_code
   enforcement_boundary: upload/conversion function executes deterministically when workflow reaches the conversion step; no human approval gate established by current evidence
   approval_binding: not established
 
 errors_and_retries:
   error_model: mixed
-  retry_owner: runtime/application/external service
+  retry_owner: mixed
   retry_budget: polling behavior exists; complete retry budget not established
   idempotency: optional idempotency-key support is observed
   unknown_outcome_handling: incomplete for timeout/disconnect after remote job/upload begins
@@ -134,8 +134,8 @@ security:
     - external conversion API
     - presigned object-storage destination
     - returned converted artifact
-  least_privilege: partial | unknown
-  sandbox: none | unknown
+  least_privilege: unknown
+  sandbox: unknown
   data_classification: required but not established by tutorial evidence
   receipts:
     - original file bytes cross the local trust boundary
@@ -226,6 +226,20 @@ Therefore `timeout configured` must not be promoted to `safe retry/cancellation`
 ## Production-certification boundary
 
 This record does **not** certify that uploaded documents are allowed to leave the organization, that the conversion provider has acceptable retention/security, that retries are duplicate-safe in every failure window, or that the overall workflow is production-ready.
+
+## Scalar normalization receipt — 2026-10-12
+
+**Schema remains a draft.** Each atomic value below replaces an ambiguous compound/prose value in the normalized YAML; original upstream classification nuance is **preserved here**, not silently interpreted as a tested configuration. `unknown` means the inspected evidence does not justify selecting a stronger singular value. A removed key is not applicable to the classified harness rather than a missing secretly assumed property.
+
+- `side_effects.reversible`: `partial | unknown` → `unknown`
+- `state.replay_semantics`: `partial | unknown` → `unknown`
+- `memory.persistence`: `none | unknown` → `unknown`
+- `human_control.level`: `H0 | unknown` → `unknown`
+- `human_control.mode`: `none | unknown` → `unknown`
+- `human_control.enforcement_owner`: `runtime/application` → `runtime_code`
+- `errors_and_retries.retry_owner`: `runtime/application/external service` → `mixed`
+- `security.least_privilege`: `partial | unknown` → `unknown`
+- `security.sandbox`: `none | unknown` → `unknown`
 
 ## Schema pressure result
 

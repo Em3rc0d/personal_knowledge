@@ -25,25 +25,25 @@ control:
 capabilities:
   reads: []
   writes: []
-  generated_code_execution: false
-  shell: false
-  browser: none | read_only | transactional | general
-  database: none | read_only | write_capable
-  communication: none | draft | external_send
-  publication: none | draft | live
-  file_egress: false
+  generated_code_execution: false | true | unknown
+  shell: false | true | unknown
+  browser: none | read_only | transactional | general | unknown
+  database: none | read_only | write_capable | unknown
+  communication: none | draft | external_send | unknown
+  publication: none | draft | live | unknown
+  file_egress: false | true | unknown
   capability_compositions: []
 
 side_effects:
   class: S0 | S1 | S2 | S3 | S4 | unknown
   reversible: yes | no | partial | unknown
-  external_mutation: false
+  external_mutation: false | true | unknown
   data_egress: none | metadata | content | file_bytes | mixed | unknown
   verification:
 
 state:
-  runtime_state: none | transient | structured
-  checkpointing: none | memory | durable
+  runtime_state: none | transient | structured | unknown
+  checkpointing: none | memory | durable | unknown
   persistence_backend:
   replay_semantics: known | partial | unknown
   invocation_concurrency: serial_only | concurrent | bounded_concurrent | framework_defined | unknown
@@ -53,8 +53,8 @@ state:
 
 memory:
   semantic_role: []
-  scope: none | session | cross_session | user | project | shared
-  persistence: none | process | local_durable | remote_durable
+  scope: none | session | cross_session | user | project | shared | unknown
+  persistence: none | process | local_durable | remote_durable | unknown
   retrieval_policy:
   write_policy:
   isolation_key:
@@ -63,7 +63,7 @@ memory:
 
 human_control:
   level: H0 | H1 | H2 | H3 | H4 | mixed | unknown
-  mode: none | review_after | approval_before | approval_edit_before | mixed
+  mode: none | review_after | approval_before | approval_edit_before | mixed | unknown
   dispatcher_enforcement: yes | no | partial | unknown
   enforcement_owner: runtime_code | human | model_judge | provider_guardrail | infrastructure | mixed | unknown
   enforcement_boundary:
@@ -71,7 +71,7 @@ human_control:
 
 errors_and_retries:
   error_model: prose | structured | mixed | unknown
-  retry_owner: model | tool | runtime | provider_sdk | mixed | none
+  retry_owner: model | tool | runtime | provider_sdk | mixed | none | unknown
   retry_budget:
   idempotency:
   unknown_outcome_handling:
@@ -97,9 +97,9 @@ evaluation:
   unit_integration: []
   trajectory: []
   outcome: []
-  repeated_trials: false
-  regression_gate: false
-  production_observability: false
+  repeated_trials: false | true | unknown
+  regression_gate: false | true | unknown
+  production_observability: false | true | unknown
 
 protocols:
   - name:
@@ -125,6 +125,14 @@ reproducibility:
 
 unknowns: []
 ```
+
+## 2026-10-12 clarifying draft alignment — not frozen
+
+The active draft already required missing material facts to remain `unknown`, while its Markdown example and `records/TEMPLATE.md` inconsistently differed for some boolean/enum fields. This edit synchronizes the **existing draft vocabulary**, including `unknown` for values without evidence, and does **not** authorize new behaviors, infer implementation permissions or freeze a revision. Fields that describe no applicable property may be omitted as allowed by rule 1.
+
+A material multi-variant family must keep conditional configurations in a separate evidence/variant appendix. `unknown` does not mean `false` or `no` and never certifies safe credentials, sandbox, approval, retries or egress.
+
+See [migration receipts](./records/README.md) and [the unchanged HOLD audit](./audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md). Strict conformance is a *separate gate* from PA-06 child-agent effective authority and MK2 activation.
 
 ## Schema rules
 
