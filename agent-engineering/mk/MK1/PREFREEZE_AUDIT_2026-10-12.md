@@ -55,8 +55,8 @@ This **does not by itself prove** an actual missing schema dimension; MK1 could 
 1. **Now / completed:** run environment feasibility; classify the real-model experiment as `BLOCKED_ENVIRONMENT` with [evidence](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md).
 2. **Now / completed:** static pre-audit of key schema/record contrasts PA-01–PA-09. This is pressure mapping, **not G9 PASS**.
 3. **HOLD:** do not create a new MK1 revision from PA-01–PA-09 alone. Preserve the strongest question PA-01 for the final evidence+schema decision.
-4. **When runner/model available:** execute same-task LLM single-vs-multi under [REC-012 contract](./MULTI_AGENT_BASELINE_SPEC.md), multiple trials, cost/latency/outcome/handoff/termination proof.
-5. **After REC-012 evidence:** perform full representative-set + `COVERED_BY` audit, route remaining UNKNOWNs, decide PA-01/PA-06, then C5/C6 freeze or issue a new versioned draft.
+4. **Superseded next step:** at this document's timestamp the proposed remedy was a local model runner; [later source-based real-model evidence](./records/REC-012-external-agent-scaling.md) removes the need for a local LLM run **for MK1 G7 classification**, not for any future independent benchmark certificate.
+5. **Current next step:** perform full representative-set + `COVERED_BY` audit, route remaining UNKNOWNs, decide PA-01/PA-06, then C5/C6 freeze or issue an explicit versioned draft.
 
 ## Gate decisions
 
@@ -72,4 +72,4 @@ mk1_schema_frozen: false
 mk2_activated: false
 ```
 
-No speculative schema revision. No false `PASS` on G7/G9/C5/C6. Existing Source → Quarry → normalized evidence chain remains intact.
+No speculative schema revision. The historical static audit did **not** pass G7/G9/C5/C6. **G7 was later qualified through S-118/S-119**; G9/C5/C6 remain pending. Source → Quarry → normalized evidence chain remains intact.
