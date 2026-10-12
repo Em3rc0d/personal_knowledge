@@ -1,6 +1,6 @@
 # SD-005 — Outcome-first Observability Contract
 
-Status: `CANDIDATE / IN REVIEW` · Class: `INSPIRED` + primary contrast.
+Status: `CANDIDATE / MK1 CLASSIFIED` · Class: `INSPIRED` + primary contrast.
 Upstream: [chapter 20](https://github.com/liquidslr/system-design-notes/blob/9d8388721e7231442763ad37398b8d82224aa68f/20.%20Metrics%20Monitoring%20and%20Alerting%20System/README.md), [chapter 21](https://github.com/liquidslr/system-design-notes/blob/9d8388721e7231442763ad37398b8d82224aa68f/21.%20Ad%20Click%20Event%20Aggregation/README.md).
 Primary: [Google SRE Four Golden Signals](https://sre.google/sre-book/monitoring-distributed-systems/); [OpenTelemetry concept](https://opentelemetry.io/docs/what-is-opentelemetry/).
 
@@ -14,6 +14,9 @@ Primary: [Google SRE Four Golden Signals](https://sre.google/sre-book/monitoring
 
 ## Test/falsification
 Induce known negative outcomes (failed API, latency spike, duplicate event, delayed processing); show that the defined signal detects it, operators can interpret it, and signal noise/privacy remain acceptable.
+
+## Adversarial boundary
+SLIs must distinguish *eligible/confirmed events* from attempted, test, retried or duplicated events; otherwise success-rate and purchase conversion may miscount. Define denominator, excluded cohorts (sandbox/test), delay/late-data window and privacy redaction. Instrumenting a metric without a corresponding owner and actionable response is not proof of operational readiness.
 
 ## Boundary
 Targets/SLOs, providers and alert thresholds are `UNKNOWN` until measured and ratified in each project. A chart without verified instrumentation proves nothing.

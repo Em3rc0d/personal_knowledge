@@ -1,19 +1,27 @@
-# MK1 — Five candidate patterns (Normalize & Classify)
+# MK1 — System Design internal normalization & classification
 
-**State: IN REVIEW, NOT CERTIFIED.** MK1 is not automatically completed merely because cards exist. The source was a secondary set of interview notes; primary contrasts and real project gates still apply.
+**State: CLOSED WITH LIMITATIONS — INTERNAL NORMALIZATION ONLY (2026-10-12).**
+This closes a **bounded taxonomy/review task**, not production certification, independence of the reviewer, or universal applicability. Source material remains secondary and incomplete; products must make their own evidence-backed decisions.
 
-| ID | Candidate | Decision trigger |
-|---|---|---|
-| SD-001 | [Architecture Decision](./patterns/SD-001-architecture-decision.md) | Consequential component/boundary decision |
-| SD-002 | [Capacity Estimation](./patterns/SD-002-capacity-estimation.md) | Throughput, traffic, quota or resource constraint |
-| SD-003 | [Resilience](./patterns/SD-003-resilience.md) | A dependency can fail, slow down or overload |
-| SD-004 | [Idempotency & Consistency](./patterns/SD-004-idempotency-consistency.md) | Retriable event could repeat a business side effect |
-| SD-005 | [Observability](./patterns/SD-005-observability.md) | Need evidence that outcomes/reliability meet targets |
+## Normalized records (distinct classifications)
 
-**Order:** retrieve just the relevant card → gather system measurements/contracts → compare alternatives → controlled test → decision recorded in **project** repository → review and possible promotion.
+| ID | Record | Internal disposition | What is actually supported |
+|---|---|---|---|
+| SD-001 | [Architecture Decision](./patterns/SD-001-architecture-decision.md) | `REFERENCE_ONLY` | Jett Engineering Method is authoritative for ADR/process; no competing canon |
+| SD-002 | [Capacity Estimation](./patterns/SD-002-capacity-estimation.md) | `CANDIDATE` | Unit-bearing scenario math; workload, pricing and benchmark validation are project-specific |
+| SD-003 | [Resilience](./patterns/SD-003-resilience.md) | `CANDIDATE` | Failures/retries vocabulary and test ideas; dependency contracts not proven |
+| SD-004 | [Idempotency & Consistency](./patterns/SD-004-idempotency-consistency.md) | `LAB_SUPPORTED_CANDIDATE` | Synthetic SQLite local invariant under P01–P08/N01–N06 only |
+| SD-005 | [Observability](./patterns/SD-005-observability.md) | `CANDIDATE` | Signal definitions/test prompts; actual SLOs and alerts unknown |
 
-See [pilot design](./PILOT-001-payment-idempotency.md), [PILOT-001 executed receipt](./experiments/PILOT-001/RESULTS-2026-10-12.md) and [MK1 review gate](./REVIEW-GATE.md). No blanket software implementation or technology recommendation is implied.
+`REFERENCE_ONLY` means **no duplicate operating standard**. `CANDIDATE` means usable as a question/checklist with validation required. `LAB_SUPPORTED_CANDIDATE` means one bounded fixture passed, not a production guarantee.
 
-## Optional evidence case study
+## Supporting evidence
 
-The [PILOT-001 / Plate read-only crosswalk](./experiments/PILOT-001/PLATE-READONLY-CROSSWALK-2026-10-12.md) records similarities, material differences, and unproven gates from the observed Plate code. It does **not** close MK1, license live provider testing, or recommend edits to Plate.
+- [Adversarial review and negative-control receipts](./ADVERSARIAL-REVIEW-2026-10-12.md).
+- [Initial PILOT-001 scope](./PILOT-001-payment-idempotency.md), [execution receipt](./experiments/PILOT-001/RESULTS-2026-10-12.md) and [standalone local lab](./experiments/PILOT-001/README.md).
+- [Plate read-only crosswalk](./experiments/PILOT-001/PLATE-READONLY-CROSSWALK-2026-10-12.md) is **not** a product audit or delivery certification.
+- [MK1 gate](./REVIEW-GATE.md) separates internal normalized knowledge from external/operational promotion.
+
+## On-demand use
+
+Exact question → open the minimum relevant card → read its boundaries and source → gather product evidence → compare baseline vs alternative → project-specific review. **Do not reopen MK1** just because a new project uses a pattern: record real-world learnings in that project's own documents and feed back contradictions when material.
