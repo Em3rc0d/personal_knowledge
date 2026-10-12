@@ -34,7 +34,7 @@ identity:
 control:
   primary_authority: mixed
   horizon: bounded_multistep
-  topology: single_model | mixed
+  topology: single_model
   model_count: implementation-dependent
 
 capabilities:
@@ -64,7 +64,7 @@ state:
   runtime_state: structured
   checkpointing: unknown
   persistence_backend: unknown
-  replay_semantics: partial | unknown
+  replay_semantics: partial
   invocation_concurrency: unknown
   writer_model: unknown
   concurrency_conflict_semantics: duplicate publication risk is mitigated partially by idempotency-key support but not fully characterized
@@ -73,7 +73,7 @@ state:
 memory:
   semantic_role: []
   scope: none
-  persistence: none | unknown
+  persistence: unknown
   retrieval_policy: not applicable
   write_policy: not applicable
   isolation_key: not applicable
@@ -81,16 +81,16 @@ memory:
   provenance: generated content + publication API receipt
 
 human_control:
-  level: H0 | unknown
-  mode: none | unknown
+  level: unknown
+  mode: unknown
   dispatcher_enforcement: partial
   enforcement_owner: runtime_code
   enforcement_boundary: deterministic DRY_RUN mode changes executable capability before publication; human approval is not established as a universal gate
   approval_binding: not established
 
 errors_and_retries:
-  error_model: structured | mixed
-  retry_owner: runtime/application/API
+  error_model: mixed
+  retry_owner: mixed
   retry_budget: bounded self-revision count is observed; external publication retry budget is application-specific
   idempotency: optional idempotency-key support observed
   unknown_outcome_handling: not fully established for timeout after publication dispatch
@@ -134,7 +134,7 @@ security:
     - publication API
     - public platform/audience
   least_privilege: partial
-  sandbox: none | not applicable
+  sandbox: unknown
   data_classification: generated/published content application-specific
   receipts:
     - DRY_RUN defaults to safe draft/non-scheduled behavior in inspected example
@@ -204,6 +204,19 @@ It does not by itself prove:
 ## Production-certification boundary
 
 This record does not certify universal approval, safe retry after timeout, rollback of published content, credential isolation or production readiness.
+
+## Scalar normalization receipt — 2026-10-12
+
+**Schema remains a draft.** Each atomic value below replaces an ambiguous compound/prose value in the normalized YAML; original upstream classification nuance is **preserved here**, not silently interpreted as a tested configuration. `unknown` means the inspected evidence does not justify selecting a stronger singular value. A removed key is not applicable to the classified harness rather than a missing secretly assumed property.
+
+- `control.topology`: `single_model | mixed` → `single_model`
+- `state.replay_semantics`: `partial | unknown` → `partial`
+- `memory.persistence`: `none | unknown` → `unknown`
+- `human_control.level`: `H0 | unknown` → `unknown`
+- `human_control.mode`: `none | unknown` → `unknown`
+- `errors_and_retries.error_model`: `structured | mixed` → `mixed`
+- `errors_and_retries.retry_owner`: `runtime/application/API` → `mixed`
+- `security.sandbox`: `none | not applicable` → `unknown`
 
 ## Schema pressure result
 
