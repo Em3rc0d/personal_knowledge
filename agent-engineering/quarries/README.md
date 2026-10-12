@@ -90,3 +90,10 @@ MK2 operational contracts/tests
   ↓
 MK5+ certification
 ```
+
+
+## Langflow (S-117) — non-canonical knowledge intake
+
+- [`langflow-workflow-engineering.md`](./langflow-workflow-engineering.md) — five evidence-bounded tracks: executable graphs, JSON contracts, versioning, lightweight headless execution, observability/evaluation; each has failure modes and proposed tests (NOT RUN).
+- [`langflow-adoption-transfer.md`](./langflow-adoption-transfer.md) — explicit `ADOPT KNOWLEDGE / HOLD SOFTWARE ADOPTION` for personal_knowledge, Prompt Machine, Foundry, Content Seller/NINFA, ECHO and Logan Garage. No dependency, deployment or MK promotion.
+- Pinned evidence: [`S-117-langflow.md`](../mining-site/S-117-langflow.md).
