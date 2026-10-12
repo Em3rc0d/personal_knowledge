@@ -21,3 +21,9 @@ Fecha: 2026-10-12 | Clase: OBSERVED (ejecución local) / INFERRED (utilidad), no
 - **NEXT EVIDENCE**: comparación controlada temporal sobre briefs equivalentes, revisión móvil por owner, historial real contra queue scheduled y un adapter/scene contract específico para español si el formato video realmente lo requiere.
 
 Conserva la distinción KNOWLEDGE PATTERN / STRUCTURAL TEST / REAL MEDIA / HUMAN RELEASE / EXTERNAL OUTCOME. El repositorio de conocimiento no debe sustituir el ledger de operaciones.
+
+## Falsación visual posterior — 2026-10-12
+
+**OWNER_OBSERVED: VISUAL_DESIGN_REJECTED**. Al comparar con un post histórico de Content Seller de estilo tecnológico cinematográfico, el propietario juzgó la pieza SQLite técnicamente útil pero visualmente inferior (demasiado espacio vacío, UI/dashboard plana y ausencia de metáfora visual protagonista). El PASS de 16 zonas geométricas no certifica riqueza gráfica, storytelling ni calidad percibida. Se corrigió explícitamente el estado operativo UAT en Content Seller y se añadió `mk1/test/uat/uat001/OWNER_VISUAL_FEEDBACK_2026-10-12.md`.
+
+Conocimiento transferible: separar tres estados independientes — exactitud técnica, integridad geométrica y aceptación creativa humana. Los dos primeros no implican el tercero. Para piezas premium, explorar imagen/escena visual original + texto/código determinista superpuesto + inspección real. Exploraciones de imagen sin QA no son assets certificados. **No se demuestra reducción de trabajo ni mejora de desempeño**; los resultados estéticos deben validarse por canal y no extrapolarse por una sola comparación.
