@@ -1,8 +1,10 @@
 # MK1 — Preliminary freeze/overlap audit (2026-10-12)
 
-Status: **STATIC PRE-AUDIT / NOT C5–C6 GATE PASS**  
+Status: **STATIC PRE-AUDIT / NOT C5–C6 GATE PASS**
+
+**Update after S-118/S-119:** [REC-012 externally materialized](./records/REC-012-external-agent-scaling.md), G7 PASS / QUALIFIED_UPSTREAM. This **does not** resolve PA-01/PA-06 or promote the schema; this artifact remains the historical static pre-audit.  
 Schema reviewed: `mk1-draft-2026-09-16.1`  
-Blocked dependency: REC-012 representative real-model comparison remains missing.  
+At pre-audit time the local real-model run was missing. Source-reported real-model evidence was subsequently accepted for [G7 classification](./GATES.md), without a local rerun.  
 Sources reviewed: `CLASSIFICATION_SCHEMA.md`, `DIMENSIONS.md`, `NORMALIZATION_RULES.md`, `CLASSIFICATION_QUEUE.md`, `records/TEMPLATE.md`, REC-002/004/007/008/011/012, Strands classification, `GATES.md` and `SCHEMA_HISTORY.md`.
 
 ## Scope and reading rule
