@@ -72,7 +72,7 @@ state:
 memory:
   semantic_role: []
   scope: none
-  persistence: none | unknown
+  persistence: unknown
   retrieval_policy: none established
   write_policy: none established
   isolation_key: none established
@@ -80,16 +80,16 @@ memory:
   provenance: runtime/browser observations only
 
 human_control:
-  level: H0 | unknown
-  mode: none | unknown
-  dispatcher_enforcement: no | unknown
+  level: unknown
+  mode: unknown
+  dispatcher_enforcement: unknown
   enforcement_owner: unknown
   enforcement_boundary: no deterministic approval boundary before generated Python execution established by current evidence
   approval_binding: not established
 
 errors_and_retries:
   error_model: mixed
-  retry_owner: runtime/model workflow
+  retry_owner: mixed
   retry_budget: not established from inspected call path
   idempotency: not established
   unknown_outcome_handling: browser/external action dependent
@@ -220,6 +220,16 @@ generate
 ## Production-certification boundary
 
 This record does **not** certify the tutorial as sandboxed, least-privilege, production-ready, credential-safe or confined to the nominal browser target.
+
+## Scalar normalization receipt — 2026-10-12
+
+**Schema remains a draft.** Each atomic value below replaces an ambiguous compound/prose value in the normalized YAML; original upstream classification nuance is **preserved here**, not silently interpreted as a tested configuration. `unknown` means the inspected evidence does not justify selecting a stronger singular value. A removed key is not applicable to the classified harness rather than a missing secretly assumed property.
+
+- `memory.persistence`: `none | unknown` → `unknown`
+- `human_control.level`: `H0 | unknown` → `unknown`
+- `human_control.mode`: `none | unknown` → `unknown`
+- `human_control.dispatcher_enforcement`: `no | unknown` → `unknown`
+- `errors_and_retries.retry_owner`: `runtime/model workflow` → `mixed`
 
 ## Schema pressure result
 
