@@ -10,9 +10,9 @@ MK1  Normalize & Classify  🟡 IN PROGRESS
 MK2  Operationalize        🔒 BLOCKED / DESIGN SEEDED
 ```
 
-## REC-012 — ejecución parcial y viabilidad (2026-10-12)
+## REC-012 — evidencia de arquitectura y procedencia (2026-10-12)
 
-[Experimentación offline reproducible](./experiments/rec-012/README.md) y [receipt medido](./quarries/rec-012-offline-topology-baseline.md): 16 fixtures × 30 repeticiones por topología, 6 tests, 6 fallos inyectados, sin LLM ni servicios de pago. **La comparación LLM real sigue pendiente; G7/MK1 permanecen abiertos.** El [preflight local](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) constató ausencia de pesos/model runner y descargas bloqueadas. Se realizó una [auditoría preliminar de schema](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) sin congelar la revisión vigente.
+Dos capas distintas: [experimento determinista local](./experiments/rec-012/README.md) con 960 intentos (no LLM) y [estudios LLM reales externos](./quarries/multiagent-external-scaling-evidence.md) con código/datos públicos, sin rerun independiente. [REC-012](./mk/MK1/records/REC-012-external-agent-scaling.md) y G7: **PASS / QUALIFIED_UPSTREAM** para clasificación; **MK1 sigue abierto** por auditoría del schema y UNKNOWNs. El [preflight sin pesos](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) conserva su estado histórico; no es un requisito para cerrar G7. [Auditoría preliminar](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) sin congelación.
 
 ## Empieza aquí
 
