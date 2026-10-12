@@ -85,8 +85,9 @@ A2A `1.0` migration/interoperability remains **system freshness/version debt**, 
 
 ## Gate C3 — Multi-agent baseline/admission evidence
 
-State: **OPEN / PRIMARY EVIDENCE BLOCKER**  
-Owner: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)
+State: **OPEN / PRIMARY EVIDENCE BLOCKER (OFFLINE TOPOLOGY RECEIPT EXECUTED, NO LLM RUN)**  
+Owner: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)  
+Partial evidence: [`../../quarries/rec-012-offline-topology-baseline.md`](../../quarries/rec-012-offline-topology-baseline.md). The deterministic fixture does **not** satisfy the representative agentic baseline.
 
 Pass when one representative topology has:
 
