@@ -1,8 +1,11 @@
 # SD-001 — Evidence-bound Architecture Decision
 
-Status: `CANDIDATE / IN REVIEW` · Class: `INSPIRED` + `GENERATED`.
+Status: `REFERENCE_ONLY / MK1 CLASSIFIED` · Class: `INSPIRED` + `GENERATED`.
 Source: [chapter 03](https://github.com/liquidslr/system-design-notes/blob/9d8388721e7231442763ad37398b8d82224aa68f/03.%20System%20Design%20Framework/Readme.md).
 Canonical lifecycle **owner**: [Jett Engineering Method](../../../../jett-engineering-method/architecture/README.md) — do not clone its gates here.
+
+## Non-duplication disposition
+The lifecycle, ADR ownership and promotion gates already live in Jett Engineering Method. This is **a compact discovery cue and cross-reference**, not a second architecture-review framework or an independent gate. If JEM and this card diverge, JEM takes precedence; do not adopt this card as a new canon.
 
 ## Use when
 Selecting a persistent boundary, architecture style, storage, messaging or external dependency that has meaningful cost or reversibility impact.

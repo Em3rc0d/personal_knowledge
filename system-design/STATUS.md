@@ -1,11 +1,17 @@
 # System Design — STATUS
 
-Observed: 2026-10-12.
-- **MK0: PASS WITH LIMITATIONS (screening only).** Upstream root index/tree checked, 28 titles inventoried, nine targeted chapters inspected, provenance recorded. Not an exhaustive semantic audit of all 28.
-- **MK1: IN REVIEW (five candidates).** Architecture decisions, capacity estimation, resilience, idempotency/consistency, observability.
-- **Pilot: LOCAL EXECUTED / PASS WITH LIMITATIONS.** Six independent local runs of P01-P08 + N01-N06 (14 tests each), all passed. See [receipt](./mk/MK1/experiments/PILOT-001/RESULTS-2026-10-12.md). Synthetic Python + SQLite only; provider verification and product-side contracts remain UNKNOWN.
-- **Certification: NOT CLAIMED.** No load tests, deployment evidence, real webhooks or product audit.
-- **Next gate:** qualified review and discovery of actual provider/order invariants before any project-specific adoption; no product rollout authorized.
-- **Non-goals:** do not create generic platform infrastructure, duplicate JEM, imply token savings, or modify sibling repositories.
+Verified on: 2026-10-12.
 
-- **Case study (read-only):** [Plate crosswalk at pinned SHA](./mk/MK1/experiments/PILOT-001/PLATE-READONLY-CROSSWALK-2026-10-12.md) maps P01–P08 to visible payment/fulfillment architecture. No Plate changes, no runtime tests or certification; MK1 remains IN REVIEW.
+## Gate and authority
+- **MK0: PASS WITH LIMITATIONS (bounded screening)** — 28 chapter titles classified; nine targeted chapters inspected; exhaustive review **not** claimed.
+- **MK1: CLOSED WITH LIMITATIONS — INTERNAL NORMALIZATION ONLY** — five cards classified; adversarial review recorded; [review receipt](./mk/MK1/ADVERSARIAL-REVIEW-2026-10-12.md) and [two-level review gate](./mk/MK1/REVIEW-GATE.md).
+- **Internal classification:** SD-001 `REFERENCE_ONLY` (JEM owns the ADR method); SD-002, SD-003 and SD-005 `CANDIDATE / NEEDS_CONTEXT_EVIDENCE`; SD-004 `LAB_SUPPORTED_CANDIDATE`.
+- **PILOT-001: PASS WITH LIMITATIONS (synthetic only)** — 14 tests × six new independent executions; two temporary adversarial mutations each triggered four failing checks. [Historic initial receipt](./mk/MK1/experiments/PILOT-001/RESULTS-2026-10-12.md), [new adversarial receipt](./mk/MK1/ADVERSARIAL-REVIEW-2026-10-12.md).
+- **Plate: READ-ONLY REFERENCE ONLY** — [pinned static comparison](./mk/MK1/experiments/PILOT-001/PLATE-READONLY-CROSSWALK-2026-10-12.md); **no changes, tests or deployments** in that repository.
+- **Promotion/certification: NOT GRANTED** — independent reviewer signoff, real deployment/provider evidence, implementation-specific proof and project gates remain open. Closing internal normalization does **not** promote patterns to production standards.
+
+## Stop / resume
+Do not invent new pilots, stacks, queues, contracts or patterns to fill the roadmap. Retrieve just one relevant card **when a project has a specific decision**, then seek project measurements and current primary contracts. Otherwise: `HOLD / REFERENCE_ONLY`.
+
+## Scope constraints
+No changes to Plate, to other product repositories, to infrastructure, to GitHub Actions, or to live payment/provider/data services; no quantitative token-saving claim.
