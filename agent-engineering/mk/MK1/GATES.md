@@ -17,8 +17,8 @@ MK1 closes only when the classification model survives representative system pre
 | G6 protocol revision awareness | **PASS / QUALIFIED** | MCP current/legacy records + Strands A2A 0.3 vs current A2A 1.0 version drift |
 | G7 multi-agent admission/baseline | **PASS / QUALIFIED_UPSTREAM_EVIDENCE** | [S-118](../../mining-site/S-118-agent-scaling-research.md) tool-using real-model baseline + [S-119](../../mining-site/S-119-mars-rover-agent-benchmark.md) separate quantitative cost/latency; 260 released quality rows independently re-aggregated, **no independent full rerun** |
 | G8 material UNKNOWN visibility/routing | **PARTIAL / FINAL PASS PENDING** | U-MK1-001 now QUALIFIED; U-MK1-002 and U-MK1-003 still OPEN_MK1 pending reconciliation |
-| G9 duplicate/overlap audit | **PARTIAL / STATIC PRE-AUDIT EXECUTED** | [2026-10-12 preliminary audit](./PREFREEZE_AUDIT_2026-10-12.md) recorded 9 findings, including schema/evidence contract mismatch; representative full freeze audit still pending |
-| G10 external-system fit | **STRONG / FINAL AUDIT PENDING** | complete qualified record families including REC-012; comparison evidence contract PA-01 and nested authority PA-06 still need audit |
+| G9 duplicate/overlap audit | **PARTIAL / PA-06 OPEN** | [full 12-record audit](./audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md); PA-01 classified as comparison evidence appendix; nested child-agent effective authority not yet proved |
+| G10 external-system fit | **ENUM SCALARS PASS / SEMANTIC FREEZE HOLD** | [12 records, 34 enum fields, 394 scalar occurrences, 0 mismatches](./audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md); separate semantic PA-06/UNKNOWN checks unresolved |
 | G11 architecture ≠ production certification | **PASS / STRONG** | all materialized records explicitly separate classification from production certification |
 | G12 MK2 derivability | **OPEN / BLOCKED BY FREEZE** | handoff contract exists; frozen schema/closure receipt do not |
 
@@ -43,10 +43,10 @@ These subgates do **not** imply MK1 closure.
 ## Remaining closure checklist
 
 - [x] REC-012 contains representative **source-reported real-model** evidence, simpler baseline, quality/coordination/failure/termination observations; cost/latency comparison sourced separately; no independent LLM rerun or production claim;
-- [ ] final representative-set review confirms all `COVERED_BY` decisions hide no distinct schema pressure;
+- [x] representative-set review: 12 families + both `COVERED_BY` qualifications recorded in [full audit](./audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md);
 - [ ] every material UNKNOWN is closed, qualified, routed forward or declared out-of-scope;
-- [ ] final cross-dimension audit resolves overlap questions including egress/confidentiality and memory lifecycle placement;
-- [ ] schema can classify the complete representative set without framework-name top-level categories;
+- [ ] full cross-dimension audit resolves PA-06 nested child-agent effective tools/permissions (egress/memory/approval distinctions documented, not fully certified);
+- [x] all 12 primary classification YAML blocks have atomic enum scalars under the [active draft](./CLASSIFICATION_SCHEMA.md) (bounded static check, not whole-document YAML certification);
 - [ ] MK2 contract families map to frozen MK1 semantics without reopening basic terminology;
 - [ ] frozen schema revision is declared in `SCHEMA_HISTORY.md`;
 - [ ] MK1 `CLOSURE.md` names the exact frozen revision, record set, qualifications and handoff.
@@ -127,9 +127,7 @@ This gate proves revision-aware representability. It does **not** certify Strand
 
 ## Active specialized gate
 
-The only remaining evidence gate requiring a new representative experiment is:
-
-- multi-agent benefit/admission → [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)
+No new representative experiment is a prerequisite by default. G7 is already qualified from source-reported real-model comparisons. The remaining material issue is PA-06 per-child effective authority and full semantic freeze/UNKNOWN reconciliation; see [recheck](./audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md).
 
 Supporting/frozen-audit artifacts:
 
