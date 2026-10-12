@@ -18,28 +18,30 @@ OUT_OF_SCOPE     not required for declared MK1 closure scope
 
 No material item may disappear merely because it is inconvenient to close.
 
-## Closure-blocking OPEN_MK1 items
+## Qualified evidence — non-blocking
 
 ### U-MK1-001 — Multi-agent measured benefit model
 
-State: **OPEN_MK1 / PRIMARY EVIDENCE BLOCKER**
+State: **QUALIFIED / RESOLVED_FOR_MK1_CLASSIFICATION_FROM_UPSTREAM**
 
 The representative registry is near-complete:
 
 ```text
-11 MATERIALIZED / QUALIFIED
+12 MATERIALIZED / QUALIFIED
 2  COVERED_BY
-1  OPEN → REC-012 multi-agent
+0  OPEN representative families
 ```
 
-Topology is already classifiable. On 2026-10-12 an [offline deterministic actor-topology comparison](../../quarries/rec-012-offline-topology-baseline.md) produced real coordination/outcome/failure metrics, but **did not use an LLM or model-driven agents**. A separate [local-model feasibility audit](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) found no weights and no usable download route. MK1 still needs a representative real-model comparison demonstrating that topology and measured benefit are independent fields; this UNKNOWN remains OPEN_MK1 / BLOCKED_ENVIRONMENT for the current host.
+External real-model comparisons [S-118](../../mining-site/S-118-agent-scaling-research.md) and [S-119](../../mining-site/S-119-mars-rover-agent-benchmark.md) now materialize [REC-012](./records/REC-012-external-agent-scaling.md) in a qualified form. We re-aggregated S-118's published performance CSV; provider runs, latency distributions, and production safety were not independently reproduced. Local inference was blocked, but is not required by the MK1 gate. Residual independent replication belongs to MK5+ unless schema-relevant new evidence emerges.
 
 Contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).  
 Registry: [`records/README.md`](./records/README.md).
 
+## Remaining closure-blocking OPEN_MK1
+
 ### U-MK1-002 — Final schema overlap/freeze audit
 
-State: **OPEN_MK1 / BLOCKED BY REC-012**
+State: **OPEN_MK1 / READY_FOR_CROSS_DIMENSION_AUDIT**
 
 Questions still to resolve at closure:
 
@@ -56,9 +58,9 @@ Procedure: [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) + [`CLOSURE_PLAN.md`](./CL
 
 ### U-MK1-003 — Final UNKNOWN routing
 
-State: **OPEN_MK1 / BLOCKED BY FINAL REPRESENTATIVE SET**
+State: **OPEN_MK1 / READY_FOR_FINAL_ROUTING_REVIEW**
 
-Once REC-012 exists, every material remaining UNKNOWN must be assigned one final closure state and recorded in MK1 `CLOSURE.md`.
+REC-012 is now source-materialized with qualifications. Every remaining material UNKNOWN must receive one final closure state in MK1 `CLOSURE.md` after the full audit.
 
 ## Representative family coverage
 
@@ -83,7 +85,7 @@ Explicit coverage decisions:
 - REC-005 → `COVERED_BY REC-004 + REC-003`;
 - REC-006 → `COVERED_BY REC-002 + REC-007`.
 
-Only REC-012 requires new representative evidence.
+REC-012 has qualified external model comparison evidence. All representative families are materialized; the full freeze audit remains mandatory.
 
 ## Resolved / promoted runtime-semantics questions
 
