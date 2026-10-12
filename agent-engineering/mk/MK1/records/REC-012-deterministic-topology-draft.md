@@ -14,9 +14,9 @@ name: Offline deterministic incident-triage actor topology
 schema_revision: mk1-draft-2026-09-16.1
 classification_scope: offline synthetic two-tool task
 source_receipts:
-  - ../../quarries/rec-012-offline-topology-baseline.md
+  - ../../../quarries/rec-012-offline-topology-baseline.md
 primary_quarries:
-  - ../../quarries/rec-012-offline-topology-baseline.md
+  - ../../../quarries/rec-012-offline-topology-baseline.md
 evidence_state: QUALIFIED_FOR_TOPOLOGY_ONLY
 production_certification: false
 ```
@@ -27,12 +27,12 @@ production_certification: false
 identity:
   name: Synthetic incident triage policy-actor fixture
   source: ../../experiments/rec-012/
-  snapshot: branch PR / receipt hash
+  snapshot: pinned source/result SHA-256 in execution receipt
   evidence_state: QUALIFIED
 control:
   primary_authority: deterministic
   horizon: bounded_multistep
-  topology: manager_workers    # evaluated multi variant; single baseline has single_model-shaped topology without any model
+  topology: manager_workers    # evaluated manager-workers variant; single rule actor baseline does not use a model
   model_count: 0
 capabilities:
   reads: [local_log_fixture, local_impact_fixture]
