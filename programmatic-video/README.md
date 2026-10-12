@@ -61,3 +61,7 @@ Las iteraciones MK describen **madurez del conocimiento**, no sprints ni funcion
 4. `render succeeds once != production-ready`.
 5. `source catalog != production architecture`.
 6. Cualquier regla promovida debe ser verificable y preservar provenance `OFFICIAL | OBSERVED | INFERRED | INSPIRED | GENERATED`.
+
+## Extracción de skills sociales — 2026-10-12
+
+[Q-005: QA visual, guion, miniaturas y restricciones de producción](quarries/Q-005-social-media-skills-visual-qa-2026-10-12.md). Conocimiento transferible, sin activar servicios, credenciales o render remoto.

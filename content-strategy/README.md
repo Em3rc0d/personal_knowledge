@@ -228,3 +228,10 @@ content-strategy/
 ```
 
 Folders are materialized only when useful.
+
+## Fuente externa estudiada — 2026-10-12
+
+- [S-016: social-media-skills, fuente/versión/licencia y límites](mining-site/S-016-social-media-skills-2026-10-12.md)
+- [Q-006: transferencia selectiva a Content Seller y NINFA](quarries/Q-006-social-media-skills-transfer-2026-10-12.md)
+
+Esta extracción no constituye una certificación de mejora de alcance, ventas o autonomía. La autoridad operativa sigue en los repositorios de ejecución.

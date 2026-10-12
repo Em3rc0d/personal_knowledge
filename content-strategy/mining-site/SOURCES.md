@@ -1,6 +1,6 @@
 # Content Strategy — Source Registry
 
-Updated: 2026-09-24
+Updated: 2026-10-12 (new external source; prior account snapshots retain their original dates)
 
 This registry records source identity and provenance. It does not mean every source claim is promoted to canon.
 
@@ -21,6 +21,11 @@ This registry records source identity and provenance. It does not mean every sou
 | CS-SRC-013 | Latest TikTok Studio analytics review for `mi.logan.pe` | Account analytics | OBSERVED | 2026-09-24 | Current Logan growth/search/interaction baseline |
 | CS-SRC-014 | TikTok first-party recommendation, Creator Search Insights and creative guidance reviewed for Logan | Platform documentation | OFFICIAL | 2026-09-24 | Recommendation/search/hook experiment constraints |
 | CS-SRC-015 | Logan 2026-09-24 growth synthesis | Conversation + research synthesis | GENERATED / INFERRED | 2026-09-24 | Four-role model, retention, hard no-repeat, measurement |
+| CS-SRC-016 | `charlie947/social-media-skills` at `8cefb5b6d037` (original) / `Em3rc0d/social-media-skills` fork | External GitHub skills catalog; MIT, Charlie Hills | OBSERVED / INSPIRED | 2026-10-12 | Pattern extraction only: voice, research, novelty, visual QA, metric hygiene; no provider/runtime claims |
+
+## CS-SRC-016 — External skill library (provenance)
+
+Study record: [S-016](S-016-social-media-skills-2026-10-12.md); transfer quarry: [Q-006](../quarries/Q-006-social-media-skills-transfer-2026-10-12.md). Version observed, not an installed production dependency. No performance uplift verified.
 
 ## CS-SRC-013 — Logan current analytics snapshot
 
