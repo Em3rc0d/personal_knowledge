@@ -11,12 +11,12 @@ Close MK1 only when the classification system is stable enough that MK2 can deri
 
 ```text
 REPRESENTATIVE RECORD SET
-11 materialized + 2 COVERED_BY
+12 materialized/qualified + 2 COVERED_BY
         │
         ├── A2A classification shape ✅ PASS / QUALIFIED
         │      └── A2A 1.0 compatibility → routed version debt
         │
-        └── REC-012 multi-agent 🟡 OPEN / BLOCKING
+        └── REC-012 multi-agent ✅ PASS / QUALIFIED_UPSTREAM
                          ↓
                 UNKNOWN reconciliation
                          ↓
@@ -37,7 +37,7 @@ REPRESENTATIVE RECORD SET
 
 ## Gate C1 — Representative records
 
-State: **PASS EXCEPT REC-012**  
+State: **ALL 12 FAMILIES REPRESENTED / FINAL COVERED_BY REVIEW PENDING**  
 Owner: [`records/README.md`](./records/README.md)
 
 Current coverage already includes:
@@ -56,7 +56,7 @@ Current coverage already includes:
 
 Two redundant candidates are explicitly `COVERED_BY`; they are not silently omitted.
 
-C1 fully passes when REC-012 materializes from actual multi-agent baseline evidence and final review confirms the `COVERED_BY` decisions hide no unique schema pressure.
+REC-012 now has source-reported real-model execution comparisons and an [independently re-aggregated public outcome CSV](./records/REC-012-external-agent-scaling.md). Full C1 pass still requires reviewing the `COVERED_BY` decisions for hidden distinct schema pressure.
 
 ## Gate C2 — A2A classification evidence
 
@@ -85,9 +85,9 @@ A2A `1.0` migration/interoperability remains **system freshness/version debt**, 
 
 ## Gate C3 — Multi-agent baseline/admission evidence
 
-State: **OPEN / PRIMARY EVIDENCE BLOCKER (OFFLINE TOPOLOGY RECEIPT EXECUTED, NO LLM RUN)**  
+State: **PASS / QUALIFIED_UPSTREAM_EVIDENCE (NO LOCAL LLM RUN)**  
 Owner: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md)  
-Partial evidence: [`../../quarries/rec-012-offline-topology-baseline.md`](../../quarries/rec-012-offline-topology-baseline.md). The deterministic fixture does **not** satisfy the representative agentic baseline.
+Source-reported real-model evidence: [S-118 + S-119](../../quarries/multiagent-external-scaling-evidence.md) → [REC-012](./records/REC-012-external-agent-scaling.md). Prior [deterministic fixture](../../quarries/rec-012-offline-topology-baseline.md) is **not** counted as LLM evidence. Original LLM installation was a method proposal, not an invariant prerequisite; qualification preserves no independent rerun, no S-118 numeric latency audit, and no production certification.
 
 Pass when one representative topology has:
 
@@ -105,7 +105,7 @@ The gate validates the classification/evidence model, not a general claim that m
 
 ## Gate C4 — UNKNOWN reconciliation
 
-State: **BLOCKED UNTIL C3**  
+State: **UNBLOCKED FOR FINAL REVIEW / OPEN UNTIL UNKNOWN ROUTING COMPLETE**  
 Owner: [`UNKNOWNS.md`](./UNKNOWNS.md)
 
 Not every UNKNOWN must be closed. Every material one must be exactly one of:
@@ -123,7 +123,7 @@ No `OPEN_MK1` item may survive closure.
 
 ## Gate C5 — Cross-dimension audit
 
-State: **BLOCKED UNTIL COMPLETE REPRESENTATIVE SET**
+State: **READY_FOR_FULL_AUDIT / OPEN UNTIL ALL CROSS-DIMENSIONS REVIEWED**
 
 The final set must preserve these distinctions independently:
 
@@ -213,7 +213,7 @@ MK2 opens only after the closure receipt names the exact frozen inputs.
 ## Work ordering
 
 ```text
-1. execute multi-agent baseline / materialize REC-012
+1. REC-012 source-based real-model baseline qualified (DONE; no local model needed)
 2. final representative-set review
 3. reconcile UNKNOWNs
 4. run cross-dimension + schema freeze audit
