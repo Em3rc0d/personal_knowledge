@@ -56,9 +56,9 @@ capabilities:
 
 side_effects:
   class: S3
-  reversible: partial | unknown
+  reversible: unknown
   external_mutation: true
-  data_egress: none | unknown
+  data_egress: unknown
   verification: audit/action path is tested; downstream business-system outcome verification remains implementation-specific
 
 state:
@@ -90,8 +90,8 @@ human_control:
   approval_binding: modified action is revalidated; unexpected/invalid arguments are rejected before execution
 
 errors_and_retries:
-  error_model: structured | mixed
-  retry_owner: runtime/application
+  error_model: mixed
+  retry_owner: mixed
   retry_budget: not established as a general retry policy
   idempotency: not established for every downstream mutation
   unknown_outcome_handling: not established for post-dispatch timeout/failure
@@ -126,7 +126,7 @@ evaluation:
     - rejection prevents side effect
     - mutation path executes only after authorization path
   repeated_trials: false
-  regression_gate: partial
+  regression_gate: unknown
   production_observability: false
 
 protocols: []
@@ -139,7 +139,7 @@ security:
     - protected dispatcher
     - downstream mutation target
   least_privilege: partial
-  sandbox: none | unknown
+  sandbox: unknown
   data_classification: application-specific
   receipts:
     - direct dispatcher bypass is rejected in dedicated tests
@@ -215,6 +215,17 @@ This record does not infer production-safe replay for arbitrary surrounding code
 ## Production-certification boundary
 
 This record supports a strong HITL enforcement pattern. It does **not** certify every downstream mutation as idempotent, every deployment as durably persisted, every timeout as safely recoverable, or the tutorial as production-ready.
+
+## Scalar normalization receipt — 2026-10-12
+
+**Schema remains a draft.** Each atomic value below replaces an ambiguous compound/prose value in the normalized YAML; original upstream classification nuance is **preserved here**, not silently interpreted as a tested configuration. `unknown` means the inspected evidence does not justify selecting a stronger singular value. A removed key is not applicable to the classified harness rather than a missing secretly assumed property.
+
+- `side_effects.reversible`: `partial | unknown` → `unknown`
+- `side_effects.data_egress`: `none | unknown` → `unknown`
+- `errors_and_retries.error_model`: `structured | mixed` → `mixed`
+- `errors_and_retries.retry_owner`: `runtime/application` → `mixed`
+- `evaluation.regression_gate`: `partial` → `unknown`
+- `security.sandbox`: `none | unknown` → `unknown`
 
 ## Schema pressure result
 
