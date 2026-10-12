@@ -34,7 +34,7 @@
   ],
   "sha256": {
     "payment_lab.py": "a57b1b7a3b946ffffdc0c8676ffd9be3d0ae09f579e437c88bf3deefdbacc664",
-    "test_payment_lab.py": "5963f376210834eb7cc938c6e90ff2c10bd98cafd6b416b0"
+    "test_payment_lab.py": "5963f376210834eb7cc938c6e90ff3faa13bf6bf160ff2c10bd98cafd6b416b0"
   },
   "code_source": "system-design/mk/MK1/experiments/PILOT-001",
   "external_provider_tested": false,
