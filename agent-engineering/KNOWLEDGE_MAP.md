@@ -320,7 +320,7 @@ MCP 2026-07-28 core pass         SUPPORTED / QUALIFIED
 representative record set        NEAR-COMPLETE (11 + 2 COVERED_BY)
 A2A classification shape         PASS / QUALIFIED
 A2A 1.0 compatibility            NOT ESTABLISHED
-multi-agent baseline / REC-012   OPEN / BLOCKING
+multi-agent baseline / REC-012   PASS / QUALIFIED_UPSTREAM; MK1 closure pending
 UNKNOWN reconciliation           FINAL PASS PENDING
 schema freeze                    NOT YET
 ```
