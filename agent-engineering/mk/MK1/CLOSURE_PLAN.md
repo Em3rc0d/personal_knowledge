@@ -123,7 +123,7 @@ No `OPEN_MK1` item may survive closure.
 
 ## Gate C5 — Cross-dimension audit
 
-State: **READY_FOR_FULL_AUDIT / OPEN UNTIL ALL CROSS-DIMENSIONS REVIEWED**
+State: **PARTIAL / FULL AUDIT COMPLETED, PA-06 REMAINS OPEN**
 
 The final set must preserve these distinctions independently:
 
@@ -151,6 +151,9 @@ Explicit freeze questions include:
 - whether nested child-agent authority is represented without framework-specific fields.
 
 ## Gate C6 — Schema freeze audit
+
+**Current decision: HOLD**, despite [bounded enum normalization PASS](./audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md). All 12 representative YAML classifications now use atomic enum scalars, but PA-06 per-child tool/credential authority and final semantic representability/UNKNOWN routing remain open. The static 0-error scan is not enough to freeze the schema.
+
 
 Inputs:
 
@@ -214,9 +217,9 @@ MK2 opens only after the closure receipt names the exact frozen inputs.
 
 ```text
 1. REC-012 source-based real-model baseline qualified (DONE; no local model needed)
-2. final representative-set review
-3. reconcile UNKNOWNs
-4. run cross-dimension + schema freeze audit
+2. final representative coverage review and 87-candidate enum remediation (DONE, recheck 0)
+3. resolve PA-06 per-child authority and remaining UNKNOWNs
+4. rerun cross-dimension + full schema freeze audit
 5. issue new draft only if audit requires it
 6. write MK1 CLOSURE.md
 7. activate MK2
