@@ -105,9 +105,9 @@ A2A 0.3 implementation vs current A2A 1.0 version drift
 Record state:
 
 ```text
-11 MATERIALIZED / QUALIFIED
+12 MATERIALIZED / QUALIFIED (REC-012 source-reported LLM comparison)
 2  COVERED_BY
-1  OPEN → REC-012 multi-agent baseline
+0  OPEN representative families; full audit still pending
 ```
 
 Protocol pressure:
@@ -156,7 +156,7 @@ A question may be resolved by **keeping the existing schema and routing operatio
 
 ## Freeze procedure
 
-1. materialize REC-012;
+1. verify qualified REC-012 source receipt and model-vs-deterministic evidence separation (DONE);
 2. complete representative-set review;
 3. close/qualify/route material UNKNOWNs;
 4. run cross-dimension audit;
