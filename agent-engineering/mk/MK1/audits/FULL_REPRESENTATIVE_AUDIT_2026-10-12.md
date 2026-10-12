@@ -1,6 +1,7 @@
 # MK1 — Full representative-set and freeze-readiness audit
 
 **Date:** 2026-10-12  
+**Follow-up:** [Atomic enum normalization recheck](./ENUM_NORMALIZATION_RECHECK_2026-10-12.md) subsequently corrected the **87 original candidate mismatches** and three further scoped fields, checking **394 enum scalar occurrences with 0 violations** across 12 records. This original audit preserves its historical FREEZE HOLD decision; **PA-06 and final semantic freeze gates remain OPEN**.  
 **Decision:** **FREEZE HOLD / NOT GO for `mk1-v1`**  
 **Scope:** 12 materialized/qualified records including the canonical Strands package, REC-005/006 `COVERED_BY` review, PA-01–PA-09 prefreeze questions, and MK2 derivability.  
 **Evidence strength:** direct inspection of the repository's current records and upstream-pinned quarries, plus a local static enumeration-value scan. **No runtime systems/models were re-executed.**  
