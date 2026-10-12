@@ -12,7 +12,7 @@ record_id: REC-012
 name: source-reported cross-benchmark single-vs-multi LLM topology contrast
 schema_revision: mk1-draft-2026-09-16.1
 classification_scope: 260 model/benchmark/topology configurations; six domains; same-task single versus multi architecture
-source_receipts: [S-118]
+source_receipts: [S-118, S-119]
 primary_quarries: [quarries/multiagent-external-scaling-evidence.md]
 evidence_state: QUALIFIED
 evidence_basis:
@@ -115,7 +115,7 @@ evaluation:
   static_contracts: [architecture_and_benchmark_configuration]
   unit_integration: [upstream_repo_tests_present_success_not_independently_checked]
   trajectory: [authors_trace_error_categories,coordination_overhead,turn_count]
-  outcome: [published_per_configuration_success_260_rows]
+  outcome: [published_per_configuration_success_260_rows, separate_S119_100_scenarios_5_repeats]
   repeated_trials: unknown  # many tasks/configs; cannot infer repeated identical stochastic draws
   regression_gate: false
   production_observability: false
@@ -153,7 +153,7 @@ outcome_evidence:
   plancraft_centralized_mean: 0.28173
   basis: arithmetic_grouping_of_author_deposited_CSV_not_original_run
 cost_evidence: source_reported_inter_agent_overhead_and_token_efficiency
-latency_evidence: directional_in_manuscript_per_run_wall_clock_NOT_VERIFIED
+latency_evidence: S118_directional_unverified_per_run_wall_clock; S119_separate_toolless_comparison_2_32_vs_11_83_seconds_GPT4o_and_6_06_vs_35_59_seconds_GPT5_5_author_reported
 coordination_failure_evidence: source_reported_failure_taxonomy_and_trace_measures
 termination_evidence: explicit_round_and_timeout_config_present; enforcement_not_independently_verified
 interpretation: MULTI_AGENT_BENEFIT_IS_TASK_DEPENDENT; no_general_winner
@@ -163,13 +163,14 @@ The current MK1 YAML schema encodes topology and evaluation but **does not yet c
 
 ## Pass limits
 
-G7 may pass **for MK1 classification evidence** based on externally conducted real-model comparisons, **qualified** by source trust and independent reanalysis limits. It does **not** prove performance, cost, safety or reliability for Prompt Machine, Foundry, Content Seller, ECHO or any application.
+G7 **PASS / QUALIFIED_UPSTREAM_EVIDENCE** for MK1 taxonomy pressure: S-118 source-reported tool-using comparison and validated arithmetic on its public summary CSV, plus separately S-119 source-reported short-context latency/token/failure comparison. This is **qualified** by source trust and independent reanalysis limits. Two studies are **not one experiment**. It does **not** prove performance, cost, safety or reliability for Prompt Machine, Foundry, Content Seller, ECHO or any application.
 
 The prior [deterministic REC-012 fixture](./REC-012-deterministic-topology-draft.md) remains separate, historically accurate and explicitly not a model comparison.
 
 ## Related
 
 - [Source S-118](../../../mining-site/S-118-agent-scaling-research.md)
+- [Independent complement S-119](../../../mining-site/S-119-mars-rover-agent-benchmark.md)
 - [Detailed comparison quarry](../../../quarries/multiagent-external-scaling-evidence.md)
 - [Original gate spec](../MULTI_AGENT_BASELINE_SPEC.md)
 - [Gate dashboard](../GATES.md)
