@@ -7,3 +7,5 @@ Observed: 2026-10-12.
 - **Certification: NOT CLAIMED.** No load tests, deployment evidence, real webhooks or product audit.
 - **Next gate:** qualified review and discovery of actual provider/order invariants before any project-specific adoption; no product rollout authorized.
 - **Non-goals:** do not create generic platform infrastructure, duplicate JEM, imply token savings, or modify sibling repositories.
+
+- **Case study (read-only):** [Plate crosswalk at pinned SHA](./mk/MK1/experiments/PILOT-001/PLATE-READONLY-CROSSWALK-2026-10-12.md) maps P01–P08 to visible payment/fulfillment architecture. No Plate changes, no runtime tests or certification; MK1 remains IN REVIEW.
