@@ -31,6 +31,7 @@ intent:
   classification_semantics: mk/MK1/README.md + CLASSIFICATION_SCHEMA.md + DIMENSIONS.md
   record_status: mk/MK1/records/README.md
   closure_blockers: mk/MK1/CLOSURE_PLAN.md + GATES.md + UNKNOWNS.md
+  multiagent_admission_evidence: mk/MK1/records/REC-012-external-agent-scaling.md -> quarries/multiagent-external-scaling-evidence.md -> mining-site/S-118,S-119
   provenance: systems/*/EVIDENCE.md -> quarries -> mining-site
   next_mk_input: mk/MK2/HANDOFF_CONTRACT.md
 ```
@@ -116,6 +117,9 @@ mk1:
   record_coverage:
     materialized_or_qualified: 12
     covered_by: 2
+    rec012_status: MATERIALIZED_QUALIFIED_UPSTREAM
+    g7: PASS_QUALIFIED_UPSTREAM_EVIDENCE
+    independent_llm_rerun: NOT_RUN
     open_blocking:
       - U-MK1-002 / U-MK1-003 final freeze + UNKNOWN reconciliation
   protocols:
@@ -196,7 +200,7 @@ principles:
   - production readiness is a project evidence vector, not a framework label
 ```
 
-These are working principles, not automatic MK2 operational certification.
+These are working principles, not automatic MK2 operational certification. REC-012 G7 is passed **only for qualified source-based classification**; no model installed, no independent provider replay, no product inference and no MK1 freeze. The earlier deterministic receipt is not real-model evidence.
 
 ## Query routing
 
@@ -212,7 +216,7 @@ These are working principles, not automatic MK2 operational certification.
 | What still blocks MK1? | `mk/MK1/GATES.md` + `CLOSURE_PLAN.md` + `UNKNOWNS.md` |
 | What is the A2A status? | `systems/strands/PROTOCOLS.md` + `quarries/strands-a2a-version-drift.md` |
 | What evidence contract applies to A2A? | `mk/MK1/A2A_EVIDENCE_REQUIREMENTS.md` |
-| What evidence is required for multi-agent? | `mk/MK1/MULTI_AGENT_BASELINE_SPEC.md` |
+| What evidence is required for multi-agent? | `mk/MK1/MULTI_AGENT_BASELINE_SPEC.md` + `mk/MK1/records/REC-012-external-agent-scaling.md` |
 | What does MK2 receive? | `mk/MK2/HANDOFF_CONTRACT.md` |
 | How do I add a current system package? | `systems/PACKAGE_SPEC.md` |
 | What do we know about Strands? | `systems/strands/LLM_CONTEXT.md` |
