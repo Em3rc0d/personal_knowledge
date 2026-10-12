@@ -112,8 +112,8 @@ COVERED_BY
 REC-005  REC-004 + REC-003
 REC-006  REC-002 + REC-007
 
-OPEN / BLOCKING
-REC-012  qualified external multi-agent baseline/admission evidence
+QUALIFIED / MATERIALIZED
+REC-012  [source-reported real-model baseline](./records/REC-012-external-agent-scaling.md) (no local rerun)
 ```
 
 Registry: [`records/README.md`](./records/README.md).
