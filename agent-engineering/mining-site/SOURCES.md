@@ -449,3 +449,17 @@ S-115 refines repository-level harness mechanisms. It does not alter the active 
 - processed quarry: [`../quarries/collaborator-agentic-desktop-workspace.md`](../quarries/collaborator-agentic-desktop-workspace.md).
 
 S-116 is **QUARRY_ONLY**. It does not alter the MK1 schema, satisfy REC-012 or authorize a Collaborator fork/product roadmap.
+
+
+### S-117 — langflow-ai/langflow
+
+- provenance: `OBSERVED` + upstream `SOURCE CLAIM` + scoped `INFERRED/INSPIRED` conclusions;
+- repository: https://github.com/langflow-ai/langflow;
+- observed `main` snapshot: `504c02fc47e76087b82b0e7cbe4186e9cdd916d4`;
+- observed: 2026-10-12; root license signal: MIT; declared package version: `1.12.5`;
+- relevance: typed executable graphs; persisted JSON compatibility; schema/version migrations; independent LFX runtime boundaries; tracing, workflow jobs, policy and execution receipts;
+- cautions: upstream docs disagree on some package decomposition; headless LFX is not fully stateful; no local tests, independent benchmark or security certification;
+- detailed receipt: [`S-117-langflow.md`](./S-117-langflow.md);
+- processed quarries: [five tracks](../quarries/langflow-workflow-engineering.md) and [adoption decisions](../quarries/langflow-adoption-transfer.md).
+
+S-117 is **QUARRY_ONLY**. It does not advance MK1, close REC-012, or authorize adding Langflow dependencies.
