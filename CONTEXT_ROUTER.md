@@ -7,6 +7,7 @@ Purpose: find the **smallest authoritative evidence** for the current question; 
 | Need | Open first | Expand only when necessary |
 |---|---|---|
 | Engineering process, provenance, gates | `jett-engineering-method/README.md` | `SOURCE-INTAKE-CONTRACT.md`, relevant phase |
+| System design / capacity / resilience / idempotency / observability | `system-design/README.md` | exact MK1 pattern, source receipt or gate; candidates only |
 | Agent systems / current state | `agent-engineering/STATUS.md` | `LLM_CONTEXT.md`, specific system/MK, then quarry/source |
 | Product and repository foundry | `em3rc0d-foundry/LLM_CONTEXT.md` | `STATUS.md`, exact dogfood state |
 | Education / knowledge compilation | `knowledge-foundry/LLM_CONTEXT.md` | `STATUS.md`, MK or architecture |
