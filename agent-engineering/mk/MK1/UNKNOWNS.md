@@ -32,7 +32,7 @@ The representative registry is near-complete:
 1  OPEN → REC-012 multi-agent
 ```
 
-Topology is already classifiable. On 2026-10-12 an [offline deterministic actor-topology comparison](../../quarries/rec-012-offline-topology-baseline.md) produced real coordination/outcome/failure metrics, but **did not use an LLM or model-driven agents**. MK1 still needs a representative real-model comparison demonstrating that topology and measured benefit are independent fields; this UNKNOWN remains OPEN_MK1.
+Topology is already classifiable. On 2026-10-12 an [offline deterministic actor-topology comparison](../../quarries/rec-012-offline-topology-baseline.md) produced real coordination/outcome/failure metrics, but **did not use an LLM or model-driven agents**. A separate [local-model feasibility audit](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) found no weights and no usable download route. MK1 still needs a representative real-model comparison demonstrating that topology and measured benefit are independent fields; this UNKNOWN remains OPEN_MK1 / BLOCKED_ENVIRONMENT for the current host.
 
 Contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).  
 Registry: [`records/README.md`](./records/README.md).
@@ -52,7 +52,7 @@ Questions still to resolve at closure:
 - whether memory update-conflict/forgetting/evaluation belongs in MK1 or MK2;
 - whether the active schema can freeze without a breaking revision.
 
-Procedure: [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) + [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md).
+Procedure: [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) + [`CLOSURE_PLAN.md`](./CLOSURE_PLAN.md). [2026-10-12 static pre-audit](./PREFREEZE_AUDIT_2026-10-12.md) identified PA-01 (comparison evidence fields absent from current schema/template) and PA-06 (nested authority/tool-specific containment) as explicit unresolved decisions; this does not pass the final gate.
 
 ### U-MK1-003 — Final UNKNOWN routing
 

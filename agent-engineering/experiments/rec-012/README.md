@@ -55,6 +55,10 @@ python benchmark.py --trials 30 --timeout-ms 10 --output results.json
 - [Automated tests](./test_benchmark.py)
 - [Research receipt and hashes](../../quarries/rec-012-offline-topology-baseline.md)
 
+## Real-model preflight (2026-10-12)
+
+[Hardware/network feasibility receipt](./LLM_FEASIBILITY_2026-10-12.md) + [machine-readable snapshot](./preflight-2026-10-12.json): the ChatGPT execution container has CPU and RAM, but **no model weights, no inference runner and no working model download route**. The **real-model** comparison remains **NOT RUN / BLOCKED_ENVIRONMENT**. This does not invalidate the deterministic fixture or pass G7.
+
 ## Gate
 
 **REC-012 remains OPEN_MK1 / PARTIAL EVIDENCE.** A deterministic actor-topology stress test exercises coordination and termination, **not** model-driven agent autonomy. A real model-based same-task single-vs-manager+specialists comparison is still needed to satisfy the representative gate. No MK1 freeze, MK2 activation or production certification follows from these results.

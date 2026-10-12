@@ -45,9 +45,9 @@ MK2 HANDOFF CONTRACT       mk/MK2/HANDOFF_CONTRACT.md
 | representative record set | ✅ NEAR-COMPLETE | 11 materialized/qualified + 2 `COVERED_BY`; REC-012 open |
 | A2A classification-shape gate | ✅ PASS / QUALIFIED | [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-version-drift.md) |
 | Strands A2A `1.0` compatibility | ⚠️ NOT ESTABLISHED / ROUTED DEBT | system freshness/interoperability debt, not hidden as PASS |
-| multi-agent baseline | 🟡 OPEN / BLOCKING; offline topology-only receipt executed | [`quarries/rec-012-offline-topology-baseline.md`](./quarries/rec-012-offline-topology-baseline.md) · real-model comparison pending |
+| multi-agent baseline | 🟡 OPEN / ENVIRONMENT-BLOCKED for LLM; deterministic topology receipt exists | [`experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md`](./experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) · real-model comparison NOT RUN |
 | UNKNOWN reconciliation | 🟡 FINAL PASS PENDING | [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md) |
-| schema freeze audit | 🔒 WAITS ON MULTI-AGENT + FINAL AUDIT | [`mk/MK1/SCHEMA_HISTORY.md`](./mk/MK1/SCHEMA_HISTORY.md) |
+| schema freeze audit | 🔒 WAITS ON MULTI-AGENT + FINAL AUDIT; static pre-audit complete | [`mk/MK1/PREFREEZE_AUDIT_2026-10-12.md`](./mk/MK1/PREFREEZE_AUDIT_2026-10-12.md) · no schema version change |
 | MK1 closure receipt | 🔒 NOT YET | future `mk/MK1/CLOSURE.md` |
 | MK2 activation | 🔒 BLOCKED | [`mk/MK2/HANDOFF_CONTRACT.md`](./mk/MK2/HANDOFF_CONTRACT.md) |
 

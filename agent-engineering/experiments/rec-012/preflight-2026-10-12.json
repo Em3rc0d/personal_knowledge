@@ -1,0 +1,57 @@
+{
+  "checked_date": "2026-10-12",
+  "host_identity": "ephemeral ChatGPT code execution container (not user personal workstation)",
+  "os": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "cpu_logical_count": 5,
+  "mem_total_bytes": 6236880896,
+  "mem_available_bytes": 4933484544,
+  "swap_total_bytes": 0,
+  "gpu_device_files_exist": false,
+  "runtimes": {
+    "ollama": null,
+    "llama-cli": null,
+    "llama-server": null,
+    "python": "/opt/pyvenv/bin/python",
+    "cmake": "/usr/bin/cmake",
+    "g++": "/usr/bin/g++"
+  },
+  "pytorch": {
+    "installed": true,
+    "version": "2.10.0+cpu",
+    "cuda": false
+  },
+  "python_modules": {
+    "transformers": false,
+    "llama_cpp": false,
+    "vllm": false,
+    "huggingface_hub": true,
+    "sentencepiece": true
+  },
+  "visible_model_weights_count": 0,
+  "network_attempts": [
+    {
+      "destination": "huggingface.co",
+      "method": "curl HEAD",
+      "result": "DNS resolution failed, HTTP 000"
+    },
+    {
+      "destination": "pypi.org",
+      "method": "curl HEAD",
+      "result": "DNS resolution failed, HTTP 000"
+    },
+    {
+      "destination": "huggingface.co/Qwen/Qwen3-0.6B/raw/main/config.json",
+      "method": "container downloader",
+      "result": "download failed"
+    }
+  ],
+  "result": "BLOCKED_NO_MODEL_ASSETS_AND_NO_DOWNLOAD_PATH",
+  "inference_performed": false,
+  "claims_not_established": [
+    "model fitting in memory in this runtime",
+    "tokens_per_second",
+    "cost token benchmark",
+    "agentic comparison",
+    "LLM gate pass"
+  ]
+}

@@ -15,9 +15,9 @@ MK1 closes only when the classification model survives representative system pre
 | G4 retry/error/termination normalization | **PASS FOR REPRESENTATIVE NON-MULTI-AGENT SET / QUALIFIED** | loop, mutation, egress, publication and runtime cases preserve retry/idempotency/unknown-outcome boundaries |
 | G5 memory lifecycle | **PASS / QUALIFIED** | REC-011 + REC-014 distinguish state/checkpoint/persistence/memory/knowledge |
 | G6 protocol revision awareness | **PASS / QUALIFIED** | MCP current/legacy records + Strands A2A 0.3 vs current A2A 1.0 version drift |
-| G7 multi-agent admission/baseline | **OPEN / PARTIAL EVIDENCE / BLOCKING** | [executed offline actor-topology baseline](../../quarries/rec-012-offline-topology-baseline.md) exists, but no real-model single-vs-multi evidence; REC-012 not complete |
+| G7 multi-agent admission/baseline | **OPEN / PARTIAL EVIDENCE / ENVIRONMENT-BLOCKED** | deterministic [topology receipt](../../quarries/rec-012-offline-topology-baseline.md) exists; [real-model preflight](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md) found no weights/download route; real-model single-vs-multi still absent |
 | G8 material UNKNOWN visibility/routing | **PARTIAL / FINAL PASS PENDING** | register exists; closure routing follows REC-012 |
-| G9 duplicate/overlap audit | **PARTIAL** | candidate overlaps surfaced; final freeze audit pending |
+| G9 duplicate/overlap audit | **PARTIAL / STATIC PRE-AUDIT EXECUTED** | [2026-10-12 preliminary audit](./PREFREEZE_AUDIT_2026-10-12.md) recorded 9 findings, including schema/evidence contract mismatch; representative full freeze audit still pending |
 | G10 external-system fit | **STRONG / FINAL AUDIT PENDING** | broad representative set fits current schema; REC-012 remains the final missing family |
 | G11 architecture ≠ production certification | **PASS / STRONG** | all materialized records explicitly separate classification from production certification |
 | G12 MK2 derivability | **OPEN / BLOCKED BY FREEZE** | handoff contract exists; frozen schema/closure receipt do not |
