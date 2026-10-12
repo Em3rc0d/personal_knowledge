@@ -275,3 +275,8 @@ MK5+ Certify / Refine
 ```
 
 `STATUS.md` es el tablero canónico; `ROADMAP.md` la secuencia de ejecución; `REPOSITORY_CONTRACT.md` define autoridad y lifecycle de cada capa.
+
+
+## Langflow research (S-117; quarry only)
+
+Langflow was inspected at pinned `main@504c02fc47e76087b82b0e7cbe4186e9cdd916d4` (2026-10-12). The resulting [source receipt](./mining-site/S-117-langflow.md), [five-track workflow-engineering quarry](./quarries/langflow-workflow-engineering.md) and [adoption decision](./quarries/langflow-adoption-transfer.md) preserve graph/JSON/versioning/headless/observability lessons **without** changing MK1 taxonomy, gates or product dependencies.
