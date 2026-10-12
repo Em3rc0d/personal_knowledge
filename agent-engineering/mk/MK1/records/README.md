@@ -120,7 +120,7 @@ A2A `1.0` compatibility for the pinned Strands implementation is **NOT ESTABLISH
 
 No new field has yet earned immediate promotion from the new representative records.
 
-Two questions remain for the **schema freeze audit**:
+Two material qualification themes remain for the **semantic schema freeze audit** (the bounded scalar check is already complete):
 
 1. `REC-008` — whether `data_egress` needs stronger confidentiality/data-classification severity structure beyond current side-effect fields;
 2. `REC-011` — whether memory update-conflict/forgetting/evaluation belong in MK1 classification or should remain MK2 operational contracts.
@@ -188,4 +188,4 @@ Do not re-mine upstream when pinned evidence is sufficient. Re-open source when 
 
 ## Next record action
 
-**No new representative record is currently required.** [REC-012](./REC-012-external-agent-scaling.md) was materialized from qualified source-reported real-model evidence; the older deterministic experiment remains a separate historical control. Next: final `REC-005/REC-006 COVERED_BY` audit, residual UNKNOWN routing and cross-dimension schema freeze pressure test. See [baseline specification](../MULTI_AGENT_BASELINE_SPEC.md).
+**No new representative record is currently required.** The [full representative audit](../audits/FULL_REPRESENTATIVE_AUDIT_2026-10-12.md) has reviewed the 12 materialized families and both `COVERED_BY` decisions. Ten record classification YAML blocks were atomically normalized; the [bounded 12-record recheck](../audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md) found **0/394 enum-scalar mismatches**. PA-06 nested effective authority, remaining UNKNOWNs and MK1 semantic freeze still require a separate decision. [REC-012 source-qualified external evidence](./REC-012-external-agent-scaling.md) remains unchanged in scope.
