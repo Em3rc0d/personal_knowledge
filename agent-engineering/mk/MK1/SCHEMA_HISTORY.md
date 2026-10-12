@@ -116,6 +116,10 @@ Protocol pressure:
 - A2A classification-shape gate fits the same model in qualified form while preserving `0.3 → 1.0` drift and incomplete execution receipt;
 - no MCP- or A2A-specific top-level category has been required.
 
+## 2026-10-12 pre-audit note — no schema revision
+
+A [static prefreeze audit](./PREFREEZE_AUDIT_2026-10-12.md) found that the `DIMENSIONS.md` multi-agent comparison vocabulary (`baseline`, `measured_benefit`, `coordination_cost`) is not explicitly present in `CLASSIFICATION_SCHEMA.md` or `records/TEMPLATE.md`. This is an **OPEN contract decision**, not an approved new field set. The real-model REC-012 comparison is [environment blocked](../../experiments/rec-012/LLM_FEASIBILITY_2026-10-12.md); no schema promotion or freeze is authorized from this static pass.
+
 ## Still required before freeze
 
 ```text
