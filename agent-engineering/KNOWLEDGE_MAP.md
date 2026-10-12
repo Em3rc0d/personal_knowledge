@@ -32,6 +32,7 @@ agent-engineering/
 │       └── HANDOFF_CONTRACT.md
 │
 ├── architecture/            # cross-system architectural artifacts
+├── experiments/rec-012/      # deterministic local fixture + historical LLM preflight
 ├── mining-site/             # source registry + source receipts
 └── quarries/                # processed evidence, contradictions, history
 ```
