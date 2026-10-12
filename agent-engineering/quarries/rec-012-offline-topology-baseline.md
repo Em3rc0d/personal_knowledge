@@ -1,6 +1,6 @@
 # REC-012 — Executed actor-topology comparison (partial receipt)
 
-**Status:** EXECUTED / QUALIFIED OBSERVATION / **G7 REMAINS OPEN**  
+**Status:** EXECUTED / QUALIFIED DETERMINISTIC OBSERVATION / **G7 AT EXECUTION TIME OPEN**  
 **Date:** 2026-10-12  
 **Fixture and source:** [rec-012](../experiments/rec-012/README.md)  
 **Target gate:** [MULTI_AGENT_BASELINE_SPEC](../mk/MK1/MULTI_AGENT_BASELINE_SPEC.md)
@@ -79,7 +79,7 @@ Observed: `Ran 6 tests ... OK`, 960 nominal executions (all expectations matched
 
 **What remains unknown:** real model-directed planning quality, model-provider/config parity, independent live evaluator, tokens and billing, stochastic variance, agent conversation dynamics, useful parallel external tools, session/checkpoint durability, concurrency beyond process, safe external side effects and production viability.
 
-**Gate decision: G7 OPEN / EVIDENCE_PARTIAL.** The recorded systems have no LLM inference and are not a representative multi-LLM comparison. Keep REC-012 **IN_PROGRESS**, U-MK1-001 **OPEN_MK1**, MK1 **IN PROGRESS**, and MK2 **BLOCKED**. Do not freeze the schema or invent evidence.
+**Historical decision for this fixture: G7 OPEN / EVIDENCE_PARTIAL**, because it had no LLM inference. A subsequent separate [real-model external evidence receipt](./multiagent-external-scaling-evidence.md) leads to [REC-012 MATERIALIZED / QUALIFIED_UPSTREAM](../mk/MK1/records/REC-012-external-agent-scaling.md). The local trial remains non-LLM. MK1 still IN PROGRESS; MK2 still BLOCKED.
 
 **Exact remaining experiment:** same held-out tasks; same accessible tools; a bounded tool-using single *real-model* agent vs manager + 2 real-model specialist agents; pinned provider/model/revision, decoding, explicit token/cost/time budgets, held-out grader, multiple stochastic trials, handoff failure and termination observations. Local inference or explicitly authorized credits only. If not available, retain OPEN state.
 
