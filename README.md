@@ -145,6 +145,7 @@ La especificación completa vive en [`jett-engineering-method/README.md`](./jett
 
 ## Dominios
 
+- [`system-design/`](./system-design/) — MK0: screening de 28 capítulos de notas de System Design y MK1: cinco patrones candidatos (decisiones, capacidad, resiliencia, idempotencia y observabilidad). Knowledge-only; no canon de arquitectura de productos ni infraestructura nueva.
 - [`jett-engineering-method/`](./jett-engineering-method/) — Operating model interno para llevar problemas desde incertidumbre hasta conocimiento/software demostrado, con gates, claim discipline, evidence y promotion rules.
 - [`em3rc0d-foundry/`](./em3rc0d-foundry/) — Foundry de productos y conocimiento: convierte evidencia, experiencia y activos reutilizables en ciclos de producto cada vez más baratos, verificables y acumulativos. **MK0 cerrado; MK1 dogfood admitido**, con Future Wardrobe como primer experimento de presión y sin promover decisiones de Railly automáticamente a canon EM3RC0D.
 - [`knowledge-foundry/`](./knowledge-foundry/) — Workspace de compilación educativa: transforma conocimiento canónico y trazable en cursos, workshops, labs, playbooks y assessments sin duplicar el canon de origen. **Actualmente en MK0**, definiendo boundaries, compiler, provenance/licensing gates y evidencia de pilotaje antes de permitir cualquier release comercial.
