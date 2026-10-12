@@ -31,7 +31,7 @@ MK1 does **not** define the full operational policy a production system must sat
 | [`CLASSIFICATION_SCHEMA.md`](./CLASSIFICATION_SCHEMA.md) | current normalized record shape |
 | [`DIMENSIONS.md`](./DIMENSIONS.md) | semantic definitions for each dimension |
 | [`NORMALIZATION_RULES.md`](./NORMALIZATION_RULES.md) | anti-collapse / anti-framework normalization rules |
-| [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) | revision/change ledger and freeze procedure |
+| [`SCHEMA_HISTORY.md`](./SCHEMA_HISTORY.md) | revision/change ledger and freeze procedure; [post-normalization recheck](./audits/ENUM_NORMALIZATION_RECHECK_2026-10-12.md) still holds freeze |
 
 ### Evidence application
 
@@ -167,6 +167,8 @@ The taxonomy can represent this version drift without `A2A=true`; therefore curr
 REC-012 multi-agent baseline/admission evidence    PASS / QUALIFIED_UPSTREAM
 final UNKNOWN reconciliation                       READY / PENDING FULL AUDIT
 cross-dimension + overlap audit                     PENDING
+enum scalar conformance                               PASS / 0 OF 394 STATIC CHECK
+PA-06 nested effective authority                     OPEN / BLOCKING
 schema freeze decision                              NOT YET
 MK1 CLOSURE.md                                     NOT YET
 MK2 activation                                     BLOCKED
