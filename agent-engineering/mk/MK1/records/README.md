@@ -83,6 +83,7 @@ REC-010  reflection/adaptation vs learning claim
 REC-011  persistence/state vs memory lifecycle contrast
 REC-013  protocol revision/lifecycle drift
 REC-014  modern mixed-control runtime / Strands
+REC-012  model-directed single-vs-multi comparison, source-reported outcomes and cost/failure evidence
 ```
 
 All 12 materialized families now have explicit normalized evidence, including qualified REC-012 from **authors' real-model experiments**. This changes representative evidence coverage but **not** the final `COVERED_BY`/cross-dimension audit or any production certification. Local LLM inference remains NOT RUN.
@@ -130,7 +131,7 @@ They are not silently ignored and do not trigger schema mutation from one record
 
 Representative-record coverage fully passes only when:
 
-1. REC-012 multi-agent gate has measured baseline/admission evidence;
+1. REC-012 multi-agent gate has qualified source-reported real-model baseline/admission evidence (no local rerun);
 2. final review confirms `COVERED_BY` decisions hide no material distinction;
 3. freeze audit resolves the cross-dimension questions surfaced by the complete set;
 4. every material record remains interpretable under the frozen schema;
@@ -187,10 +188,4 @@ Do not re-mine upstream when pinned evidence is sufficient. Re-open source when 
 
 ## Next record action
 
-```text
-REC-012 multi-agent
-```
-
-now has a reproducible deterministic actor-topology receipt, but **must still wait for a real-model equivalent-task single-vs-multi comparison** before materialization/gate PASS.
-
-Spec: [`../MULTI_AGENT_BASELINE_SPEC.md`](../MULTI_AGENT_BASELINE_SPEC.md).
+**No new representative record is currently required.** [REC-012](./REC-012-external-agent-scaling.md) was materialized from qualified source-reported real-model evidence; the older deterministic experiment remains a separate historical control. Next: final `REC-005/REC-006 COVERED_BY` audit, residual UNKNOWN routing and cross-dimension schema freeze pressure test. See [baseline specification](../MULTI_AGENT_BASELINE_SPEC.md).
