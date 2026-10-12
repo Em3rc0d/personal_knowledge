@@ -32,7 +32,7 @@ The representative registry is near-complete:
 1  OPEN → REC-012 multi-agent
 ```
 
-Topology is already classifiable, but MK1 still needs one representative baseline comparison demonstrating that topology and measured benefit are independent fields.
+Topology is already classifiable. On 2026-10-12 an [offline deterministic actor-topology comparison](../../quarries/rec-012-offline-topology-baseline.md) produced real coordination/outcome/failure metrics, but **did not use an LLM or model-driven agents**. MK1 still needs a representative real-model comparison demonstrating that topology and measured benefit are independent fields; this UNKNOWN remains OPEN_MK1.
 
 Contract: [`MULTI_AGENT_BASELINE_SPEC.md`](./MULTI_AGENT_BASELINE_SPEC.md).  
 Registry: [`records/README.md`](./records/README.md).

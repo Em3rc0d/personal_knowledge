@@ -41,7 +41,7 @@ SUPERSEDED       historical record replaced by a newer schema/revision
 | REC-009 | DataScribe/database authority | effective DB credential authority, lower-level dispatcher UNKNOWNs | **MATERIALIZED / QUALIFIED** | [`REC-009-database-authority.md`](./REC-009-database-authority.md) |
 | REC-010 | reflection/self-improvement example | reflection/adaptation vs persistent improvement evidence | **MATERIALIZED / QUALIFIED** | [`REC-010-reflection-adaptation.md`](./REC-010-reflection-adaptation.md) |
 | REC-011 | memory lifecycle | state/checkpoint/persistence vs memory vs knowledge | **MATERIALIZED / QUALIFIED CONTRAST** | [`REC-011-memory-lifecycle-contrast.md`](./REC-011-memory-lifecycle-contrast.md) |
-| REC-012 | representative multi-agent system | topology, admission hypothesis, baseline/benefit | **BLOCKED / OPEN_MK1** | waits on [`../MULTI_AGENT_BASELINE_SPEC.md`](../MULTI_AGENT_BASELINE_SPEC.md) execution evidence |
+| REC-012 | representative multi-agent system | topology, admission hypothesis, baseline/benefit | **IN_PROGRESS / PARTIAL EVIDENCE / OPEN_MK1** | [deterministic topology draft](./REC-012-deterministic-topology-draft.md) + [executed receipt](../../../quarries/rec-012-offline-topology-baseline.md); real-model multi-agent comparison still missing per [spec](../MULTI_AGENT_BASELINE_SPEC.md) |
 | REC-013 | legacy/current MCP integration | protocol revision, lifecycle drift, auth boundary | **MATERIALIZED / QUALIFIED** | [`REC-013-mcp-revision-drift.md`](./REC-013-mcp-revision-drift.md) |
 | REC-014 | Strands Agents SDK | modern runtime, mixed topology, concurrency/budgets/intervention/protocols | **MATERIALIZED / QUALIFIED** | [`../../../systems/strands/CLASSIFICATION.md`](../../../systems/strands/CLASSIFICATION.md) |
 
@@ -85,7 +85,7 @@ REC-013  protocol revision/lifecycle drift
 REC-014  modern mixed-control runtime / Strands
 ```
 
-The only required record family still **structurally blocked by missing new evidence** is REC-012 multi-agent benefit/admission.
+REC-012 is the only required record family still **open due to missing representative real-model evidence**. An offline deterministic topology comparison has been executed, but is not a completed multi-agent LLM baseline.
 
 ## Family coverage view
 
@@ -191,6 +191,6 @@ Do not re-mine upstream when pinned evidence is sufficient. Re-open source when 
 REC-012 multi-agent
 ```
 
-must wait for actual baseline/admission evidence rather than being filled from topology documentation alone.
+now has a reproducible deterministic actor-topology receipt, but **must still wait for a real-model equivalent-task single-vs-multi comparison** before materialization/gate PASS.
 
 Spec: [`../MULTI_AGENT_BASELINE_SPEC.md`](../MULTI_AGENT_BASELINE_SPEC.md).

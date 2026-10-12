@@ -1,0 +1,257 @@
+[
+  {
+    "id": "sec-exfil-prod",
+    "logs": [
+      "DATA_EXFIL",
+      "QUERY_TIMEOUT"
+    ],
+    "impact": {
+      "users": 24,
+      "production": true,
+      "sensitive": true
+    },
+    "expected": {
+      "category": "DATA_EXFIL",
+      "team": "security",
+      "severity": "critical"
+    }
+  },
+  {
+    "id": "sec-exfil-test",
+    "logs": [
+      "DATA_EXFIL"
+    ],
+    "impact": {
+      "users": 0,
+      "production": false,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "DATA_EXFIL",
+      "team": "security",
+      "severity": "low"
+    }
+  },
+  {
+    "id": "sec-auth-sensitive",
+    "logs": [
+      "AUTH_BYPASS"
+    ],
+    "impact": {
+      "users": 2,
+      "production": true,
+      "sensitive": true
+    },
+    "expected": {
+      "category": "AUTH_BYPASS",
+      "team": "security",
+      "severity": "critical"
+    }
+  },
+  {
+    "id": "sec-auth-nonsensitive",
+    "logs": [
+      "AUTH_BYPASS"
+    ],
+    "impact": {
+      "users": 3,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "AUTH_BYPASS",
+      "team": "security",
+      "severity": "medium"
+    }
+  },
+  {
+    "id": "db-pool-large",
+    "logs": [
+      "CONNECTION_POOL"
+    ],
+    "impact": {
+      "users": 400,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "CONNECTION_POOL",
+      "team": "database",
+      "severity": "high"
+    }
+  },
+  {
+    "id": "db-pool-small",
+    "logs": [
+      "CONNECTION_POOL"
+    ],
+    "impact": {
+      "users": 99,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "CONNECTION_POOL",
+      "team": "database",
+      "severity": "medium"
+    }
+  },
+  {
+    "id": "db-timeout-test",
+    "logs": [
+      "QUERY_TIMEOUT"
+    ],
+    "impact": {
+      "users": 100,
+      "production": false,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "QUERY_TIMEOUT",
+      "team": "database",
+      "severity": "low"
+    }
+  },
+  {
+    "id": "db-timeout-prod",
+    "logs": [
+      "QUERY_TIMEOUT"
+    ],
+    "impact": {
+      "users": 100,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "QUERY_TIMEOUT",
+      "team": "database",
+      "severity": "high"
+    }
+  },
+  {
+    "id": "payments-down",
+    "logs": [
+      "PAYMENT_FAIL"
+    ],
+    "impact": {
+      "users": 100,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "PAYMENT_FAIL",
+      "team": "payments",
+      "severity": "high"
+    }
+  },
+  {
+    "id": "payments-narrow",
+    "logs": [
+      "PAYMENT_FAIL"
+    ],
+    "impact": {
+      "users": 99,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "PAYMENT_FAIL",
+      "team": "payments",
+      "severity": "medium"
+    }
+  },
+  {
+    "id": "ui-prod",
+    "logs": [
+      "UI_CRASH"
+    ],
+    "impact": {
+      "users": 1000,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "UI_CRASH",
+      "team": "frontend",
+      "severity": "medium"
+    }
+  },
+  {
+    "id": "style-dev",
+    "logs": [
+      "STYLE_GLITCH"
+    ],
+    "impact": {
+      "users": 20,
+      "production": false,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "STYLE_GLITCH",
+      "team": "frontend",
+      "severity": "low"
+    }
+  },
+  {
+    "id": "webhook-prod",
+    "logs": [
+      "WEBHOOK_DELAY"
+    ],
+    "impact": {
+      "users": 50,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "WEBHOOK_DELAY",
+      "team": "integrations",
+      "severity": "medium"
+    }
+  },
+  {
+    "id": "webhook-none",
+    "logs": [
+      "WEBHOOK_DELAY"
+    ],
+    "impact": {
+      "users": 0,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "WEBHOOK_DELAY",
+      "team": "integrations",
+      "severity": "low"
+    }
+  },
+  {
+    "id": "unknown-prod",
+    "logs": [
+      "SOME_UNKNOWN_EVENT"
+    ],
+    "impact": {
+      "users": 700,
+      "production": true,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "UNKNOWN",
+      "team": "unassigned",
+      "severity": "medium"
+    }
+  },
+  {
+    "id": "unknown-test",
+    "logs": [],
+    "impact": {
+      "users": 0,
+      "production": false,
+      "sensitive": false
+    },
+    "expected": {
+      "category": "UNKNOWN",
+      "team": "unassigned",
+      "severity": "low"
+    }
+  }
+]

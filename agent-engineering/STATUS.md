@@ -1,6 +1,6 @@
 # Agent Engineering — Status
 
-Updated: **2026-09-16**  
+Updated: **2026-10-12**  
 Role: **canonical live dashboard**
 
 > Historical reasoning belongs in quarries/MK receipts. `STATUS.md` answers only **where the domain is now**.
@@ -45,7 +45,7 @@ MK2 HANDOFF CONTRACT       mk/MK2/HANDOFF_CONTRACT.md
 | representative record set | ✅ NEAR-COMPLETE | 11 materialized/qualified + 2 `COVERED_BY`; REC-012 open |
 | A2A classification-shape gate | ✅ PASS / QUALIFIED | [`quarries/strands-a2a-version-drift.md`](./quarries/strands-a2a-version-drift.md) |
 | Strands A2A `1.0` compatibility | ⚠️ NOT ESTABLISHED / ROUTED DEBT | system freshness/interoperability debt, not hidden as PASS |
-| multi-agent baseline | 🟡 OPEN / BLOCKING | [`mk/MK1/MULTI_AGENT_BASELINE_SPEC.md`](./mk/MK1/MULTI_AGENT_BASELINE_SPEC.md) |
+| multi-agent baseline | 🟡 OPEN / BLOCKING; offline topology-only receipt executed | [`quarries/rec-012-offline-topology-baseline.md`](./quarries/rec-012-offline-topology-baseline.md) · real-model comparison pending |
 | UNKNOWN reconciliation | 🟡 FINAL PASS PENDING | [`mk/MK1/UNKNOWNS.md`](./mk/MK1/UNKNOWNS.md) |
 | schema freeze audit | 🔒 WAITS ON MULTI-AGENT + FINAL AUDIT | [`mk/MK1/SCHEMA_HISTORY.md`](./mk/MK1/SCHEMA_HISTORY.md) |
 | MK1 closure receipt | 🔒 NOT YET | future `mk/MK1/CLOSURE.md` |
